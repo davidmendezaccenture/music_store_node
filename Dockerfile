@@ -8,7 +8,7 @@ RUN npm install -g http-server
 WORKDIR /app
 
 # Copia todos los archivos de al contenedor
-COPY src/pages .
+COPY src/pages/ .
 
 # puerto 8080 para Cloud Run
 EXPOSE 8080
