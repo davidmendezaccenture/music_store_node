@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'src/pages')));
 
 // API para productos
 
