@@ -13,5 +13,5 @@ COPY src/pages .
 # puerto 8080 para Cloud Run
 EXPOSE 8080
 
-# Comando para servir archivos estáticos en modo SPA
-CMD ["sh", "-c", "http-server -p ${PORT:-8080} --spa"]
+# Comando para servir archivos estáticos
+CMD ["sh", "-c", "http-server -p ${PORT:-8080}"]
