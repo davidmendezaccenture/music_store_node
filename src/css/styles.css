@@ -22,7 +22,7 @@ reset {
 }
 
 .icon-list {
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 /* Estilo para las flechas del carrusel */
 
