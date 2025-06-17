@@ -16,9 +16,13 @@ reset {
 
 /* Estilo para la barra de navegación secundaria */
 
-.mb-2 {
+.icon-image {
     width: 48px;
     height: 48px;
+}
+
+.icon-list {
+    white-space: nowrap;
 }
 /* Estilo para las flechas del carrusel */
 
