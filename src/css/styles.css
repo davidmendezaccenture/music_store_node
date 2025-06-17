@@ -8,11 +8,21 @@ reset {
 .main-header {
   background-color: none;
 }
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
 
 /* Estilo para el logo de RaiRock */
+.logo-main {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.logo-txt {
+  color: red;
+}
 
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
