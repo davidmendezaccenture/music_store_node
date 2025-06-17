@@ -44,7 +44,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a
                   class="nav-link active"
@@ -63,21 +63,31 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Contacto</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="carritoButton" href="#">Carrito</a>
-              </li>
-              <li class="nav-item">
-                <!-- Indicamos el target al modal que queremos abrir con la id-->
-                <a
-                  class="nav-link"
-                  href="#"
-                  id="loginButton"
-                  data-bs-toggle="modal"
-                  data-bs-target="#loginModal"
-                  >Iniciar sesión</a
-                >
-              </li>
             </ul>
+            <!-- Botones a la derecha -->
+            <div class="d-flex align-items-center gap-3">
+              <a class="nav-link" id="carritoButton" href="#"
+                ><img
+                  src="/assets/images/cart.png"
+                  alt="Carrito"
+                  width="28"
+                  height="28"
+              /></a>
+              <!-- Indicamos el target al modal que queremos abrir con la id-->
+              <a
+                class="nav-link"
+                id="loginButton"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                ><img
+                  src="/assets/images/login.png"
+                  alt="Iniciar sesión"
+                  width="28"
+                  height="28"
+                  class="login-logo"
+              /></a>
+            </div>
           </div>
         </div>
       </nav>

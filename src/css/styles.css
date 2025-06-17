@@ -9,6 +9,10 @@ reset {
   background-color: none;
 }
 
+.login-logo {
+  margin-right: 100px;
+}
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
