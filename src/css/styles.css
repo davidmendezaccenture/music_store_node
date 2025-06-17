@@ -20,8 +20,27 @@ reset {
   margin-right: 10px;
   border-radius: 50%;
 }
+
 .logo-txt {
   color: red;
+}
+/* Estilo logos pago */
+.pago-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+/* Estilo ventajas */
+.lista-ventajas {
+  text-decoration: none;
+}
+/* Estilo logos social */
+.social-logo {
+  width: 32px;
+  height: 32px;
+  /*  margin-right: 10px; */
+  border-radius: 50%;
 }
 
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
@@ -40,20 +59,7 @@ reset {
 
 /* Hover redes sociales */
 
-.pago-logo {
-  width: 40px;
-  height: auto;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-.lista-ventajas {
+/* Estilo txt registrar */
+.register-txt {
   text-decoration: none;
-}
-
-.social-logo {
-  width: 32px;
-  height: 32px;
-  /*  margin-right: 10px; */
-  border-radius: 50%;
 }
