@@ -9,7 +9,7 @@
 # Dependencias de Node.js
 node_modules/
  
-# Archivos de entorno y configuración sensible
+# Archivos de entorno y configuraciï¿½n sensible
 .env
 *.env
  
@@ -26,6 +26,9 @@ Thumbs.db
 *.tmp
 *.swp
  
-# Configuración de editores
+# Configuraciï¿½n de editores
 .idea/
 .vscode/
+
+# Archivos personales del desarrollador
+/notas_sergio/

@@ -1,13 +1,12 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'src/pages')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 // API para productos
 
@@ -25,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'src/pages')));
 
 // Redirigir la raíz al index.html de pages
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'src/pages/index.html'));
+    res.sendFile(path.join(__dirname, 'src/pages/index.html'));
 });
 
 // Puerto
