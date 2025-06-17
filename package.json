@@ -18,7 +18,10 @@
   "author": "Ramon Ramos Arias",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.19.0",
+=======
+>>>>>>> origin/grupo1_ms_dev_sergio_e
     "express": "^4.21.2"
   },
   "devDependencies": {
