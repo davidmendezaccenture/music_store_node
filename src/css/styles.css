@@ -64,16 +64,29 @@ reset {
   margin-right: 10px;
   border-radius: 50%;
 }
-/* Estilo ventajas */
-.lista-ventajas {
-  text-decoration: none;
-}
+
 /* Estilo logos social */
 .social-logo {
   width: 32px;
   height: 32px;
   /*  margin-right: 10px; */
   border-radius: 50%;
+}
+
+/* Mouseover para efectos iconos prefooter */
+.pago-logo:hover,
+.pago-logo:focus,
+.social-logo:hover,
+.social-logo:focus {
+  background-color: #f3e9fc;
+  border-radius: 50%;
+  transform: scale(1.15);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #480289ce;
+}
+/* Estilo ventajas */
+.lista-ventajas {
+  text-decoration: none;
 }
 
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
