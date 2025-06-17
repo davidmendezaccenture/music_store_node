@@ -1,11 +1,13 @@
 /*reset css*/
 reset {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /* Estilo para el header con imagen de fondo */
-
+.main-header {
+  background-color: none;
+}
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
@@ -27,3 +29,21 @@ reset {
 /* Ajustar el tamaño del carrusel */
 
 /* Hover redes sociales */
+
+.pago-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.lista-ventajas {
+  text-decoration: none;
+}
+
+.social-logo {
+  width: 32px;
+  height: 32px;
+  /*  margin-right: 10px; */
+  border-radius: 50%;
+}
