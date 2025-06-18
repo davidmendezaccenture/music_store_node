@@ -102,7 +102,7 @@
         </div>
       </nav>
       <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 bg-light buscador">
+      <div class="search-bar py-1 bg-light buscador mb-3">
         <div class="container">
           <form
             class="d-flex justify-content-center buscador-form"
@@ -146,10 +146,121 @@
       <!-- Opinión 3 -->
       <!-- Estrellas de puntuación -->
     </main>
+    <!-- Linea divisoria superior de feedback -->
+    <div class="linea-divisora-gruesa"></div>
+    <!-- Sección feedback -->
+    <section
+      class="feedback-section py-4"
+      role="region"
+      aria-label="¿Le gusta lo que ve?"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-3 display-6">¿Le gusta lo que ve?</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
+              <!-- Botón compartir (puedes enlazar a JS de compartir o redes) -->
+              <button
+                class="btn btn-outline-secondary rounded-pill px-4"
+                type="button"
+              >
+                <i class="bi bi-share me-2"></i>Compartir
+              </button>
+              <!-- Botón email -->
+              <a
+                href="mailto:ratpackinstruments@ratpackinstruments.com"
+                class="btn btn-outline-primary rounded-pill px-4"
+              >
+                <i class="bi bi-envelope me-2"></i>E-Mail
+              </a>
+              <!-- Botón opinión -->
+              <a
+                href="#opiniones"
+                class="btn btn-outline-success rounded-pill px-4"
+              >
+                <i class="bi bi-chat-dots me-2"></i>Denos su opinión
+              </a>
+            </div>
+            <p class="text-muted mb-0">
+              ¡Tu opinión y recomendación nos ayuda a mejorar cada día!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Linea divisoria superior de newsletter -->
+    <div class="linea-divisora-fina"></div>
+    <!-- Newsletter -->
+    <section
+      class="newsletter-section py-4 bg-white border-bottom"
+      role="regin"
+      aria-label="Sección de suscripción a la newsletter"
+    >
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <!-- Imagen a la izquierda -->
+          <div class="col-md-3 text-center mb-4 mb-md-0">
+            <img
+              src="https://fast-images.static-thomann.de/pics//images/newsletter/envelope-newsletter.png"
+              alt="Newsletter"
+              class="img-fluid"
+              style="max-width: 140px"
+            />
+          </div>
+          <!-- Contenido a la derecha -->
+          <div class="col-md-7">
+            <h2 class="mb-2 fw-bold">¡No te pierdas nada!</h2>
+            <p class="mb-1">
+              Contribuciones inspiradoras, ofertas y novedades directamente en
+              tu correo.
+            </p>
+            <ul class="list-unstyled mb-3">
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>Ofertas
+                exclusivas
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i
+                >Novedades y lanzamientos
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i
+                >Consejos y trucos para músicos
+              </li>
+            </ul>
+            <form
+              class="d-flex flex-column flex-sm-row gap-2"
+              autocomplete="off"
+              aria-label="Formulario de suscripción a la newsletter"
+            >
+              <input
+                type="email"
+                class="form-control rounded-pill"
+                placeholder="Dirección de e-mail*"
+                aria-label="Correo electrónico"
+                required
+              />
+              <button type="submit" class="btn btn-primary rounded-pill px-4">
+                Suscribirse
+              </button>
+            </form>
+            <small class="form-text text-muted mt-2 d-block">
+              Haciendo clic en "Regístrate ahora", acepto recibir publicidad vía
+              email. Darse de baja es posible en cualquier momento. Puedes
+              encontrar más información sobre Newsletter en nuestra
+              <a href="/politica-privacidad" target="_blank"
+                >política de privacidad</a
+              >.<br />
+              * Campo obligatorio
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Pre-footer -->
     <div
-      class="pre-footer"
+      class="pre-footer mt-3"
       role="contentinfo"
       aria-label="Información adicional"
     >
