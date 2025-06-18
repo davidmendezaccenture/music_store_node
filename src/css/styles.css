@@ -14,7 +14,14 @@ reset {
 
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
+/* Estilos título h1 del Main */
+.products-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+}
+
 /* Estilo para la barra de navegación secundaria */
+
 
 .icon-image {
     width: 48px;
@@ -30,10 +37,14 @@ reset {
     margin-top: 5%;
 }
 
-/* Estilo para las flechas del carrusel */
+/* Estilo para la imagen del carrusel */
 
 .img-carrousel {
     width: 45vh;
+    max-width: 100%;
+    border-radius: 10px;
+    height: auto;
+    margin: 0 auto;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -46,36 +57,41 @@ reset {
 
 /* Estilo para los indicadores del carrusel */
 
-/* .carrousel-indicators-container {
-    padding-top: 1%;
-}
-.carrousel-indicators {
-    width: 16px;;
-} */
+    .carousel-indicators-custom {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    }
 
-.carousel-indicators-custom {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 1rem;
-}
+    .indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: background-color 0.3s; /* estará activo cuando se haga la lógica de los indicadores */
+    }
 
-.indicator {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ccc;
-  transition: background 0.3s;
-}
-
-.indicator.active {
-  background-color: #333;
-}
+    .indicator.active {
+    background-color: #333;
+    }
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
 /* Ajustes para pantallas pequeñas */
+
+/* Media querie del Carrusel de productos*/
+@media (max-width: 600px) {
+    .img-carrousel {
+        width: 35vw;
+        max-width: 100%;
+    }
+    .carrousel-container {
+        margin-top: 2rem;
+    }
+}
+
 
 /* Estilo para el texto "RaiRock Music Store" */
 
