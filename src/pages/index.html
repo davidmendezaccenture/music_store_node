@@ -31,14 +31,14 @@
         role="navigation"
       >
         <div class="container">
-          <a class="navbar-brand d-flex align-items-center" href="/"
-            ><img
-              src="/assets/images/logo.png"
-              alt="Logo Rat Pack Instruments"
-              class="me-1 logo-main"
-            />
-            <h1 class="logo-txt">Rat Pack Instruments</h1></a
+          <!-- Logo + título -->
+          <a
+            class="navbar-brand d-flex align-items-center flex-grow-1"
+            href="/"
           >
+            <img src="/assets/images/logo.png" class="logo-main" alt="Logo" />
+            <h1 class="logo-txt mb-0">Rat Pack Instruments</h1>
+          </a>
           <!-- Menu desplegable para pantallas moviles o pequeñas -->
           <button
             class="navbar-toggler"
@@ -101,6 +101,31 @@
           </div>
         </div>
       </nav>
+      <!-- Barra de búsqueda -->
+      <div class="search-bar py-1 bg-light buscador">
+        <div class="container">
+          <form
+            class="d-flex justify-content-center buscador-form"
+            role="search"
+            aria-label="Barra de busqueda"
+          >
+            <input
+              class="form-control-sm me-2 rounded-pill control-buscador"
+              type="search"
+              placeholder="Buscar productos..."
+              aria-label="Buscador"
+            />
+            <button
+              class="btn btn-outline-primary btn-sm rounded-pill"
+              type="submit"
+            >
+              Buscar
+            </button>
+          </form>
+          <!-- Overlay para la barra de búsqueda -->
+          <div class="buscador-overlay"></div>
+        </div>
+      </div>
     </header>
 
     <!-- Contenido principal de la página -->
