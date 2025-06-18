@@ -21,15 +21,12 @@ reset {
 }
 
 /* Estilo para la barra de navegación secundaria */
-
-
 .icon-image {
     width: 48px;
     height: 48px;
 }
 
 /* Estilo para el carrusel */
-
 .carrousel-container {
     display: flex;
     flex-direction: column;
@@ -38,7 +35,6 @@ reset {
 }
 
 /* Estilo para la imagen del carrusel */
-
 .img-carrousel {
     width: 45vh;
     max-width: 100%;
@@ -48,7 +44,6 @@ reset {
 }
 
 /* Estilo para las flechas del carrusel */
-
 .carrousel-control {
     width: 40px;
     border: none;
@@ -56,7 +51,6 @@ reset {
 }
 
 /* Estilo para los indicadores del carrusel */
-
     .carousel-indicators-custom {
     display: flex;
     justify-content: center;
@@ -77,11 +71,23 @@ reset {
     background-color: #333;
     }
 
+/* estilo para las Cards de Opiniones de Clientes */
+.opinion-card {
+    margin: 5%;
+}
+.opinion-card-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+}
+
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
 /* Ajustes para pantallas pequeñas */
 
-/* Media querie del Carrusel de productos*/
+/* Estilo para el texto "RaiRock Music Store" */
+
+/* Ajustar el tamaño del carrusel */
 @media (max-width: 600px) {
     .img-carrousel {
         width: 35vw;
@@ -91,10 +97,5 @@ reset {
         margin-top: 2rem;
     }
 }
-
-
-/* Estilo para el texto "RaiRock Music Store" */
-
-/* Ajustar el tamaño del carrusel */
 
 /* Hover redes sociales */
