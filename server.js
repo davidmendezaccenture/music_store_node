@@ -9,6 +9,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'src')));
 
 // API para productos
+app.get('/api/products', (req, res) => {
+    const productsPath = path.join(__dirname, 'src/assets/data/products.json');
+    fs.readFile(productsPath, 'utf-8', (err, data) => {
+        if (err) return res.status(500)({ error: 'Error al obtener productos' })
+        res.json(JSON.parse(data));
+    })
+});
 
 // API para login y registro (usuarios en archivo JSON)
 
@@ -28,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 // Puerto
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
