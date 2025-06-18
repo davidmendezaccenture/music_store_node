@@ -22,7 +22,7 @@
         <!-- Título -->
         <h1 class="text-center mb-4">Nuestros Productos</h1>
 
-        <!-- Iconos navegación secundaria -->
+        <!-- Iconos Navegación Secundaria -->
         <nav aria-label="Navegación secundaria de productos">
 
             <ul class="row list-unstyled text-center overflow-auto d-flex justify-content-center icon-list">
@@ -95,10 +95,27 @@
 
 
         <!-- Carrusel de imágenes -->
-        <section>
+        <section class="carrousel-container">
+            <div>
+                <button type="button" class="carrousel-control">
+                    <img src="/assets/images/left-arrow-icon.svg" >
+                </button>
+
                 <picture>
-                    <img src="/assets/images/guitar1.png">
+                    <img src="/assets/images/guitar1.png" class="img-carrousel">
                 </picture>
+
+                <button type="button" class="carrousel-control">
+                    <img src="/assets/images/right-arrow-icon.svg" >
+                </button>
+            </div>
+            
+        <!-- Indicadores del Carrusel de imágenes -->
+            <div class="carousel-indicators-custom">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
         </section>
         
     </main>
