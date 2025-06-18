@@ -4,6 +4,10 @@ reset {
   padding: 0;
   box-sizing: border-box;
 }
+/* Fuente outfit */
+body {
+  font-family: "Outfit", sans-serif;
+}
 /* Estilo para el header con imagen de fondo */
 .main-header {
   background-color: none;
@@ -89,6 +93,13 @@ reset {
   text-decoration: none;
 }
 
+.lista-ventajas:hover,
+.lista-ventajas:focus {
+  color: #480289ce;
+  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
 /* Estilo para las flechas del carrusel */
@@ -108,4 +119,8 @@ reset {
 /* Estilo txt registrar */
 .register-txt {
   text-decoration: none;
+}
+
+.input-login:focus::placeholder {
+  color: transparent; /* Ocultamos al estar sobre ese input */
 }
