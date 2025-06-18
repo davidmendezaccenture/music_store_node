@@ -1,5 +1,5 @@
 /*reset css*/
-reset {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +7,7 @@ reset {
 /* Fuente outfit */
 body {
   font-family: "Outfit", sans-serif;
+  font-size: 1rem;
 }
 /* Estilo para el header con imagen de fondo */
 .main-header {
@@ -15,17 +16,24 @@ body {
 /* Control de margenes: */
 /* Margen derecho */
 .login-logo {
-  margin-right: 100px; /* Margen derecho */
+  margin-right: 0px; /* Margen derecho */
   border-radius: 50%;
 }
 /* Margen izquierdo */
 .logo-main {
-  margin-left: 100px; /* Margen izquierdo */
+  margin-left: 0px; /* Margen izquierdo */
   width: 50px;
   height: auto;
   margin-right: 10px;
   border-radius: 50%;
   transition: transform 0.2s;
+}
+
+/* Estilo para la navbar txt */
+.navbar-sections {
+  font-family: "Outfit", sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
 .cart-logo {
@@ -52,7 +60,7 @@ body {
 
 /* Centrar el contenido del header */
 
-/* Estilo para el logo de RaiRock */
+/* Estilo para el logo de Rat Pack Instruments */
 
 .logo-main:hover {
   transform: scale(1.2);
@@ -110,7 +118,7 @@ body {
 
 /* Ajustes para pantallas pequeñas */
 
-/* Estilo para el texto "RaiRock Music Store" */
+/* Estilo para el texto "Rat Pack Instruments" */
 
 /* Ajustar el tamaño del carrusel */
 
