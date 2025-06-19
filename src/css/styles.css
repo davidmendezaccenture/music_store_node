@@ -33,6 +33,7 @@ reset {
 .nav-text {
     font-family: 'Outfit', sans-serif;
     font-weight: 400;
+    font-size: 1rem;
     color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
     text-decoration: none;
 }
@@ -106,6 +107,12 @@ object-fit:cover;
 border-radius:50%;
 }
 
+.texto-opinion-card {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+}
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
 /* Ajustes para pantallas pequeñas */
