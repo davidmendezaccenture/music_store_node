@@ -177,3 +177,27 @@ body {
 .input-login:focus::placeholder {
   color: transparent; /* Ocultamos al estar sobre ese input */
 }
+
+/* Darkmode */
+body.dark-mode {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .bg-white {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer,
+body.dark-mode .pre-footer,
+body.dark-mode .search-bar {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .modal-content {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
