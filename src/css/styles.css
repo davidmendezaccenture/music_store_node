@@ -25,11 +25,12 @@ reset {
 } */
 
 .products-title {
-font-family: "Asset", serif;
+    font-family: "Asset", serif;
     font-weight: 400;
     font-style: normal;
     letter-spacing: -3px;
     transform: scaleY(1.8);
+    padding-bottom: 1%;
 }
 
 /* Estilo para la barra de navegación secundaria */
@@ -155,7 +156,7 @@ border-radius:50%;
 
 /* Estilo para el texto "RaiRock Music Store" */
 
-/* Ajustar el tamaño del carrusel */
+    /* ajustar el tamaño del carrusel */
 @media (max-width: 600px) {
     .img-carrousel {
         width: 35vw;
@@ -165,5 +166,18 @@ border-radius:50%;
         margin-top: 2rem;
     }
 }
+    /* ajustar el tamaño de los iconos */
+@media (max-width: 600px) {
+    .icon-image {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
 
+@media (max-width: 450px) {
+    .icon-image {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
 /* Hover redes sociales */
