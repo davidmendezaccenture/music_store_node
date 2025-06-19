@@ -19,10 +19,25 @@ body {
 /* Estilo para la navbar txt */
 .navbar-sections {
   font-family: "Outfit", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
+  font-size: 0.9rem;
 }
 
+/* Estilo para la navbar */
+.contenedor-main-navbar {
+  background-color: none;
+  width: 70%;
+}
+/* Estilo de la secion activa en navbar */
+.navbar-nav .nav-link.active {
+  /* background-color: #f3e9fc; */
+  /* color: #480289ce !important; */
+  font-weight: 800;
+  border-radius: 0.8rem;
+  text-decoration: underline;
+  box-shadow: 0 2px 8px #a259e6;
+}
 /* Efectos de la navbar */
 
 .navbar-nav .nav-link:hover,
@@ -46,11 +61,11 @@ body {
 
 /* Estilo para el logo de Rat Pack Instruments */
 .logo-main {
-  margin-left: 0px; /* Margen izquierdo */
-  width: 40px;
+  /* margin-left: 10px; */ /* Margen izquierdo */
+  width: 100px;
   height: auto;
   margin-right: 10px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   transition: transform 0.2s;
 }
 
@@ -58,11 +73,6 @@ body {
   transform: scale(1.2);
 }
 
-.logo-txt {
-  white-space: nowrap;
-  overflow: hidden;
-  color: red;
-}
 /* Estilo logos pago */
 .pago-logo {
   width: 40px;
