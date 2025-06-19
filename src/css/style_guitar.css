@@ -1,0 +1,109 @@
+body {
+  background-color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+}
+
+h2.h5 {
+  font-weight: 300;
+}
+
+h1.h1 {
+  font-weight: 600;
+}
+
+/* Botón de volver a Home */
+
+a.btn-outline-primary {
+  background-color: white;
+  font-weight: 300;
+  color: black;
+  border-color: black;
+}
+
+/*filtro*/
+
+.dropdown-toggle {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px;
+  font-weight: 300;
+  box-shadow: none !important;
+}
+
+.dropdown-toggle:hover {
+  background-color: rgb(116, 116, 116) !important;
+  color: white !important;
+}
+
+.dropdown-menu {
+  border-radius: 12px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  font-weight: 300;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(116, 116, 116);
+  color: white;
+}
+
+
+/* Tarjetas */
+
+.card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  object-fit: cover;
+  height: 220px;
+}
+
+/* Precio */
+
+.card .card-text + p {
+  font-size: 1.1rem;
+}
+
+.text-decoration-line-through {
+  font-size: 0.95rem;
+}
+
+/* Botón "Añadir a la cesta" */
+
+.card .btn-primary {
+  margin-top: auto;
+  border-radius: 10px;
+  font-weight: 300;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+
+  h2.h5 {
+    font-size: 1.2rem;
+  }
+}
