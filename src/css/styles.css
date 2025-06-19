@@ -8,6 +8,7 @@
 body {
   font-family: "Outfit", sans-serif;
   font-size: 1rem;
+  background-color: rgba(238, 236, 231, 0.693);
 }
 /* Estilo para el header con imagen de fondo */
 .main-header {
@@ -157,7 +158,7 @@ body {
 
 /* estilos para el Main */
 .container {
-    min-height: auto;
+  min-height: auto;
 }
 /* Estilos título h1 del Main */
 /* .products-title {
@@ -166,137 +167,136 @@ body {
 } */
 
 .products-title {
-    font-family: "Asset", serif;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: -3px;
-    transform: scaleY(1.8);
-    padding-bottom: 1%;
+  font-family: "Asset", serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -3px;
+  transform: scaleY(1.8);
+  padding-bottom: 1%;
 }
 
 /* Estilo para la barra de navegación secundaria */
 .icon-image {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .nav-text {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
-    text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  text-decoration: none;
 
-    /*efecto subrayado*/
-    transition: border-bottom 0.2s;
-    border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
+  /*efecto subrayado*/
+  transition: border-bottom 0.2s;
+  border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
 }
 
 .nav-text:hover {
-    color: #480289ce;
-    text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
-    transition: color 0.2s, text-shadow 0.2s;
+  color: #480289ce;
+  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
+  transition: color 0.2s, text-shadow 0.2s;
 }
 
-    /*efecto subrayado*/
+/*efecto subrayado*/
 a:hover .nav-text {
-    border-bottom: 2px solid #333; /* Cambia el color según tu diseño */
+  border-bottom: 2px solid #333; /* Cambia el color según tu diseño */
 }
 
 .icon-image {
-    transition: transform 0.2s;
+  transition: transform 0.2s;
 }
 
 a:hover .icon-image {
-    transform: scale(1.12);
+  transform: scale(1.12);
 }
 
 /* Estilo para el carrusel */
 .carrousel-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
 }
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-    width: 45vh;
-    max-width: 100%;
-    border-radius: 10px;
-    height: auto;
-    margin: 0 auto;
+  width: 45vh;
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* Estilo para las flechas del carrusel */
 .carrousel-control {
-    width: 40px;
-    border: none;
-    background-color: transparent;
+  width: 40px;
+  border: none;
+  background-color: transparent;
 }
 
 /* Estilo para los indicadores del carrusel */
-    .carousel-indicators-custom {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 1rem;
-    }
-
-    .carousel-indicators-custom .indicator {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 0 8px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: background 0.2s;
-    vertical-align: middle;
+.carousel-indicators-custom {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
 }
 
-    .carousel-indicators-custom .indicator.active {
-        background: #a259e6;
-    }
+.carousel-indicators-custom .indicator {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.2s;
+  vertical-align: middle;
+}
 
-    .indicator.active {
-    background-color: #333;
-    }
+.carousel-indicators-custom .indicator.active {
+  background: #a259e6;
+}
+
+.indicator.active {
+  background-color: #333;
+}
 
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
-    margin: 5%;
+  margin: 5%;
 }
 .opinion-card-container {
-    max-width: 300px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: #fff;
+  max-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
 }
 
 .img-fluid {
-width:100px; 
-height:100px; 
-object-fit:cover; 
-border-radius:50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .texto-opinion-card {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
-
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
 
 .opinion-card-container {
-    transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .opinion-card:hover .opinion-card-container {
-    transform: scale(1.04);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
@@ -304,22 +304,22 @@ border-radius:50%;
 
 /* Estilo para el texto "Rat Pack Instruments" */
 
-    /* ajustar el tamaño del carrusel */
+/* ajustar el tamaño del carrusel */
 @media (max-width: 600px) {
-    .img-carrousel {
-        width: 35vw;
-        max-width: 100%;
-    }
-    .carrousel-container {
-        margin-top: 2rem;
-    }
+  .img-carrousel {
+    width: 35vw;
+    max-width: 100%;
+  }
+  .carrousel-container {
+    margin-top: 2rem;
+  }
 }
-    /* ajustar el tamaño de los iconos */
+/* ajustar el tamaño de los iconos */
 @media (max-width: 600px) {
-    .icon-image {
-        width: 36px !important;
-        height: 36px !important;
-    }
+  .icon-image {
+    width: 36px !important;
+    height: 36px !important;
+  }
 }
 
 /* Hover redes sociales */
@@ -357,9 +357,9 @@ body.dark-mode .modal-content {
   color: #f1f1f1 !important;
 }
 @media (max-width: 450px) {
-    .icon-image {
-        width: 30px !important;
-        height: 30px !important;
-    }
+  .icon-image {
+    width: 30px !important;
+    height: 30px !important;
+  }
 }
 /* Hover redes sociales */
