@@ -1,16 +1,157 @@
 /*reset css*/
-reset {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Fuente outfit */
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
 }
 /* Estilo para el header con imagen de fondo */
+.main-header {
+  background-color: none;
+}
 
+/* Estilo para la navbar txt */
+.navbar-sections {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Efectos de la navbar */
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #480289ce;
+  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.nav-link img:hover,
+.nav-link img:focus {
+  background-color: #f3e9fc;
+  border-radius: 50%;
+  transform: scale(1.15);
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 0 8px #480289ce;
+}
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
 
-/* Estilo para el logo de RaiRock */
+/* Estilo para el logo de Rat Pack Instruments */
+.logo-main {
+  margin-left: 0px; /* Margen izquierdo */
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.logo-main:hover {
+  transform: scale(1.2);
+}
+
+.logo-txt {
+  white-space: nowrap;
+  overflow: hidden;
+  color: red;
+}
+/* Estilo logos pago */
+.pago-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Estilo logos social */
+.social-logo {
+  width: 32px;
+  height: 32px;
+  /*  margin-right: 10px; */
+  border-radius: 50%;
+}
+
+/* Login logo */
+.login-logo {
+  margin-right: 0px; /* Margen derecho */
+  border-radius: 50%;
+}
+/* Cart style */
+.cart-logo {
+  border-radius: 50%;
+}
+
+/* Mouseover para efectos iconos prefooter */
+.pago-logo:hover,
+.pago-logo:focus,
+.social-logo:hover,
+.social-logo:focus {
+  background-color: #f3e9fc;
+  border-radius: 50%;
+  transform: scale(1.15);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #480289ce;
+}
+/* Estilo ventajas */
+.lista-ventajas {
+  text-decoration: none;
+}
+
+.lista-ventajas:hover,
+.lista-ventajas:focus {
+  color: #480289ce;
+  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+/* Control de la barra de busqueda */
+.buscador-form {
+  transition: transform 0.2s;
+  z-index: 2;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+}
+.buscador-form:focus-within {
+  transform: scale(1.1);
+}
+
+/* .buscador .control-buscador:focus {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+  z-index: 2;
+  position: relative;
+} */
+
+.buscador-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  transition: opacity 0.2s;
+}
+
+.buscador-form:focus-within ~ .buscador-overlay {
+  display: block;
+  opacity: 1;
+}
+
+/* NewsLetter */
+
+.linea-divisora-gruesa {
+  border-top: 3px solid #444647 !important;
+}
+.linea-divisora-fina {
+  border-top: 1px solid #444647 !important;
+}
 
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
@@ -22,8 +163,41 @@ reset {
 
 /* Ajustes para pantallas pequeñas */
 
-/* Estilo para el texto "RaiRock Music Store" */
+/* Estilo para el texto "Rat Pack Instruments" */
 
 /* Ajustar el tamaño del carrusel */
 
 /* Hover redes sociales */
+
+/* Estilo txt registrar */
+.register-txt {
+  text-decoration: none;
+}
+
+.input-login:focus::placeholder {
+  color: transparent; /* Ocultamos al estar sobre ese input */
+}
+
+/* Darkmode */
+body.dark-mode {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .bg-white {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer,
+body.dark-mode .pre-footer,
+body.dark-mode .search-bar {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .modal-content {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
