@@ -19,9 +19,17 @@ reset {
     min-height: auto;
 }
 /* Estilos título h1 del Main */
-.products-title {
+/* .products-title {
     font-family: 'Outfit', sans-serif;
     font-weight: bold;
+} */
+
+.products-title {
+font-family: "Asset", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -3px;
+    transform: scaleY(1.8);
 }
 
 /* Estilo para la barra de navegación secundaria */
