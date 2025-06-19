@@ -30,6 +30,18 @@ reset {
     height: 48px;
 }
 
+.nav-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+    text-decoration: none;
+}
+
+.nav-text:hover {
+    color: #480289ce;
+    text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
+    transition: color 0.2s, text-shadow 0.2s;
+}
 /* Estilo para el carrusel */
 .carrousel-container {
     display: flex;
