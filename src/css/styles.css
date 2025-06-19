@@ -102,13 +102,20 @@ a:hover .icon-image {
     margin-top: 1rem;
     }
 
-    .indicator {
+    .carousel-indicators-custom .indicator {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
     border-radius: 50%;
-    background-color: #ccc;
-    transition: background-color 0.3s; /* estará activo cuando se haga la lógica de los indicadores */
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.2s;
+    vertical-align: middle;
+}
+
+    .carousel-indicators-custom .indicator.active {
+        background: #a259e6;
     }
 
     .indicator.active {
