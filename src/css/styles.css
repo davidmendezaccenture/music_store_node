@@ -120,6 +120,16 @@ border-radius:50%;
     font-weight: 300;
     font-size: 1rem;
     color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+
+}
+
+.opinion-card-container {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.opinion-card:hover .opinion-card-container {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
