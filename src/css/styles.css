@@ -16,7 +16,6 @@ reset {
 
 /* estilos para el Main */
 .container {
-    /* min-height: 80vh; */
     min-height: auto;
 }
 /* Estilos título h1 del Main */
@@ -86,6 +85,13 @@ reset {
     border: 1px solid #ccc;
     border-radius: 10px;
     background: #fff;
+}
+
+.img-fluid {
+width:100px; 
+height:100px; 
+object-fit:cover; 
+border-radius:50%;
 }
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
