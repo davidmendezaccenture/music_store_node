@@ -5,84 +5,120 @@ const fs = require('fs');
 const app = express();
 app.use(express.json());
 
-// Servir archivos estáticos
+// Servir estáticos
 app.use(express.static(path.join(__dirname, 'src')));
 
-// API para productos
+// Obtener productos
 app.get('/api/products', (req, res) => {
     const productsPath = path.join(__dirname, 'src/assets/data/products.json');
-    fs.readFile(productsPath, 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'Error al obtener productos' })
-        }
-        res.json(JSON.parse(data));
-    })
-});
 
-// API para login y registro (usuarios en archivo JSON)
+    // Leer productos
+    fs.readFile(productsPath, 'utf-8', (err, data) =>
+        err ? res.status(500).json({ error: 'Error al obtener productos' })
+            : res.json(JSON.parse(data))
+    );
+});
 
 // Registrar usuario
 app.post('/api/register', (req, res) => {
     const usersPath = path.join(__dirname, 'backend/data/users.json');
     const { username, email, password } = req.body;
 
-    // Validar que los campos existen y no están vacíos (ni undefined ni string vacío)
-    if (
-        !username || !email || !password ||
+    // Validar campos
+    if (!username || !email || !password ||
         typeof username !== 'string' || typeof email !== 'string' || typeof password !== 'string' ||
-        !username.trim() || !email.trim() || !password.trim()
-    ) {
+        !username.trim() || !email.trim() || !password.trim())
         return res.status(400).json({ error: 'Faltan campos requeridos. Se espera: username, email, password' });
-    }
 
+    // Leer usuarios
     fs.readFile(usersPath, 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'Error al obtener usuarios' });
-        }
+        if (err) return res.status(500).json({ error: 'Error al obtener usuarios' });
+
+        // Comprobar duplicados
         let users = JSON.parse(data);
-
-        const yaRegistrado = users.some(user => user.username === username || user.email === email);
-        if (yaRegistrado) {
+        if (users.some(u => u.username === username || u.email === email))
             return res.status(409).json({ error: 'El usuario o el email ya existen' });
-        }
 
+        // Añadir usuario
         users.push({ username, email, password });
 
-        fs.writeFile(usersPath, JSON.stringify(users, null, 2), 'utf8', (err) => {
-            if (err) {
-                return res.status(500).json({ error: 'Error al guardar usuario' });
-            }
-            res.json({ mensaje: 'Usuario registrado correctamente' });
-        });
+        // Guardar usuario
+        fs.writeFile(usersPath, JSON.stringify(users, null, 2), 'utf8', err =>
+            err
+                ? res.status(500).json({ error: 'Error al guardar usuario' })
+                : res.json({ mensaje: 'Usuario registrado correctamente' })
+        );
     });
 });
 
-// Login
+// Login de usuario
 app.post('/api/login', (req, res) => {
     const usersPath = path.join(__dirname, 'backend/data/users.json');
+
+    // Leer usuarios
     fs.readFile(usersPath, 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'Error al obtener usuarios' });
-        }
-        let array = JSON.parse(data);
-        const usuario = array.find(user =>
+        if (err) return res.status(500).json({ error: 'Error al obtener usuarios' });
+
+        // Buscar usuario
+        let arrayUsuarios = JSON.parse(data);
+        const usuario = arrayUsuarios.find(user =>
             user.username === req.body.username && user.password === req.body.password
         );
-        if (usuario) {
-            res.json({ mensaje: 'Login correcto', usuario });
-        } else {
-            res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
-        }
+
+        // Devolver login
+        usuario
+            ? res.json({ mensaje: 'Login correcto', usuario })
+            : res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
     });
 });
 
-// --- ENDPOINTS PARA EL CARRITO ---
+// Obtener carrito
+app.get('/api/cart', (req, res) => {
+    const cartsPath = path.join(__dirname, 'backend/data/carts.json');
+    const user = req.query.user || 'guest';
 
-// Obtener carrito del usuario
+    // Leer carritos
+    fs.readFile(cartsPath, 'utf-8', (err, data) => {
+        if (err) return res.status(500).json({ error: 'Error al obtener carritos' });
 
-// Guardar carrito del usuario
+        // Buscar carrito
+        let carts = JSON.parse(data);
+        const cart = carts.find(c => c.user === user);
 
-// Redirigir la raíz al index.html de pages
+        // Devolver carrito
+        res.json(cart || { user, items: [] });
+    });
+});
+
+// Guardar carrito
+app.post('/api/cart', (req, res) => {
+    const cartsPath = path.join(__dirname, 'backend/data/carts.json');
+    const { user, items } = req.body;
+
+    // Validar campos
+    if (!user || !items || !Array.isArray(items))
+        return res.status(400).json({ error: 'Faltan campos requeridos: user, items' });
+
+    // Leer carritos
+    fs.readFile(cartsPath, 'utf-8', (err, data) => {
+        if (err) return res.status(500).json({ error: 'Error al obtener carritos' });
+
+        // Actualizar o añadir carrito
+        let carts = JSON.parse(data);
+        const idx = carts.findIndex(c => c.user === user);
+        idx !== -1
+            ? carts[idx].items = items
+            : carts.push({ user, items });
+
+        // Guardar carrito
+        fs.writeFile(cartsPath, JSON.stringify(carts, null, 2), 'utf8', err =>
+            err ? res.status(500).json({ error: 'Error al guardar carrito' })
+                : res.json({ mensaje: 'Carrito guardado correctamente' })
+        );
+    });
+});
+
+// Redirigir raíz
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src/pages/index.html'));
 });
