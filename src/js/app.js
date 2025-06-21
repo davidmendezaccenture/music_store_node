@@ -5,6 +5,7 @@ $(document).ready(function () {
   initNavbar();
   initNewsletterForm();
   initFeedbackSection();
+  initCarousel(); // Inicializa el carrusel
 
   // ...carga dinámica del modal...
   // Cuando el modal esté cargado, asigna el evento al botón de login
@@ -45,4 +46,36 @@ function initNewsletterForm() {
 
 function initFeedbackSection() {
   // Lógica de la sección de feedback
+}
+
+function initCarousel() {// Aquí va la lógica del carrusel
+  // Por ejemplo:
+  var images = [
+    '/assets/images/guitar1.png',
+    '/assets/images/drum2.png',
+    '/assets/images/amp1.png'
+  ];
+  var current = 0;
+
+function showImage(index) {
+  $('.img-carrousel').attr('src', images[index]);
+  $('.indicator').removeClass('active').attr('aria-selected', 'false').attr('tabindex', '0');
+  $('.indicator').eq(index).addClass('active').attr('aria-selected', 'true').attr('tabindex', '0');
+}
+
+  $('.carrousel-control').eq(1).on('click', function() { // Botón derecho
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+
+  $('.carrousel-control').eq(0).on('click', function() { // Botón izquierdo
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  $('.indicator').on('click', function() {
+  var index = $(this).data('index');
+  current = index;
+  showImage(current);
+});
 }

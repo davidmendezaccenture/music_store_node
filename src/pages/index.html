@@ -224,7 +224,7 @@
         <section class="carrousel-container">
             <div>
                 <button type="button" class="carrousel-control" aria-label="Imagen anterior">
-                    <img src="/assets/images/left-arrow-icon.svg"  alt="" role="presentation">
+                    <img src="/assets/images/left-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
                 </button>
 
                 <picture>
@@ -232,15 +232,14 @@
                 </picture>
 
                 <button type="button" class="carrousel-control" aria-label="Imagen siguiente">
-                    <img src="/assets/images/right-arrow-icon.svg" alt="" role="presentation">
+                    <img src="/assets/images/right-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
                 </button>
             </div>
-            
         <!-- Indicadores del Carrusel de imágenes -->
             <div class="carousel-indicators-custom" role="tablist" aria-label="Indicadores del carrusel">
-                <span class="indicator active" role="tab" aria-selected="true" tabindex="0" aria-label="Imagen 1"></span>
-                <span class="indicator" role="tab" aria-selected="false" tabindex="0" aria-label="Imagen 2"></span>
-                <span class="indicator" role="tab" aria-selected="false" tabindex="0" aria-label="Imagen 3"></span>
+              <span class="indicator active" data-index="0" role="tab" aria-selected="true" tabindex="0" aria-label="Imagen 1"></span>
+              <span class="indicator" data-index="1" role="tab" aria-selected="false" tabindex="0" aria-label="Imagen 2"></span>
+              <span class="indicator" data-index="2" role="tab" aria-selected="false" tabindex="0" aria-label="Imagen 3"></span>
             </div>
         </section>
 
@@ -252,7 +251,7 @@
         <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100">
+                <section class="opinion-card h-100" tabindex="0">
                     <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
                         <div class="img-div mb-3">
                             <img src="/assets/images/foto-card1.png" alt="Foto de cliente" class="img-fluid">
@@ -276,7 +275,7 @@
             </div>
             <!-- Card 2 -->
             <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100">
+                <section class="opinion-card h-100" tabindex="0">
                     <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
                     <div class="img-div mb-3">
                         <img src="/assets/images/foto-card2.png" alt="Foto de cliente" class="img-fluid">
@@ -300,7 +299,7 @@
             </div>
                 <!-- Card 3 -->
             <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100">
+                <section class="opinion-card h-100" tabindex="0">
                     <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
                     <div class="img-div mb-3">
                         <img src="/assets/images/foto-card3.png" alt="Foto de cliente" class="img-fluid">

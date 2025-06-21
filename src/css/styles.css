@@ -188,9 +188,7 @@ body {
   font-size: 1rem;
   color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
   text-decoration: none;
-
-  /*efecto subrayado*/
-  transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s; /*efecto subrayado*/
   border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
 }
 
@@ -201,7 +199,8 @@ body {
 }
 
 /*efecto subrayado*/
-a:hover .nav-text {
+a:hover .nav-text,
+a:focus .nav-text {
   border-bottom: 2px solid #333; /* Cambia el color según tu diseño */
 }
 
@@ -209,7 +208,8 @@ a:hover .nav-text {
   transition: transform 0.2s;
 }
 
-a:hover .icon-image {
+a:hover .icon-image,
+a:focus .icon-image {
   transform: scale(1.12);
 }
 
@@ -223,11 +223,20 @@ a:hover .icon-image {
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-  width: 45vh;
+  width: 70vh;
   max-width: 100%;
   border-radius: 10px;
   height: auto;
   margin: 0 auto;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+   
+    /* Opcional: para evitar que el espacio colapse */
+    background: #f8f9fa; /* o el color de fondo de tu carrusel */
+}
+
+.img-carrousel.fade-out {
+    opacity: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -235,6 +244,10 @@ a:hover .icon-image {
   width: 40px;
   border: none;
   background-color: transparent;
+}
+
+.arrow-carrousel {
+  width: 40px;;
 }
 
 /* Estilo para los indicadores del carrusel */
@@ -294,8 +307,8 @@ a:hover .icon-image {
 .opinion-card-container {
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.opinion-card:hover .opinion-card-container {
+.opinion-card:hover .opinion-card-container,
+.opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
