@@ -54,9 +54,19 @@ function initCarousel() {
   var images = [
     '/assets/images/guitar1.png',
     '/assets/images/drum2.png',
-    '/assets/images/amp1.png'
+    '/assets/images/amp1.png',
+    '/assets/images/bass1.png'
   ];
   var current = 0;
+
+    // Generar indicadores dinámicamente
+  var $indicatorsContainer = $('.carousel-indicators-custom');
+  $indicatorsContainer.empty(); // Limpia los indicadores existentes
+  images.forEach(function(_, idx) {
+    $indicatorsContainer.append(
+      `<span class="indicator${idx === 0 ? ' active' : ''}" data-index="${idx}" role="tab" aria-selected="${idx === 0}" tabindex="0" aria-label="Imagen ${idx + 1}"></span>`
+    );
+  });
 
 function showImage(index) {
   $('.img-carrousel').attr('src', images[index]);
@@ -75,9 +85,13 @@ function showImage(index) {
   });
 
   // Lógica para los indicadores
-  $('.indicator').on('click', function() {
-  var index = $(this).data('index');
-  current = index;
-  showImage(current);
-});
+  $indicatorsContainer.on('click', '.indicator', function() {
+    var index = $(this).data('index');
+    current = index;
+    showImage(current);
+  });
+
+    // Inicializa el carrusel en la primera imagen
+    showImage(current);
 }
+
