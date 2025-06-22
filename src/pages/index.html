@@ -20,11 +20,14 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
+      rel="stylesheet"
+    />
     <!-- icono tittle -->
-    <link rel="icon" type="image/png" href="/assets/images/logo.png" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   </head>
   <body>
     <!-- Cabecera de la página -->
@@ -35,19 +38,22 @@
         aria-label="Barra de navegación principal"
         role="navigation"
       >
-        <div class="container">
+        <div class="container mb-3 contenedor-main-navbar">
           <!-- Logo + título -->
-          <a
-            class="navbar-brand d-flex align-items-center flex-grow-1"
-            href="/"
-          >
-            <img
-              src="/assets/images/logo.png"
-              class="logo-main"
-              alt="Rat Pack Instruments - Logo"
-            />
-            <h1 class="logo-txt mb-0">Rat Pack Instruments</h1>
-          </a>
+          <h1>
+            <a
+              class="navbar-brand d-flex align-items-center flex-grow-1"
+              href="/"
+            >
+              <img
+                src="/assets/images/logo.png"
+                class="logo-main"
+                alt="Rat Pack Instruments - Logo"
+              />
+              <!-- Linea invisible para accesibilidad -->
+              <span class="visually-hidden">Rat Pack Instruments</span></a
+            >
+          </h1>
           <!-- Menu desplegable para pantallas moviles o pequeñas -->
           <button
             class="navbar-toggler"
@@ -61,7 +67,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-lg-0">
               <li class="nav-item">
                 <a
                   class="nav-link active navbar-sections"
@@ -83,7 +89,7 @@
               </li>
             </ul>
             <!-- Botones a la derecha -->
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-4 me-5">
               <a class="nav-link" id="carritoButton" href="#"
                 ><img
                   src="/assets/images/cart.png"
@@ -115,7 +121,7 @@
         </div>
       </nav>
       <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 buscador mb-3">
+      <div class="search-bar py-1 buscador mb-5">
         <div class="container">
           <form
             class="d-flex justify-content-center buscador-form"
@@ -142,12 +148,11 @@
     </header>
 
     <!-- Contenido principal de la página -->
-    <main class="container mt-4" >
+    <main class="container mt-4">
+      <!-- Tu contenido aquí -->
 
-        <!-- Tu contenido aquí -->
-
-        <!-- Título -->
-        <h2 class="text-center mb-4 products-title">Nuestros Productos</h2>
+      <!-- Título -->
+      <h2 class="text-center mb-4 products-title">Nuestros Productos</h2>
 
         <!-- Iconos Navegación Secundaria -->
         <nav aria-label="Navegación secundaria de productos">
@@ -161,64 +166,127 @@
                     </a>
                 </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de baterías">
-                        <img alt="Icono de Baterías" class="icon-image" src="/assets/images/drums-icon.svg" >
-                        <span class="nav-text">Baterías</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de baterías"
+            >
+              <img
+                alt="Icono de Baterías"
+                class="icon-image"
+                src="/assets/images/drums-icon.svg"
+              />
+              <span class="nav-text">Baterías</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Teclados">
-                        <img alt="Icono de Teclados" class="icon-image" src="/assets/images/piano-icon.svg" >
-                        <span class="nav-text">Teclados</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Teclados"
+            >
+              <img
+                alt="Icono de Teclados"
+                class="icon-image"
+                src="/assets/images/piano-icon.svg"
+              />
+              <span class="nav-text">Teclados</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de DJ">
-                        <img alt="Icono de DJ" class="icon-image" src="/assets/images/dj-icon.svg" >
-                        <span class="nav-text">DJ</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de DJ"
+            >
+              <img
+                alt="Icono de DJ"
+                class="icon-image"
+                src="/assets/images/dj-icon.svg"
+              />
+              <span class="nav-text">DJ</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Estudio">
-                        <img alt="Icono de Estudio" class="icon-image" src="/assets/images/estudio-icon.svg" >
-                        <span class="nav-text">Estudio</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Estudio"
+            >
+              <img
+                alt="Icono de Estudio"
+                class="icon-image"
+                src="/assets/images/estudio-icon.svg"
+              />
+              <span class="nav-text">Estudio</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Software">
-                        <img alt="Icono de Software" class="icon-image" src="/assets/images/software-icon.svg" >
-                        <span class="nav-text">Software</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Software"
+            >
+              <img
+                alt="Icono de Software"
+                class="icon-image"
+                src="/assets/images/software-icon.svg"
+              />
+              <span class="nav-text">Software</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Micros">
-                        <img alt="Icono de Micros" class="icon-image" src="/assets/images/micro-icon.svg" >
-                        <span class="nav-text">Micros</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Micros"
+            >
+              <img
+                alt="Icono de Micros"
+                class="icon-image"
+                src="/assets/images/micro-icon.svg"
+              />
+              <span class="nav-text">Micros</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Sistemas PA">
-                        <img alt="Icono de Sistema PA" class="icon-image" src="/assets/images/PA-icon.svg" >
-                        <span class="nav-text">PA</span>
-                    </a>
-                </li>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Sistemas PA"
+            >
+              <img
+                alt="Icono de Sistema PA"
+                class="icon-image"
+                src="/assets/images/PA-icon.svg"
+              />
+              <span class="nav-text">PA</span>
+            </a>
+          </li>
 
-                <li class="col-auto mb-4">
-                    <a href="#" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de Vídeo">
-                        <img alt="Icono de Vídeo" class="icon-image" src="/assets/images/video-icon.svg" >
-                        <span class="nav-text">Vídeo</span>
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
+          <li class="col-auto mb-4">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Vídeo"
+            >
+              <img
+                alt="Icono de Vídeo"
+                class="icon-image"
+                src="/assets/images/video-icon.svg"
+              />
+              <span class="nav-text">Vídeo</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
         <!-- Carrusel de imágenes -->
         <section class="carrousel-container">
@@ -227,9 +295,13 @@
                     <img src="/assets/images/left-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
                 </button>
 
-                <picture>
-                    <img alt="Imágenes de productos" src="/assets/images/guitar1.png" class="img-carrousel">
-                </picture>
+          <picture>
+            <img
+              alt="Imágenes de productos"
+              src="/assets/images/guitar1.png"
+              class="img-carrousel"
+            />
+          </picture>
 
                 <button type="button" class="carrousel-control" aria-label="Imagen siguiente">
                     <img src="/assets/images/right-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
@@ -506,12 +578,9 @@
 
         
     </main>
-<!-- Sección preparada para Listado de Productos Destacados -->
+    <!-- Sección preparada para Listado de Productos Destacados -->
 
-    <section id="products-list">
-
-
-    </section>
+    <section id="products-list"></section>
 
     <!-- Linea divisoria superior de feedback -->
     <div class="linea-divisora-gruesa"></div>
