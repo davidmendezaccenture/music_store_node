@@ -281,7 +281,15 @@ a:focus .icon-image {
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   margin: 5%;
+  height: 400px;
 }
+
+/* Barra para el texto de las opiniones */
+.texto-div {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
 .opinion-card-container {
   max-width: 300px;
   margin: 0 auto;
