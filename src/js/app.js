@@ -84,6 +84,8 @@ function showImage(index) {
     showImage(current);
   });
 
+  
+
   // Lógica para los indicadores
   $indicatorsContainer.on('click', '.indicator', function() {
     var index = $(this).data('index');
@@ -93,5 +95,39 @@ function showImage(index) {
 
     // Inicializa el carrusel en la primera imagen
     showImage(current);
+
+
+
+
+    //Lógica para la transición de las cards "Opinión de clientes"
+
+    $(function() {
+  // Número de cards a mostrar a la vez
+  var visibleCards = 3;
+  var $cards = $('.opinion-carousel-card');
+  var totalCards = $cards.length;
+  var currentStart = 0;
+
+  function showCards(start) {
+    $cards.removeClass('active');
+    for (let i = 0; i < visibleCards; i++) {
+      let idx = (start + i) % totalCards;
+      $cards.eq(idx).addClass('active');
+    }
+  }
+
+  $('.opinion-carousel-arrow.left').click(function() {
+    currentStart = (currentStart - 1 + totalCards) % totalCards;
+    showCards(currentStart);
+  });
+
+  $('.opinion-carousel-arrow.right').click(function() {
+    currentStart = (currentStart + 1) % totalCards;
+    showCards(currentStart);
+  });
+
+  // Inicializa mostrando las primeras
+  showCards(currentStart);
+});
 }
 

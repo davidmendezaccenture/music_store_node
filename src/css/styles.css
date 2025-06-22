@@ -312,6 +312,24 @@ a:focus .icon-image {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
+
+.opinion-carousel-card {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.opinion-carousel-card.active {
+  display: block;
+  opacity: 1;
+}
+@media (min-width: 992px) {
+  /* En escritorio, muestra 3 cards a la vez */
+  .opinion-carousel-card {
+    width: 33.3333%;
+    float: left;
+  }
+}
+
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
 /* Ajustes para pantallas pequeñas */
