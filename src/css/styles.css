@@ -296,7 +296,7 @@ a:focus .icon-image {
 
 /* Barra para el texto de las opiniones */
 .texto-div {
-  max-height: 120px;
+  max-height: 200px; /* a partir de 200px se mostrará la barra de desplazamiento */
   overflow-y: auto;
 }
 
