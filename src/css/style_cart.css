@@ -1,0 +1,22 @@
+/*reset css*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Fuente outfit */
+body {
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
+    background-color: rgba(238, 236, 231, 0.693);
+  /*  */
+}
+
+.img-emptycart {
+    width:400px;
+    opacity:0.7;
+}
+
+#cart-content {
+    display:none;
+}
