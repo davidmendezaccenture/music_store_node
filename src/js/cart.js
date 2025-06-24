@@ -82,23 +82,28 @@ function addToCartById(id) {
 function renderCart(items) {
   const $cartEmpty = $('#cart-empty');
   const $cartContent = $('#cart-content');
+  const $colLeft = $('.col-lg-8'); // Selecciona la columna izquierda
+
   $cartContent.empty();
 
   if (!items.length) {
     $cartEmpty.show();
     $cartContent.hide();
+    $colLeft.removeClass('col-lg-8').addClass('col-lg-12'); // Ocupa todo el ancho
+    renderCartSummary(items);
     return;
   }
 
   $cartEmpty.hide();
   $cartContent.show();
+  $colLeft.removeClass('col-lg-12').addClass('col-lg-8'); // Vuelve a su tamaño normal
 
   let total = 0;
   items.forEach(item => {
     const price = item.offerPrice || item.price;
     total += price * (item.quantity || 1);
 
-    // Clonar template correctamente
+    // Clonar template 
     const $tpl = $($('#cart-item-template').prop('content')).children().first().clone();
     $tpl.attr('data-id', item.id);
     $tpl.find('img').attr('src', item.image).attr('alt', item.name);
@@ -115,6 +120,21 @@ function renderCart(items) {
       Total: ${total} €
     </div>
   `);
+  renderCartSummary(items);
+}
+
+function renderCartSummary(items) {
+  if (!items.length) {
+    $('#cart-summary').empty();
+    $('#cart-summary-col').hide(); // Oculta la columna de la derecha
+    return;
+  }
+  $('#cart-summary-col').show(); // Muestra la columna si hay productos
+
+  const total = items.reduce((acc, item) => acc + (item.quantity || 1) * (item.offerPrice || item.price), 0);
+  const $tpl = $($('#cart-summary-template').prop('content')).children().first().clone();
+  $tpl.find('.total').text(`Total ${total} €`);
+  $('#cart-summary').html($tpl);
 }
 
 // Eventos para botones de cantidad y eliminar
