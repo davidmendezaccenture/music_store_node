@@ -39,10 +39,10 @@ header {
 .navbar-nav .nav-link.active {
   /* background-color: #f3e9fc; */
   /* color: #480289ce !important; */
-  font-weight: 800;
-  border-radius: 0.8rem;
-  text-decoration: underline;
-  box-shadow: 0 2px 8px #a259e6;
+  font-weight: 1000;
+  text-decoration: dashed underline;
+  /* border-radius: 0.8rem;
+  box-shadow: 0 2px 8px #a259e6; */
 }
 /* Efectos de la navbar */
 
