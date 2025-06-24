@@ -5,6 +5,7 @@ $(document).ready(function () {
   initNavbar();
   initNewsletterForm();
   initFeedbackSection();
+  initFooter();
   initCarousel(); // Inicializa el carrusel de imágenes
 
   // ...carga dinámica del modal...
@@ -19,6 +20,8 @@ $(document).ready(function () {
     // Si el modal ya está presente, asigna el evento directamente
     initLoginModal();
   }
+
+  /* $("#footer").load("/pages/footer.html"); */
 
   // Comprobar Modo Oscuro
   if (localStorage.getItem("darkMode") === "enabled") {
@@ -53,6 +56,7 @@ function initLoginModal() {
 
 function initNavbar() {
   // Lógica de la navbar
+  $("#header").load("/pages/header.html");
 }
 
 function initNewsletterForm() {
@@ -63,6 +67,10 @@ function initFeedbackSection() {
   // Lógica de la sección de feedback
 }
 
+function initFooter() {
+  // Lógica del footer
+  $("#footer").load("/pages/footer.html");
+}
 // Aquí va la lógica del carrusel
 function initCarousel() {
   var images = [

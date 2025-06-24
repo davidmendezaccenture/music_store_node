@@ -21,6 +21,11 @@ header {
   padding-bottom: 3rem;
 }
 
+#header {
+  min-height: 179px;
+  background-color: red;
+}
+
 /* Estilo para la navbar txt */
 .navbar-sections {
   font-family: "Outfit", sans-serif;
