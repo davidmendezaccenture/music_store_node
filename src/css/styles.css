@@ -106,7 +106,7 @@ header {
   width: 44px;      /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #f3e9fc; /* O el color que prefieras */
+  background-color: #000000; /* O el color que prefieras */
   color: #F6A61A;          /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
@@ -216,8 +216,20 @@ header {
 
 /* Estilo para la barra de navegación secundaria */
 .icon-image {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon-circle {
+  width: 70px;          
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #000000; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px; 
 }
 
 .nav-text {
