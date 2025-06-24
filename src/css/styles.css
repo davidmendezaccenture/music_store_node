@@ -204,9 +204,7 @@ header {
   font-size: 1rem;
   color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
   text-decoration: none;
-
-  /*efecto subrayado*/
-  transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s; /*efecto subrayado*/
   border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
 }
 
@@ -217,7 +215,8 @@ header {
 }
 
 /*efecto subrayado*/
-a:hover .nav-text {
+a:hover .nav-text,
+a:focus .nav-text {
   border-bottom: 2px solid #333; /* Cambia el color según tu diseño */
 }
 
@@ -225,7 +224,8 @@ a:hover .nav-text {
   transition: transform 0.2s;
 }
 
-a:hover .icon-image {
+a:hover .icon-image,
+a:focus .icon-image {
   transform: scale(1.12);
 }
 
@@ -239,11 +239,20 @@ a:hover .icon-image {
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-  width: 45vh;
+  width: 40vw;
   max-width: 100%;
   border-radius: 10px;
   height: auto;
   margin: 0 auto;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+   
+    /* Opcional: para evitar que el espacio colapse */
+    background: #f8f9fa; /* o el color de fondo de tu carrusel */
+}
+
+.img-carrousel.fade-out {
+    opacity: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -251,6 +260,10 @@ a:hover .icon-image {
   width: 40px;
   border: none;
   background-color: transparent;
+}
+
+.arrow-carrousel {
+  width: 40px;;
 }
 
 /* Estilo para los indicadores del carrusel */
@@ -284,7 +297,15 @@ a:hover .icon-image {
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   margin: 5%;
+  height: 400px;
 }
+
+/* Barra para el texto de las opiniones */
+.texto-div {
+  max-height: 200px; /* a partir de 200px se mostrará la barra de desplazamiento */
+  overflow-y: auto;
+}
+
 .opinion-card-container {
   max-width: 300px;
   margin: 0 auto;
@@ -310,11 +331,29 @@ a:hover .icon-image {
 .opinion-card-container {
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.opinion-card:hover .opinion-card-container {
+.opinion-card:hover .opinion-card-container,
+.opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
+
+.opinion-carousel-card {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.opinion-carousel-card.active {
+  display: block;
+  opacity: 1;
+}
+@media (min-width: 992px) {
+  /* En escritorio, muestra 3 cards a la vez */
+  .opinion-carousel-card {
+    width: 33.3333%;
+    float: left;
+  }
+}
+
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
 /* Ajustes para pantallas pequeñas */
@@ -322,9 +361,9 @@ a:hover .icon-image {
 /* Estilo para el texto "Rat Pack Instruments" */
 
 /* ajustar el tamaño del carrusel */
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   .img-carrousel {
-    width: 35vw;
+    width: 30vw;
     max-width: 100%;
   }
   .carrousel-container {
@@ -334,9 +373,16 @@ a:hover .icon-image {
 /* ajustar el tamaño de los iconos */
 @media (max-width: 600px) {
   .icon-image {
-    width: 36px !important;
-    height: 36px !important;
+    width: 30px !important;
+    height: 30px !important;
   }
+
+  @media (max-width: 600px) {
+  .icon-image {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
 }
 
 /* Hover redes sociales */
