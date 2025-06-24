@@ -24,7 +24,7 @@
     />
   </head>
   <body>
-    <!-- Cabecera de la página -->
+      <!-- Cabecera de la página -->
     <header class="main-header">
       <!-- NavBar -->
       <nav
@@ -64,16 +64,14 @@
             <ul class="navbar-nav mx-auto mb-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link navbar-sections"
+                  class="nav-link active navbar-sections"
                   aria-current="page"
                   href="/pages/index.html"
                   >Inicio</a
                 >
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link active navbar-sections"
-                  href="/pages/guitar.html"
+                <a class="nav-link navbar-sections" href="/pages/guitar.html"
                   >Productos??</a
                 >
               </li>
@@ -81,28 +79,22 @@
                 <a class="nav-link navbar-sections" href="#">Sobre nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link navbar-sections" href="#">Contacto</a>
+                <a class="nav-link navbar-sections" href="/pages/contact.html"
+                  >Contacto</a
+                >
               </li>
             </ul>
             <!-- Botones a la derecha -->
             <div class="d-flex align-items-center gap-4 me-5">
-              <a class="nav-link" id="carritoButton" href="/pages/cart.html"
-                ><img
-                  src="/assets/images/cart.png"
-                  alt="Carrito"
-                  width="28"
-                  height="28"
-                  class="cart-logo"
-              /></a>
+              <a class="nav-link" id="carritoButton" href="/pages/cart.html">
+                <i class="bi bi-cart cart-logo"   alt="Carrito" style="font-size: 2rem;"></i>
+                <!-- Contador de compras junto al carrito -->
+                <span id="cart-count" class="badge rounded-pill bg-danger">0</span>
+                </a>
               <!-- Indicamos el target al modal que queremos abrir con la id-->
-              <a class="nav-link" id="loginButton" href="#"
-                ><img
-                  src="/assets/images/login.png"
-                  alt="Iniciar sesión"
-                  width="28"
-                  height="28"
-                  class="login-logo"
-              /></a>
+              <a class="nav-link" id="loginButton" href="#">
+                <i class="bi bi-person-circle login-logo" alt="Iniciar sesión" style="font-size: 1.6rem;"></i>
+                </a>
               <!-- Darkmode -->
               <button
                 id="darkModeToggle"
@@ -117,7 +109,7 @@
         </div>
       </nav>
       <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 buscador mb-5">
+      <div class="search-bar py-1 buscador">
         <div class="container">
           <form
             class="d-flex justify-content-center buscador-form"
@@ -195,7 +187,8 @@
                 <span class="fw-bold text-danger ms-2">150 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="1"
                 aria-label="Añadir Guitarra Acústica a la cesta"
               >
                 Añadir a la cesta
@@ -224,7 +217,8 @@
                 <span class="fw-bold text-danger ms-2">300 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="2"
                 aria-label="Añadir Guitarra Eléctrica a la cesta"
               >
                 Añadir a la cesta
@@ -253,7 +247,8 @@
                 <span class="fw-bold text-danger ms-2">180 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="3"
                 aria-label="Añadir Guitarra Flamenca a la cesta"
               >
                 Añadir a la cesta
@@ -280,7 +275,8 @@
                 <span class="fw-bold text-danger ms-2">550 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="4"
                 aria-label="Añadir Guitarra Stratocaster a la cesta"
               >
                 Añadir a la cesta
@@ -307,7 +303,8 @@
                 <span class="fw-bold text-danger ms-2">650 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="5"
                 aria-label="Añadir Guitarra Les Paul a la cesta"
               >
                 Añadir a la cesta
@@ -334,7 +331,8 @@
                 <span class="fw-bold text-danger ms-2">850 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="6"
                 aria-label="Añadir Guitarra Heavy Flying a la cesta"
               >
                 Añadir a la cesta
@@ -361,7 +359,8 @@
                 <span class="fw-bold text-danger ms-2">850 €</span>
               </p>
               <button
-                class="btn btn-primary w-100 mt-auto"
+                class="btn btn-primary add-to-cart"
+                data-id="7"
                 aria-label="Añadir Guitarra Clásica Premium a la cesta"
               >
                 Añadir a la cesta
