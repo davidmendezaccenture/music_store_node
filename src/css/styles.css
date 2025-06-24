@@ -97,6 +97,7 @@ header {
 
 /* Login logo */
 .login-logo {
+  font-size: 1.6rem;
   margin-right: 0px; /* Margen derecho */
   /* border-radius: 50%; */
     display: inline-flex;
@@ -111,6 +112,7 @@ header {
 }
 /* Cart style */
 .cart-logo {
+  font-size: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
