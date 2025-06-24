@@ -98,11 +98,36 @@ header {
 /* Login logo */
 .login-logo {
   margin-right: 0px; /* Margen derecho */
+  /* border-radius: 50%; */
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;      /* Ajusta el tamaño según tu diseño */
+  height: 44px;
   border-radius: 50%;
+  background-color: #f3e9fc; /* O el color que prefieras */
+  color: #480289ce;          /* Color del icono */
+  transition: background 0.2s, color 0.2s;
 }
 /* Cart style */
 .cart-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;      /* Ajusta el tamaño según tu diseño */
+  height: 44px;
   border-radius: 50%;
+  background-color: #f3e9fc; /* O el color que prefieras */
+  color: #480289ce;          /* Color del icono */
+  transition: background 0.2s, color 0.2s;
+}
+
+.cart-logo:hover,
+.cart-logo:focus,
+.login-logo:hover,
+.login-logo:focus{
+  background-color: #a259e6;
+  color: #fff;
 }
 
 /* Mouseover para efectos iconos prefooter */
