@@ -41,8 +41,8 @@ header {
   /* color: #480289ce !important; */
   font-weight: 1000;
   text-decoration: dashed underline;
-  /* border-radius: 0.8rem;
-  box-shadow: 0 2px 8px #a259e6; */
+  border-radius: none;
+  box-shadow: none;
 }
 /* Efectos de la navbar */
 
@@ -246,13 +246,13 @@ a:focus .icon-image {
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
-   
-    /* Opcional: para evitar que el espacio colapse */
-    background: #f8f9fa; /* o el color de fondo de tu carrusel */
+
+  /* Opcional: para evitar que el espacio colapse */
+  background: #f8f9fa; /* o el color de fondo de tu carrusel */
 }
 
 .img-carrousel.fade-out {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -263,7 +263,7 @@ a:focus .icon-image {
 }
 
 .arrow-carrousel {
-  width: 40px;;
+  width: 40px;
 }
 
 /* Estilo para los indicadores del carrusel */
@@ -378,11 +378,11 @@ a:focus .icon-image {
   }
 
   @media (max-width: 600px) {
-  .icon-image {
-    width: 25px !important;
-    height: 25px !important;
+    .icon-image {
+      width: 25px !important;
+      height: 25px !important;
+    }
   }
-}
 }
 
 /* Hover redes sociales */
@@ -422,7 +422,9 @@ body.dark-mode .modal-content {
   color: #f1f1f1 !important;
 }
 
-body.dark-mode .form-text {
+body.dark-mode .form-text,
+body.dark-mode .text-muted,
+body.dark-mode .db-text {
   color: #f1f1f1 !important;
 }
 
