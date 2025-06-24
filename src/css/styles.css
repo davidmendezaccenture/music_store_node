@@ -205,19 +205,11 @@ header {
 .container {
   min-height: auto;
 }
-/* Estilos título h1 del Main */
-/* .products-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: bold;
-} */
 
 .products-title {
-  font-family: "Asset", serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: -3px;
-  transform: scaleY(1.8);
-  padding-bottom: 1%;
+  font-family: 'Outfit', sans-serif;
+  font-size: 4rem;
+
 }
 
 /* Estilo para la barra de navegación secundaria */
