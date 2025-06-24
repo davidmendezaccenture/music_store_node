@@ -196,6 +196,9 @@ header {
   border-top: 1px solid #444647 !important;
 }
 
+#cart-count {
+  display: none;
+}
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
 /* estilos para el Main */

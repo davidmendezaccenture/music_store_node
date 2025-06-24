@@ -20,3 +20,7 @@ body {
 #cart-content {
     display:none;
 }
+
+#cart-count {
+  display: none;
+}

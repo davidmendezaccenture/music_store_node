@@ -13,28 +13,46 @@ function getCurrentUser() {
   return user?.username || 'guest';
 }
 
-// 3. Obtener carrito del backend
+// 3. Obtener carrito
 function fetchCart() {
   const user = getCurrentUser();
-  return $.get(`/api/cart?user=${encodeURIComponent(user)}`);
+  if (user === 'guest') {
+    // Invitado: usa localStorage
+    const items = JSON.parse(localStorage.getItem('cart')) || [];
+    return $.Deferred().resolve({ items }).promise();
+  } else {
+    // Logueado: usa backend
+    return $.get(`/api/cart?user=${encodeURIComponent(user)}`);
+  }
 }
 
-// 4. Guardar carrito en backend
+// 4. Guardar carrito
 function saveCart(items) {
   const user = getCurrentUser();
-  return $.ajax({
-    url: '/api/cart',
-    method: 'POST',
-    contentType: 'application/json',
-    data: JSON.stringify({ user, items })
-  });
+  if (user === 'guest') {
+    // Invitado: guarda en localStorage
+    localStorage.setItem('cart', JSON.stringify(items));
+    return $.Deferred().resolve().promise();
+  } else {
+    // Logueado: guarda en backend
+    return $.ajax({
+      url: '/api/cart',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ user, items })
+    });
+  }
 }
 
 // 5. Actualizar contador del carrito
 function updateCartCount(items) {
   const count = items.reduce((acc, item) => acc + (item.quantity || 1), 0);
   const badge = $('#cart-count');
-  if (badge.length) badge.text(count);
+  if (count > 0) {
+    badge.text(count).show();
+  } else {
+    badge.hide();
+  }
 }
 
 // 6. Añadir producto al carrito
