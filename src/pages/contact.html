@@ -94,23 +94,20 @@
             </ul>
             <!-- Botones a la derecha -->
             <div class="d-flex align-items-center gap-4 me-5">
-              <a class="nav-link" id="carritoButton" href="#"
-                ><img
-                  src="/assets/images/cart.png"
-                  alt="Carrito"
-                  width="28"
-                  height="28"
-                  class="cart-logo"
-              /></a>
+              <a class="nav-link" id="carritoButton" href="/pages/cart.html">
+                <i class="bi bi-cart cart-logo" alt="Carrito"></i>
+                <!-- Contador de compras junto al carrito -->
+                <span id="cart-count" class="badge rounded-pill bg-danger"
+                  >0</span
+                >
+              </a>
               <!-- Indicamos el target al modal que queremos abrir con la id-->
-              <a class="nav-link" id="loginButton" href="#"
-                ><img
-                  src="/assets/images/login.png"
+              <a class="nav-link" id="loginButton" href="#">
+                <i
+                  class="bi bi-person-circle login-logo"
                   alt="Iniciar sesión"
-                  width="28"
-                  height="28"
-                  class="login-logo"
-              /></a>
+                ></i>
+              </a>
               <!-- Darkmode -->
               <button
                 id="darkModeToggle"
@@ -152,12 +149,13 @@
     </header>
 
     <main class="container py-5">
-      <h2 class="text-center mb-4">Contacto</h2>
+      <h2 class="text-center mb-5">Tu satisfacción es nuestra prioridad</h2>
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
           <div class="card shadow-lg border-0 rounded-4 h-100">
             <div class="card-body p-4">
               <form id="contactForm" novalidate>
+                <h2 class="text-center mb-4">Contacto</h2>
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre*</label>
                   <input
@@ -384,5 +382,6 @@
     <script src="../js/auth.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/contact.js"></script>
+    <script src="../js/cart.js"></script>
   </body>
 </html>

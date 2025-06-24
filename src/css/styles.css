@@ -33,7 +33,7 @@ header {
 /* Estilo para la navbar */
 .contenedor-main-navbar {
   background-color: rgba(0, 0, 0, 0.5);
-  width: 70%;
+  width: 60%;
 }
 /* Estilo de la secion activa en navbar */
 .navbar-nav .nav-link.active {
@@ -43,7 +43,7 @@ header {
   text-decoration: dashed underline;
   border-radius: none;
   box-shadow: none;
-  color: white;
+  color: #f6a61a;
 }
 /* Efectos de la navbar */
 
@@ -323,7 +323,7 @@ a:focus .icon-image {
 }
 
 .carousel-indicators-custom .indicator.active {
-  background: #a259e6;
+  background: #f6a61a;
 }
 
 .indicator.active {
@@ -361,7 +361,6 @@ a:focus .icon-image {
   width: 200px;
   height: 150px;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .texto-opinion-card {
