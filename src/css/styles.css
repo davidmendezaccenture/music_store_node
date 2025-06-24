@@ -119,7 +119,7 @@ header {
   width: 44px;      /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #f3e9fc; /* O el color que prefieras */
+  background-color: #000000; /* O el color que prefieras */
   color: #F6A61A;          /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
@@ -129,7 +129,7 @@ header {
 .login-logo:hover,
 .login-logo:focus{
   background-color: #F6A61A;
-  color: #fff;
+  color: #000000;
 }
 
 /* Mouseover para efectos iconos prefooter */
@@ -286,6 +286,13 @@ a:focus .icon-image {
 
 .arrow-carrousel {
   width: 40px;
+}
+
+.carrousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Estilo para los indicadores del carrusel */
