@@ -2,6 +2,29 @@
 
 // Espera a que el DOM esté listo
 $(document).ready(function () {
+  // Carga dinámica del header y asigna eventos dependientes
+  $("#header").load("/pages/header.html", function () {
+    // Asigna el evento de dark mode después de cargar el header
+    $("#darkModeToggle").on("click", function () {
+      $("body").toggleClass("dark-mode");
+      var isDark = $("body").hasClass("dark-mode");
+      $(this).attr("aria-pressed", isDark);
+      // Guardar preferencia
+      if (isDark) {
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+    // Estado inicial del botón
+    if (localStorage.getItem("darkMode") === "enabled") {
+      $("body").addClass("dark-mode");
+      $("#darkModeToggle").attr("aria-pressed", "true");
+    } else {
+      $("#darkModeToggle").attr("aria-pressed", "false");
+    }
+  });
+
   initNavbar();
   initNewsletterForm();
   initFeedbackSection();
@@ -20,29 +43,6 @@ $(document).ready(function () {
     // Si el modal ya está presente, asigna el evento directamente
     initLoginModal();
   }
-
-  /* $("#footer").load("/pages/footer.html"); */
-
-  // Comprobar Modo Oscuro
-  if (localStorage.getItem("darkMode") === "enabled") {
-    $("body").addClass("dark-mode");
-    $("#darkModeToggle").attr("aria-pressed", "true");
-  } else {
-    $("#darkModeToggle").attr("aria-pressed", "false");
-  }
-
-  // Bandera modo oscuro con boton
-  $("#darkModeToggle").on("click", function () {
-    $("body").toggleClass("dark-mode");
-    var isDark = $("body").hasClass("dark-mode");
-    $(this).attr("aria-pressed", isDark);
-    // Guardar preferencia
-    if (isDark) {
-      localStorage.setItem("darkMode", "enabled");
-    } else {
-      localStorage.setItem("darkMode", "disabled");
-    }
-  });
 });
 
 /* Funcion on click para no repetir código */
@@ -56,7 +56,6 @@ function initLoginModal() {
 
 function initNavbar() {
   // Lógica de la navbar
-  $("#header").load("/pages/header.html");
 }
 
 function initNewsletterForm() {
