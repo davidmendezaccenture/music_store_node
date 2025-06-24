@@ -106,7 +106,7 @@ header {
   height: 44px;
   border-radius: 50%;
   background-color: #f3e9fc; /* O el color que prefieras */
-  color: #480289ce;          /* Color del icono */
+  color: #F6A61A;          /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
 /* Cart style */
@@ -118,7 +118,7 @@ header {
   height: 44px;
   border-radius: 50%;
   background-color: #f3e9fc; /* O el color que prefieras */
-  color: #480289ce;          /* Color del icono */
+  color: #F6A61A;          /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
 
@@ -126,7 +126,7 @@ header {
 .cart-logo:focus,
 .login-logo:hover,
 .login-logo:focus{
-  background-color: #a259e6;
+  background-color: #F6A61A;
   color: #fff;
 }
 
