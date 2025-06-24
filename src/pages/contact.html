@@ -153,89 +153,159 @@
 
     <main class="container py-5">
       <h2 class="text-center mb-4">Contacto</h2>
-      <form id="contactForm" novalidate>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre*</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombre"
-            name="nombre"
-            required
-            aria-describedby="nombreError"
-          />
-          <div id="nombreError" class="invalid-feedback"></div>
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+          <div class="card shadow-lg border-0 rounded-4 h-100">
+            <div class="card-body p-4">
+              <form id="contactForm" novalidate>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre*</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    aria-describedby="nombreError"
+                  />
+                  <div id="nombreError" class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"
+                    >Correo electrónico*</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                    aria-describedby="emailError"
+                  />
+                  <div id="emailError" class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="asunto" class="form-label">Asunto</label>
+                  <select
+                    class="form-select"
+                    id="asunto"
+                    name="asunto"
+                    aria-describedby="asuntoGuia"
+                  >
+                    <option id="asuntoGuia" value="">
+                      Selecciona un asunto
+                    </option>
+                    <option>Consulta</option>
+                    <option>Sugerencia</option>
+                    <option>Soporte</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje*</label>
+                  <textarea
+                    class="form-control"
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    required
+                    aria-describedby="mensajeError"
+                  ></textarea>
+                  <div id="mensajeError" class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telefono"
+                    name="telefono"
+                    aria-describedby="telefonoError"
+                  />
+                  <div id="telefonoError" class="invalid-feedback"></div>
+                </div>
+                <p class="form-text text-center mb-2">* Campos obligatorios</p>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 rounded-pill mt-2"
+                >
+                  <i class="bi bi-envelope-fill me-2"></i>Enviar mensaje
+                </button>
+                <div
+                  id="formSuccess"
+                  class="alert alert-success mt-3 d-none"
+                  aria-live="polite"
+                >
+                  ¡Mensaje enviado correctamente!
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo electrónico*</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            required
-            aria-describedby="emailError"
-          />
-          <div id="emailError" class="invalid-feedback"></div>
-        </div>
-        <div class="mb-3">
-          <label for="asunto" class="form-label">Asunto</label>
-          <select
-            class="form-select"
-            id="asunto"
-            name="asunto"
-            aria-describedby="asuntoGuia"
-          >
-            <option id="asuntoGuia" value="">Selecciona un asunto</option>
-            <option>Consulta</option>
-            <option>Sugerencia</option>
-            <option>Soporte</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje*</label>
-          <textarea
-            class="form-control"
-            id="mensaje"
-            name="mensaje"
-            rows="4"
-            required
-            aria-describedby="mensajeError"
-          ></textarea>
-          <div id="mensajeError" class="invalid-feedback"></div>
-        </div>
-        <div class="mb-3">
-          <label for="telefono" class="form-label">Teléfono</label>
-          <input
-            type="text"
-            class="form-control"
-            id="telefono"
-            name="telefono"
-            aria-describedby="telefonoError"
-          />
-          <div id="telefonoError" class="invalid-feedback"></div>
-        </div>
-        <p class="form-text text-muted">* Campos obligatorios</p>
-        <button type="submit" class="btn btn-primary rounded-pill px-4">
-          Enviar
-        </button>
         <div
-          id="formSuccess"
-          class="alert alert-success mt-3 d-none"
-          aria-live="polite"
+          class="col-md-5 col-lg-4 d-flex flex-column align-items-center justify-content-between"
         >
-          ¡Mensaje enviado correctamente!
+          <div class="text-center mb-3">
+            <h5 class="mb-3">
+              <i class="bi bi-clock me-2"></i>Horario de atención
+            </h5>
+            <ul class="list-unstyled mb-3">
+              <li class="mb-3">Lunes a Viernes: 9:00 - 20:00</li>
+              <li class="mb-3">Sábados: 10:00 - 14:00</li>
+              <li class="mb-3">Domingos y festivos: Cerrado</li>
+              <img
+                src="/assets/images/logo.png"
+                alt="Equipo Rat Pack Instruments"
+                class="img-fluid rounded-3 shadow-sm mt-5 mb-3 img-logo"
+                style="max-width: 350px; height: auto; object-fit: contain"
+              />
+            </ul>
+          </div>
+          <div class="row g-3 justify-content-center mb-3">
+            <div class="col-4">
+              <img
+                src="/assets/images/support1.webp"
+                alt="María López - Soporte"
+                class="img-fluid rounded-circle shadow-sm mb-2"
+                style="width: 90px; height: 90px; object-fit: cover"
+              />
+              <div class="fw-bold">Aria morales</div>
+              <div class="text-muted" style="font-size: 0.95em">
+                Soporte Técnico
+              </div>
+            </div>
+            <div class="col-4">
+              <img
+                src="/assets/images/support2.webp"
+                alt="Juan Pérez - Atención"
+                class="img-fluid rounded-circle shadow-sm mb-2"
+                style="width: 90px; height: 90px; object-fit: cover"
+              />
+              <div class="fw-bold">Juan Pérez</div>
+              <div class="text-muted" style="font-size: 0.95em">
+                Atención Cliente
+              </div>
+            </div>
+            <div class="col-4">
+              <img
+                src="/assets/images/support3.webp"
+                alt="Lucía Gómez - Postventa"
+                class="img-fluid rounded-circle shadow-sm mb-2"
+                style="width: 90px; height: 90px; object-fit: cover"
+              />
+              <div class="fw-bold">Lucía Gómez</div>
+              <div class="text-muted" style="font-size: 0.95em">Postventa</div>
+            </div>
+          </div>
+          <a
+            href="tel:+34900123456"
+            class="btn btn-success rounded-pill w-100 mb-4"
+          >
+            <i class="bi bi-telephone-fill me-2"></i>Llamar al soporte +34 900
+            123 456
+          </a>
         </div>
-      </form>
-      <section class="mt-5">
-        <h3>Horario de atención</h3>
-        <ul>
-          <li>Lunes a Viernes: 9:00 - 20:00</li>
-          <li>Sábados: 10:00 - 14:00</li>
-          <li>Domingos y festivos: Cerrado</li>
-        </ul>
-      </section>
+      </div>
     </main>
 
     <!-- Linea divisoria superior del footer -->
