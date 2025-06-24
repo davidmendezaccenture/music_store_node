@@ -31,7 +31,7 @@
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   </head>
   <body>
-    <!-- Cabecera de la página -->
+      <!-- Cabecera de la página -->
     <header class="main-header">
       <!-- NavBar -->
       <nav
@@ -86,28 +86,22 @@
                 <a class="nav-link navbar-sections" href="#">Sobre nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link navbar-sections" href="#">Contacto</a>
+                <a class="nav-link navbar-sections" href="/pages/contact.html"
+                  >Contacto</a
+                >
               </li>
             </ul>
             <!-- Botones a la derecha -->
             <div class="d-flex align-items-center gap-4 me-5">
-              <a class="nav-link" id="carritoButton" href="#"
-                ><img
-                  src="/assets/images/cart.png"
-                  alt="Carrito"
-                  width="28"
-                  height="28"
-                  class="cart-logo"
-              /></a>
+              <a class="nav-link" id="carritoButton" href="/pages/cart.html">
+                <i class="bi bi-cart cart-logo"   alt="Carrito" ></i>
+                <!-- Contador de compras junto al carrito -->
+                <span id="cart-count" class="badge rounded-pill bg-danger">0</span>
+                </a>
               <!-- Indicamos el target al modal que queremos abrir con la id-->
-              <a class="nav-link" id="loginButton" href="#"
-                ><img
-                  src="/assets/images/login.png"
-                  alt="Iniciar sesión"
-                  width="28"
-                  height="28"
-                  class="login-logo"
-              /></a>
+              <a class="nav-link" id="loginButton" href="#">
+                <i class="bi bi-person-circle login-logo" alt="Iniciar sesión"></i>
+                </a>
               <!-- Darkmode -->
               <button
                 id="darkModeToggle"
@@ -122,7 +116,7 @@
         </div>
       </nav>
       <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 buscador mb-5">
+      <div class="search-bar py-1 buscador">
         <div class="container">
           <form
             class="d-flex justify-content-center buscador-form"
@@ -147,30 +141,93 @@
         </div>
       </div>
     </header>
+    
+<!-- ::::::::::::::::::::::: FIN HEADER ::::::::::::::::::::::: -->
 
     <!-- Contenido principal de la página -->
     <main class="container py-4" role="main">
-
-    <!-- Botón para volver a Home -->
-        <div class="mb-4">
-            <a href="/pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio"
-            >Volver</a>
-        </div>
         
-    <!-- Título -->
-        <h2 class="h1 mb-2">Nuestros Productos</h2>
-        
-    <!-- Carrito vacío -->
-        <div id="cart-empty" class="text-center my-5">
-            <img src="/assets/images/emptycart.png" alt="Carrito vacío" class="img-emptycart">
-            <h2 class="mt-3">Tu carrito está vacío</h2>
-            <p>¡Añade productos para verlos aquí!</p>
-            <a href="/pages/index.html" class="btn btn-primary mt-3">Volver a la tienda</a>
+  <!-- Contenido principal de la página -->
+<main class="container py-4" role="main">
+  <div class="row">
+    <!-- Columna izquierda: productos -->
+    <div class="col-lg-8">
+      <!-- Botón para volver a Home -->
+      <div class="mb-4">
+        <a href="/pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
+      </div>
+      <!-- Título -->
+      <h2 class="h1 mb-2">Nuestros Productos</h2>
+      <!-- Carrito vacío -->
+      <div id="cart-empty" class="text-center my-5">
+        <img src="/assets/images/emptycart.png" alt="Carrito vacío" class="img-emptycart">
+        <h2 class="mt-3">Tu carrito está vacío</h2>
+        <p>¡Añade productos para verlos aquí!</p>
+        <a href="/pages/index.html" class="btn btn-primary mt-3">Volver a la tienda</a>
+      </div>
+      <!-- Contenedor donde se renderizan los productos del carrito dinámicamente -->
+      <div id="cart-content"></div>
+      <!-- Template para los items del carrito -->
+      <template id="cart-item-template">
+        <div class="card mb-3 cart-item" data-id="">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-2 text-center">
+              <img src="" class="img-fluid rounded" alt="" style="max-width:80px;">
+            </div>
+            <div class="col-md-3">
+              <div class="card-body">
+                <h5 class="card-title mb-1"></h5>
+                <p class="card-text mb-1"></p>
+              </div>
+            </div>
+            <div class="col-md-2 text-center">
+              <span class="fw-bold price"></span>
+            </div>
+            <div class="col-md-3 text-center">
+              <div class="input-group justify-content-center">
+                <button class="btn btn-outline-secondary btn-sm btn-decrease" type="button">-</button>
+                <input type="text" class="form-control text-center mx-1 cart-qty-input" value="1" style="width: 40px; display: inline-block;" readonly>
+                <button class="btn btn-outline-secondary btn-sm btn-increase" type="button">+</button>
+              </div>
+            </div>
+            <div class="col-md-2 text-center">
+              <button class="btn btn-danger btn-sm btn-remove">Eliminar</button>
+            </div>
+          </div>
         </div>
-        <div id="cart-content">
-
-        <!-- Carrito con items -->
-        </div>
+      </template>
+    </div>
+    <!-- Columna derecha: resumen y métodos de pago -->
+    <div class="col-lg-4" id="cart-summary-col">
+      <div id="cart-summary"></div>
+      <template id="cart-summary-template">
+  <div class="card p-4 mb-4 shadow-sm">
+    <h3 class="fw-bold mb-3 text-center total"></h3>
+    <p class="text-center text-muted mb-3">Todos los precios incluyen IVA.</p>
+    <a href="#" class="btn btn-dark btn-lg w-100 mb-3">IR A CAJA &rarr;</a>
+    <div class="border rounded p-3 mb-3 bg-light">
+      <div class="d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-truck"></i> <strong>Entrega ordinaria</strong></span>
+        <span class="text-success fw-bold">gratis</span>
+      </div>
+      <small class="text-muted">Se espera entre el Ma., 1.07. y el Mi., 2.07.</small>
+      <a href="#" class="d-block mt-2 small">Información del envío <i class="bi bi-box-arrow-up-right"></i></a>
+    </div>
+    <div class="mb-2">
+      <a href="#" class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between">
+        <span>Pagar con PayPal Express</span>
+        <img src="/assets/images/paypal.png" alt="PayPal" style="height:24px;">
+      </a>
+      <a href="#" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between">
+        <span>Pagar con Amazon Pay</span>
+        <img src="/assets/images/amazon-icon.png" alt="Amazon Pay" style="height:24px;">
+      </a>
+    </div>
+  </div>
+</template>
+    </div>
+  </div>
+</main>
 
 
 
@@ -516,5 +573,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
   </body>
 </html>
