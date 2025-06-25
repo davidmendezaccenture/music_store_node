@@ -1,0 +1,129 @@
+h2 {
+    font-size: 3em;
+}
+
+
+/* Palabra resaltada para acento especial en el texto */
+.acento {
+    /* background: #23272b; */
+    color: #f6a61a;
+    border-radius: 0.1em;
+    /* padding: 0 0.1em; */
+    font-weight: 600;
+}
+
+/* Texto acento sin fondo, solo color y negrita */
+.acento-texto {
+    color: #f6a61a;
+    font-weight: 600;
+}
+
+/* Imagen de la tarjeta: siempre rellena el espacio total de la tarjeta */
+.staffCard .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Tarjeta principal: posición y recorte */
+.staffCard .card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 300px;
+}
+
+/* Bloque amarillo deslizante con nombre y descripción */
+.staffCard-yellow-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    background: #f6a61a;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    padding: 0 1em 1em 1em;
+    overflow: hidden;
+    /* El movimiento se controla por JS con transform */
+}
+
+/* Nombre del empleado (centrado) */
+.staffCard-yellow-block h5 {
+    margin-top: 0.4em;
+    color: #23272b;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+}
+
+/* Descripción del empleado (centrado) */
+.staffCard-yellow-block .card-desc {
+    color: #23272b;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+    /* Sin centrado vertical por defecto */
+}
+
+.staffCard-yellow-block.open .card-desc {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Cuerpo de la tarjeta: sin padding extra */
+.staffCard .card-body {
+    position: relative;
+    min-height: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Línea divisoria simple y fina */
+.divisor-fade {
+    border: none;
+    border-top: 2px solid #23272bb4;
+    margin: 5em auto;
+    width: 30%;
+}
+
+/* Imagen recoloreada: oculta por defecto, aparece al hacer hover */
+.staff-img-fade .img-color {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.staff-img-fade:hover .img-color,
+.staff-img-fade:focus-within .img-color {
+    opacity: 1;
+}
+
+/* Imagen en blanco y negro: siempre visible debajo */
+.staff-img-fade .img-bn {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
