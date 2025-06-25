@@ -84,7 +84,7 @@ $('.product-carousel-arrow.left').on('click', function() {
   showImage(current);
 });
 
-  
+
 
   // Lógica para los indicadores
   $indicatorsContainer.on('click', '.indicator', function() {
@@ -100,6 +100,8 @@ $('.product-carousel-arrow.left').on('click', function() {
 
 
     //Lógica para la transición de las cards "Opinión de clientes"
+
+   //Lógica para la transición de las cards "Opinión de clientes"
 
   $(function() {
   var visibleCards = 3;

@@ -382,13 +382,16 @@ a:focus .icon-image {
 .opinion-carousel-card {
   display: none;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease;
 }
 .opinion-carousel-card.active {
   display: block;
   opacity: 1;
 }
 
+.opinion-carousel-card.fade-out {
+  opacity: 0;
+}
 
 
 .opinion-carousel-arrow,
