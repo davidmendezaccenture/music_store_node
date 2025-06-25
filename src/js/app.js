@@ -101,8 +101,7 @@ function showImage(index) {
 
     //Lógica para la transición de las cards "Opinión de clientes"
 
-    $(function() {
-  // Número de cards a mostrar a la vez
+  $(function() {
   var visibleCards = 3;
   var $cards = $('.opinion-carousel-card');
   var totalCards = $cards.length;
@@ -111,22 +110,31 @@ function showImage(index) {
   function showCards(start) {
     $cards.removeClass('active');
     for (let i = 0; i < visibleCards; i++) {
-      let idx = (start + i) % totalCards;
-      $cards.eq(idx).addClass('active');
+      let idx = start + i;
+      if (idx < totalCards) {
+        $cards.eq(idx).addClass('active');
+      }
     }
+    // Deshabilita los botones si corresponde
+    $('.opinion-carousel-arrow.left').prop('disabled', start === 0);
+    $('.opinion-carousel-arrow.right').prop('disabled', start >= totalCards - visibleCards);
   }
 
   $('.opinion-carousel-arrow.left').click(function() {
-    currentStart = (currentStart - 1 + totalCards) % totalCards;
-    showCards(currentStart);
+    if (currentStart > 0) {
+      currentStart--;
+      showCards(currentStart);
+    }
   });
 
   $('.opinion-carousel-arrow.right').click(function() {
-    currentStart = (currentStart + 1) % totalCards;
-    showCards(currentStart);
+    if (currentStart < totalCards - visibleCards) {
+      currentStart++;
+      showCards(currentStart);
+    }
   });
 
-  // Inicializa mostrando las primeras
+  // Inicializa mostrando la primera
   showCards(currentStart);
 });
 }

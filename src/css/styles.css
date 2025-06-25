@@ -329,11 +329,11 @@ a:focus .icon-image {
 }
 
 .carousel-indicators-custom .indicator.active {
-  background: #a259e6;
+  background: #F6A61A;
 }
 
 .indicator.active {
-  background-color: #333;
+  background-color: #23272b;
 }
 
 /* estilo para las Cards de Opiniones de Clientes */
@@ -356,7 +356,7 @@ a:focus .icon-image {
   background: #fff;
 }
 
-.img-fluid {
+.img-card {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -388,6 +388,30 @@ a:focus .icon-image {
   display: block;
   opacity: 1;
 }
+
+
+
+.opinion-carousel-arrow {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Tamaño del icono */
+    background-color: #000 !important;
+  color: #F6A61A !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.opinion-carousel-arrow:hover,
+.opinion-carousel-arrow:focus {
+  background-color: #F6A61A !important;
+  color: #000 !important;
+  border: none !important;
+}
+
 @media (min-width: 992px) {
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
