@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* Fuente outfit */
 body {
   font-family: "Outfit", sans-serif;
@@ -39,6 +40,7 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
   width: 60%;
 }
+
 /* Estilo de la secion activa en navbar */
 .navbar-nav .nav-link.active {
   /* background-color: #f3e9fc; */
@@ -49,6 +51,7 @@ header {
   box-shadow: none;
   color: #f6a61a;
 }
+
 /* Efectos de la navbar */
 
 .navbar-nav .nav-link:hover,
@@ -64,13 +67,15 @@ header {
   border-radius: 50%;
   transform: scale(1.15);
 }
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
 
 /* Estilo para el logo de Rat Pack Instruments */
 .logo-main {
-  /* margin-left: 10px; */ /* Margen izquierdo */
+  /* margin-left: 10px; */
+  /* Margen izquierdo */
   width: 100px;
   height: auto;
   margin-right: 10px;
@@ -101,29 +106,37 @@ header {
 /* Login logo */
 .login-logo {
   font-size: 1.6rem;
-  margin-right: 0px; /* Margen derecho */
+  margin-right: 0px;
+  /* Margen derecho */
   /* border-radius: 50%; */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; /* Ajusta el tamaño según tu diseño */
+  width: 44px;
+  /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #000000; /* O el color que prefieras */
-  color: #f6a61a; /* Color del icono */
+  background-color: #000000;
+  /* O el color que prefieras */
+  color: #f6a61a;
+  /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
+
 /* Cart style */
 .cart-logo {
   font-size: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; /* Ajusta el tamaño según tu diseño */
+  width: 44px;
+  /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #000000; /* O el color que prefieras */
-  color: #f6a61a; /* Color del icono */
+  background-color: #000000;
+  /* O el color que prefieras */
+  color: #f6a61a;
+  /* Color del icono */
   transition: background 0.2s, color 0.2s;
 }
 
@@ -146,6 +159,7 @@ header {
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 0 8px #480289ce;
 }
+
 /* Estilo ventajas */
 .lista-ventajas {
   text-decoration: none;
@@ -167,6 +181,7 @@ header {
   margin-right: auto;
   max-width: 400px;
 }
+
 .buscador-form:focus-within {
   transform: scale(1.1);
 }
@@ -180,7 +195,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -190,19 +205,23 @@ header {
   width: 100%;
   position: relative;
 }
+
 .control-buscador {
   background-color: rgba(238, 236, 231, 0.693);
   height: 48px;
   font-size: 1.1rem;
   border-radius: 999px !important;
-  padding-right: 2.5rem !important; /* Espacio para la lupa */
+  padding-right: 2.5rem !important;
+  /* Espacio para la lupa */
 }
 
 .control-buscador:focus {
   border-color: #f6a61a !important;
-  box-shadow: 0 0 0 0.1rem #f6a61a !important; /* Cambia el glow exterior */
+  box-shadow: 0 0 0 0.1rem #f6a61a !important;
+  /* Cambia el glow exterior */
   outline: none !important;
 }
+
 .lupa-inside-input {
   color: #000000;
   background: none;
@@ -212,10 +231,12 @@ header {
   z-index: 2;
   right: 16px !important;
 }
+
 .lupa-inside-input:hover,
 .lupa-inside-input:active,
 .lupa-inside-input:focus {
-  color: #f6a61a !important; /* O el color que prefieras */
+  color: #f6a61a !important;
+  /* O el color que prefieras */
   background: none !important;
   box-shadow: none !important;
   outline: none !important;
@@ -227,6 +248,7 @@ header {
 .linea-divisora-gruesa {
   border-top: 3px solid #444647 !important;
 }
+
 .linea-divisora-fina {
   border-top: 1px solid #444647 !important;
 }
@@ -272,10 +294,13 @@ header {
   font-family: "Outfit", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  color: #000000;
+  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
   text-decoration: none;
-  transition: border-bottom 0.2s; /*efecto subrayado*/
-  border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
+  transition: border-bottom 0.2s;
+  /*efecto subrayado*/
+  border-bottom: 2px solid transparent;
+  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
 }
 
 .nav-text:hover {
@@ -285,7 +310,8 @@ header {
 /*efecto subrayado*/
 a:hover .nav-text,
 a:focus .nav-text {
-  border-bottom: 2px solid #f6a61a; /* Cambia el color según tu diseño */
+  border-bottom: 2px solid #f6a61a;
+  /* Cambia el color según tu diseño */
 }
 
 .icon-image {
@@ -317,7 +343,8 @@ a:focus .icon-image {
   opacity: 1;
 
   /* Opcional: para evitar que el espacio colapse */
-  background: #f8f9fa; /* o el color de fondo de tu carrusel */
+  background: #f8f9fa;
+  /* o el color de fondo de tu carrusel */
 }
 
 .img-carrousel.fade-out {
@@ -378,7 +405,8 @@ a:focus .icon-image {
 
 /* Barra para el texto de las opiniones */
 .texto-div {
-  max-height: 200px; /* a partir de 200px se mostrará la barra de desplazamiento */
+  max-height: 200px;
+  /* a partir de 200px se mostrará la barra de desplazamiento */
   overflow-y: auto;
 }
 
@@ -407,16 +435,19 @@ a:focus .icon-image {
   font-family: "Outfit", sans-serif;
   font-weight: 300;
   font-size: 1rem;
-  color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  color: #000000;
+  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
 
 .opinion-card-container {
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .opinion-card:hover .opinion-card-container,
 .opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
 }
 
 .opinion-carousel-card {
@@ -424,6 +455,7 @@ a:focus .icon-image {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
+
 .opinion-carousel-card.active {
   display: block;
   opacity: 1;
@@ -442,7 +474,8 @@ a:focus .icon-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem; /* Tamaño del icono */
+  font-size: 1.5rem;
+  /* Tamaño del icono */
   background-color: #000 !important;
   color: #f6a61a !important;
   border: none !important;
@@ -459,6 +492,7 @@ a:focus .icon-image {
 }
 
 @media (min-width: 992px) {
+
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
     width: 33.3333%;
@@ -478,10 +512,12 @@ a:focus .icon-image {
     width: 30vw;
     max-width: 100%;
   }
+
   .carrousel-container {
     margin-top: 2rem;
   }
 }
+
 /* ajustar el tamaño de los iconos */
 @media (max-width: 600px) {
   .icon-image {
@@ -505,7 +541,8 @@ a:focus .icon-image {
 }
 
 .input-login:focus::placeholder {
-  color: transparent; /* Ocultamos al estar sobre ese input */
+  color: transparent;
+  /* Ocultamos al estar sobre ese input */
 }
 
 /* Footer */
@@ -536,10 +573,12 @@ body.dark-mode .newsletter-section {
   background-color: #23232379 !important;
   color: #f1f1f1 !important;
 }
+
 body.dark-mode .footer {
   background-color: #232323 !important;
   color: #f6a61a !important;
 }
+
 body.dark-mode .pre-footer {
   background-color: #181818 !important;
   color: #f1f1f1 !important;
@@ -556,6 +595,7 @@ body.dark-mode .modal-content {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
 }
+
 /* Color de texto */
 body.dark-mode .form-text,
 body.dark-mode .text-muted,
@@ -593,6 +633,8 @@ body.dark-mode .lupa-inside-input:active,
 body.dark-mode .lupa-inside-input:hover i,
 body.dark-mode .lupa-inside-input:focus i,
 body.dark-mode .lupa-inside-input:active i {
-  color: #f6a61a !important; /* naranja en hover/focus */
+  color: #f6a61a !important;
+  /* naranja en hover/focus */
 }
+
 /* Hover redes sociales */

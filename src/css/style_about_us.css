@@ -5,15 +5,6 @@ h2 {
 
 /* Palabra resaltada para acento especial en el texto */
 .acento {
-    /* background: #23272b; */
-    color: #f6a61a;
-    border-radius: 0.1em;
-    /* padding: 0 0.1em; */
-    font-weight: 600;
-}
-
-/* Texto acento sin fondo, solo color y negrita */
-.acento-texto {
     color: #f6a61a;
     font-weight: 600;
 }
@@ -126,4 +117,10 @@ h2 {
     height: 100%;
     object-fit: cover;
     z-index: 1;
+}
+
+main {
+    padding-bottom: 80px;
+    margin-bottom: 1em;
+    /* Ajusta el valor según la altura de tu footer */
 }
