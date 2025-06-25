@@ -107,3 +107,7 @@ a.btn-outline-primary {
     font-size: 1.2rem;
   }
 }
+
+#cart-count {
+  display: none;
+}

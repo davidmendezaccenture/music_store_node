@@ -21,36 +21,40 @@ header {
   padding-bottom: 3rem;
 }
 
+#header {
+  min-height: 179px;
+  background-color: red;
+}
+
 /* Estilo para la navbar txt */
 .navbar-sections {
   font-family: "Outfit", sans-serif;
   font-weight: 500;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: #f1f1f1;
 }
 
 /* Estilo para la navbar */
 .contenedor-main-navbar {
   background-color: rgba(0, 0, 0, 0.5);
-  width: 70%;
+  width: 60%;
 }
 /* Estilo de la secion activa en navbar */
 .navbar-nav .nav-link.active {
   /* background-color: #f3e9fc; */
   /* color: #480289ce !important; */
-  font-weight: 800;
-  border-radius: 0.8rem;
-  text-decoration: underline;
-  box-shadow: 0 2px 8px #a259e6;
+  font-weight: 1000;
+  text-decoration: dashed underline;
+  border-radius: none;
+  box-shadow: none;
+  color: #f6a61a;
 }
 /* Efectos de la navbar */
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  color: #480289ce;
-  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
-  transition: color 0.2s, text-shadow 0.2s;
+  color: #f6a61a;
 }
 
 .nav-link img:hover,
@@ -58,8 +62,6 @@ header {
   background-color: #f3e9fc;
   border-radius: 50%;
   transform: scale(1.15);
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 0 8px #480289ce;
 }
 /* Overlay para mejorar el contraste */
 
@@ -91,18 +93,45 @@ header {
 .social-logo {
   width: 32px;
   height: 32px;
-  /*  margin-right: 10px; */
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Login logo */
 .login-logo {
+  font-size: 1.6rem;
   margin-right: 0px; /* Margen derecho */
+  /* border-radius: 50%; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; /* Ajusta el tamaño según tu diseño */
+  height: 44px;
   border-radius: 50%;
+  background-color: #000000; /* O el color que prefieras */
+  color: #f6a61a; /* Color del icono */
+  transition: background 0.2s, color 0.2s;
 }
 /* Cart style */
 .cart-logo {
+  font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; /* Ajusta el tamaño según tu diseño */
+  height: 44px;
   border-radius: 50%;
+  background-color: #000000; /* O el color que prefieras */
+  color: #f6a61a; /* Color del icono */
+  transition: background 0.2s, color 0.2s;
+}
+
+.cart-logo:hover,
+.cart-logo:focus,
+.login-logo:hover,
+.login-logo:focus {
+  background-color: #f6a61a;
+  color: #000000;
 }
 
 /* Mouseover para efectos iconos prefooter */
@@ -171,31 +200,37 @@ header {
   border-top: 1px solid #444647 !important;
 }
 
+#cart-count {
+  display: none;
+}
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
 /* estilos para el Main */
 .container {
   min-height: auto;
 }
-/* Estilos título h1 del Main */
-/* .products-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: bold;
-} */
 
 .products-title {
-  font-family: "Asset", serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: -3px;
-  transform: scaleY(1.8);
-  padding-bottom: 1%;
+  font-family: "Outfit", sans-serif;
+  font-size: 4rem;
 }
 
 /* Estilo para la barra de navegación secundaria */
 .icon-image {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .nav-text {
@@ -209,15 +244,13 @@ header {
 }
 
 .nav-text:hover {
-  color: #480289ce;
-  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
-  transition: color 0.2s, text-shadow 0.2s;
+  color: #f6a61a;
 }
 
 /*efecto subrayado*/
 a:hover .nav-text,
 a:focus .nav-text {
-  border-bottom: 2px solid #333; /* Cambia el color según tu diseño */
+  border-bottom: 2px solid #f6a61a; /* Cambia el color según tu diseño */
 }
 
 .icon-image {
@@ -234,7 +267,8 @@ a:focus .icon-image {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 3%;
+  margin-bottom: 5%;
 }
 
 /* Estilo para la imagen del carrusel */
@@ -246,13 +280,13 @@ a:focus .icon-image {
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
-   
-    /* Opcional: para evitar que el espacio colapse */
-    background: #f8f9fa; /* o el color de fondo de tu carrusel */
+
+  /* Opcional: para evitar que el espacio colapse */
+  background: #f8f9fa; /* o el color de fondo de tu carrusel */
 }
 
 .img-carrousel.fade-out {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -263,7 +297,14 @@ a:focus .icon-image {
 }
 
 .arrow-carrousel {
-  width: 40px;;
+  width: 40px;
+}
+
+.carrousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Estilo para los indicadores del carrusel */
@@ -287,7 +328,7 @@ a:focus .icon-image {
 }
 
 .carousel-indicators-custom .indicator.active {
-  background: #a259e6;
+  background: #f6a61a;
 }
 
 .indicator.active {
@@ -319,6 +360,12 @@ a:focus .icon-image {
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.img-logo {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .texto-opinion-card {
@@ -378,11 +425,11 @@ a:focus .icon-image {
   }
 
   @media (max-width: 600px) {
-  .icon-image {
-    width: 25px !important;
-    height: 25px !important;
+    .icon-image {
+      width: 25px !important;
+      height: 25px !important;
+    }
   }
-}
 }
 
 /* Hover redes sociales */
@@ -404,7 +451,8 @@ body.dark-mode .opinion-card-container {
 }
 
 body.dark-mode .bg-white,
-body.dark-mode .bg-light {
+body.dark-mode .bg-light,
+body.dark-mode .card {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
 }
@@ -421,9 +469,20 @@ body.dark-mode .modal-content {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
 }
-
-body.dark-mode .form-text {
+/* Color de texto */
+body.dark-mode .form-text,
+body.dark-mode .text-muted,
+body.dark-mode .db-text,
+body.dark-mode .icon-circle {
   color: #f1f1f1 !important;
+}
+/* Color de bordes */
+body.dark-mode .icon-circle {
+  border-color: #f1f1f1 !important;
+}
+
+body.dark-mode .icon-image {
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 450px) {

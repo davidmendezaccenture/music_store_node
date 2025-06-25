@@ -31,124 +31,7 @@
   </head>
   <body>
     <!-- Cabecera de la página -->
-    <header class="main-header">
-      <!-- NavBar -->
-      <nav
-        class="navbar navbar-expand-lg"
-        aria-label="Barra de navegación principal"
-        role="navigation"
-      >
-        <div class="container mb-3 contenedor-main-navbar">
-          <!-- Logo + título -->
-          <h1>
-            <a
-              class="navbar-brand d-flex align-items-center flex-grow-1"
-              href="/"
-            >
-              <img
-                src="/assets/images/logo.png"
-                class="logo-main"
-                alt="Rat Pack Instruments - Logo"
-              />
-              <!-- Linea invisible para accesibilidad -->
-              <span class="visually-hidden">Rat Pack Instruments</span></a
-            >
-          </h1>
-          <!-- Menu desplegable para pantallas moviles o pequeñas -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active navbar-sections"
-                  aria-current="page"
-                  href="/pages/index.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navbar-sections" href="/pages/guitar.html"
-                  >Productos??</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navbar-sections" href="#">Sobre nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navbar-sections" href="/pages/contact.html"
-                  >Contacto</a
-                >
-              </li>
-            </ul>
-            <!-- Botones a la derecha -->
-            <div class="d-flex align-items-center gap-4 me-5">
-              <a  class="nav-link" id="carritoButton" href="/pages/cart.html"
-                ><img
-                  src="/assets/images/cart.png"
-                  alt="Carrito"
-                  width="28"
-                  height="28"
-                  class="cart-logo"
-              /></a>
-              <!-- Indicamos el target al modal que queremos abrir con la id-->
-              <a class="nav-link" id="loginButton" href="#"
-                ><img
-                  src="/assets/images/login.png"
-                  alt="Iniciar sesión"
-                  width="28"
-                  height="28"
-                  class="login-logo"
-              /></a>
-              <!-- Darkmode -->
-              <button
-                id="darkModeToggle"
-                class="btn btn-outline-secondary rounded-pill ms-2"
-                aria-pressed="false"
-                aria-label="Activar modo oscuro"
-              >
-                <i class="bi bi-moon"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 buscador">
-        <div class="container">
-          <form
-            class="d-flex justify-content-center buscador-form"
-            role="search"
-            aria-label="Barra de busqueda"
-          >
-            <input
-              class="form-control-sm me-2 rounded-pill control-buscador"
-              type="search"
-              placeholder="Buscar productos..."
-              aria-label="Buscador"
-            />
-            <button
-              class="btn btn-outline-primary btn-sm rounded-pill"
-              type="submit"
-            >
-              Buscar
-            </button>
-          </form>
-          <!-- Overlay para la barra de búsqueda -->
-          <div class="buscador-overlay"></div>
-        </div>
-      </div>
-    </header>
-
+    <div id="header"></div>
     <!-- Contenido principal de la página -->
     <main class="container mt-4" role="main">
       <!-- Tu contenido aquí -->
@@ -156,146 +39,179 @@
       <!-- Título -->
       <h2 class="text-center mb-4 products-title">Nuestros Productos</h2>
 
-        <!-- Iconos Navegación Secundaria -->
-        <nav aria-label="Navegación secundaria de productos">
+      <!-- Iconos Navegación Secundaria -->
+      <nav aria-label="Navegación secundaria de productos">
+        <ul class="row list-unstyled text-center justify-content-center">
+          <li class="col-auto mb-2">
+            <a
+              href="/pages/guitar.html"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de guitarras"
+            >
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Guitarras"
+                  class="icon-image"
+                  src="/assets/images/electricguitar-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Guitarras</span>
+            </a>
+          </li>
 
-            <ul class="row list-unstyled text-center justify-content-center">
-
-                <li class="col-auto mb-4">
-                    <a href="/pages/guitar.html" class="d-flex flex-column align-items-center text-decoration-none" aria-label="Ver productos de guitarras">
-                        <img alt="Icono de Guitarras" class="icon-image" src="/assets/images/electricguitar-icon.svg" >
-                        <span class="nav-text">Guitarras</span>
-                    </a>
-                </li>
-
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de baterías"
             >
-              <img
-                alt="Icono de Baterías"
-                class="icon-image"
-                src="/assets/images/drums-icon.svg"
-              />
-              <span class="nav-text">Baterías</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Baterías"
+                  class="icon-image"
+                  src="/assets/images/drums-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Baterías</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Teclados"
             >
-              <img
-                alt="Icono de Teclados"
-                class="icon-image"
-                src="/assets/images/piano-icon.svg"
-              />
-              <span class="nav-text">Teclados</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Teclados"
+                  class="icon-image"
+                  src="/assets/images/piano-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Teclados</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de DJ"
             >
-              <img
-                alt="Icono de DJ"
-                class="icon-image"
-                src="/assets/images/dj-icon.svg"
-              />
-              <span class="nav-text">DJ</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de DJ"
+                  class="icon-image"
+                  src="/assets/images/dj-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">DJ</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Estudio"
             >
-              <img
-                alt="Icono de Estudio"
-                class="icon-image"
-                src="/assets/images/estudio-icon.svg"
-              />
-              <span class="nav-text">Estudio</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Estudio"
+                  class="icon-image"
+                  src="/assets/images/estudio-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Estudio</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Software"
             >
-              <img
-                alt="Icono de Software"
-                class="icon-image"
-                src="/assets/images/software-icon.svg"
-              />
-              <span class="nav-text">Software</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Software"
+                  class="icon-image"
+                  src="/assets/images/software-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Software</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Micros"
             >
-              <img
-                alt="Icono de Micros"
-                class="icon-image"
-                src="/assets/images/micro-icon.svg"
-              />
-              <span class="nav-text">Micros</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Micros"
+                  class="icon-image"
+                  src="/assets/images/micro-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Micros</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Sistemas PA"
             >
-              <img
-                alt="Icono de Sistema PA"
-                class="icon-image"
-                src="/assets/images/PA-icon.svg"
-              />
-              <span class="nav-text">PA</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Sistema PA"
+                  class="icon-image"
+                  src="/assets/images/PA-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">PA</span>
             </a>
           </li>
 
-          <li class="col-auto mb-4">
+          <li class="col-auto mb-2">
             <a
               href="#"
               class="d-flex flex-column align-items-center text-decoration-none"
               aria-label="Ver productos de Vídeo"
             >
-              <img
-                alt="Icono de Vídeo"
-                class="icon-image"
-                src="/assets/images/video-icon.svg"
-              />
-              <span class="nav-text">Vídeo</span>
+              <div class="icon-circle mb-2">
+                <img
+                  alt="Icono de Vídeo"
+                  class="icon-image"
+                  src="/assets/images/video-icon.svg"
+                />
+              </div>
+              <span class="nav-text db-text">Vídeo</span>
             </a>
           </li>
         </ul>
       </nav>
 
-        <!-- Carrusel de imágenes -->
-        <section class="carrousel-container">
-            <div>
-                <button type="button" class="carrousel-control" aria-label="Imagen anterior">
-                    <img src="/assets/images/left-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
-                </button>
+      <!-- Carrusel de imágenes -->
+      <section class="carrousel-container">
+        <div class="carrousel-inner">
+          <button
+            type="button"
+            class="carrousel-control"
+            aria-label="Imagen anterior"
+          >
+            <img
+              src="/assets/images/left-arrow-icon.svg"
+              class="arrow-carrousel"
+              alt=""
+              role="presentation"
+            />
+          </button>
 
           <picture>
             <img
@@ -305,280 +221,261 @@
             />
           </picture>
 
-                <button type="button" class="carrousel-control" aria-label="Imagen siguiente">
-                    <img src="/assets/images/right-arrow-icon.svg" class="arrow-carrousel" alt="" role="presentation">
-                </button>
-            </div>
-        <!-- Indicadores del Carrusel de imágenes -->
-          <div class="carousel-indicators-custom" role="tablist" aria-label="Indicadores del carrusel">
-              <!-- Los indicadores se generarán aquí -->
-          </div>  
-        </section>
-
-        
-
-        <!-- Sección Opiniones de clientes -->
-        <!-- Card 1 -->
-    <!-- <div class="container my-4 py-5 bg-light rounded">
-        <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                        <div class="img-div mb-3">
-                            <img src="/assets/images/foto-card1.png" alt="Foto de cliente" class="img-fluid">
-                        </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Luis Navas</h3>
-                            <p class="mb-1">Saxofonista</p>
-                            <p>Hice un pedido de varios productos que me urgían y tras indicarlo, todo llegó rapidísimo y en buen estado.</p>
-                        </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </div> -->
-            <!-- Card 2 -->
-            <!-- <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card2.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Susi Márquez</h3>
-                            <p class="mb-1">Batería</p>
-                            <p>Me ayudaron en todo momento, guiándome y resolviendo dudas sobre el producto. Y además son muy majos!! Quedé encantada.</p>
-                        </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </div> -->
-                <!-- Card 3 -->
-            <!-- <div class="col-12 col-md-6 col-lg-4 mb-2">
-                <section class="opinion-card h-100" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card3.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Roger Plaza</h3>
-                            <p class="mb-1">Pianista</p>
-                            <p>Tuve un problema con el pedido y en seguida se pusieron en contacto conmigo. El servicio postventa muy bien, excepto esto todo super bien.</p>
-                        </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </div>
+          <button
+            type="button"
+            class="carrousel-control"
+            aria-label="Imagen siguiente"
+          >
+            <img
+              src="/assets/images/right-arrow-icon.svg"
+              class="arrow-carrousel"
+              alt=""
+              role="presentation"
+            />
+          </button>
         </div>
-    </div> -->
+        <!-- Indicadores del Carrusel de imágenes -->
+        <div
+          class="carousel-indicators-custom"
+          role="tablist"
+          aria-label="Indicadores del carrusel"
+        >
+          <!-- Los indicadores se generarán aquí -->
+        </div>
+      </section>
 
-<div class="container my-4 py-5 bg-light rounded opinion-carousel-container">
-  <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
-  <!-- <div class="opinion-carousel-controls d-flex justify-content-between align-items-center mb-3">
-    <button class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle" aria-label="Opinión anterior">
-      <i class="bi bi-chevron-left"></i>
-    </button>
-    <button class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle" aria-label="Opinión siguiente">
-      <i class="bi bi-chevron-right"></i>
-    </button>
-  </div> -->
-  <div class="row justify-content-center opinion-carousel-row">
-    <!-- Card 1 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-      <section class="opinion-card " tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                          <div class="img-div mb-3">
-                              <img src="/assets/images/foto-card1.png" alt="Foto de cliente" class="img-fluid">
-                          </div>
-                      <div class="texto-div w-100">
-                          <div class="texto-opinion-card">
-                              <h3>Luis Navas</h3>
-                              <p class="mb-1">Saxofonista</p>
-                              <p >Hice un pedido de varios productos que me urgían y tras indicarlo, todo llegó rapidísimo y en buen estado.</p>
-                          </div>
-                      </div>
-                          <div>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-half text-warning"></i>
-                          </div>
-                    </div>
-                </section>
-      <!-- ...card 1... -->
-    </div>
-    <!-- Card 2 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-       <section class="opinion-card" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card2.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Susi Márquez</h3>
-                            <p class="mb-1">Batería</p>
-                            <p>Me ayudaron en todo momento, guiándome y resolviendo dudas sobre el producto. Y además son muy majos!! Quedé encantada.</p>
-                        </div>
-                    </div>
-                      <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                    </div>
-                </section>
-      <!-- ...card 2... -->
-    </div>
-    <!-- Card 3 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-      <section class="opinion-card" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card3.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Roger Plaza</h3>
-                            <p class="mb-1">Pianista</p>
-                            <p>Tuve un problema con el pedido y en seguida se pusieron en contacto conmigo. El servicio postventa muy bien, excepto esto todo super bien.</p>
-                        </div>
-                    </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                        </div>
-                    </div>
-                </section>
-      <!-- ...card 3... -->
-    </div>
-    <!-- Card 4 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-      <section class="opinion-card" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card4.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Lisa Gómez</h3>
-                            <p class="mb-1">Clarinetista</p>
-                            <p>Me encantan los productos que tienen, son de alta calidad, las cañas para mi clarinete vienen siempre en perfecto estado, y a veces con algún regalito extra!!</p>
-                        </div>
-
-                    </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                    </div>
-                </section>
-      <!-- ...card 4... -->
-    </div>
-    <!-- Card 5 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-      <section class="opinion-card" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card5.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Silvio González</h3>
-                            <p class="mb-1">Cantante</p>
-                            <p>Me encantan los productos que tienen, son de alta calidad, las cañas para mi clarinete vienen siempre en perfecto estado, y a veces con algún regalito extra!!</p>
-                        </div>
-                    </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                    </div>
-                </section>
-      <!-- ...card 5... -->
-    </div>
-    <!-- Card 6 -->
-    <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+      <!-- Sección Opiniones de clientes -->
+      <div
+        class="container my-4 py-5 bg-light rounded opinion-carousel-container"
+      >
+        <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
+        <div class="row justify-content-center opinion-carousel-row">
+          <!-- Card 1 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
             <section class="opinion-card" tabindex="0">
-                    <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-                    <div class="img-div mb-3">
-                        <img src="/assets/images/foto-card6.png" alt="Foto de cliente" class="img-fluid">
-                    </div>
-                    <div class="texto-div w-100">
-                        <div class="texto-opinion-card">
-                            <h3>Fran Burgos</h3>
-                            <p class="mb-1">Cantante</p>
-                            <p>Me encantan los productos que tienen, son de alta calidad, las cañas para mi clarinete vienen siempre en perfecto estado, y a veces con algún regalito extra!!</p>
-                        </div>
-                    </div>
-                        <div>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-half text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                    </div>
-                </section>
-      <!-- ...card 6... -->
-    </div>
-  </div>
-  <!-- Flechas debajo y centradas -->
-  <div class="d-flex justify-content-center gap-3 mt-3">
-    <button class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle" aria-label="Opinión anterior">
-      <i class="bi bi-chevron-left"></i>
-    </button>
-    <button class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle" aria-label="Opinión siguiente">
-      <i class="bi bi-chevron-right"></i>
-    </button>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-        
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card1.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Luis Navas</h3>
+                    <p class="mb-1 db-text">Saxofonista</p>
+                    <p class="db-text">
+                      Hice un pedido de varios productos que me urgían y tras
+                      indicarlo, todo llegó rapidísimo y en buen estado.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 1... -->
+          </div>
+          <!-- Card 2 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card2.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Susi Márquez</h3>
+                    <p class="mb-1 db-text">Batería</p>
+                    <p class="db-text">
+                      Me ayudaron en todo momento, guiándome y resolviendo dudas
+                      sobre el producto. Y además son muy majos!! Quedé
+                      encantada.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 2... -->
+          </div>
+          <!-- Card 3 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card3.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Roger Plaza</h3>
+                    <p class="mb-1 db-text">Pianista</p>
+                    <p class="db-text">
+                      Tuve un problema con el pedido y en seguida se pusieron en
+                      contacto conmigo. El servicio postventa muy bien, excepto
+                      esto todo super bien.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 3... -->
+          </div>
+          <!-- Card 4 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card4.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Lisa Gómez</h3>
+                    <p class="mb-1">Clarinetista</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 4... -->
+          </div>
+          <!-- Card 5 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card5.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Silvio González</h3>
+                    <p class="mb-1">Cantante</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 5... -->
+          </div>
+          <!-- Card 6 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card6.png"
+                    alt="Foto de cliente"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Fran Burgos</h3>
+                    <p class="mb-1">Cantante</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...card 6... -->
+          </div>
+        </div>
+        <!-- Flechas debajo y centradas -->
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <button
+            class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
+            aria-label="Opinión anterior"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button
+            class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
+            aria-label="Opinión siguiente"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </main>
     <!-- Sección preparada para Listado de Productos Destacados -->
 
@@ -619,7 +516,7 @@
                 <i class="bi bi-chat-dots me-2"></i>Denos su opinión
               </a>
             </div>
-            <p class="text-muted mb-0">
+            <p class="text-muted dm-p mb-0">
               ¡Tu opinión y recomendación nos ayuda a mejorar cada día!
             </p>
           </div>
@@ -641,7 +538,7 @@
             <img
               src="https://fast-images.static-thomann.de/pics//images/newsletter/envelope-newsletter.png"
               alt="Newsletter"
-              class="img-fluid"
+              class="img-fluid img-logo"
               style="max-width: 140px"
             />
           </div>
@@ -738,11 +635,11 @@
                 class="navbar-brand"
                 target="_blank"
                 rel="noopener"
-                href="https://www.mastercard.com/"
+                href="https://www.bizum.com/"
               >
                 <img
-                  src="/assets/images/mastercard.png"
-                  alt="MasterCard"
+                  src="/assets/images/bizum.png"
+                  alt="Bizum"
                   class="pago-logo"
                 />
               </a>
@@ -840,77 +737,12 @@
     <!-- Linea divisoria superior del footer -->
     <div class="linea-divisora-fina"></div>
     <!-- Footer -->
-    <footer class="footer text-center py-3" role="contentinfo">
-      Rat Pack Instruments &copy; 2025
-    </footer>
-
-    <!-- Modal de inicio de sesión -->
-    <!-- tabidex para navegar con teclado + accesibilidad para indicar que esta oculto por defecto -->
-    <!-- <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
-      aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title w-100 text-center" id="loginModalLabel">
-              Iniciar sesión
-            </h2>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Cerrar"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="loginEmail" class="form-label"
-                  >Correo electrónico</label
-                >
-                <input
-                  type="email"
-                  class="form-control input-login"
-                  id="loginEmail"
-                  required
-                  autocomplete="username"
-                  placeholder="Introduce tu correo electrónico"
-                  autofocus
-                />
-              </div>
-              <div class="mb-3">
-                <label for="loginPassword" class="form-label">Contraseña</label>
-                <input
-                  type="password"
-                  class="form-control input-login"
-                  id="loginPassword"
-                  autocomplete="current-password"
-                  placeholder="Mínimo 8 caracteres"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <a href="#" class="register-txt"
-                  ><span style="color: black">¿No tienes cuenta?</span>
-                  Regístrate</a
-                >
-              </div>
-              <button type="submit" class="btn btn-primary w-100">
-                Entrar
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <div id="footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
   </body>
 </html>
