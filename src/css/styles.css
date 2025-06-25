@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background-image: url("/assets/images/test.png");
+  background-image: url("/assets/images/imagen3.png");
   /* Ajustes de imagen */
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,7 +23,6 @@ header {
 
 #header {
   min-height: 179px;
-  background-color: red;
 }
 
 /* Estilo para la navbar txt */
@@ -55,6 +54,8 @@ header {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: #f6a61a;
+  outline: none !important;
+  box-shadow: 0 0 0 2px #f6a61a40;
 }
 
 .nav-link img:hover,
@@ -170,13 +171,6 @@ header {
   transform: scale(1.1);
 }
 
-/* .buscador .control-buscador:focus {
-  transform: scale(1.1);
-  transition: transform 0.2s;
-  z-index: 2;
-  position: relative;
-} */
-
 .buscador-overlay {
   display: none;
   position: fixed;
@@ -191,6 +185,43 @@ header {
   opacity: 1;
 }
 
+.buscador-input-wrapper {
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+.control-buscador {
+  background-color: rgba(238, 236, 231, 0.693);
+  height: 48px;
+  font-size: 1.1rem;
+  border-radius: 999px !important;
+  padding-right: 2.5rem !important; /* Espacio para la lupa */
+}
+
+.control-buscador:focus {
+  border-color: #f6a61a !important;
+  box-shadow: 0 0 0 0.1rem #f6a61a !important; /* Cambia el glow exterior */
+  outline: none !important;
+}
+.lupa-inside-input {
+  color: #000000;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  z-index: 2;
+  right: 16px !important;
+}
+.lupa-inside-input:hover,
+.lupa-inside-input:active,
+.lupa-inside-input:focus {
+  color: #f6a61a !important; /* O el color que prefieras */
+  background: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
 /* NewsLetter */
 
 .linea-divisora-gruesa {
@@ -203,6 +234,10 @@ header {
 #cart-count {
   display: none;
 }
+
+/* .newsletter-section {
+  background-color: rgba(160, 229, 240, 0.2) !important;
+} */
 /* Efecto hover con zoom para los íconos de la barra de navegación secundaria */
 
 /* estilos para el Main */
@@ -443,6 +478,16 @@ a:focus .icon-image {
   color: transparent; /* Ocultamos al estar sobre ese input */
 }
 
+/* Footer */
+.pre-footer {
+  background-color: rgba(160, 229, 240, 0.3);
+  padding: 2rem;
+}
+
+#footer {
+  background-color: rgba(160, 229, 240, 0.5);
+}
+
 /* Darkmode */
 body.dark-mode,
 body.dark-mode .opinion-card-container {
@@ -457,10 +502,22 @@ body.dark-mode .card {
   color: #f1f1f1 !important;
 }
 
-body.dark-mode .footer,
-body.dark-mode .pre-footer,
+body.dark-mode .newsletter-section {
+  background-color: #23232379 !important;
+  color: #f1f1f1 !important;
+}
+body.dark-mode .footer {
+  background-color: #232323 !important;
+  color: #f6a61a !important;
+}
+body.dark-mode .pre-footer {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
 body.dark-mode .form-control,
-body.dark-mode .form-select {
+body.dark-mode .form-select,
+body.dark-mode .btn-buscador {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
 }
@@ -473,12 +530,20 @@ body.dark-mode .modal-content {
 body.dark-mode .form-text,
 body.dark-mode .text-muted,
 body.dark-mode .db-text,
-body.dark-mode .icon-circle {
+body.dark-mode .icon-circle,
+body.dark-mode .control-buscador::placeholder,
+body.dark-mode .lupa-inside-input,
+body.dark-mode .lupa-inside-input i {
   color: #f1f1f1 !important;
 }
+
 /* Color de bordes */
 body.dark-mode .icon-circle {
   border-color: #f1f1f1 !important;
+}
+
+body.dark-mode .control-buscador {
+  border: none !important;
 }
 
 body.dark-mode .icon-image {
@@ -490,5 +555,14 @@ body.dark-mode .icon-image {
     width: 30px !important;
     height: 30px !important;
   }
+}
+
+body.dark-mode .lupa-inside-input:hover,
+body.dark-mode .lupa-inside-input:focus,
+body.dark-mode .lupa-inside-input:active,
+body.dark-mode .lupa-inside-input:hover i,
+body.dark-mode .lupa-inside-input:focus i,
+body.dark-mode .lupa-inside-input:active i {
+  color: #f6a61a !important; /* naranja en hover/focus */
 }
 /* Hover redes sociales */
