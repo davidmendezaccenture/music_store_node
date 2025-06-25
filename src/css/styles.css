@@ -5,12 +5,27 @@
   box-sizing: border-box;
 }
 
+/* Layout sticky footer para evitar espacios en blanco */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 /* Fuente outfit */
 body {
   font-family: "Outfit", sans-serif;
   font-size: 1rem;
   background-color: rgba(238, 236, 231, 0.693);
-  /*  */
 }
 
 header {
@@ -195,7 +210,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -492,7 +507,6 @@ a:focus .icon-image {
 }
 
 @media (min-width: 992px) {
-
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
     width: 33.3333%;
@@ -545,14 +559,16 @@ a:focus .icon-image {
   /* Ocultamos al estar sobre ese input */
 }
 
-/* Footer */
+/* Footer sticky */
 .pre-footer {
   background-color: rgba(160, 229, 240, 0.3);
   padding: 2rem;
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
 #footer {
   background-color: rgba(160, 229, 240, 0.5);
+  margin-top: 0;
 }
 
 /* Darkmode */
