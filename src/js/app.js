@@ -23,6 +23,19 @@ $(document).ready(function () {
     } else {
       $("#darkModeToggle").attr("aria-pressed", "false");
     }
+
+    // --- GESTIÓN DE ACTIVE EN NAVBAR ---
+    $(".navbar-nav .nav-link").removeClass("active");
+    var path = window.location.pathname;
+    if (path.includes("index.html") || path === "/" || path === "/pages/") {
+      $('.navbar-nav .nav-link[href$="index.html"]').addClass("active");
+    } else if (path.includes("guitar.html")) {
+      $('.navbar-nav .nav-link[href$="guitar.html"]').addClass("active");
+    } else if (path.includes("contact.html")) {
+      $('.navbar-nav .nav-link[href$="contact.html"]').addClass("active");
+    } else if (path.includes("sobre") || path.includes("about")) {
+      $('.navbar-nav .nav-link:contains("Sobre nosotros")').addClass("active");
+    }
   });
 
   initNavbar();
