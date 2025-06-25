@@ -167,17 +167,46 @@ $(document).on('click', '.btn-decrease', function () {
   });
 });
 
+// Eliminar producto del carrito
+// $(document).on('click', '.btn-remove', function () {
+//   const $item = $(this).closest('.cart-item');
+//   const id = parseInt($item.data('id'));
+//   fetchCart().then(function (cartData) {
+//     let items = cartData.items || [];
+//     items = items.filter(item => item.id !== id);
+//     saveCart(items).then(function () {
+//       updateCartCount(items);
+//       renderCart(items);
+//     });
+//   });
+// });
+
+// Eliminar producto del carrito
+let idToDelete = null;
+
 $(document).on('click', '.btn-remove', function () {
   const $item = $(this).closest('.cart-item');
-  const id = parseInt($item.data('id'));
-  fetchCart().then(function (cartData) {
-    let items = cartData.items || [];
-    items = items.filter(item => item.id !== id);
-    saveCart(items).then(function () {
-      updateCartCount(items);
-      renderCart(items);
+  idToDelete = parseInt($item.data('id'));
+  // Muestra el modal de Bootstrap
+  const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+  modal.show();
+});
+
+$('#confirmDeleteBtn').on('click', function () {
+  if (idToDelete !== null) {
+    fetchCart().then(function (cartData) {
+      let items = cartData.items || [];
+      items = items.filter(item => item.id !== idToDelete);
+      saveCart(items).then(function () {
+        updateCartCount(items);
+        renderCart(items);
+        idToDelete = null;
+        // Oculta el modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
+        modal.hide();
+      });
     });
-  });
+  }
 });
 
 // 8. Inicialización al cargar la página

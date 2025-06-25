@@ -238,6 +238,25 @@
 <button id="seguirComprandoBtn" class="btn btn-outline-primary">Seguir comprando</button>
 </div>
     
+
+<!-- Modal de confirmación para eliminar -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmLabel">Eliminar producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que quieres eliminar este producto del carrito?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 
 
@@ -251,10 +270,7 @@
 
 
         
-    </main>
-    <!-- Sección preparada para Listado de Productos Destacados -->
-
-    <section id="products-list"></section>
+ 
 
     <!-- Linea divisoria superior de feedback -->
     <div class="linea-divisora-gruesa"></div>
