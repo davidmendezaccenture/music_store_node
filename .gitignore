@@ -11,7 +11,10 @@ node_modules/
  
 # Archivos de entorno y configuraci�n sensible
 .env
-*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
  
 # Archivos de logs
 npm-debug.log*

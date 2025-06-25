@@ -3,6 +3,9 @@ const path = require("path");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 
+// Cargar variables de entorno
+require("dotenv").config();
+
 const app = express();
 app.use(express.json());
 
@@ -10,8 +13,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "instrumentsratpatck@gmail.com", // ⚠️ EMAIL
-    pass: "fcss drxu zmse nzqf", // ⚠️ POR APP PASSWORD
+    user: process.env.EMAIL_USER, // Desde variable de entorno
+    pass: process.env.EMAIL_PASS, // Desde variable de entorno
   },
 });
 
@@ -193,7 +196,7 @@ app.post("/api/contact", (req, res) => {
 
         // Enviar mensaje si se guarda al cliente
         const mailOptions = {
-          from: "instrumentsratpatck@gmail.com", // ⚠️ Tu email (remitente)
+          from: process.env.EMAIL_USER, // Desde variable de entorno
           to: email, // Email del cliente (destinatario)
           subject: `Confirmación: Hemos recibido tu mensaje - ${asunto}`,
           text: `Hola ${nombre},\n\nGracias por contactarnos. Hemos recibido tu mensaje:\n\n"${mensaje}"\n\nNos pondremos en contacto contigo pronto.\n\nSaludos,\nEquipo Rat Pack Instruments`,
@@ -315,8 +318,7 @@ Si te preguntan sobre productos muy específicos que no están en tu conocimient
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer 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", // ⚠️ API key de Groq
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`, // Desde variable de entorno
         },
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
