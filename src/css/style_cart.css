@@ -24,3 +24,43 @@ body {
 #cart-count {
   display: none;
 }
+
+#cart-empty {
+    display: none;
+}
+
+#cart-content, #cart-empty {
+  min-height: 300px; /* Alto del spinner */
+}
+
+/* Modal personalizado para eliminar producto */
+.custom-delete-modal .modal-content {
+  background-color: #23272b !important; /* Gris oscuro */
+  color: #F6A61A !important;           /* Texto naranja */
+  border: none;
+}
+
+.custom-delete-modal .modal-header,
+.custom-delete-modal .modal-footer {
+  border: none;
+}
+
+.custom-delete-modal .modal-title {
+  color: #F6A61A !important;
+}
+
+.custom-delete-modal .btn-close {
+  filter: invert(70%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(110%);
+}
+
+.custom-delete-modal .btn-danger {
+  background-color: #F6A61A !important;
+  color: #23272b !important;
+  border: none;
+}
+
+.custom-delete-modal .btn-danger:hover,
+.custom-delete-modal .btn-danger:focus {
+  background-color: #d48806 !important;
+  color: #fff !important;
+}

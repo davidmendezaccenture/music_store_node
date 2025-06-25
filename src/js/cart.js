@@ -1,19 +1,32 @@
 let productos = [];
 
-// 1. Cargar productos desde el backend
+// ALERTA DE PRODUCTO AÑADIDO
+let addToCartAlertTimeout;
+
+function showAddToCartAlert(msg = '¡Producto añadido a la cesta!') {
+  $('#addToCartAlert').text(msg).stop(true, true).fadeIn(200);
+
+  if (addToCartAlertTimeout) clearTimeout(addToCartAlertTimeout);
+
+  addToCartAlertTimeout = setTimeout(() => {
+    $('#addToCartAlert').fadeOut(400);
+  }, 2000);
+}
+
+// Cargar productos desde el backend
 function cargarProductos() {
   return $.get('/api/products', function (data) {
     productos = data;
   });
 }
 
-// 2. Obtener usuario actual (o guest)
+// Obtener usuario actual (o guest)
 function getCurrentUser() {
   const user = JSON.parse(localStorage.getItem('user'));
   return user?.username || 'guest';
 }
 
-// 3. Obtener carrito
+// Obtener carrito
 function fetchCart() {
   const user = getCurrentUser();
   if (user === 'guest') {
@@ -26,7 +39,7 @@ function fetchCart() {
   }
 }
 
-// 4. Guardar carrito
+// Guardar carrito
 function saveCart(items) {
   const user = getCurrentUser();
   if (user === 'guest') {
@@ -44,7 +57,7 @@ function saveCart(items) {
   }
 }
 
-// 5. Actualizar contador del carrito
+// Actualizar contador del carrito
 function updateCartCount(items) {
   const count = items.reduce((acc, item) => acc + (item.quantity || 1), 0);
   const badge = $('#cart-count');
@@ -55,7 +68,7 @@ function updateCartCount(items) {
   }
 }
 
-// 6. Añadir producto al carrito
+// Añadir producto al carrito
 function addToCartById(id) {
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
@@ -71,6 +84,7 @@ function addToCartById(id) {
       }
       saveCart(items).then(function () {
         updateCartCount(items);
+        showAddToCartAlert(); // Muestra el mensaje de éxito al añadir al carrito
         // Si estamos en cart.html, actualiza la vista del carrito
         if ($('#cart-content').length) renderCart(items);
       });
@@ -78,8 +92,9 @@ function addToCartById(id) {
   });
 }
 
-// 7. Renderizar carrito en cart.html
+// Renderizar carrito en cart.html
 function renderCart(items) {
+  $('#cart-loader').hide(); // Oculta el loader al renderizar el carrito
   const $cartEmpty = $('#cart-empty');
   const $cartContent = $('#cart-content');
   const $colLeft = $('.col-lg-8'); // Selecciona la columna izquierda
@@ -166,21 +181,52 @@ $(document).on('click', '.btn-decrease', function () {
   });
 });
 
+// Eliminar producto del carrito sin modal
+// Comentado para evitar conflictos con el modal de confirmación
+// $(document).on('click', '.btn-remove', function () {
+//   const $item = $(this).closest('.cart-item');
+//   const id = parseInt($item.data('id'));
+//   fetchCart().then(function (cartData) {
+//     let items = cartData.items || [];
+//     items = items.filter(item => item.id !== id);
+//     saveCart(items).then(function () {
+//       updateCartCount(items);
+//       renderCart(items);
+//     });
+//   });
+// });
+
+// Eliminar producto del carrito con modal de confirmación
+let idToDelete = null;
+
 $(document).on('click', '.btn-remove', function () {
   const $item = $(this).closest('.cart-item');
-  const id = parseInt($item.data('id'));
-  fetchCart().then(function (cartData) {
-    let items = cartData.items || [];
-    items = items.filter(item => item.id !== id);
-    saveCart(items).then(function () {
-      updateCartCount(items);
-      renderCart(items);
-    });
-  });
+  idToDelete = parseInt($item.data('id'));
+  // Muestra el modal de Bootstrap
+  const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+  modal.show();
 });
 
-// 8. Inicialización al cargar la página
+$('#confirmDeleteBtn').on('click', function () {
+  if (idToDelete !== null) {
+    fetchCart().then(function (cartData) {
+      let items = cartData.items || [];
+      items = items.filter(item => item.id !== idToDelete);
+      saveCart(items).then(function () {
+        updateCartCount(items);
+        renderCart(items);
+        idToDelete = null;
+        // Oculta el modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
+        modal.hide();
+      });
+    });
+  }
+});
+
+// Inicialización al cargar la página
 $(document).ready(function () {
+  $('#cart-loader').show(); // Loader que se muestra al cargar el carrito
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
       let items = cartData.items || [];
@@ -194,4 +240,10 @@ $(document).ready(function () {
     const id = parseInt($(this).attr('data-id'));
     addToCartById(id);
       });
+
+  // Manejo del botón "Seguir comprando"
+  $('#seguirComprandoBtn').on('click', function () {
+    const lastPage = localStorage.getItem('lastShopPage');
+    window.location.href = lastPage || '/pages/index.html';
+  });
 });

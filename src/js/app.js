@@ -106,21 +106,15 @@ function initCarousel() {
       .attr("tabindex", "0");
   }
 
-  $(".carrousel-control")
-    .eq(1)
-    .on("click", function () {
-      // Botón derecho
-      current = (current + 1) % images.length;
-      showImage(current);
-    });
+  $(".product-carousel-arrow.right").on("click", function () {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
 
-  $(".carrousel-control")
-    .eq(0)
-    .on("click", function () {
-      // Botón izquierdo
-      current = (current - 1 + images.length) % images.length;
-      showImage(current);
-    });
+  $(".product-carousel-arrow.left").on("click", function () {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
 
   // Lógica para los indicadores
   $indicatorsContainer.on("click", ".indicator", function () {
@@ -134,6 +128,8 @@ function initCarousel() {
 
   //Lógica para la transición de las cards "Opinión de clientes"
 
+  //Lógica para la transición de las cards "Opinión de clientes"
+
   $(function () {
     // Número de cards a mostrar a la vez
     var visibleCards = 3;
@@ -144,22 +140,34 @@ function initCarousel() {
     function showCards(start) {
       $cards.removeClass("active");
       for (let i = 0; i < visibleCards; i++) {
-        let idx = (start + i) % totalCards;
-        $cards.eq(idx).addClass("active");
+        let idx = start + i;
+        if (idx < totalCards) {
+          $cards.eq(idx).addClass("active");
+        }
       }
+      // Deshabilita los botones si corresponde
+      $(".opinion-carousel-arrow.left").prop("disabled", start === 0);
+      $(".opinion-carousel-arrow.right").prop(
+        "disabled",
+        start >= totalCards - visibleCards
+      );
     }
 
     $(".opinion-carousel-arrow.left").click(function () {
-      currentStart = (currentStart - 1 + totalCards) % totalCards;
-      showCards(currentStart);
+      if (currentStart > 0) {
+        currentStart--;
+        showCards(currentStart);
+      }
     });
 
     $(".opinion-carousel-arrow.right").click(function () {
-      currentStart = (currentStart + 1) % totalCards;
-      showCards(currentStart);
+      if (currentStart < totalCards - visibleCards) {
+        currentStart++;
+        showCards(currentStart);
+      }
     });
 
-    // Inicializa mostrando las primeras
+    // Inicializa mostrando la primera
     showCards(currentStart);
   });
 }

@@ -12,8 +12,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/style_cart.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- Fuente seleccionada para usar en el proyecto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -144,10 +144,15 @@
     
 <!-- ::::::::::::::::::::::: FIN HEADER ::::::::::::::::::::::: -->
 
-    <!-- Contenido principal de la página -->
-    <main class="container py-4" role="main">
-        
   <!-- Contenido principal de la página -->
+
+  <!-- Loader de la página hasta que carga productos -->
+  <div id="cart-loader" class="text-center my-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>
+
 <main class="container py-4" role="main">
   <div class="row">
     <!-- Columna izquierda: productos -->
@@ -200,50 +205,61 @@
     <!-- Columna derecha: resumen y métodos de pago -->
     <div class="col-lg-4" id="cart-summary-col">
       <div id="cart-summary"></div>
-      <template id="cart-summary-template">
-  <div class="card p-4 mb-4 shadow-sm">
-    <h3 class="fw-bold mb-3 text-center total"></h3>
-    <p class="text-center text-muted mb-3">Todos los precios incluyen IVA.</p>
-    <a href="#" class="btn btn-dark btn-lg w-100 mb-3">IR A CAJA &rarr;</a>
-    <div class="border rounded p-3 mb-3 bg-light">
-      <div class="d-flex justify-content-between align-items-center">
-        <span><i class="bi bi-truck"></i> <strong>Entrega ordinaria</strong></span>
-        <span class="text-success fw-bold">gratis</span>
+          <template id="cart-summary-template">
+            <div class="card p-4 mb-4 shadow-sm">
+              <h3 class="fw-bold mb-3 text-center total"></h3>
+              <p class="text-center text-muted mb-3">Todos los precios incluyen IVA.</p>
+              <a href="#" class="btn btn-dark btn-lg w-100 mb-3">IR A CAJA &rarr;</a>
+              <div class="border rounded p-3 mb-3 bg-light">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-truck"></i> <strong>Entrega ordinaria</strong></span>
+                  <span class="text-success fw-bold">gratis</span>
+                </div>
+                <small class="text-muted">Se espera entre el Ma., 1.07. y el Mi., 2.07.</small>
+                <a href="#" class="d-block mt-2 small">Información del envío <i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+              <div class="mb-2">
+                <a href="#" class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between">
+                  <span>Pagar con PayPal Express</span>
+                  <img src="/assets/images/paypal.png" alt="PayPal" style="height:24px;">
+                </a>
+                <a href="#" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between">
+                  <span>Pagar con Amazon Pay</span>
+                  <img src="/assets/images/amazon-icon.png" alt="Amazon Pay" style="height:24px;">
+                </a>
+              </div>
+            </div>
+          </template>
+        </div>
+    </div>
+
+    <!-- Botón para seguir comprando -->
+<div class="d-flex justify-content-center">
+<button id="seguirComprandoBtn" class="btn btn-outline-primary">Seguir comprando</button>
+</div>
+    
+
+<!-- Modal de confirmación para eliminar -->
+<div class="modal fade custom-delete-modal" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmLabel">Eliminar producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-      <small class="text-muted">Se espera entre el Ma., 1.07. y el Mi., 2.07.</small>
-      <a href="#" class="d-block mt-2 small">Información del envío <i class="bi bi-box-arrow-up-right"></i></a>
-    </div>
-    <div class="mb-2">
-      <a href="#" class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between">
-        <span>Pagar con PayPal Express</span>
-        <img src="/assets/images/paypal.png" alt="PayPal" style="height:24px;">
-      </a>
-      <a href="#" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between">
-        <span>Pagar con Amazon Pay</span>
-        <img src="/assets/images/amazon-icon.png" alt="Amazon Pay" style="height:24px;">
-      </a>
+      <div class="modal-body">
+        ¿Estás seguro de que quieres eliminar este producto del carrito?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+      </div>
     </div>
   </div>
-</template>
-    </div>
-  </div>
-</main>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-        
-    </main>
-    <!-- Sección preparada para Listado de Productos Destacados -->
-
-    <section id="products-list"></section>
+    <!-- ::::::::::::::::::::::: FIN CONTENIDO PRINCIPAL ::::::::::::::::::::::: -->
 
     <!-- Linea divisoria superior de feedback -->
     <div class="linea-divisora-gruesa"></div>
