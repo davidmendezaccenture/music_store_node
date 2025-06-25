@@ -111,3 +111,16 @@ a.btn-outline-primary {
 #cart-count {
   display: none;
 }
+
+/* Alert personalizado para el carrito */
+.custom-alert {
+  background-color: #23272b !important; 
+  color: #F6A61A !important;            
+  border: none;
+}
+
+.custom-alert,
+.custom-alert .bi {
+  color: #F6A61A !important;
+}
+
