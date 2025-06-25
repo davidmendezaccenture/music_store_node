@@ -196,4 +196,10 @@ $(document).ready(function () {
     const id = parseInt($(this).attr('data-id'));
     addToCartById(id);
       });
+
+  // Manejo del botón "Seguir comprando"
+  $('#seguirComprandoBtn').on('click', function () {
+    const lastPage = localStorage.getItem('lastShopPage');
+    window.location.href = lastPage || '/pages/index.html';
+  });
 });
