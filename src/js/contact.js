@@ -43,6 +43,15 @@ $(function () {
       clearError("#mensaje");
     }
 
+    // Asunto
+    const asunto = $("#asunto").val().trim();
+    if (asunto.length < 3) {
+      valid = false;
+      setError("#asunto", "El asunto debe tener al menos 3 caracteres.");
+    } else {
+      clearError("#asunto");
+    }
+
     // Teléfono
     const telefono = $("#telefono").val().trim();
     if (telefono && !/^[\d\s\-\(\)]{7,}$/.test(telefono)) {
@@ -56,10 +65,48 @@ $(function () {
     }
 
     if (valid) {
-      $("#formSuccess").removeClass("d-none");
-      this.reset();
+      // Enviar datos al backend
+      const formData = {
+        nombre: nombre,
+        email: email,
+        asunto: asunto,
+        mensaje: mensaje,
+        telefono: telefono || null,
+      };
+
+      // Mostrar loading
+      const submitBtn = $("#contactForm button[type='submit']");
+      const originalText = submitBtn.text();
+      submitBtn.prop("disabled", true).text("Enviando...");
+
+      // Enviar al backend
+      $.ajax({
+        url: "/api/contact",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(formData),
+        success: function (response) {
+          $("#formSuccess").removeClass("d-none");
+          $("#formError").addClass("d-none");
+          $("#contactForm")[0].reset();
+          console.log("Mensaje enviado:", response);
+        },
+        error: function (xhr) {
+          $("#formError").removeClass("d-none");
+          $("#formSuccess").addClass("d-none");
+          const errorMsg =
+            xhr.responseJSON?.error || "Error al enviar el mensaje";
+          $("#formError").text(errorMsg);
+          console.error("Error:", errorMsg);
+        },
+        complete: function () {
+          // Restaurar botón
+          submitBtn.prop("disabled", false).text(originalText);
+        },
+      });
     } else {
       $("#formSuccess").addClass("d-none");
+      $("#formError").addClass("d-none");
     }
   });
 
