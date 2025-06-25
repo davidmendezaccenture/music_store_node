@@ -80,6 +80,7 @@ function addToCartById(id) {
 
 // 7. Renderizar carrito en cart.html
 function renderCart(items) {
+  $('#cart-loader').hide(); // Oculta el loader al renderizar el carrito
   const $cartEmpty = $('#cart-empty');
   const $cartContent = $('#cart-content');
   const $colLeft = $('.col-lg-8'); // Selecciona la columna izquierda
@@ -181,6 +182,7 @@ $(document).on('click', '.btn-remove', function () {
 
 // 8. Inicialización al cargar la página
 $(document).ready(function () {
+  $('#cart-loader').show(); // Loader que se muestra al cargar el carrito
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
       let items = cartData.items || [];

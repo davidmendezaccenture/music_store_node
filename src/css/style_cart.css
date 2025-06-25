@@ -24,3 +24,11 @@ body {
 #cart-count {
   display: none;
 }
+
+#cart-empty {
+    display: none;
+}
+
+#cart-content, #cart-empty {
+  min-height: 300px; /* Alto del spinner */
+}
