@@ -74,15 +74,15 @@ function showImage(index) {
   $('.indicator').eq(index).addClass('active').attr('aria-selected', 'true').attr('tabindex', '0');
 }
 
-  $('.carrousel-control').eq(1).on('click', function() { // Botón derecho
-    current = (current + 1) % images.length;
-    showImage(current);
-  });
+$('.product-carousel-arrow.right').on('click', function() {
+  current = (current + 1) % images.length;
+  showImage(current);
+});
 
-  $('.carrousel-control').eq(0).on('click', function() { // Botón izquierdo
-    current = (current - 1 + images.length) % images.length;
-    showImage(current);
-  });
+$('.product-carousel-arrow.left').on('click', function() {
+  current = (current - 1 + images.length) % images.length;
+  showImage(current);
+});
 
   
 

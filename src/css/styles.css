@@ -391,10 +391,12 @@ a:focus .icon-image {
 
 
 
-.opinion-carousel-arrow {
+.opinion-carousel-arrow,
+.product-carousel-arrow {
   width: 48px;
   height: 48px;
   padding: 0;
+  margin: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -406,7 +408,9 @@ a:focus .icon-image {
 }
 
 .opinion-carousel-arrow:hover,
-.opinion-carousel-arrow:focus {
+.opinion-carousel-arrow:focus,
+.product-carousel-arrow:hover,
+.product-carousel-arrow:focus {
   background-color: #F6A61A !important;
   color: #000 !important;
   border: none !important;
