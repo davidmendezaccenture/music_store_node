@@ -286,6 +286,7 @@ header {
 a:hover .nav-text,
 a:focus .nav-text {
   border-bottom: 2px solid #f6a61a; 
+  background-color: transparent;
 }
 
 .icon-image {
@@ -611,7 +612,6 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible {
 }
 
 /* Mostrar outline solo en el texto cuando el enlace está enfocado */
-nav[aria-label="Navegación secundaria de productos"] a:focus .nav-text,
 nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text {
   outline: none;
   box-shadow: 0 0 0 2px #f6a61a40;
@@ -620,4 +620,6 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   background-color: #f6a61a;
   color: #000000;
 }
+
+/* Elimina o comenta la regla con :focus sola */
 /* Hover redes sociales */
