@@ -184,3 +184,16 @@ function initCarousel() {
     showCards(currentStart);
   });
 }
+
+// Función para cargar el contenido de la navegación de productos
+// filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js
+document.addEventListener('DOMContentLoaded', function () {
+  const placeholder = document.getElementById('nav-secundaria-placeholder');
+  if (placeholder) {
+    fetch('../pages/nav-products.html')
+      .then(res => res.text())
+      .then(html => {
+        placeholder.innerHTML = html;
+      });
+  }
+});
