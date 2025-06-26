@@ -242,6 +242,20 @@ $(document).ready(function () {
     addToCartById(id);
       });
 
+  // Lógica del botón "ir a caja" para usuarios no logueados y guest
+  $(document).on('click', '.btn-checkout', function (e) {
+    e.preventDefault();
+    const user = getCurrentUser();
+    if (user === 'guest') {
+      // Mostrar modal para guest
+      const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
+      modal.show();
+    } else {
+      // Aquí irá la lógica de checkout real para usuarios logueados
+      // window.location.href = '/pages/checkout.html';
+    }
+  });
+
   // Manejo del botón "Seguir comprando"
   $('#seguirComprandoBtn').on('click', function () {
     const lastPage = localStorage.getItem('lastShopPage');
