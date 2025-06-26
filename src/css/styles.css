@@ -297,6 +297,12 @@ a:focus .icon-image {
   transform: scale(1.12);
 }
 
+/* Subrayado y color para el enlace activo de la navegación secundaria */
+nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
+  border-bottom: 2px solid black;
+  color: black;
+}
+
 /* Estilo para el carrusel */
 .carrousel-container {
   display: flex;
