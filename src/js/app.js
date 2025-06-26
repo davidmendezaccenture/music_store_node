@@ -26,6 +26,7 @@ $(document).ready(function () {
 
     // --- GESTIÓN DE ACTIVE EN NAVBAR ---
     $(".navbar-nav .nav-link").removeClass("active");
+    $("#carritoButton").removeClass("active"); // Quitar active del carrito
     var path = window.location.pathname;
     if (path.includes("index.html") || path === "/" || path === "/pages/") {
       $('.navbar-nav .nav-link[href$="index.html"]').addClass("active");
@@ -33,6 +34,8 @@ $(document).ready(function () {
       $('.navbar-nav .nav-link[href$="guitar.html"]').addClass("active");
     } else if (path.includes("contact.html")) {
       $('.navbar-nav .nav-link[href$="contact.html"]').addClass("active");
+    } else if (path.includes("cart.html")) {
+      $("#carritoButton").addClass("active"); // Activar carrito
     } else if (path.includes("sobre") || path.includes("about")) {
       $('.navbar-nav .nav-link:contains("Sobre nosotros")').addClass("active");
     }

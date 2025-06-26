@@ -289,6 +289,7 @@ ESTILO DE RESPUESTA:
 - Máximo 120 palabras por respuesta
 - **SIEMPRE menciona productos específicos de la lista de PRODUCTOS DISPONIBLES**
 - **USA PRECIOS EXACTOS de los productos listados al final**
+- **Fijate en descuentos y ofertas actuales**
 - Pregunta detalles si necesitas más información
 - Si no sabes algo exacto, deriva al contacto
 - Siempre termina ofreciendo más ayuda

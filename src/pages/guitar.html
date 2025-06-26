@@ -1,437 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guitarras y Bajos</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/style_guitar.css" />
 
-    <!-- Fuente seleccionada para usar en el proyecto-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Cabecera de la página -->
-    <div id="header"></div>
-    <!-- Navegación de productos secundaria de la página-->
-     <div id="nav-secundaria-placeholder"></div>
-    <!-- Contenido principal -->
-    <main class="container py-4" role="main">
-      <!-- Botón para volver a Home -->
-      <div class="mb-4">
-        <a href="" class="btn btn-outline-primary" aria-label="Volver al inicio"
-          >Volver</a
-        >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guitarras y Bajos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/style_guitar.css" />
+
+  <!-- Fuente seleccionada para usar en el proyecto-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Cabecera de la página -->
+  <div id="header"></div>
+  <!-- Navegación de productos secundaria de la página-->
+  <div id="nav-secundaria-placeholder"></div>
+  <!-- Contenido principal -->
+  <main class="container py-4" role="main">
+    <!-- Botón para volver a Home -->
+    <div class="mb-4">
+      <a href="" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
+    </div>
+
+    <!-- Menú de filtros -->
+    <section class="mb-4" role="region" aria-label="Filtros de categoría">
+      <h1 class="h1 mb-2">Guitarras y Bajos</h1>
+      <h2 class="h5 mb-2">Filtrar por categoría</h2>
+      <div class="dropdown">
+        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownCategoria"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Selecciona una categoría
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownCategoria">
+          <li><a class="dropdown-item" href="#">Todas</a></li>
+          <li><a class="dropdown-item" href="#">Acústicas</a></li>
+          <li><a class="dropdown-item" href="#">Eléctricas</a></li>
+          <li><a class="dropdown-item" href="#">Clásicas</a></li>
+        </ul>
       </div>
+    </section>
 
-      <!-- Menú de filtros -->
-      <section class="mb-4" role="region" aria-label="Filtros de categoría">
-        <h1 class="h1 mb-2">Guitarras y Bajos</h1>
-        <h2 class="h5 mb-2">Filtrar por categoría</h2>
-        <div class="dropdown">
-          <button
-            class="btn btn-outline-dark dropdown-toggle"
-            type="button"
-            id="dropdownCategoria"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Selecciona una categoría
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownCategoria">
-            <li><a class="dropdown-item" href="#">Todas</a></li>
-            <li><a class="dropdown-item" href="#">Acústicas</a></li>
-            <li><a class="dropdown-item" href="#">Eléctricas</a></li>
-            <li><a class="dropdown-item" href="#">Clásicas</a></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Catálogo de guitarras -->
-      <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
-        <!-- Guitarra Acústica -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar7.png"
-              class="card-img-top"
-              alt="Guitarra Acústica de alta calidad"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Acústica</h5>
-              <p class="card-text">Guitarra acústica de alta calidad.</p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >180 €</span
-                >
-                <span class="fw-bold text-danger ms-2">150 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="1"
-                aria-label="Añadir Guitarra Acústica a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Eléctrica -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar3.png"
-              class="card-img-top"
-              alt="Guitarra eléctrica para músicos avanzados"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Eléctrica</h5>
-              <p class="card-text">
-                Guitarra eléctrica para músicos avanzados.
-              </p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >350 €</span
-                >
-                <span class="fw-bold text-danger ms-2">300 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="2"
-                aria-label="Añadir Guitarra Eléctrica a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Flamenca -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar12.png"
-              class="card-img-top"
-              alt="Guitarra flamenca con un diseño tradicional"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Flamenca</h5>
-              <p class="card-text">
-                Guitarra flamenca con un diseño tradicional.
-              </p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >200 €</span
-                >
-                <span class="fw-bold text-danger ms-2">180 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="3"
-                aria-label="Añadir Guitarra Flamenca a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Stratocaster -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar2.png"
-              class="card-img-top"
-              alt="Guitarra eléctrica estilo Stratocaster"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Stratocaster</h5>
-              <p class="card-text">Guitarra eléctrica estilo Stratocaster.</p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >600 €</span
-                >
-                <span class="fw-bold text-danger ms-2">550 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="4"
-                aria-label="Añadir Guitarra Stratocaster a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Les Paul -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar1.png"
-              class="card-img-top"
-              alt="Guitarra eléctrica estilo Les Paul"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Les Paul</h5>
-              <p class="card-text">Guitarra eléctrica estilo Les Paul.</p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >700 €</span
-                >
-                <span class="fw-bold text-danger ms-2">650 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="5"
-                aria-label="Añadir Guitarra Les Paul a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Heavy Flying -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar13.jpg"
-              class="card-img-top"
-              alt="Guitarra Heavy Flying de lujo"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Heavy Flying</h5>
-              <p class="card-text">Guitarra clásica con acabados de lujo.</p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >900 €</span
-                >
-                <span class="fw-bold text-danger ms-2">850 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="6"
-                aria-label="Añadir Guitarra Heavy Flying a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guitarra Clásica Premium -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img
-              src="../assets/images/guitar6.png"
-              class="card-img-top"
-              alt="Guitarra clásica premium con acabados de lujo"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Guitarra Clásica Premium</h5>
-              <p class="card-text">Guitarra clásica con acabados de lujo.</p>
-              <p class="mb-2">
-                <span class="text-muted text-decoration-line-through"
-                  >900 €</span
-                >
-                <span class="fw-bold text-danger ms-2">850 €</span>
-              </p>
-              <button
-                class="btn btn-primary add-to-cart"
-                data-id="7"
-                aria-label="Añadir Guitarra Clásica Premium a la cesta"
-              >
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-
-
-    <!-- Guarda la URL actual como última página de compra -->
-     <script>
-          localStorage.setItem('lastShopPage', window.location.href);
-     </script>
-
-
-    <!-- Pre-footer -->
-    <!-- Linea divisoria superior pre-footer -->
-    <div class="linea-divisora-fina"></div>
-    <div
-      class="pre-footer mt-3"
-      role="contentinfo"
-      aria-label="Información adicional"
-    >
-      <div class="container">
-        <div class="row">
-          <!-- Columna 1: Métodos de pago -->
-          <div class="col">
-            <h2>Métodos de pago</h2>
-            <div class="col pre-footer-pagos">
-              <a
-                class="navbar-brand"
-                target="_blank"
-                rel="noopener"
-                href="https://www.paypal.com/"
-              >
-                <img
-                  src="/assets/images/paypal.png"
-                  alt="PayPal"
-                  class="pago-logo"
-                />
-              </a>
-              <a
-                class="navbar-brand"
-                target="_blank"
-                rel="noopener"
-                href="https://www.visa.com/"
-              >
-                <img
-                  src="/assets/images/visa.png"
-                  alt="Visa"
-                  class="pago-logo"
-                />
-              </a>
-              <a
-                class="navbar-brand"
-                target="_blank"
-                rel="noopener"
-                href="https://www.mastercard.com/"
-              >
-                <img
-                  src="/assets/images/mastercard.png"
-                  alt="MasterCard"
-                  class="pago-logo"
-                />
-              </a>
-              <a
-                class="navbar-brand"
-                target="_blank"
-                rel="noopener"
-                href="https://www.americanexpress.com/"
-              >
-                <img
-                  src="/assets/images/amex.png"
-                  alt="American Express"
-                  class="pago-logo"
-                />
-              </a>
-            </div>
-          </div>
-          <!-- Columna 2: Ventajas -->
-          <div class="col">
-            <h2>Ventajas Rat Pack Instruments</h2>
-            <!-- Lista de ventajas aquí -->
-            <ul class="list-unstyled">
-              <li><a href="#" class="lista-ventajas">Garantía de 2 años</a></li>
-              <li>
-                <a href="#" class="lista-ventajas"
-                  >30 días de Garantia Money Back</a
-                >
-              </li>
-              <li>
-                <a href="#" class="lista-ventajas">Reparacion</a>
-              </li>
-              <li>
-                <a href="#" class="lista-ventajas"
-                  >Asesoramiento personalizado</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Columna 3: Redes sociales -->
-          <div class="col pre-footer-social">
-            <h2>Síguenos</h2>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="Facebook"
-              class="me-2"
-            >
-              <img
-                src="/assets/images/fb.png"
-                alt="Facebook"
-                class="social-logo"
-            /></a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="Twitter"
-              class="me-2"
-            >
-              <img
-                src="/assets/images/twitter.png"
-                alt="Twitter"
-                class="social-logo"
-            /></a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="Instagram"
-              class="me-2"
-            >
-              <img
-                src="/assets/images/instagram.png"
-                alt="Instagram"
-                class="social-logo"
-            /></a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="YouTube"
-              class="me-2"
-            >
-              <img
-                src="/assets/images/youtube.png"
-                alt="YouTube"
-                class="social-logo"
-            /></a>
+    <!-- Catálogo de guitarras -->
+    <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
+      <!-- Guitarra Acústica -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar7.png" class="card-img-top" alt="Guitarra Acústica de alta calidad" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Acústica</h5>
+            <p class="card-text">Guitarra acústica de alta calidad.</p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">180 €</span>
+              <span class="fw-bold text-danger ms-2">150 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="1" aria-label="Añadir Guitarra Acústica a la cesta">
+              Añadir a la cesta
+            </button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Linea divisoria superior del footer -->
-    <div class="linea-divisora-fina"></div>
-    <!-- Footer -->
-    <div id="footer"></div>
+      <!-- Guitarra Eléctrica -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar3.png" class="card-img-top"
+            alt="Guitarra eléctrica para músicos avanzados" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Eléctrica</h5>
+            <p class="card-text">
+              Guitarra eléctrica para músicos avanzados.
+            </p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">350 €</span>
+              <span class="fw-bold text-danger ms-2">300 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="2" aria-label="Añadir Guitarra Eléctrica a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Alert de Producto añadido con éxito -->
-    <div id="addToCartAlert" class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
-        role="alert">
-      ¡Producto añadido a la cesta!
-    </div>
+      <!-- Guitarra Flamenca -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar12.png" class="card-img-top"
+            alt="Guitarra flamenca con un diseño tradicional" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Flamenca</h5>
+            <p class="card-text">
+              Guitarra flamenca con un diseño tradicional.
+            </p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">200 €</span>
+              <span class="fw-bold text-danger ms-2">180 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="3" aria-label="Añadir Guitarra Flamenca a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/cart.js"></script>
+      <!-- Guitarra Stratocaster -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar2.png" class="card-img-top" alt="Guitarra eléctrica estilo Stratocaster" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Stratocaster</h5>
+            <p class="card-text">Guitarra eléctrica estilo Stratocaster.</p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">600 €</span>
+              <span class="fw-bold text-danger ms-2">550 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="4"
+              aria-label="Añadir Guitarra Stratocaster a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Guitarra Les Paul -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar1.png" class="card-img-top" alt="Guitarra eléctrica estilo Les Paul" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Les Paul</h5>
+            <p class="card-text">Guitarra eléctrica estilo Les Paul.</p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">700 €</span>
+              <span class="fw-bold text-danger ms-2">650 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="5" aria-label="Añadir Guitarra Les Paul a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Guitarra Heavy Flying -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar13.jpg" class="card-img-top" alt="Guitarra Heavy Flying de lujo" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Heavy Flying</h5>
+            <p class="card-text">Guitarra clásica con acabados de lujo.</p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">900 €</span>
+              <span class="fw-bold text-danger ms-2">850 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="6"
+              aria-label="Añadir Guitarra Heavy Flying a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Guitarra Clásica Premium -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="../assets/images/guitar6.png" class="card-img-top"
+            alt="Guitarra clásica premium con acabados de lujo" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Guitarra Clásica Premium</h5>
+            <p class="card-text">Guitarra clásica con acabados de lujo.</p>
+            <p class="mb-2">
+              <span class="text-muted text-decoration-line-through">900 €</span>
+              <span class="fw-bold text-danger ms-2">850 €</span>
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="7"
+              aria-label="Añadir Guitarra Clásica Premium a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  </body>
+  <!-- Guarda la URL actual como última página de compra -->
+  <script>
+    localStorage.setItem("lastShopPage", window.location.href);
+  </script>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Alert de Producto añadido con éxito -->
+  <div id="addToCartAlert" class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
+    role="alert">
+    ¡Producto añadido a la cesta!
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+
 </html>

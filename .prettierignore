@@ -1,2 +1,8 @@
 # Ignorar archivos HTML con contenido dinámico
 src/pages/cart.html
+
+# Archivos JSON de datos (para mantener formato legible)
+backend/data/*.json
+backend/data/messages.json
+backend/data/users.json
+backend/data/carts.json

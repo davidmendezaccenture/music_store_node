@@ -163,6 +163,12 @@ header {
   color: #000000;
 }
 
+/* Estilo active cart */
+#carritoButton.active .cart-logo {
+  background-color: #f6a61a;
+  color: #000000;
+}
+
 /* Mouseover para efectos iconos prefooter */
 .pago-logo:hover,
 .pago-logo:focus,
@@ -577,6 +583,12 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* Estilo txt registrar */
 .register-txt {
   text-decoration: none;
+}
+
+/* Letra horario */
+
+.horario-text {
+  font-size: 2rem;
 }
 
 .input-login:focus::placeholder {
