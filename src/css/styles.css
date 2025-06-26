@@ -272,10 +272,10 @@ header {
   font-family: "Outfit", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  color: #000000; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  color: #000000; 
   text-decoration: none;
   transition: border-bottom 0.2s; /*efecto subrayado*/
-  border-bottom: 2px solid transparent; /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO (sustituir por transparent)!!*/
+  border-bottom: 2px solid transparent; 
 }
 
 .nav-text:hover {
@@ -285,7 +285,7 @@ header {
 /*efecto subrayado*/
 a:hover .nav-text,
 a:focus .nav-text {
-  border-bottom: 2px solid #f6a61a; /* Cambia el color según tu diseño */
+  border-bottom: 2px solid #f6a61a; 
 }
 
 .icon-image {

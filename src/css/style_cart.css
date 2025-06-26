@@ -64,3 +64,46 @@ body {
   background-color: #d48806 !important;
   color: #fff !important;
 }
+
+.regular-btn {
+  background-color: black !important;
+  color: #F6A61A !important;
+  border: none;
+}
+.regular-btn:hover,
+.regular-btn:focus {
+  background-color: #f6a61a !important;
+  color: black !important;
+}
+
+.clear-btn {
+  background-color: transparent !important;
+  color: black !important;
+  border: black 1px solid !important;
+}
+.clear-btn:hover,
+.clear-btn:focus {
+  background-color: transparent !important;
+  color: #F6A61A !important;
+}
+
+.cart-qty-group {
+  max-width: 100px; /* o el ancho que prefieras */
+  width: 100%;
+  margin: 0 auto;
+   /* margin-bottom: 1rem; */
+}
+
+.cart-qty-input {
+  min-width: 0;
+  width: 40px !important;
+  flex: 0 0 40px;
+  padding: 0 4px;
+}
+
+@media (max-width: 767px) {
+  .cart-qty-group,
+  .delete-product-btn {
+    margin-bottom: 1rem;
+  }
+}
