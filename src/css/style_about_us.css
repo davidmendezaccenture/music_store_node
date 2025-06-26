@@ -5,8 +5,13 @@ h2 {
 
 /* Palabra resaltada para acento especial en el texto */
 .acento {
-    color: #f6a61a;
+    /* color: #f6a61a; */
+    color: #23272b;
     font-weight: 600;
+    /* background-color: #23272b; */
+    background-color: #f6a61a;
+    padding: 0 4px;
+    border-radius: 3px;
 }
 
 /* Imágenes de staff: siempre rellena el espacio total de la tarjeta y se alinea por arriba */
