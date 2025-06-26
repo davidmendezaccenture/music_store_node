@@ -1,450 +1,527 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rat Pack Instruments</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icono tittle -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rat Pack Instruments</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <!-- Fuente seleccionada para usar en el proyecto-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet" />
-  <!-- icono tittle -->
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-</head>
+  <body>
+    <!-- Cabecera de la página -->
+    <div id="header"></div>
+    <!-- Contenido principal de la página -->
+    <main class="container mt-2" role="main" aria-label="Contenido principal">
+      <!-- Tu contenido aquí -->
 
-<body>
-  <!-- Cabecera de la página -->
-  <div id="header"></div>
-  <!-- Contenido principal de la página -->
-  <main class="container mt-2" role="main" aria-label="Contenido principal">
-    <!-- Tu contenido aquí -->
+      <!-- Título -->
+      <!-- <h2 class="text-center mb-4 products-title">Nuestros Productos</h2> -->
 
-    <!-- Título -->
-    <!-- <h2 class="text-center mb-4 products-title">Nuestros Productos</h2> -->
+      <!-- Iconos Navegación Secundaria -->
+      <nav aria-label="Navegación secundaria de productos">
+        <ul
+          class="row list-unstyled text-center justify-content-center second-navbar"
+        >
+          <li class="col-auto mb-2">
+            <a
+              href="/pages/guitar.html"
+              class="d-flex flex-column align-items-center text-decoration-none active"
+              aria-label="Ver productos de guitarras"
+            >
+              <span class="nav-text db-text mb-2">Guitarras</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Guitarras" class="icon-image" src="/assets/images/electricguitar-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-    <!-- Iconos Navegación Secundaria -->
-    <nav aria-label="Navegación secundaria de productos">
-      <ul class="row list-unstyled text-center justify-content-center second-navbar">
-        <li class="col-auto mb-2">
-          <a href="/pages/guitar.html" class="d-flex flex-column align-items-center text-decoration-none active"
-            aria-label="Ver productos de guitarras">
-            <span class="nav-text db-text mb-2">Guitarras</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Guitarras" class="icon-image" src="/assets/images/electricguitar-icon.svg" /> -->
-            </div>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de baterías"
+            >
+              <span class="nav-text db-text mb-2">Baterías</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Baterías" class="icon-image" src="/assets/images/drums-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-          </a>
-        </li>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Teclados"
+            >
+              <span class="nav-text db-text mb-2">Teclados</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Teclados" class="icon-image" src="/assets/images/piano-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de baterías">
-            <span class="nav-text db-text mb-2">Baterías</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Baterías" class="icon-image" src="/assets/images/drums-icon.svg" /> -->
-            </div>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de DJ"
+            >
+              <span class="nav-text db-text mb-2">DJ</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de DJ" class="icon-image" src="/assets/images/dj-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-          </a>
-        </li>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Estudio"
+            >
+              <span class="nav-text db-text mb-2">Estudio</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Estudio" class="icon-image" src="/assets/images/estudio-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Teclados">
-            <span class="nav-text db-text mb-2">Teclados</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Teclados" class="icon-image" src="/assets/images/piano-icon.svg" /> -->
-            </div>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Software"
+            >
+              <span class="nav-text db-text mb-2">Software</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Software" class="icon-image" src="/assets/images/software-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-          </a>
-        </li>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Micros"
+            >
+              <span class="nav-text db-text mb-2">Micros</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Micros" class="icon-image" src="/assets/images/micro-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de DJ">
-            <span class="nav-text db-text mb-2">DJ</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de DJ" class="icon-image" src="/assets/images/dj-icon.svg" /> -->
-            </div>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Sistemas PA"
+            >
+              <span class="nav-text db-text mb-2">PA</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Sistema PA" class="icon-image" src="/assets/images/PA-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
 
-          </a>
-        </li>
+          <li class="col-auto mb-2">
+            <a
+              href="#"
+              class="d-flex flex-column align-items-center text-decoration-none"
+              aria-label="Ver productos de Vídeo"
+            >
+              <span class="nav-text db-text mb-2">Vídeo</span>
+              <div class="mb-2 mt-2">
+                <!-- <img alt="Icono de Vídeo" class="icon-image" src="/assets/images/video-icon.svg" /> -->
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Estudio">
-            <span class="nav-text db-text mb-2">Estudio</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Estudio" class="icon-image" src="/assets/images/estudio-icon.svg" /> -->
-            </div>
+      <!-- Carrusel de imágenes -->
+      <!-- Botón izquierdo -->
+      <section
+        class="carrousel-container"
+        role="region"
+        aria-label="Carrusel de imágenes de productos"
+      >
+        <div class="carrousel-inner">
+          <button
+            class="product-carousel-arrow left btn btn-outline-secondary rounded-circle"
+            aria-label="Imagen anterior"
+          >
+            <!-- Imagen central -->
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <picture>
+            <img
+              alt="Imágenes de productos"
+              src="/assets/images/guitar1.png"
+              class="img-carrousel"
+            />
+          </picture>
+          <!-- Botón derecho -->
+          <button
+            class="product-carousel-arrow right btn btn-outline-secondary rounded-circle"
+            aria-label="Imagen siguiente"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+        <!-- Indicadores del Carrusel de imágenes -->
+        <div
+          class="carousel-indicators-custom"
+          role="tablist"
+          aria-label="Indicadores del carrusel"
+        >
+          <!-- Los indicadores se generarán aquí -->
+        </div>
+      </section>
 
-          </a>
-        </li>
-
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Software">
-            <span class="nav-text db-text mb-2">Software</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Software" class="icon-image" src="/assets/images/software-icon.svg" /> -->
-            </div>
-
-          </a>
-        </li>
-
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Micros">
-            <span class="nav-text db-text mb-2">Micros</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Micros" class="icon-image" src="/assets/images/micro-icon.svg" /> -->
-            </div>
-
-          </a>
-        </li>
-
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Sistemas PA">
-            <span class="nav-text db-text mb-2">PA</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Sistema PA" class="icon-image" src="/assets/images/PA-icon.svg" /> -->
-            </div>
-
-          </a>
-        </li>
-
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-column align-items-center text-decoration-none"
-            aria-label="Ver productos de Vídeo">
-            <span class="nav-text db-text mb-2">Vídeo</span>
-            <div class="mb-2 mt-2">
-              <!-- <img alt="Icono de Vídeo" class="icon-image" src="/assets/images/video-icon.svg" /> -->
-            </div>
-
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Carrusel de imágenes -->
-    <!-- Botón izquierdo -->
-    <section class="carrousel-container" role="region" aria-label="Carrusel de imágenes de productos">
-      <div class="carrousel-inner">
-        <button class="product-carousel-arrow left btn btn-outline-secondary rounded-circle"
-          aria-label="Imagen anterior">
-          <!-- Imagen central -->
-          <i class="bi bi-chevron-left"></i>
-        </button>
-        <picture>
-          <img alt="Imágenes de productos" src="/assets/images/guitar1.png" class="img-carrousel" />
-        </picture>
-        <!-- Botón derecho -->
-        <button class="product-carousel-arrow right btn btn-outline-secondary rounded-circle"
-          aria-label="Imagen siguiente">
-          <i class="bi bi-chevron-right"></i>
-        </button>
+      <!-- Carrusel de opiniones -->
+      <div
+        class="container my-4 py-5 rounded opinion-carousel-container"
+        role="region"
+        aria-label="Opiniones de nuestros clientes"
+      >
+        <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
+        <div class="row justify-content-center opinion-carousel-row">
+          <!-- Card 1 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card1.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Luis Navas</h3>
+                    <p class="mb-1 db-text">Saxofonista</p>
+                    <p class="db-text">
+                      Hice un pedido de varios productos que me urgían y tras
+                      indicarlo, todo llegó rapidísimo y en buen estado.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ... fin card 1... -->
+          </div>
+          <!-- Card 2 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card2.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Susi Márquez</h3>
+                    <p class="mb-1 db-text">Batería</p>
+                    <p class="db-text">
+                      Me ayudaron en todo momento, guiándome y resolviendo dudas
+                      sobre el producto. Y además son muy majos!! Quedé
+                      encantada.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...fin card 2... -->
+          </div>
+          <!-- Card 3 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card3.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3 class="db-text">Roger Plaza</h3>
+                    <p class="mb-1 db-text">Pianista</p>
+                    <p class="db-text">
+                      Tuve un problema con el pedido y en seguida se pusieron en
+                      contacto conmigo. El servicio postventa muy bien, excepto
+                      esto todo super bien.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...fin card 3... -->
+          </div>
+          <!-- Card 4 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card4.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Lisa Gómez</h3>
+                    <p class="mb-1">Clarinetista</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...fin card 4... -->
+          </div>
+          <!-- Card 5 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card5.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Silvio González</h3>
+                    <p class="mb-1">Cantante</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...fin card 5... -->
+          </div>
+          <!-- Card 6 -->
+          <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
+            <section class="opinion-card" tabindex="0">
+              <div
+                class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+              >
+                <div class="img-div mb-3">
+                  <img
+                    src="/assets/images/foto-card6.png"
+                    alt="Foto de cliente"
+                    class="img-card"
+                  />
+                </div>
+                <div class="texto-div w-100">
+                  <div class="texto-opinion-card">
+                    <h3>Fran Burgos</h3>
+                    <p class="mb-1">Cantante</p>
+                    <p>
+                      Me encantan los productos que tienen, son de alta calidad,
+                      las cañas para mi clarinete vienen siempre en perfecto
+                      estado, y a veces con algún regalito extra!!
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                </div>
+              </div>
+            </section>
+            <!-- ...fin card 6... -->
+          </div>
+        </div>
+        <!-- Flechas debajo y centradas -->
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <button
+            class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
+            aria-label="Opinión anterior"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button
+            class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
+            aria-label="Opinión siguiente"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
       </div>
-      <!-- Indicadores del Carrusel de imágenes -->
-      <div class="carousel-indicators-custom" role="tablist" aria-label="Indicadores del carrusel">
-        <!-- Los indicadores se generarán aquí -->
+    </main>
+
+    <!-- Sección preparada para Listado de Productos Destacados -->
+
+    <section id="products-list"></section>
+    <!-- ...Final del Main... -->
+
+    <!-- Newsletter -->
+    <section
+      class="newsletter-section py-4 bg-white"
+      role="regin"
+      aria-label="Sección de suscripción a la newsletter"
+    >
+      <div class="container container-newsletter">
+        <div class="row align-items-center justify-content-center">
+          <!-- Imagen a la izquierda -->
+          <div class="col-md-3 text-center mb-4 mb-md-0">
+            <img
+              src="https://fast-images.static-thomann.de/pics//images/newsletter/envelope-newsletter.png"
+              alt="Newsletter"
+              class="img-fluid img-logo"
+              style="max-width: 140px"
+            />
+          </div>
+          <!-- Contenido a la derecha -->
+          <div class="col-md-7">
+            <h2 class="mb-2 fw-bold">¡No te pierdas nada!</h2>
+            <p class="mb-1">
+              Contribuciones inspiradoras, ofertas y novedades directamente en
+              tu correo.
+            </p>
+            <ul class="list-unstyled mb-3">
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>Ofertas
+                exclusivas
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i
+                >Novedades y lanzamientos
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i
+                >Consejos y trucos para músicos
+              </li>
+            </ul>
+            <form
+              class="d-flex flex-column flex-sm-row gap-2"
+              autocomplete="off"
+              aria-label="Formulario de suscripción a la newsletter"
+            >
+              <input
+                type="email"
+                class="form-control rounded-pill"
+                placeholder="Dirección de e-mail*"
+                aria-label="Correo electrónico"
+                required
+              />
+              <button type="submit" class="btn btn-primary rounded-pill px-4">
+                Suscribirse
+              </button>
+            </form>
+            <small class="form-text text-muted mt-2 d-block">
+              Haciendo clic en "Regístrate ahora", acepto recibir publicidad vía
+              email. Darse de baja es posible en cualquier momento. Puedes
+              encontrar más información sobre Newsletter en nuestra
+              <a href="/politica-privacidad" target="_blank"
+                >política de privacidad</a
+              >.<br />
+              * Campo obligatorio
+            </small>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Carrusel de opiniones -->
-    <div class="container my-4 py-5 rounded opinion-carousel-container" role="region"
-      aria-label="Opiniones de nuestros clientes">
-      <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
-      <div class="row justify-content-center opinion-carousel-row">
-        <!-- Card 1 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card1.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3 class="db-text">Luis Navas</h3>
-                  <p class="mb-1 db-text">Saxofonista</p>
-                  <p class="db-text">
-                    Hice un pedido de varios productos que me urgían y tras
-                    indicarlo, todo llegó rapidísimo y en buen estado.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ... fin card 1... -->
-        </div>
-        <!-- Card 2 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card2.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3 class="db-text">Susi Márquez</h3>
-                  <p class="mb-1 db-text">Batería</p>
-                  <p class="db-text">
-                    Me ayudaron en todo momento, guiándome y resolviendo dudas
-                    sobre el producto. Y además son muy majos!! Quedé
-                    encantada.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ...fin card 2... -->
-        </div>
-        <!-- Card 3 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card3.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3 class="db-text">Roger Plaza</h3>
-                  <p class="mb-1 db-text">Pianista</p>
-                  <p class="db-text">
-                    Tuve un problema con el pedido y en seguida se pusieron en
-                    contacto conmigo. El servicio postventa muy bien, excepto
-                    esto todo super bien.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ...fin card 3... -->
-        </div>
-        <!-- Card 4 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card4.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3>Lisa Gómez</h3>
-                  <p class="mb-1">Clarinetista</p>
-                  <p>
-                    Me encantan los productos que tienen, son de alta calidad,
-                    las cañas para mi clarinete vienen siempre en perfecto
-                    estado, y a veces con algún regalito extra!!
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ...fin card 4... -->
-        </div>
-        <!-- Card 5 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card5.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3>Silvio González</h3>
-                  <p class="mb-1">Cantante</p>
-                  <p>
-                    Me encantan los productos que tienen, son de alta calidad,
-                    las cañas para mi clarinete vienen siempre en perfecto
-                    estado, y a veces con algún regalito extra!!
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ...fin card 5... -->
-        </div>
-        <!-- Card 6 -->
-        <div class="col-12 col-md-6 col-lg-4 mb-2 opinion-carousel-card">
-          <section class="opinion-card" tabindex="0">
-            <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
-              <div class="img-div mb-3">
-                <img src="/assets/images/foto-card6.png" alt="Foto de cliente" class="img-card" />
-              </div>
-              <div class="texto-div w-100">
-                <div class="texto-opinion-card">
-                  <h3>Fran Burgos</h3>
-                  <p class="mb-1">Cantante</p>
-                  <p>
-                    Me encantan los productos que tienen, son de alta calidad,
-                    las cañas para mi clarinete vienen siempre en perfecto
-                    estado, y a veces con algún regalito extra!!
-                  </p>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-                <i class="bi bi-star text-warning"></i>
-              </div>
-            </div>
-          </section>
-          <!-- ...fin card 6... -->
-        </div>
-      </div>
-      <!-- Flechas debajo y centradas -->
-      <div class="d-flex justify-content-center gap-3 mt-3">
-        <button class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
-          aria-label="Opinión anterior">
-          <i class="bi bi-chevron-left"></i>
-        </button>
-        <button class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
-          aria-label="Opinión siguiente">
-          <i class="bi bi-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </main>
+    <!-- Linea divisoria superior del footer -->
+    <!-- <div class="linea-divisora-fina"></div> -->
+    <!-- Footer -->
+    <div id="footer"></div>
 
-  <!-- Sección preparada para Listado de Productos Destacados -->
-
-  <section id="products-list"></section>
-  <!-- ...Final del Main... -->
-
-  <!-- Linea divisoria superior de feedback -->
-  <!-- <div class="linea-divisora-gruesa"></div> -->
-  <!-- Sección feedback -->
-  <section class="feedback-section py-4" role="region" aria-label="¿Le gusta lo que ve?">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="fw-bold mb-3 display-6">¿Le gusta lo que ve?</h2>
-          <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
-            <!-- Botón compartir (puedes enlazar a JS de compartir o redes) -->
-            <button class="btn btn-outline-secondary rounded-pill px-4" type="button">
-              <i class="bi bi-share me-2"></i>Compartir
-            </button>
-            <!-- Botón email -->
-            <a href="mailto:ratpackinstruments@ratpackinstruments.com"
-              class="btn btn-outline-primary rounded-pill px-4">
-              <i class="bi bi-envelope me-2"></i>E-Mail
-            </a>
-            <!-- Botón opinión -->
-            <a href="#opiniones" class="btn btn-outline-success rounded-pill px-4">
-              <i class="bi bi-chat-dots me-2"></i>Denos su opinión
-            </a>
-          </div>
-          <p class="text-muted dm-p mb-0">
-            ¡Tu opinión y recomendación nos ayuda a mejorar cada día!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Linea divisoria superior de newsletter -->
-  <!-- <div class="linea-divisora-fina"></div> -->
-  <!-- Newsletter -->
-  <section class="newsletter-section py-4 bg-white" role="regin" aria-label="Sección de suscripción a la newsletter">
-    <div class="container container-newsletter">
-      <div class="row align-items-center justify-content-center">
-        <!-- Imagen a la izquierda -->
-        <div class="col-md-3 text-center mb-4 mb-md-0">
-          <img src="https://fast-images.static-thomann.de/pics//images/newsletter/envelope-newsletter.png"
-            alt="Newsletter" class="img-fluid img-logo" style="max-width: 140px" />
-        </div>
-        <!-- Contenido a la derecha -->
-        <div class="col-md-7">
-          <h2 class="mb-2 fw-bold">¡No te pierdas nada!</h2>
-          <p class="mb-1">
-            Contribuciones inspiradoras, ofertas y novedades directamente en
-            tu correo.
-          </p>
-          <ul class="list-unstyled mb-3">
-            <li>
-              <i class="bi bi-check-circle-fill text-success me-2"></i>Ofertas
-              exclusivas
-            </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-success me-2"></i>Novedades y lanzamientos
-            </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-success me-2"></i>Consejos y trucos para músicos
-            </li>
-          </ul>
-          <form class="d-flex flex-column flex-sm-row gap-2" autocomplete="off"
-            aria-label="Formulario de suscripción a la newsletter">
-            <input type="email" class="form-control rounded-pill" placeholder="Dirección de e-mail*"
-              aria-label="Correo electrónico" required />
-            <button type="submit" class="btn btn-primary rounded-pill px-4">
-              Suscribirse
-            </button>
-          </form>
-          <small class="form-text text-muted mt-2 d-block">
-            Haciendo clic en "Regístrate ahora", acepto recibir publicidad vía
-            email. Darse de baja es posible en cualquier momento. Puedes
-            encontrar más información sobre Newsletter en nuestra
-            <a href="/politica-privacidad" target="_blank">política de privacidad</a>.<br />
-            * Campo obligatorio
-          </small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Linea divisoria superior del footer -->
-  <!-- <div class="linea-divisora-fina"></div> -->
-  <!-- Footer -->
-  <div id="footer"></div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/auth.js"></script>
-  <script src="../js/cart.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+  </body>
 </html>

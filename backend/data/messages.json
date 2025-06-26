@@ -30,5 +30,13 @@
     "mensaje": "Pruebas envio",
     "telefono": "123456789",
     "fecha": "2025-06-25T17:53:24.967Z"
+  },
+  {
+    "nombre": "test",
+    "email": "migui61@gmail.com",
+    "asunto": "Otro",
+    "mensaje": "prueba despues cambios",
+    "telefono": null,
+    "fecha": "2025-06-26T22:05:55.386Z"
   }
 ]

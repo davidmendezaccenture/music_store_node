@@ -91,6 +91,26 @@ header {
   width: 100%;
 }
 
+/* Estilo hamburguesa navbar */
+
+.navbar-toggler {
+  background-color: transparent;
+  border: 2px solid #f6a61a;
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: all 0.2s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: #f6a61a;
+  border-color: #f6a61a;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  background-color: rgba(246, 166, 26, 0.1);
+}
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
@@ -108,11 +128,6 @@ header {
 .logo-main-h1 {
   margin: 0;
   line-height: 1;
-}
-
-.logo-main:hover {
-  /* transform: scale(1.2); */
-
 }
 
 /* Estilo logos pago */
@@ -229,7 +244,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -559,7 +574,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 @media (min-width: 992px) {
-
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
     width: 33.3333%;
@@ -742,7 +756,7 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   width: 44px !important;
   height: 44px !important;
   border-radius: 50% !important;
-  background-color: #000000 !important;
+  background-color: transparent !important;
   color: #f6a61a !important;
   border: none !important;
   transition: background 0.2s, color 0.2s !important;
@@ -751,9 +765,26 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
 }
 
 .dark-mode-toggle:hover,
-.dark-mode-toggle:focus {
+.dark-mode-toggle:focus:hover {
   background-color: #f6a61a !important;
   color: #110d0c !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+.dark-mode-toggle:focus {
+  background-color: transparent !important;
+  color: #f6a61a !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.dark-mode-toggle:active {
+  background-color: #f6a61a !important;
+  color: #110d0c !important;
+}
+
+.contact-container {
+  column-gap: 5rem;
 }
