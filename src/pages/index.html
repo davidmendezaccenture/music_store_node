@@ -33,7 +33,7 @@
     <!-- Cabecera de la página -->
     <div id="header"></div>
     <!-- Contenido principal de la página -->
-    <main class="container mt-4" role="main">
+    <main class="container mt-4" role="main" aria-label="Contenido principal">
       <!-- Tu contenido aquí -->
 
       <!-- Título -->
@@ -199,7 +199,7 @@
 
       <!-- Carrusel de imágenes -->
        <!-- Botón izquierdo -->
-      <section class="carrousel-container">
+      <section class="carrousel-container" role="region" aria-label="Carrusel de imágenes de productos">
         <div class="carrousel-inner">
           <button
             class="product-carousel-arrow left btn btn-outline-secondary rounded-circle"
@@ -236,6 +236,8 @@
       <!-- Carrusel de opiniones -->
       <div
         class="container my-4 py-5 bg-light rounded opinion-carousel-container"
+        role="region"
+        aria-label="Opiniones de nuestros clientes"
       >
         <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
         <div class="row justify-content-center opinion-carousel-row">
