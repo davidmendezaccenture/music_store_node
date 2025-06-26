@@ -293,13 +293,8 @@ header {
 }
 
 /* NewsLetter */
-
-.linea-divisora-gruesa {
-  border-top: 3px solid #444647 !important;
-}
-
-.linea-divisora-fina {
-  border-top: 1px solid #444647 !important;
+.newsletter-section {
+  background-color: #f3f2ee;
 }
 
 #carritoButton {
@@ -787,4 +782,11 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
 
 .contact-container {
   column-gap: 5rem;
+}
+/* Línea divisoria simple y fina entre secciones */
+.divisor-fade {
+  border: none;
+  border-top: 2px solid #23272bb4;
+  margin: 1em auto;
+  width: 30%;
 }
