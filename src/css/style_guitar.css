@@ -124,3 +124,9 @@ a.btn-outline-primary {
   color: #F6A61A !important;
 }
 
+#addToCartAlert {
+  display:none; 
+  z-index:2000; 
+  min-width:300px;
+  top: 240px !important;
+}
