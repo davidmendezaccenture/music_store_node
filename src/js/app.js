@@ -83,7 +83,7 @@ function initFooter() {
   // Lógica del footer
   $("#footer").load("/pages/footer.html");
 }
-// Aquí va la lógica del carrusel
+// Aquí va la lógica del carrusel de Productos en el Main 
 function initCarousel() {
   var images = [
     "/assets/images/guitar1.png",
@@ -138,10 +138,6 @@ function initCarousel() {
 
   // Inicializa el carrusel en la primera imagen
   showImage(current);
-
-  //Lógica para la transición de las cards "Opinión de clientes"
-
-  //Lógica para la transición de las cards "Opinión de clientes"
 
   $(function () {
     // Número de cards a mostrar a la vez

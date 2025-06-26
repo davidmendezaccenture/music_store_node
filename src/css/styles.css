@@ -374,7 +374,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-  width: 40vw;
+  width: 35vw;
   max-width: 100%;
   border-radius: 10px;
   height: auto;
