@@ -34,11 +34,11 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 3rem;
+  padding-bottom: 1em;
 }
 
 #header {
-  min-height: 179px;
+  min-height: 174px;
 }
 
 /* Estilo para la navbar txt */
@@ -46,14 +46,17 @@ header {
   font-family: "Outfit", sans-serif;
   font-weight: 500;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #f1f1f1;
 }
 
 /* Estilo para la navbar */
 .contenedor-main-navbar {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 60%;
+  background-color: #110d0c;
+  width: 100%;
+  height: 70px;
+  padding: 0 30px;
+  border-radius: 999px;
 }
 
 /* Estilo de la secion activa en navbar */
@@ -61,7 +64,7 @@ header {
   /* background-color: #f3e9fc; */
   /* color: #480289ce !important; */
   font-weight: 1000;
-  text-decoration: dashed underline;
+  text-decoration: none;
   border-radius: none;
   box-shadow: none;
   color: #f6a61a;
@@ -73,7 +76,7 @@ header {
 .navbar-nav .nav-link:focus {
   color: #f6a61a;
   outline: none !important;
-  box-shadow: 0 0 0 2px #f6a61a40;
+  /* box-shadow: 0 0 0 2px #f6a61a40; */
 }
 
 .nav-link img:hover,
@@ -81,6 +84,11 @@ header {
   background-color: #f3e9fc;
   border-radius: 50%;
   transform: scale(1.15);
+}
+
+.navbar-nav {
+  justify-content: center !important;
+  width: 100%;
 }
 
 /* Overlay para mejorar el contraste */
@@ -91,15 +99,20 @@ header {
 .logo-main {
   /* margin-left: 10px; */
   /* Margen izquierdo */
-  width: 100px;
-  height: auto;
+  width: 150px;
   margin-right: 10px;
   /* border-radius: 50%; */
-  transition: transform 0.2s;
+  /* transition: transform 0.2s; */
+}
+
+.logo-main-h1 {
+  margin: 0;
+  line-height: 1;
 }
 
 .logo-main:hover {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
+
 }
 
 /* Estilo logos pago */
@@ -120,7 +133,7 @@ header {
 
 /* Login logo */
 .login-logo {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-right: 0px;
   /* Margen derecho */
   /* border-radius: 50%; */
@@ -131,7 +144,7 @@ header {
   /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #000000;
+  /* background-color: #000000; */
   /* O el color que prefieras */
   color: #f6a61a;
   /* Color del icono */
@@ -140,7 +153,7 @@ header {
 
 /* Cart style */
 .cart-logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +161,7 @@ header {
   /* Ajusta el tamaño según tu diseño */
   height: 44px;
   border-radius: 50%;
-  background-color: #000000;
+  /* background-color: #000000; */
   /* O el color que prefieras */
   color: #f6a61a;
   /* Color del icono */
@@ -216,7 +229,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -278,7 +291,11 @@ header {
   position: relative;
   display: inline-block;
 }
+
 #cart-count {
+  color: #aeaeae;
+  background-color: #110d0c !important;
+  border: 1px solid #f6a61a !important;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -291,7 +308,8 @@ header {
   padding: 0 6px;
   text-align: center;
   vertical-align: middle;
-  line-height: 22px;
+  line-height: 18px;
+  box-sizing: border-box;
 }
 
 /* .newsletter-section {
@@ -318,9 +336,11 @@ header {
 
 /* Igualar ancho de los items de navegación secundaria */
 nav[aria-label="Navegación secundaria de productos"] li.col-auto {
-  min-width: 80px; /* Ajusta este valor según tu diseño */
+  min-width: 80px;
+  /* Ajusta este valor según tu diseño */
   text-align: center;
 }
+
 .icon-circle {
   width: 45px;
   height: 45px;
@@ -336,10 +356,11 @@ nav[aria-label="Navegación secundaria de productos"] li.col-auto {
   font-family: "Outfit", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  color: #000000; 
+  color: #000000;
   text-decoration: none;
-  transition: border-bottom 0.2s; /*efecto subrayado*/
-  border-bottom: 2px solid transparent; 
+  transition: border-bottom 0.2s;
+  /*efecto subrayado*/
+  border-bottom: 2px solid transparent;
 }
 
 .nav-text:hover {
@@ -349,7 +370,7 @@ nav[aria-label="Navegación secundaria de productos"] li.col-auto {
 /*efecto subrayado*/
 a:hover .nav-text,
 a:focus .nav-text {
-  border-bottom: 2px solid #f6a61a; 
+  border-bottom: 2px solid #f6a61a;
   background-color: transparent;
 }
 
@@ -538,6 +559,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 @media (min-width: 992px) {
+
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
     width: 33.3333%;
@@ -598,13 +620,16 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Footer sticky */
 .pre-footer {
-  background-color: rgba(160, 229, 240, 0.3);
+  background-color: #dedbd9;
   padding: 2rem;
-  margin-top: auto; /* Empuja el footer hacia abajo */
+  margin-top: auto;
+  color: #110d0c;
+  /* Empuja el footer hacia abajo */
 }
 
 #footer {
-  background-color: rgba(160, 229, 240, 0.5);
+  color: #dedbd9;
+  background-color: #110d0c;
   margin-top: 0;
 }
 
@@ -708,5 +733,27 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   color: #000000;
 }
 
-/* Elimina o comenta la regla con :focus sola */
-/* Hover redes sociales */
+/* Dark mode toggle style */
+.dark-mode-toggle {
+  font-size: 1.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background-color: #000000 !important;
+  color: #f6a61a !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dark-mode-toggle:hover,
+.dark-mode-toggle:focus {
+  background-color: #f6a61a !important;
+  color: #110d0c !important;
+  border: none !important;
+  box-shadow: none !important;
+}
