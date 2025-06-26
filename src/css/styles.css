@@ -289,14 +289,19 @@ header {
 
 /* Estilo para la barra de navegación secundaria */
 .icon-image {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
+/* Igualar ancho de los items de navegación secundaria */
+nav[aria-label="Navegación secundaria de productos"] li.col-auto {
+  min-width: 80px; /* Ajusta este valor según tu diseño */
+  text-align: center;
+}
 .icon-circle {
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: 2px solid #000000;
   display: flex;
@@ -328,6 +333,7 @@ a:focus .nav-text {
 
 .icon-image {
   transition: transform 0.2s;
+  width: 30px;
 }
 
 a:hover .icon-image,
