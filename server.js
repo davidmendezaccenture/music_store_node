@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 
+
 // Cargar variables de entorno
 require("dotenv").config();
 
@@ -33,74 +34,86 @@ app.get("/api/products", (req, res) => {
   );
 });
 
-// Registrar usuario
-app.post("/api/register", (req, res) => {
-  const usersPath = path.join(__dirname, "backend/data/users.json");
-  const { username, email, password } = req.body;
+//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+// Middleware para leer datos de formularios
+app.use(express.urlencoded({ extended: true }));
 
-  // Validar campos
+// Servir archivos estáticos desde src
+app.use(express.static(path.join(__dirname, "src")));
+
+// RUTA POST /register
+app.post("/register", (req, res) => {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+  const {
+    nombre, apellidos, fechaNacimiento, telefono,
+    pais, region, codigoPostal, direccion,
+    email, emailConfirm, password, passwordConfirm
+  } = req.body;
+
   if (
-    !username ||
-    !email ||
-    !password ||
-    typeof username !== "string" ||
-    typeof email !== "string" ||
-    typeof password !== "string" ||
-    !username.trim() ||
-    !email.trim() ||
-    !password.trim()
-  )
-    return res.status(400).json({
-      error: "Faltan campos requeridos. Se espera: username, email, password",
+    !nombre || !apellidos || !fechaNacimiento || !telefono || !pais ||
+    !region || !codigoPostal || !direccion || !email || !emailConfirm ||
+    !password || !passwordConfirm
+  ) {
+    return res.status(400).send("Faltan campos por completar.");
+  }
+
+  if (email !== emailConfirm || password !== passwordConfirm) {
+    return res.status(400).send("El email o la contraseña no coinciden.");
+  }
+
+  fs.readFile(usersPath, "utf-8", (err, data) => {
+
+    if (err) {
+      console.error("Error leyendo users.json:", err);
+      return res.status(500).send("Error al leer los usuarios");
+    }
+
+    const usuarios = data ? JSON.parse(data) : [];
+
+    if (usuarios.some(u => u.email === email)) {
+      return res.status(409).send("El email ya está registrado.");
+    }
+
+    usuarios.push({
+      nombre,
+      apellidos,
+      fechaNacimiento,
+      telefono,
+      pais,
+      region,
+      codigoPostal,
+      direccion,
+      email,
+      password
     });
 
-  // Leer usuarios
-  fs.readFile(usersPath, "utf-8", (err, data) => {
-    if (err)
-      return res.status(500).json({ error: "Error al obtener usuarios" });
-
-    // Comprobar duplicados
-    let users = JSON.parse(data);
-    if (users.some((u) => u.username === username || u.email === email))
-      return res
-        .status(409)
-        .json({ error: "El usuario o el email ya existen" });
-
-    // Añadir usuario
-    users.push({ username, email, password });
-
-    // Guardar usuario
-    fs.writeFile(usersPath, JSON.stringify(users, null, 2), "utf8", (err) =>
-      err
-        ? res.status(500).json({ error: "Error al guardar usuario" })
-        : res.json({ mensaje: "Usuario registrado correctamente" })
-    );
+    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), err => {
+      if (err) return res.status(500).send("Error al guardar el usuario");
+      res.redirect("/src/pages/login-modal.html");
+    });
   });
 });
 
-// Login de usuario
-app.post("/api/login", (req, res) => {
+// RUTA POST /login
+app.post("/login", (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
+  const { email, password } = req.body;
 
-  // Leer usuarios
   fs.readFile(usersPath, "utf-8", (err, data) => {
-    if (err)
-      return res.status(500).json({ error: "Error al obtener usuarios" });
+    if (err) return res.status(500).send("Error al leer los usuarios");
 
-    // Buscar usuario
-    let arrayUsuarios = JSON.parse(data);
-    const usuario = arrayUsuarios.find(
-      (user) =>
-        user.username === req.body.username &&
-        user.password === req.body.password
-    );
+    const usuarios = JSON.parse(data);
+    const usuario = usuarios.find(u => u.email === email && u.password === password);
 
-    // Devolver login
-    usuario
-      ? res.json({ mensaje: "Login correcto", usuario })
-      : res.status(401).json({ error: "Usuario o contraseña incorrectos" });
+    if (!usuario) return res.status(401).send("Credenciales incorrectas");
+
+    res.send(`Bienvenido, ${usuario.nombre}`);
   });
 });
+//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
 
 // Obtener carrito
 app.get("/api/cart", (req, res) => {
