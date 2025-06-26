@@ -268,8 +268,24 @@ header {
   border-top: 1px solid #444647 !important;
 }
 
+#carritoButton {
+  position: relative;
+  display: inline-block;
+}
 #cart-count {
-  display: none;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%);
+  z-index: 2;
+  font-size: 0.85rem;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0 6px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 22px;
 }
 
 /* .newsletter-section {
