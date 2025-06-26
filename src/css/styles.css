@@ -595,4 +595,23 @@ body.dark-mode .lupa-inside-input:focus i,
 body.dark-mode .lupa-inside-input:active i {
   color: #f6a61a !important; /* naranja en hover/focus */
 }
+
+/* Estilo para el tabulador de navegación secundaria de productos */
+/* Quitar outline del enlace */
+nav[aria-label="Navegación secundaria de productos"] a:focus,
+nav[aria-label="Navegación secundaria de productos"] a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Mostrar outline solo en el texto cuando el enlace está enfocado */
+nav[aria-label="Navegación secundaria de productos"] a:focus .nav-text,
+nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text {
+  outline: none;
+  box-shadow: 0 0 0 2px #f6a61a40;
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  background-color: #f6a61a;
+  color: #000000;
+}
 /* Hover redes sociales */
