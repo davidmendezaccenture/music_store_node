@@ -1,5 +1,5 @@
 // Lógica de la página "Sobre nosotros"
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     // Frases de cada empleado, en el mismo orden que las tarjetas
     const frases = [
         'Del piano al PC, del PC al piano.',
@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
         'Su potente voz rota te dejará sin aliento.',
         'A pesar de su nombre, ¡lo tiene todo!'
     ];
+
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
     document.querySelectorAll('.staffCard .card').forEach((card, idx) => {
         const cardBody = card.querySelector('.card-body');
@@ -40,14 +42,29 @@ document.addEventListener('DOMContentLoaded', function () {
         fitText();
         window.addEventListener('resize', fitText);
 
-        // Hover: animación del bloque amarillo
-        card.addEventListener('mouseenter', () => {
-            bloque.style.transform = 'translateY(0)';
-            bloque.classList.add('open');
-        });
-        card.addEventListener('mouseleave', () => {
-            bloque.style.transform = 'translateY(60%)';
-            bloque.classList.remove('open');
-        });
+        // Animación: hover para ratón, tap para táctil
+        if (isTouch) {
+            card.addEventListener('touchstart', () => {
+                // Cerrar otros bloques abiertos
+                document.querySelectorAll('.staffCard-yellow-block.open').forEach(b => {
+                    if (b !== bloque) {
+                        b.style.transform = 'translateY(60%)';
+                        b.classList.remove('open');
+                    }
+                });
+                // Abrir el tocado
+                bloque.style.transform = 'translateY(0)';
+                bloque.classList.add('open');
+            });
+        } else {
+            card.addEventListener('mouseenter', () => {
+                bloque.style.transform = 'translateY(0)';
+                bloque.classList.add('open');
+            });
+            card.addEventListener('mouseleave', () => {
+                bloque.style.transform = 'translateY(60%)';
+                bloque.classList.remove('open');
+            });
+        }
     });
 });
