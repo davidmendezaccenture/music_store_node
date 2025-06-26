@@ -36,14 +36,17 @@ app.get("/api/products", (req, res) => {
 
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------
+
 // Middleware para leer datos de formularios
 app.use(express.urlencoded({ extended: true }));
 
 // Servir archivos estáticos desde src
 app.use(express.static(path.join(__dirname, "src")));
+app.use(express.json()); // leer JSON del body!
+app.use(express.static("src")); // archivos estáticos (HTML, CSS, JS, etc.)
 
 // RUTA POST /register
-app.post("/register", (req, res) => {
+app.post("/api/register", (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
   const {
     nombre, apellidos, fechaNacimiento, telefono,
@@ -91,9 +94,13 @@ app.post("/register", (req, res) => {
 
     fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), err => {
       if (err) return res.status(500).send("Error al guardar el usuario");
-      res.redirect("/src/pages/login-modal.html");
+      res.status(200).json({ mensaje: "Usuario registrado correctamente" });
     });
   });
+});
+
+app.get("/index.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/pages/index.html"));
 });
 
 // RUTA POST /login
@@ -109,7 +116,7 @@ app.post("/login", (req, res) => {
 
     if (!usuario) return res.status(401).send("Credenciales incorrectas");
 
-    res.send(`Bienvenido, ${usuario.nombre}`);
+    res.json({ mensaje: "Bienvenido", nombre: usuario.nombre });
   });
 });
 //---------------------------------------------------------------------------------------------------------------
