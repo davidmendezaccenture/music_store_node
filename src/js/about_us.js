@@ -2,10 +2,10 @@
 $(function () {
     // Descripción empleado
     const phrases = [
-        'Del piano al PC, del PC al piano.',
-        'Ojo con éste, es un completo canalla',
-        'Su potente voz rota te dejará sin aliento.',
-        'A pesar de su nombre, ¡lo tiene todo!'
+        'BackOffice de día. Teclista de noche',
+        'El negociador. Consigue los mejores precios.',
+        'Su voz rota te encantará. Lidera nuestro ATC',
+        'Director de proyecto... ¡nos canta las 40!'
     ];
 
     const isTouch = window.matchMedia('(pointer: coarse)').matches;

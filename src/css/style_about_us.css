@@ -9,94 +9,23 @@ h2 {
     font-weight: 600;
 }
 
-/* Imagen de la tarjeta: siempre rellena el espacio total de la tarjeta */
-.staffCard .card-img-top {
+/* Imágenes de staff: siempre rellena el espacio total de la tarjeta y se alinea por arriba */
+.staffCard .card-img-top,
+.staff-img-fade .img-color,
+.staff-img-fade .img-bn {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
-}
-
-/* Tarjeta principal: posición y recorte */
-.staffCard .card {
-    border: none;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-    min-height: 300px;
-}
-
-/* Bloque amarillo deslizante con nombre y descripción */
-.staffCard-yellow-block {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 40%;
-    background: #f6a61a;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 1.2rem;
-    box-sizing: border-box;
-    padding: 0 1em 1em 1em;
-    overflow: hidden;
-    /* El movimiento se controla por JS con transform */
-}
-
-/* Nombre del empleado (centrado) */
-.staffCard-yellow-block h5 {
-    margin-top: 0.4em;
-    color: #23272b;
-    font-size: 1.2em;
-    width: 100%;
-    text-align: center;
-}
-
-/* Descripción del empleado (centrado) */
-.staffCard-yellow-block .card-desc {
-    color: #23272b;
-    font-size: 1em;
-    width: 100%;
-    text-align: center;
-    /* Sin centrado vertical por defecto */
-}
-
-.staffCard-yellow-block.open .card-desc {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-/* Cuerpo de la tarjeta: sin padding extra */
-.staffCard .card-body {
-    position: relative;
-    min-height: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* Línea divisoria simple y fina */
-.divisor-fade {
-    border: none;
-    border-top: 2px solid #23272bb4;
-    margin: 5em auto;
-    width: 30%;
+    object-position: top;
+    border-radius: 0;
 }
 
 /* Imagen recoloreada: oculta por defecto, aparece al hacer hover */
 .staff-img-fade .img-color {
     opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     z-index: 2;
     transition: opacity 0.3s;
     pointer-events: none;
@@ -110,13 +39,90 @@ h2 {
 /* Imagen en blanco y negro: siempre visible debajo */
 .staff-img-fade .img-bn {
     opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     z-index: 1;
+}
+
+/* Tarjeta principal: posición y recorte */
+.staffCard .card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 300px;
+    /* min-width: 260px; */
+    flex: 1 1 260px;
+    max-width: 100%;
+}
+
+/* Bloque amarillo deslizante con nombre y descripción */
+.staffCard-yellow-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    max-height: 100%;
+    background: #f6a61a;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    padding: 0 0.3em 1em 0.3em;
+    overflow: hidden;
+    transition: transform 0.3s, height 0.3s, max-height 0.3s;
+    /* El movimiento se controla por JS con transform */
+}
+
+/* Estado abierto del bloque amarillo: se adapta al contenido */
+.staffCard-yellow-block.open {
+    height: auto;
+    max-height: 1000px;
+}
+
+/* Nombre del empleado (centrado y adaptativo) */
+.staffCard-yellow-block h5 {
+    margin-top: 0.4em;
+    color: #23272b;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    white-space: normal;
+}
+
+/* Descripción del empleado (centrado) */
+.staffCard-yellow-block .card-desc {
+    color: #23272b;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+    /* Sin centrado vertical por defecto */
+}
+
+/* Centrado vertical de la descripción cuando el bloque está abierto */
+.staffCard-yellow-block.open .card-desc {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Cuerpo de la tarjeta: sin padding extra, ocupa todo el alto */
+.staffCard .card-body {
+    position: relative;
+    min-height: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Línea divisoria simple y fina entre secciones */
+.divisor-fade {
+    border: none;
+    border-top: 2px solid #23272bb4;
+    margin: 5em auto;
+    width: 30%;
 }
 
 main {
