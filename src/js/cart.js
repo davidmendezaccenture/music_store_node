@@ -1,6 +1,6 @@
 let productos = [];
 
-// ALERTA DE PRODUCTO AÑADIDO
+// Muestra Mensaje de alerta si hay producto añadido al carrito
 let addToCartAlertTimeout;
 
 function showAddToCartAlert(msg = '¡Producto añadido a la cesta!') {
@@ -138,6 +138,7 @@ function renderCart(items) {
   renderCartSummary(items);
 }
 
+// Mostrar resumen y total del carrito
 function renderCartSummary(items) {
   if (!items.length) {
     $('#cart-summary').empty();
