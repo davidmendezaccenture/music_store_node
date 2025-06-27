@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "nombre": "Vicente",
+    "apellidos": "Martin",
+    "fechaNacimiento": "1992-03-25",
+    "telefono": "663959220",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "vicentemartinlara@gmail.com",
+    "password": "PepitoPerez.2025"
+  },
+  {
+    "nombre": "Vicente",
+    "apellidos": "Martin",
+    "fechaNacimiento": "1992-03-25",
+    "telefono": "12345685",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "vicentemartin@gmail.com",
+    "password": "PepitoPerez.2025"
+  },
+  {
+    "nombre": "Vicente",
+    "apellidos": "Martin",
+    "fechaNacimiento": "2000-02-01",
+    "telefono": "12345684",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "1234@gmail.com",
+    "password": "PepitoPerez.2025"
+  },
+  {
+    "nombre": "Miguel",
+    "apellidos": "Diaz",
+    "fechaNacimiento": "1998-03-21",
+    "telefono": "145869236",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "123466@gmail.com",
+    "password": "PepitoPerez.2025"
+  },
+  {
+    "nombre": "Carlos",
+    "apellidos": "Gallego",
+    "fechaNacimiento": "1992-03-26",
+    "telefono": "987654321",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "1234661@gmail.com",
+    "password": "PepitoPerez.2025"
+  }
+]
