@@ -58,5 +58,17 @@
     "direccion": "Jesús del Perdón",
     "email": "1234661@gmail.com",
     "password": "PepitoPerez.2025"
+  },
+  {
+    "nombre": "Lorena",
+    "apellidos": "Garcia",
+    "fechaNacimiento": "1995-03-02",
+    "telefono": "12345685",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Jesús del Perdón",
+    "email": "lorena@gmail.com",
+    "password": "PepitoPerez.2025"
   }
 ]
