@@ -244,7 +244,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -569,6 +569,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 @media (min-width: 992px) {
+
   /* En escritorio, muestra 3 cards a la vez */
   .opinion-carousel-card {
     width: 33.3333%;
@@ -783,10 +784,11 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
 .contact-container {
   column-gap: 5rem;
 }
+
 /* Línea divisoria simple y fina entre secciones */
 .divisor-fade {
   border: none;
   border-top: 2px solid #23272bb4;
-  margin: 1em auto;
+  margin: 3em auto;
   width: 30%;
 }
