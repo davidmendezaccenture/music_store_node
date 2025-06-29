@@ -498,6 +498,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     height: 30px !important;
     font-size: 1rem !important;
     margin: 5% !important;
+    z-index:2 !important;
   }
 
   .carousel-indicators-custom {
@@ -574,13 +575,20 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-weight: 300;
   font-size: 1rem;
   color: #000000;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 }
 
 .texto-div {
+  min-height: 60%;
   width: 100%;
   flex-grow: 1;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
   padding-bottom: 0.5rem;
 }
 
@@ -593,6 +601,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 
+}
+
+.opinion-carousel-row {
+  overflow: visible !important;
 }
 
 .opinion-carousel-card {
