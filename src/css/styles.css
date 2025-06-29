@@ -533,7 +533,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
-  margin: 5%;
+  /* margin: 5%; */
   height: 350px;      /* Fija la altura exacta */
   min-height: 350px;  /* Opcional, refuerza el mínimo */
   max-height: 350px;  /* Opcional, refuerza el máximo */
@@ -581,7 +581,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   width: 100%;
   flex-grow: 1;
   overflow: hidden;
-  /* Puedes aumentar el padding si quieres más espacio visual */
   padding-bottom: 0.5rem;
 }
 
@@ -651,19 +650,26 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     flex-direction: column !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
+    margin-bottom: 1.5rem;
 
   }
   .opinion-carousel-card {
     width: 100% !important;
     float: none !important;
     margin-bottom: 1rem;
-    display: block;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .opinion-carousel-card:nth-child(n+4) {
+    display: none !important;
   }
   .opinion-carousel-arrow {
     display: none !important;
-}
-
-
+  }
+  .opinion-carousel-card:last-child {
+    margin-bottom: 0;
+  }
+  }
 
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
@@ -881,4 +887,4 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   margin: 3em auto;
   width: 30%;
 }
-  }
+  
