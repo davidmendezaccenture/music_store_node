@@ -34,10 +34,20 @@ body {
 }
 
 /* Modal personalizado para eliminar producto */
+.custom-delete-modal .btn-close {
+  filter: none;
+  color: #23272b !important;
+  opacity: 1;
+}
+
+.custom-delete-modal .btn-close svg {
+  fill: #23272b !important;
+}
+
 .custom-delete-modal .modal-content {
-  background-color: #23272b !important; /* Gris oscuro */
-  color: #F6A61A !important;           /* Texto naranja */
-  border: none;
+  background-color: rgba(238, 236, 231) !important; /* Gris claro */
+  color: #23272b !important;           /* Texto naranja */
+  border: #23272b 1px solid !important;
 }
 
 .custom-delete-modal .modal-header,
@@ -46,12 +56,12 @@ body {
 }
 
 .custom-delete-modal .modal-title {
-  color: #F6A61A !important;
+  color: #23272b !important;
 }
 
-.custom-delete-modal .btn-close {
+/* .custom-delete-modal .btn-close {
   filter: invert(70%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(110%);
-}
+} */
 
 .custom-delete-modal .btn-danger {
   background-color: #F6A61A !important;
@@ -110,15 +120,15 @@ body {
 
   /*Botón para ir a página de autenticación */
   .auth-button {
-    background-color: black !important;
-    color: #F6A61A !important;
+    background-color: #F6A61A !important;
+    color: black !important;
     border: none;
   }
 
 .auth-button:hover,
 .auth-button:focus {
-  background-color: #f6a61a !important;
-  color: black !important;
+  background-color: black !important;
+  color: #f6a61a !important;
   text-decoration: none !important;
 }
 
@@ -151,4 +161,16 @@ body {
   background-color: black !important;
   color: #f6a61a !important;
   opacity: 0.9;
+}
+
+/* Ajustes para el botón de eliminar producto en pantallas pequeñas */
+@media (max-width: 1199.98px) {
+  .cart-item .delete-product-btn {
+    max-width: 120px;
+    width: 90%;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
 }

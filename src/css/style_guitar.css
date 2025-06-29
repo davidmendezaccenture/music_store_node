@@ -114,14 +114,14 @@ a.btn-outline-primary {
 
 /* Alert personalizado para el carrito */
 .custom-alert {
-  background-color: #23272b !important; 
-  color: #F6A61A !important;            
-  border: none;
+  background-color: rgba(238, 236, 231) !important; /* Gris claro */
+  color: #23272b !important;            
+  border: #23272b 1px solid !important;
 }
 
 .custom-alert,
 .custom-alert .bi {
-  color: #F6A61A !important;
+  color: #23272b !important;
 }
 
 #addToCartAlert {
