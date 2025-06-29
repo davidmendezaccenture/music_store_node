@@ -646,6 +646,22 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     float: left;
   }
 
+  @media (max-width: 991.98px) {
+  .opinion-carousel-row {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+
+  }
+  .opinion-carousel-card {
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .opinion-carousel-arrow {
+    display: none !important;
+}
 
 
 
