@@ -38,5 +38,13 @@
     "mensaje": "prueba despues cambios",
     "telefono": null,
     "fecha": "2025-06-26T22:05:55.386Z"
+  },
+  {
+    "nombre": "Juan",
+    "email": "migui61@gmail.com",
+    "asunto": "Consulta",
+    "mensaje": "dadasasassa",
+    "telefono": "69927312",
+    "fecha": "2025-06-30T09:39:28.108Z"
   }
 ]
