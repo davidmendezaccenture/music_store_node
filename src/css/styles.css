@@ -34,7 +34,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
 }
 
 #header {
@@ -76,7 +76,6 @@ header {
 .navbar-nav .nav-link:focus {
   color: #f6a61a;
   outline: none !important;
-  /* box-shadow: 0 0 0 2px #f6a61a40; */
 }
 
 .nav-link img:hover,
@@ -94,7 +93,7 @@ header {
 /* Estilo hamburguesa navbar */
 
 .navbar-toggler {
-  background-color: transparent;
+  background-color: #110d0c;
   border: 2px solid #f6a61a;
   border-radius: 6px;
   padding: 6px 10px;
@@ -111,18 +110,45 @@ header {
   background-color: rgba(246, 166, 26, 0.1);
 }
 
+/* Estilo para el menú desplegable de la navbar */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #110d0c;
+    border: 1px solid #f6a61a;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    margin-top: 0;
+    padding: 15px;
+    z-index: 3;
+  }
+
+  /* Estilos para los enlaces dentro del desplegable */
+  .navbar-collapse .navbar-nav .nav-link {
+    color: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 2px 0;
+  }
+
+  .navbar-collapse .navbar-nav .nav-link:hover {
+    background-color: rgba(246, 166, 26, 0.1);
+    color: #f6a61a;
+  }
+
+  .navbar-collapse .navbar-nav .nav-link.active {
+    background-color: rgba(246, 166, 26, 0.2);
+    color: #f6a61a;
+  }
+}
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
 
 /* Estilo para el logo de Rat Pack Instruments */
 .logo-main {
-  /* margin-left: 10px; */
-  /* Margen izquierdo */
   width: 150px;
   margin-right: 10px;
-  /* border-radius: 50%; */
-  /* transition: transform 0.2s; */
 }
 
 .logo-main-h1 {
@@ -202,23 +228,26 @@ header {
 .pago-logo:focus,
 .social-logo:hover,
 .social-logo:focus {
-  background-color: #f3e9fc;
+  background-color: #f6a61a;
   border-radius: 50%;
   transform: scale(1.15);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 8px #480289ce;
+  box-shadow: 0 0 8px #f6a61a;
 }
 
 /* Estilo ventajas */
 .lista-ventajas {
   text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 .lista-ventajas:hover,
 .lista-ventajas:focus {
-  color: #480289ce;
-  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
-  transition: color 0.2s, text-shadow 0.2s;
+  color: #f6a61a;
+  transform: scale(1.1) !important;
 }
 
 /* Control de la barra de busqueda */
@@ -405,8 +434,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3%;
-  margin-bottom: 5%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Estilo para la imagen del carrusel */
@@ -631,8 +660,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* Footer sticky */
 .pre-footer {
   background-color: #dedbd9;
-  padding: 2rem;
-  margin-top: auto;
+  padding-top: 1.5rem;
   color: #110d0c;
   /* Empuja el footer hacia abajo */
 }
@@ -640,7 +668,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 #footer {
   color: #dedbd9;
   background-color: #110d0c;
-  margin-top: 0;
 }
 
 /* Darkmode */
@@ -779,6 +806,11 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
 .dark-mode-toggle:active {
   background-color: #f6a61a !important;
   color: #110d0c !important;
+}
+
+body.dark-mode .navbar-collapse {
+  background-color: #232323 !important;
+  border-color: #f6a61a !important;
 }
 
 .contact-container {

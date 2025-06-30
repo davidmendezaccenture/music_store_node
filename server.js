@@ -3,7 +3,6 @@ const path = require("path");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 
-
 // Cargar variables de entorno
 require("dotenv").config();
 
@@ -14,8 +13,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // Desde variable de entorno
-    pass: process.env.EMAIL_PASS, // Desde variable de entorno
+    user: "instrumentsratpatck@gmail.com", // Desde variable de entorno
+    pass: "fcss drxu zmse nzqf", // Desde variable de entorno
   },
 });
 
@@ -49,15 +48,33 @@ app.use(express.static("src")); // archivos estáticos (HTML, CSS, JS, etc.)
 app.post("/api/register", (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
   const {
-    nombre, apellidos, fechaNacimiento, telefono,
-    pais, region, codigoPostal, direccion,
-    email, emailConfirm, password, passwordConfirm
+    nombre,
+    apellidos,
+    fechaNacimiento,
+    telefono,
+    pais,
+    region,
+    codigoPostal,
+    direccion,
+    email,
+    emailConfirm,
+    password,
+    passwordConfirm,
   } = req.body;
 
   if (
-    !nombre || !apellidos || !fechaNacimiento || !telefono || !pais ||
-    !region || !codigoPostal || !direccion || !email || !emailConfirm ||
-    !password || !passwordConfirm
+    !nombre ||
+    !apellidos ||
+    !fechaNacimiento ||
+    !telefono ||
+    !pais ||
+    !region ||
+    !codigoPostal ||
+    !direccion ||
+    !email ||
+    !emailConfirm ||
+    !password ||
+    !passwordConfirm
   ) {
     return res.status(400).send("Faltan campos por completar.");
   }
@@ -67,7 +84,6 @@ app.post("/api/register", (req, res) => {
   }
 
   fs.readFile(usersPath, "utf-8", (err, data) => {
-
     if (err) {
       console.error("Error leyendo users.json:", err);
       return res.status(500).send("Error al leer los usuarios");
@@ -75,7 +91,7 @@ app.post("/api/register", (req, res) => {
 
     const usuarios = data ? JSON.parse(data) : [];
 
-    if (usuarios.some(u => u.email === email)) {
+    if (usuarios.some((u) => u.email === email)) {
       return res.status(409).send("El email ya está registrado.");
     }
 
@@ -89,10 +105,10 @@ app.post("/api/register", (req, res) => {
       codigoPostal,
       direccion,
       email,
-      password
+      password,
     });
 
-    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), err => {
+    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
       if (err) return res.status(500).send("Error al guardar el usuario");
       res.status(200).json({ mensaje: "Usuario registrado correctamente" });
     });
@@ -112,7 +128,9 @@ app.post("/login", (req, res) => {
     if (err) return res.status(500).send("Error al leer los usuarios");
 
     const usuarios = JSON.parse(data);
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
+    const usuario = usuarios.find(
+      (u) => u.email === email && u.password === password
+    );
 
     if (!usuario) return res.status(401).send("Credenciales incorrectas");
 
@@ -265,64 +283,66 @@ app.post("/api/chatbot", async (req, res) => {
     const productsData = fs.readFileSync(productsPath, "utf-8");
     const products = JSON.parse(productsData);
 
-    // Crear resumen de productos para el chatbot
-    productsInfo = "\n\nPRODUCTOS DISPONIBLES EN TIENDA:\n";
+    // Crear resumen más inteligente con ofertas destacadas
+    productsInfo = "\n=== PRODUCTOS DISPONIBLES EN TIENDA ===\n";
+
+    // Separar productos por categoría y destacar ofertas
+    const categories = {};
     products.forEach((product) => {
-      productsInfo += `• ${product.name}: ${
-        product.offerPrice || product.price
-      }€ (Categoría: ${product.category})\n`;
+      if (!categories[product.category]) {
+        categories[product.category] = [];
+      }
+      categories[product.category].push(product);
     });
-    // Logs para ver si carga productos correctamente
-    console.log("Productos cargados:", products.length);
-    console.log("Info de productos:", productsInfo.substring(0, 200) + "...");
+
+    Object.keys(categories).forEach((category) => {
+      productsInfo += `\n${category.toUpperCase()}:\n`;
+      categories[category].forEach((product) => {
+        const isOnOffer =
+          product.offerPrice && product.offerPrice < product.price;
+        const price = isOnOffer ? product.offerPrice : product.price;
+        const offerText = isOnOffer ? ` (OFERTA! antes ${product.price}€)` : "";
+
+        productsInfo += `• ${product.name}: ${price}€${offerText}\n`;
+        if (product.description) {
+          productsInfo += `  - ${product.description.substring(0, 80)}...\n`;
+        }
+      });
+    });
+
+    console.log("Productos procesados por categoría:", Object.keys(categories));
   } catch (error) {
-    console.log("No se pudieron cargar los productos:", error);
+    console.log("Error cargando productos:", error);
   }
 
   // Prompt engineering específico para Rat Pack Instruments
-  const systemPrompt = `Eres Aria, el asistente virtual experto de "Rat Pack Instruments", una tienda online especializada en instrumentos musicales de alta calidad.
+  const systemPrompt = `Eres Aria, el asistente virtual experto de "Rat Pack Instruments".
 
-TU PERSONALIDAD:
-- Eres amigable, entusiasta y muy conocedora de música
-- Tienes pasión genuina por ayudar a músicos de todos los niveles
-- Usas un lenguaje cercano pero profesional
-- Ocasionalmente usas emojis musicales (🎸🎹🥁🎺🎷🎻)
+REGLAS IMPORTANTES:
+- SIEMPRE consulta la lista de PRODUCTOS DISPONIBLES al final de este prompt
+- Menciona productos específicos con precios exactos
+- Si un producto tiene offerPrice, usa ese precio (está en oferta)
+- Máximo 100 palabras por respuesta
+- Siempre termina preguntando si necesita más ayuda
 
-INFORMACIÓN DE LA TIENDA:
-- Horario: Lunes-Viernes 9:00-20:00, Sábados 10:00-14:00
-- Teléfono soporte: +34 900 123 456
-- Equipo: Aria (soporte técnico), Juan (atención cliente), Lucía (postventa)
-- Envíos gratis a partir de 50€
-- Garantía de 3 años en todos los productos
-- Cambios y devoluciones hasta 30 días
+INFORMACIÓN ACTUALIZADA:
+- Envíos GRATIS a partir de 50€
+- Garantía extendida de 3 años
+- Devoluciones hasta 30 días
+- Pago en 3 cuotas sin intereses
 
-TUS FUNCIONES:
-1. Recomendar instrumentos según presupuesto, nivel y estilo musical
-2. Comparar productos y explicar diferencias técnicas
-3. Sugerir accesorios complementarios (cuerdas, fundas, púas, cables)
-4. Informar sobre ofertas y promociones actuales
-5. Ayudar con dudas técnicas básicas
-6. Direccionar al formulario de contacto para consultas complejas
-7. **USAR LA LISTA DE PRODUCTOS DISPONIBLES** para dar precios exactos y recomendaciones específicas
+EJEMPLOS DE RESPUESTAS IDEALES:
+Usuario: "Guitarra para rock, 400€"
+Aria: "Para rock te recomiendo la Guitarra Les Paul a 350€ (¡en oferta desde 650€!) 🎸 Perfecta para rock con pastillas humbucker potentes. También incluye funda y envío gratis. ¿Te interesa algún amplificador también?"
 
-ESTILO DE RESPUESTA:
-- Máximo 120 palabras por respuesta
-- **SIEMPRE menciona productos específicos de la lista de PRODUCTOS DISPONIBLES**
-- **USA PRECIOS EXACTOS de los productos listados al final**
-- **Fijate en descuentos y ofertas actuales**
-- Pregunta detalles si necesitas más información
-- Si no sabes algo exacto, deriva al contacto
-- Siempre termina ofreciendo más ayuda
+PRODUCTOS CON OFERTAS DESTACADAS:
+${productsInfo}
 
-IMPORTANTE: Al final de este prompt tienes una lista completa de PRODUCTOS DISPONIBLES EN TIENDA con precios exactos. Úsala SIEMPRE para dar recomendaciones específicas.
-
-EJEMPLOS DE RESPUESTAS CORRECTAS:
-- Usuario: "Quiero una guitarra para empezar, presupuesto 250€"
-- Respuesta: "¡Perfecto! Con 250€ te recomiendo nuestra Guitarra Acústica a 150€ o la Guitarra Flamenca a 180€. Ambas son ideales para principiantes..."
-- Usuario: "Diferencia entre Stratocaster y Les Paul"
-- Respuesta: "Tenemos la Guitarra Stratocaster a 550€ y la Guitarra Les Paul a 650€. La Strat tiene un sonido más versátil..."
-
-Si te preguntan sobre productos muy específicos que no están en tu conocimiento base, deriva amablemente al formulario de contacto o al teléfono de soporte.${productsInfo}`;
+IMPORTANTE: Al recomendar productos, siempre menciona:
+1. Precio exacto (usa offerPrice si existe)
+2. Por qué es bueno para su necesidad específica
+3. Qué incluye o accesorios recomendados
+4. Pregunta de seguimiento relevante`;
 
   console.log(
     "Prompt completo (últimos 500 chars):",
@@ -347,8 +367,9 @@ Si te preguntan sobre productos muy específicos que no están en tu conocimient
             { role: "system", content: systemPrompt },
             { role: "user", content: message },
           ],
-          max_tokens: 150,
-          temperature: 0.7,
+          max_tokens: 120,
+          temperature: 0.4,
+          top_p: 0.8,
           stream: false,
         }),
       }
