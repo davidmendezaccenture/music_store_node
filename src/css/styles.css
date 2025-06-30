@@ -440,21 +440,37 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-  width: 35vw;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1500px;      
   border-radius: 10px;
-  height: auto;
+  height: 40vh;
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
-
-  /* Opcional: para evitar que el espacio colapse */
   background: #f8f9fa;
-  /* o el color de fondo de tu carrusel */
+  object-fit: cover;     
+  display: block;
 }
 
 .img-carrousel.fade-out {
   opacity: 0;
+}
+
+.carrousel-inner {
+  width: 100%;
+  max-width: 100%; 
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* espacio entre flechas e imagen */
+}
+
+.carrousel-inner picture {
+  flex: 1 1 auto;
+  display: block;
+  width: 100%;
+  margin: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -503,30 +519,76 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   background-color: #23272b;
 }
 
-/* estilo para las Cards de Opiniones de Clientes */
-.opinion-card {
-  margin: 5%;
-  height: 400px;
+/* media queries para botones e indicadores de ruleta de imágenes destacadas*/
+@media (max-width: 1085px) {
+  .product-carousel-arrow,
+  .opinion-carousel-arrow {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1rem !important;
+    margin: 5% !important;
+    z-index:2 !important;
+  }
+
+  .carousel-indicators-custom {
+    gap: 0.4rem !important;
+  }
+  .carousel-indicators-custom .indicator {
+    width: 15px !important;
+    height: 15px !important;
+  }
 }
 
-/* Barra para el texto de las opiniones */
-.texto-div {
-  max-height: 200px;
-  /* a partir de 200px se mostrará la barra de desplazamiento */
-  overflow-y: auto;
+@media (max-width: 562px) {
+  .product-carousel-arrow,
+  .opinion-carousel-arrow {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 0.7rem !important;
+    margin: 3% !important;
+  }
+}
+/* media queries para tamaño imagenes destacadas */
+@media (max-width: 770px) {
+
+.img-carrousel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .carrousel-container {
+    margin-top: 2rem;
+  }
+ }
+
+/* estilo para las Cards de Opiniones de Clientes */
+.opinion-card {
+  /* margin: 5%; */
+  height: 350px;      /* Fija la altura exacta */
+  min-height: 350px;  /* Opcional, refuerza el mínimo */
+  max-height: 350px;  /* Opcional, refuerza el máximo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
 }
 
 .opinion-card-container {
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 330px; /* o el alto que prefieras */
+  max-width: 200px;
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
+  padding: 1rem;
 }
 
 .img-card {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -542,7 +604,21 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-weight: 300;
   font-size: 1rem;
   color: #000000;
-  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.texto-div {
+  min-height: 60%;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  padding-bottom: 0.5rem;
 }
 
 .opinion-card-container {
@@ -553,7 +629,11 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 .opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+
+}
+
+.opinion-carousel-row {
+  overflow: visible !important;
 }
 
 .opinion-carousel-card {
@@ -573,6 +653,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow,
 .product-carousel-arrow {
+  flex: 0 0 auto;
   width: 48px;
   height: 48px;
   padding: 0;
@@ -597,14 +678,40 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   border: none !important;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 
   /* En escritorio, muestra 3 cards a la vez */
-  .opinion-carousel-card {
+.opinion-carousel-card {
     width: 33.3333%;
     float: left;
   }
-}
+
+  @media (max-width: 991.98px) {
+  .opinion-carousel-row {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    margin-bottom: 1.5rem;
+
+  }
+  .opinion-carousel-card {
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 1rem;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .opinion-carousel-card:nth-child(n+4) {
+    display: none !important;
+  }
+  .opinion-carousel-arrow {
+    display: none !important;
+  }
+  .opinion-carousel-card:last-child {
+    margin-bottom: 0;
+  }
+  }
+
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
@@ -824,3 +931,4 @@ body.dark-mode .navbar-collapse {
   margin: 3em auto;
   width: 30%;
 }
+  
