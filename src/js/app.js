@@ -41,6 +41,25 @@ $(document).ready(function () {
       $("#carritoButton").addClass("active"); // Activar carrito
     } else if (path.includes("sobre") || path.includes("about")) {
       $('.navbar-nav .nav-link:contains("Sobre nosotros")').addClass("active");
+    } else if (path.includes("faq.html")) {
+      // Por si se mete faq en la navbar
+      // $('.navbar-nav .nav-link[href$="faq.html"]').addClass("active");
+    }
+
+    // --- GESTIÓN DE ACTIVE EN OFFCANVAS ---
+    $(".offcanvas-body .list-group-item").removeClass("active");
+    if (path.includes("services.html")) {
+      $('.offcanvas-body .list-group-item[href$="services.html"]').addClass(
+        "active"
+      );
+    } else if (path.includes("contact.html")) {
+      $('.offcanvas-body .list-group-item[href$="contact.html"]').addClass(
+        "active"
+      );
+    } else if (path.includes("faq.html")) {
+      $('.offcanvas-body .list-group-item[href$="faq.html"]').addClass(
+        "active"
+      );
     }
   });
 

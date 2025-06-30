@@ -1,91 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitarras y Bajos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style_guitar.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guitarras y Bajos</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/style_guitar.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icono tittle -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  </head>
 
-  <!-- Fuente seleccionada para usar en el proyecto-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <!-- Cabecera de la página -->
-  <div id="header"></div>
-  <!-- Navegación de productos secundaria de la página-->
-<!-- Barra de Navegación Secundaria (solo textos) -->
-  <nav aria-label="Navegación secundaria de productos">
-    <ul class="row list-unstyled text-center justify-content-center second-navbar mt-2">
-      <li class="col-auto mb-2">
-        <a
-          href="/pages/guitar.html"
-          class="d-flex flex-row align-items-center text-decoration-none active"
-          aria-label="Ver productos de guitarras"
+  <body>
+    <!-- Cabecera de la página -->
+    <div id="header"></div>
+    <!-- Navegación de productos secundaria de la página-->
+    <!-- Barra de Navegación Secundaria (solo textos) -->
+    <nav aria-label="Navegación secundaria de productos">
+      <ul
+        class="row list-unstyled text-center justify-content-center second-navbar mt-2"
+      >
+        <li class="col-auto mb-2">
+          <a
+            href="/pages/guitar.html"
+            class="d-flex flex-row align-items-center text-decoration-none active"
+            aria-label="Ver productos de guitarras"
           >
-          <div class="me-2">
-              <img alt="Icono de Guitarras" class="icon-image" src="/assets/images/electricguitar-icon.svg" />
-          </div>
-          <span class="nav-text db-text mb-2">Cuerda</span>
-        </a>
-      </li>
+            <div class="me-2">
+              <img
+                alt="Icono de Guitarras"
+                class="icon-image"
+                src="/assets/images/electricguitar-icon.svg"
+              />
+            </div>
+            <span class="nav-text db-text mb-2">Cuerda</span>
+          </a>
+        </li>
 
-      <li class="col-auto mb-2">
-        <a
-          href="#"
-          class="d-flex flex-row align-items-center text-decoration-none"
-          aria-label="Ver productos de baterías"
+        <li class="col-auto mb-2">
+          <a
+            href="#"
+            class="d-flex flex-row align-items-center text-decoration-none"
+            aria-label="Ver productos de baterías"
           >
-          <div class="me-2">
-              <img alt="Icono de Baterías" class="icon-image" src="/assets/images/drums-icon.svg" />
-          </div>
-          <span class="nav-text db-text mb-2">Percusión</span>
-        </a>
-      </li>
+            <div class="me-2">
+              <img
+                alt="Icono de Baterías"
+                class="icon-image"
+                src="/assets/images/drums-icon.svg"
+              />
+            </div>
+            <span class="nav-text db-text mb-2">Percusión</span>
+          </a>
+        </li>
 
-      <li class="col-auto mb-2">
-        <a
-          href="#"
-          class="d-flex flex-row align-items-center text-decoration-none"
-          aria-label="Ver productos de Teclados"
+        <li class="col-auto mb-2">
+          <a
+            href="#"
+            class="d-flex flex-row align-items-center text-decoration-none"
+            aria-label="Ver productos de Teclados"
           >
-          <div class="me-2">
-            <img alt="Icono de Teclados" class="icon-image" src="/assets/images/piano-icon.svg" />
-          </div>
-          <span class="nav-text db-text mb-2">Viento</span>
-        </a>
-      </li>
+            <div class="me-2">
+              <img
+                alt="Icono de Teclados"
+                class="icon-image"
+                src="/assets/images/piano-icon.svg"
+              />
+            </div>
+            <span class="nav-text db-text mb-2">Viento</span>
+          </a>
+        </li>
 
-      <li class="col-auto mb-2">
-        <a
-          href="#"
-          class="d-flex flex-row align-items-center text-decoration-none"
-          aria-label="Ver productos de DJ"
+        <li class="col-auto mb-2">
+          <a
+            href="#"
+            class="d-flex flex-row align-items-center text-decoration-none"
+            aria-label="Ver productos de DJ"
           >
-        <div class="me-2">
-          <img alt="Icono de DJ" class="icon-image" src="/assets/images/dj-icon.svg" />
-          </div>
-          <span class="nav-text db-text mb-2">Teclado</span>
-        </a>
-      </li>
+            <div class="me-2">
+              <img
+                alt="Icono de DJ"
+                class="icon-image"
+                src="/assets/images/dj-icon.svg"
+              />
+            </div>
+            <span class="nav-text db-text mb-2">Teclado</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Contenido principal -->
+    <main class="container py-4" role="main">
+      <!-- Botón para volver a Home -->
+      <div class="mb-4">
+        <a href="" class="btn btn-outline-primary" aria-label="Volver al inicio"
+          >Volver</a
+        >
+      </div>
 
-    </ul>
-  </nav>
-  <!-- Contenido principal -->
-  <main class="container py-4" role="main">
-    <!-- Botón para volver a Home -->
-    <div class="mb-4">
-      <a href="" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
-    </div>
-
-    <!-- Menú de filtros -->
-    <!-- <section class="mb-4" role="region" aria-label="Filtros de categoría">
+      <!-- Menú de filtros -->
+      <!-- <section class="mb-4" role="region" aria-label="Filtros de categoría">
       <h1 class="h1 mb-2">Guitarras y Bajos</h1>
       <h2 class="h5 mb-2">Filtrar por categoría</h2>
       <div class="dropdown">
@@ -101,49 +130,78 @@
         </ul>
       </div>
     </section> -->
-<section class="filter">
-<!-- Filtros y ordenación -->
-<div class="row mb-4" role="region" aria-label="Filtros de productos">
-  <div class="col-md-3 mb-2">
-    <input id="search-input-guitar" class="form-control" type="search" placeholder="Buscar por nombre..." aria-label="Buscar producto" />
-  </div>
-  <div class="col-md-2 mb-2">
-    <select id="filtro-categoria" class="form-select" aria-label="Filtrar por categoría">
-        <!-- Las opciones se rellenarán por JS -->
-    </select>
-  </div>
-  <div class="col-md-2 mb-2">
-    <select id="filtro-precio" class="form-select" aria-label="Filtrar por precio">
-      <option value="">Todos los precios</option>
-      <option value="<300">Menos de 300€</option>
-      <option value="300-600">300€ - 600€</option>
-      <option value=">600">Más de 600€</option>
-    </select>
-  </div>
-  <div class="col-md-2 mb-2 d-flex align-items-center">
-    <input type="checkbox" id="filtro-oferta" class="form-check-input me-2" aria-label="Solo ofertas" />
-    <label for="filtro-oferta" class="form-check-label">Solo ofertas</label>
-  </div>
-  <div class="col-md-3 mb-2">
-    <select id="ordenar-productos" class="form-select" aria-label="Ordenar productos">
-      <option value="">Ordenar por...</option>
-      <option value="precio-asc">Precio: menor a mayor</option>
-      <option value="precio-desc">Precio: mayor a menor</option>
-      <option value="oferta">Solo ofertas</option>
-    </select>
-  </div>
-</div>
-<div class="mb-3">
-  <span id="result-count" aria-live="polite"></span>
-</div>
-</section>
-    <!-- Catálogo de guitarras -->
-    <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
+      <section class="filter">
+        <!-- Filtros y ordenación -->
+        <div class="row mb-4" role="region" aria-label="Filtros de productos">
+          <div class="col-md-3 mb-2">
+            <input
+              id="search-input-guitar"
+              class="form-control"
+              type="search"
+              placeholder="Buscar por nombre..."
+              aria-label="Buscar producto"
+            />
+          </div>
+          <div class="col-md-2 mb-2">
+            <select
+              id="filtro-categoria"
+              class="form-select"
+              aria-label="Filtrar por categoría"
+            >
+              <!-- Las opciones se rellenarán por JS -->
+            </select>
+          </div>
+          <div class="col-md-2 mb-2">
+            <select
+              id="filtro-precio"
+              class="form-select"
+              aria-label="Filtrar por precio"
+            >
+              <option value="">Todos los precios</option>
+              <option value="<300">Menos de 300€</option>
+              <option value="300-600">300€ - 600€</option>
+              <option value=">600">Más de 600€</option>
+            </select>
+          </div>
+          <div class="col-md-2 mb-2 d-flex align-items-center">
+            <input
+              type="checkbox"
+              id="filtro-oferta"
+              class="form-check-input me-2"
+              aria-label="Solo ofertas"
+            />
+            <label for="filtro-oferta" class="form-check-label"
+              >Solo ofertas</label
+            >
+          </div>
+          <div class="col-md-3 mb-2">
+            <select
+              id="ordenar-productos"
+              class="form-select"
+              aria-label="Ordenar productos"
+            >
+              <option value="">Ordenar por...</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="oferta">Solo ofertas</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <span id="result-count" aria-live="polite"></span>
+        </div>
+      </section>
+      <!-- Catálogo de guitarras -->
+      <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
+        <div
+          id="products-list"
+          class="row g-4"
+          role="region"
+          aria-label="Catálogo de productos"
+        ></div>
 
-<div id="products-list" class="row g-4" role="region" aria-label="Catálogo de productos"></div>
-
-      <!-- Guitarra Acústica -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Acústica -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar7.png" class="card-img-top" alt="Guitarra Acústica de alta calidad" />
           <div class="card-body d-flex flex-column">
@@ -160,8 +218,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Eléctrica -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Eléctrica -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar3.png" class="card-img-top"
             alt="Guitarra eléctrica para músicos avanzados" />
@@ -181,8 +239,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Flamenca -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Flamenca -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar12.png" class="card-img-top"
             alt="Guitarra flamenca con un diseño tradicional" />
@@ -202,8 +260,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Stratocaster -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Stratocaster -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar2.png" class="card-img-top" alt="Guitarra eléctrica estilo Stratocaster" />
           <div class="card-body d-flex flex-column">
@@ -221,8 +279,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Les Paul -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Les Paul -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar1.png" class="card-img-top" alt="Guitarra eléctrica estilo Les Paul" />
           <div class="card-body d-flex flex-column">
@@ -239,8 +297,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Heavy Flying -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Heavy Flying -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar13.jpg" class="card-img-top" alt="Guitarra Heavy Flying de lujo" />
           <div class="card-body d-flex flex-column">
@@ -258,8 +316,8 @@
         </div>
       </div> -->
 
-      <!-- Guitarra Clásica Premium -->
-      <!-- <div class="col-md-6 col-lg-4">
+        <!-- Guitarra Clásica Premium -->
+        <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar6.png" class="card-img-top"
             alt="Guitarra clásica premium con acabados de lujo" />
@@ -277,27 +335,29 @@
           </div>
         </div>
       </div> -->
-    </section>
+      </section>
+    </main>
 
-  </main>
+    <!-- Guarda la URL actual como última página de compra -->
+    <script>
+      localStorage.setItem("lastShopPage", window.location.href);
+    </script>
 
-  <!-- Guarda la URL actual como última página de compra -->
-  <script>
-    localStorage.setItem("lastShopPage", window.location.href);
-  </script>
+    <!-- Footer -->
+    <div id="footer"></div>
 
-  <!-- Footer -->
-  <div id="footer"></div>
+    <!-- Alert de Producto añadido con éxito -->
+    <div
+      id="addToCartAlert"
+      class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
+      role="alert"
+    >
+      ¡Producto añadido a la cesta!
+    </div>
 
-  <!-- Alert de Producto añadido con éxito -->
-  <div id="addToCartAlert" class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
-    role="alert">
-    ¡Producto añadido a la cesta!
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/contact.js"></script>
@@ -305,6 +365,5 @@
     <script src="../js/register.js"></script>
     <script src="../js/catalog.js"></script>
     <script src="../js/header.js"></script>
-</body>
-
+  </body>
 </html>

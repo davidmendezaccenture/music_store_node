@@ -1,5 +1,9 @@
 .txt-resaltado {
-  color: #f6a61a;
+  border: 2px solid #f6a61a;
+}
+
+.txt-negro {
+  color: #000000;
 }
 
 .btn-size {
@@ -12,12 +16,17 @@
   object-fit: cover;
 }
 
+.h5-size {
+  font-size: 1.25rem;
+}
+
 .border-resaltado {
   border: 1px solid #f6a61a;
 }
 
 .background-resaltado {
   background-color: #f6a61a;
+  color: #000000;
 }
 
 .check-color {
@@ -99,7 +108,6 @@
 /* Eliminar hover de botones con clases personalizadas */
 .btn.background-resaltado:hover {
   background-color: #f6a61a;
-  border-color: #f6a61a;
   color: white;
   transform: none;
   box-shadow: none;
@@ -109,6 +117,21 @@
   background-color: transparent;
   color: #f6a61a;
   border-color: #f6a61a;
+}
+
+/* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
+h2 {
+  font-size: 2.5rem; /* Tamaño explícito para evitar cambios del navegador */
+}
+
+h2.display-4 {
+  font-size: calc(1.475rem + 2.7vw);
+}
+
+@media (min-width: 1200px) {
+  h2.display-4 {
+    font-size: 3.5rem;
+  }
 }
 
 /* Skip Link para accesibilidad */

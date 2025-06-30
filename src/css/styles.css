@@ -282,13 +282,14 @@ header {
   position: relative;
 }
 
+/* Touch targets mejorados para accesibilidad - Pautas WCAG 2.1 AA: mínimo 44x44px */
 .control-buscador {
   background-color: rgba(238, 236, 231, 0.693);
-  height: 48px;
+  height: 48px; /* Ya cumple con el mínimo de 44px */
   font-size: 1.1rem;
   border-radius: 999px !important;
-  padding-right: 2.5rem !important;
-  /* Espacio para la lupa */
+  padding-right: 3rem !important;
+  /* Espacio para la lupa con touch target adecuado */
 }
 
 .control-buscador:focus {
@@ -305,18 +306,32 @@ header {
   box-shadow: none;
   outline: none;
   z-index: 2;
-  right: 16px !important;
+  right: 12px !important;
+  /* Mínimo 44x44px para touch targets según pautas de accesibilidad */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
 }
 
 .lupa-inside-input:hover,
 .lupa-inside-input:active,
 .lupa-inside-input:focus {
   color: #f6a61a !important;
-  /* O el color que prefieras */
-  background: none !important;
+  background-color: rgba(246, 166, 26, 0.1) !important;
   box-shadow: none !important;
   outline: none !important;
   border: none !important;
+}
+
+/* Focus visible para mejor accesibilidad en navegación por teclado */
+.lupa-inside-input:focus-visible {
+  outline: 2px solid #f6a61a !important;
+  outline-offset: 2px;
 }
 
 /* NewsLetter */
@@ -773,17 +788,28 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 /* Darkmode */
+/* Darkmode - Agrupado y refactorizado */
 body.dark-mode,
-body.dark-mode .opinion-card-container {
+body.dark-mode .opinion-card-container,
+body.dark-mode .pre-footer {
   background-color: #181818 !important;
   color: #f1f1f1 !important;
 }
 
 body.dark-mode .bg-white,
 body.dark-mode .bg-light,
-body.dark-mode .card {
+body.dark-mode .card,
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode .btn-buscador,
+body.dark-mode .modal-content,
+body.dark-mode .footer {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
+}
+
+body.dark-mode .footer {
+  color: #f6a61a !important;
 }
 
 body.dark-mode .newsletter-section {
@@ -791,29 +817,7 @@ body.dark-mode .newsletter-section {
   color: #f1f1f1 !important;
 }
 
-body.dark-mode .footer {
-  background-color: #232323 !important;
-  color: #f6a61a !important;
-}
-
-body.dark-mode .pre-footer {
-  background-color: #181818 !important;
-  color: #f1f1f1 !important;
-}
-
-body.dark-mode .form-control,
-body.dark-mode .form-select,
-body.dark-mode .btn-buscador {
-  background-color: #232323 !important;
-  color: #f1f1f1 !important;
-}
-
-body.dark-mode .modal-content {
-  background-color: #232323 !important;
-  color: #f1f1f1 !important;
-}
-
-/* Color de texto */
+/* Colores de texto agrupados */
 body.dark-mode .form-text,
 body.dark-mode .text-muted,
 body.dark-mode .db-text,
@@ -824,7 +828,7 @@ body.dark-mode .lupa-inside-input i {
   color: #f1f1f1 !important;
 }
 
-/* Color de bordes */
+/* Colores de borde y filtros */
 body.dark-mode .icon-circle {
   border-color: #f1f1f1 !important;
 }
@@ -837,6 +841,7 @@ body.dark-mode .icon-image {
   filter: brightness(0) invert(1);
 }
 
+/* Media query para iconos en pantallas pequeñas */
 @media (max-width: 450px) {
   .icon-image {
     width: 30px !important;
@@ -844,6 +849,7 @@ body.dark-mode .icon-image {
   }
 }
 
+/* Efectos hover agrupados */
 body.dark-mode .lupa-inside-input:hover,
 body.dark-mode .lupa-inside-input:focus,
 body.dark-mode .lupa-inside-input:active,
@@ -851,7 +857,12 @@ body.dark-mode .lupa-inside-input:hover i,
 body.dark-mode .lupa-inside-input:focus i,
 body.dark-mode .lupa-inside-input:active i {
   color: #f6a61a !important;
-  /* naranja en hover/focus */
+}
+
+/* Focus visible en modo oscuro */
+body.dark-mode .lupa-inside-input:focus-visible {
+  outline: 2px solid #f6a61a !important;
+  outline-offset: 2px;
 }
 
 /* Estilo para el tabulador de navegación secundaria de productos */
@@ -910,9 +921,34 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   color: #110d0c !important;
 }
 
-body.dark-mode .navbar-collapse {
-  background-color: #232323 !important;
-  border-color: #f6a61a !important;
+body.dark-mode .accordion-item {
+  border: 1px solid #f6a61a !important;
+  background-color: #232323;
+}
+
+body.dark-mode .accordion-button.collapsed {
+  background-color: #232323;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .accordion-collapse {
+  border: none;
+  background-color: #232323;
+}
+
+body.dark-mode .accordion-body {
+  background-color: #232323;
+  color: white;
+  border-top: 1px solid #f6a61a4d;
+}
+
+body.dark-mode .txt-resaltado {
+  color: white;
+}
+body.dark-mode .txt-resaltado:hover,
+body.dark-mode .txt-resaltado:focus {
+  color: #f6a61a !important;
 }
 
 .contact-container {
@@ -941,4 +977,81 @@ body.dark-mode .navbar-collapse {
   border-radius: 0.5rem;
   font-size: 1.1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* Estilos para el offcanvas menu */
+.offcanvas-body .list-group-item.active {
+  background-color: rgba(246, 166, 26, 0.1);
+  border-color: #f6a61a;
+  color: #f6a61a;
+}
+
+.offcanvas-body .list-group-item.active .fw-bold {
+  color: #f6a61a;
+}
+
+.offcanvas-body .list-group-item.active i {
+  color: #f6a61a;
+}
+
+/* Estilos dark mode para el offcanvas */
+body.dark-mode .offcanvas,
+body.dark-mode .offcanvas-header,
+body.dark-mode .offcanvas-body .list-group-item {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .offcanvas-header {
+  border-bottom: 1px solid #f6a61a4d !important;
+}
+
+body.dark-mode .offcanvas-title {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .offcanvas-title i {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .btn-close {
+  filter: invert(1) !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item {
+  border-color: #f6a61a4d !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item:hover {
+  background-color: rgba(246, 166, 26, 0.1) !important;
+  color: #f6a61a !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item:hover .fw-bold,
+body.dark-mode .offcanvas-body .list-group-item:hover i {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item .text-muted {
+  color: #aaa !important;
+}
+
+/* Media queries para touch targets en dispositivos móviles */
+@media (max-width: 768px) {
+  .control-buscador {
+    height: 50px; /* Aumentar ligeramente en móviles */
+    font-size: 1rem;
+  }
+
+  .lupa-inside-input {
+    /* Asegurar área de toque mínima en móviles */
+    min-width: 48px;
+    min-height: 48px;
+    padding: 10px;
+  }
+
+  /* Espaciado entre elementos interactivos para evitar activación accidental */
+  .buscador-input-wrapper {
+    margin: 8px 0;
+  }
 }
