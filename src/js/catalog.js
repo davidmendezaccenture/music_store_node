@@ -1,31 +1,36 @@
-let productos = [];
-let productosFiltrados = [];
+(function () {
+  let productos = [];
+  let productosFiltrados = [];
 
-// 1. Cargar productos
-function cargarProductos() {
-  $.getJSON('../assets/data/products.json', function(data) {
-    productos = data;
-    filtrarYMostrar();
+  // 1. Cargar productos
+  function cargarProductos() {
+    $.getJSON('../assets/data/products.json', function (data) {
+      productos = data;
+      filtrarYMostrar();
+    });
+  }
+
+  // 2. Eventos con jQuery
+  $(document).ready(function () {
+    cargarProductos();
+
+    $('#search-input-guitar').on('input', filtrarYMostrar);
+    $('#filtro-categoria').on('change', filtrarYMostrar);
+    $('#filtro-precio').on('change', filtrarYMostrar);
+    $('#filtro-oferta').on('change', filtrarYMostrar);
+    $('#ordenar-productos').on('change', filtrarYMostrar);
   });
-}
 
-// 2. Eventos con jQuery
-$(document).ready(function() {
-  cargarProductos();
-
-  $('#search-input').on('input', filtrarYMostrar);
-  $('#filtro-categoria').on('change', filtrarYMostrar);
-  $('#filtro-precio').on('change', filtrarYMostrar);
-  $('#filtro-oferta').on('change', filtrarYMostrar);
-  $('#ordenar-productos').on('change', filtrarYMostrar);
-});
-
-// 3. Filtrar y mostrar productos
+  // 3. Filtrar y mostrar productos
 function filtrarYMostrar() {
-  let query = ($('#search-input').val() || '').trim().toLowerCase();
-  productosFiltrados = productos.filter(p =>
-    p.name.toLowerCase().includes(query)
-  );
+  let query = ($('#search-input-guitar').val() || '').trim().toLowerCase();
+
+  // Solo guitarras: ajusta los nombres de categoría según tu JSON
+  const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars'];
+
+  productosFiltrados = productos
+    .filter(p => categoriasGuitarra.includes(p.category)) // Solo guitarras
+    .filter(p => p.name.toLowerCase().includes(query));
 
   // Filtro por categoría
   let categoria = $('#filtro-categoria').val();
@@ -53,7 +58,7 @@ function filtrarYMostrar() {
   mostrarProductos(productosFiltrados);
 }
 
-// 4. Mostrar productos
+  // 4. Mostrar productos
 function mostrarProductos(lista) {
   let $contenedor = $('#products-list');
   let $contador = $('#result-count');
@@ -62,17 +67,27 @@ function mostrarProductos(lista) {
     $contenedor.html('<p>No se encontraron productos.</p>');
     return;
   }
-  $contenedor.html(lista.map(p => `
-    <div class="card mb-3 product-card" tabindex="0" aria-label="${p.name}">
-      <img src="${p.image}" class="card-img-top" alt="${p.name}">
-      <div class="card-body">
-        <h5 class="card-title">${p.name}</h5>
-        <p class="card-text">${p.description}</p>
-        <p class="card-text">
-          <span class="fw-bold">${p.offerPrice < p.price ? p.offerPrice + ' € <del>' + p.price + ' €</del>' : p.price + ' €'}</span>
-        </p>
-        <button class="btn btn-primary btn-add-cart" data-product="${p.id}" aria-label="Añadir ${p.name} a la cesta">Añadir a la cesta</button>
+  $contenedor.html(
+    lista.map(p => `
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="${p.image}" class="card-img-top" alt="${p.name}" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${p.name}</h5>
+            <p class="card-text">${p.description}</p>
+            <p class="mb-2">
+              ${p.offerPrice < p.price
+                ? `<span class="text-muted text-decoration-line-through">${p.price} €</span>
+                   <span class="fw-bold text-danger ms-2">${p.offerPrice} €</span>`
+                : `<span class="fw-bold">${p.price} €</span>`
+              }
+            </p>
+            <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
+              Añadir a la cesta
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  `).join(''));
-}
+          `).join(''));
+      }
+})();

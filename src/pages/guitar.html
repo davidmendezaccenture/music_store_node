@@ -101,11 +101,53 @@
         </ul>
       </div>
     </section>
-
+<section class="filter">
+<!-- Filtros y ordenación -->
+<div class="row mb-4" role="region" aria-label="Filtros de productos">
+  <div class="col-md-3 mb-2">
+    <input id="search-input-guitar" class="form-control" type="search" placeholder="Buscar por nombre..." aria-label="Buscar producto" />
+  </div>
+  <div class="col-md-2 mb-2">
+    <select id="filtro-categoria" class="form-select" aria-label="Filtrar por categoría">
+      <option value="">Todas las categorías</option>
+      <option value="acoustic-guitars">Acústicas</option>
+      <option value="electric-guitars">Eléctricas</option>
+      <option value="classical-guitars">Clásicas</option>
+      <option value="basses">Bajos</option>
+    </select>
+  </div>
+  <div class="col-md-2 mb-2">
+    <select id="filtro-precio" class="form-select" aria-label="Filtrar por precio">
+      <option value="">Todos los precios</option>
+      <option value="<300">Menos de 300€</option>
+      <option value="300-600">300€ - 600€</option>
+      <option value=">600">Más de 600€</option>
+    </select>
+  </div>
+  <div class="col-md-2 mb-2 d-flex align-items-center">
+    <input type="checkbox" id="filtro-oferta" class="form-check-input me-2" aria-label="Solo ofertas" />
+    <label for="filtro-oferta" class="form-check-label">Solo ofertas</label>
+  </div>
+  <div class="col-md-3 mb-2">
+    <select id="ordenar-productos" class="form-select" aria-label="Ordenar productos">
+      <option value="">Ordenar por...</option>
+      <option value="precio-asc">Precio: menor a mayor</option>
+      <option value="precio-desc">Precio: mayor a menor</option>
+      <option value="oferta">Solo ofertas</option>
+    </select>
+  </div>
+</div>
+<div class="mb-3">
+  <span id="result-count" aria-live="polite"></span>
+</div>
+</section>
     <!-- Catálogo de guitarras -->
     <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
+
+<div id="products-list" class="row g-4" role="region" aria-label="Catálogo de productos"></div>
+
       <!-- Guitarra Acústica -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar7.png" class="card-img-top" alt="Guitarra Acústica de alta calidad" />
           <div class="card-body d-flex flex-column">
@@ -120,10 +162,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Eléctrica -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar3.png" class="card-img-top"
             alt="Guitarra eléctrica para músicos avanzados" />
@@ -141,10 +183,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Flamenca -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar12.png" class="card-img-top"
             alt="Guitarra flamenca con un diseño tradicional" />
@@ -162,10 +204,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Stratocaster -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar2.png" class="card-img-top" alt="Guitarra eléctrica estilo Stratocaster" />
           <div class="card-body d-flex flex-column">
@@ -181,10 +223,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Les Paul -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar1.png" class="card-img-top" alt="Guitarra eléctrica estilo Les Paul" />
           <div class="card-body d-flex flex-column">
@@ -199,10 +241,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Heavy Flying -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar13.jpg" class="card-img-top" alt="Guitarra Heavy Flying de lujo" />
           <div class="card-body d-flex flex-column">
@@ -218,10 +260,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Guitarra Clásica Premium -->
-      <div class="col-md-6 col-lg-4">
+      <!-- <div class="col-md-6 col-lg-4">
         <div class="card h-100">
           <img src="../assets/images/guitar6.png" class="card-img-top"
             alt="Guitarra clásica premium con acabados de lujo" />
@@ -238,8 +280,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
+
   </main>
 
   <!-- Guarda la URL actual como última página de compra -->
@@ -264,6 +307,7 @@
     <script src="../js/contact.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/register.js"></script>
+    <script src="../js/catalog.js"></script>
 </body>
 
 </html>
