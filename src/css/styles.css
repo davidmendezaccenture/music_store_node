@@ -158,8 +158,8 @@ header {
 
 /* Estilo logos pago */
 .pago-logo {
-  width: 40px;
-  height: auto;
+  width: 32px;
+  height: 32px;
   margin-right: 10px;
   border-radius: 50%;
 }
@@ -228,11 +228,9 @@ header {
 .pago-logo:focus,
 .social-logo:hover,
 .social-logo:focus {
-  background-color: #f6a61a;
   border-radius: 50%;
   transform: scale(1.15);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 8px #f6a61a;
+  transition: transform 0.2s;
 }
 
 /* Estilo ventajas */
@@ -273,7 +271,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -441,14 +439,14 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
   width: 100%;
-  max-width: 1500px;      
+  max-width: 1500px;
   border-radius: 10px;
   height: 40vh;
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
   background: #f8f9fa;
-  object-fit: cover;     
+  object-fit: cover;
   display: block;
 }
 
@@ -458,7 +456,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .carrousel-inner {
   width: 100%;
-  max-width: 100%; 
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -527,7 +525,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     height: 30px !important;
     font-size: 1rem !important;
     margin: 5% !important;
-    z-index:2 !important;
+    z-index: 2 !important;
   }
 
   .carousel-indicators-custom {
@@ -550,8 +548,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 /* media queries para tamaño imagenes destacadas */
 @media (max-width: 770px) {
-
-.img-carrousel {
+  .img-carrousel {
     width: 100% !important;
     max-width: 100% !important;
   }
@@ -559,14 +556,14 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   .carrousel-container {
     margin-top: 2rem;
   }
- }
+}
 
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   /* margin: 5%; */
-  height: 350px;      /* Fija la altura exacta */
-  min-height: 350px;  /* Opcional, refuerza el mínimo */
-  max-height: 350px;  /* Opcional, refuerza el máximo */
+  height: 350px; /* Fija la altura exacta */
+  min-height: 350px; /* Opcional, refuerza el mínimo */
+  max-height: 350px; /* Opcional, refuerza el máximo */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Distribuye el contenido verticalmente */
@@ -608,7 +605,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .texto-div {
@@ -629,7 +625,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 .opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-
 }
 
 .opinion-carousel-row {
@@ -682,17 +677,16 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
   /* En escritorio, muestra 3 cards a la vez */
 .opinion-carousel-card {
-    width: 33.3333%;
-    float: left;
-  }
+  width: 33.3333%;
+  float: left;
+}
 
-  @media (max-width: 991.98px) {
+@media (max-width: 991.98px) {
   .opinion-carousel-row {
     flex-direction: column !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
     margin-bottom: 1.5rem;
-
   }
   .opinion-carousel-card {
     width: 100% !important;
@@ -701,7 +695,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     display: block !important;
     opacity: 1 !important;
   }
-  .opinion-carousel-card:nth-child(n+4) {
+  .opinion-carousel-card:nth-child(n + 4) {
     display: none !important;
   }
   .opinion-carousel-arrow {
@@ -710,8 +704,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   .opinion-carousel-card:last-child {
     margin-bottom: 0;
   }
-  }
-
+}
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
@@ -931,4 +924,3 @@ body.dark-mode .navbar-collapse {
   margin: 3em auto;
   width: 30%;
 }
-  

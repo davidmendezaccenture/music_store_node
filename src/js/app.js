@@ -34,6 +34,9 @@ $(document).ready(function () {
       $('.navbar-nav .nav-link[href$="guitar.html"]').addClass("active");
     } else if (path.includes("contact.html")) {
       $('.navbar-nav .nav-link[href$="contact.html"]').addClass("active");
+    } else if (path.includes("services.html")) {
+      // href="#" asique buscamos por texto directo
+      $('.navbar-nav .nav-link:contains("Servicios")').addClass("active");
     } else if (path.includes("cart.html")) {
       $("#carritoButton").addClass("active"); // Activar carrito
     } else if (path.includes("sobre") || path.includes("about")) {
@@ -86,7 +89,7 @@ function initFooter() {
   // Lógica del footer
   $("#footer").load("/pages/footer.html");
 }
-// Aquí va la lógica del carrusel de Productos en el Main 
+// Aquí va la lógica del carrusel de Productos en el Main
 function initCarousel() {
   var images = [
     "/assets/images/guitar1.png",
@@ -186,12 +189,12 @@ function initCarousel() {
 
 // Función para cargar el contenido de la navegación de productos
 // filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js
-document.addEventListener('DOMContentLoaded', function () {
-  const placeholder = document.getElementById('nav-secundaria-placeholder');
+document.addEventListener("DOMContentLoaded", function () {
+  const placeholder = document.getElementById("nav-secundaria-placeholder");
   if (placeholder) {
-    fetch('../pages/nav-products.html')
-      .then(res => res.text())
-      .then(html => {
+    fetch("../pages/nav-products.html")
+      .then((res) => res.text())
+      .then((html) => {
         placeholder.innerHTML = html;
       });
   }
