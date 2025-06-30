@@ -157,14 +157,13 @@
 
       <!-- Carrusel de opiniones -->
       <div
-        class="container my-4 py-5 rounded opinion-carousel-container pb-0 pt-0"
-        class="container rounded opinion-carousel-container"
+        class="container-fluid my-4 py-5 rounded opinion-carousel-container pb-0 pt-0"
         role="region"
         aria-label="Opiniones de nuestros clientes"
       >
         <h2 class="text-center mb-4">Opiniones de nuestros clientes</h2>
         <div
-          class="d-flex align-items-center justify-content-center gap-2 flex-nowrap"
+          class="d-flex align-items-center justify-content-center gap-0 flex-nowrap"
         >
           <!-- Flecha izquierda -->
           <button
@@ -176,16 +175,16 @@
           </button>
           <!-- Cards -->
           <div
-            class="row justify-content-center opinion-carousel-row flex-nowrap flex-grow-1"
+            class="row opinion-carousel-row g-5 justify-content-center"
             style="overflow-x: auto"
           >
             <!-- Card 1 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card1.png"
                       alt="Foto de cliente"
@@ -213,12 +212,12 @@
               <!-- ... fin card 1... -->
             </div>
             <!-- Card 2 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card2.png"
                       alt="Foto de cliente"
@@ -246,12 +245,12 @@
               <!-- ...fin card 2... -->
             </div>
             <!-- Card 3 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card3.png"
                       alt="Foto de cliente"
@@ -279,12 +278,12 @@
               <!-- ...fin card 3... -->
             </div>
             <!-- Card 4 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card4.png"
                       alt="Foto de cliente"
@@ -310,12 +309,12 @@
               <!-- ...fin card 4... -->
             </div>
             <!-- Card 5 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card5.png"
                       alt="Foto de cliente"
@@ -341,12 +340,12 @@
               <!-- ...fin card 5... -->
             </div>
             <!-- Card 6 -->
-            <div class="col-12 col-md-6 col-lg-4 opinion-carousel-card">
+            <div class="col-12 col-md-3 opinion-carousel-card">
               <section class="opinion-card" tabindex="0">
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-3">
+                  <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card6.png"
                       alt="Foto de cliente"
@@ -386,6 +385,31 @@
       </div>
     </main>
 
+  <!-- Modal de búsqueda global -->
+<div id="globalSearchDropdown" class="search-bar py-1 buscador shadow" style="display:none; position:absolute; z-index:1055; min-width:350px;">
+  <div class="container">
+    <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
+      <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
+        <input
+          class="form-control control-buscador rounded-pill pe-5"
+          type="search"
+          placeholder="Buscar productos..."
+          aria-label="Buscador global"
+          id="global-search-input"
+          autocomplete="off"
+        />
+        <button
+          class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
+          type="submit"
+          aria-label="Buscar"
+        >
+          <i class="bi bi-search fs-5"></i>
+        </button>
+      </div>
+    </form>
+    <div id="global-search-results" class="mt-2"></div>
+  </div>
+</div>
     <!-- Sección preparada para Listado de Productos Destacados -->
 
     <section id="products-list"></section>
@@ -471,5 +495,6 @@
     <script src="../js/contact.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/register.js"></script>
+    <script src="../js/header.js"></script>
   </body>
 </html>
