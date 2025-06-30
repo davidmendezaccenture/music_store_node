@@ -574,13 +574,14 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 330px; /* o el alto que prefieras */
-  max-width: 200px;
-  margin: 0 auto;
+  height: 330px;
+  max-width: 220px; /* Puedes ajustar este valor */
+  /* margin: 0 auto; */ /* Elimina o comenta esta línea */
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
-  padding: 1rem;
+  padding: 1rem !important;
+  gap: 0.5rem;
 }
 
 .img-card {
@@ -635,6 +636,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .opinion-carousel-card.active {
@@ -652,7 +655,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   width: 48px;
   height: 48px;
   padding: 0;
-  margin: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -676,10 +678,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* @media (min-width: 992px) {
 
   /* En escritorio, muestra 3 cards a la vez */
-.opinion-carousel-card {
-  width: 33.3333%;
-  float: left;
-}
+/* .opinion-carousel-card {
+    width: 33.3333%;
+    float: left;
+  }  */
 
 @media (max-width: 991.98px) {
   .opinion-carousel-row {
@@ -923,4 +925,20 @@ body.dark-mode .navbar-collapse {
   border-top: 2px solid #23272bb4;
   margin: 3em auto;
   width: 30%;
+}
+
+/* Estilos para el buscador global del header */
+
+.dropdown-search-global {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.not-found-message {
+  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
