@@ -1,63 +1,59 @@
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title w-100 text-center" id="loginModalLabel">
           Iniciar sesión
         </h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
       </div>
       <div class="modal-body">
         <form id="loginForm" action="/login" method="POST">
           <div class="mb-3">
-            <label for="loginEmail" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control input-login" id="loginEmail" name="email" required
-              autocomplete="username" placeholder="Introduce tu correo electrónico" autofocus />
+            <label for="loginEmail" class="form-label"
+              >Correo electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control input-login"
+              id="loginEmail"
+              name="email"
+              required
+              autocomplete="username"
+              placeholder="Introduce tu correo electrónico"
+              autofocus
+            />
           </div>
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Contraseña</label>
-            <input type="password" class="form-control input-login" id="loginPassword" name="password" required
-              autocomplete="current-password" placeholder="Mínimo 8 caracteres" />
+            <input
+              type="password"
+              class="form-control input-login"
+              id="loginPassword"
+              name="password"
+              required
+              autocomplete="current-password"
+              placeholder="Mínimo 8 caracteres"
+            />
           </div>
           <div class="mb-3">
             <span>¿No tienes cuenta?</span>
             <a href="/pages/register.html" class="register-txt">Regístrate</a>
           </div>
-          <button type="submit" class="btn btn-primary w-100">
-            Entrar
-          </button>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  document.getElementById("loginForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-
-    try {
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Bienvenido " + data.nombre);
-        window.location.href = "/index.html";
-      } else {
-        alert(data.error || "Error al iniciar sesión");
-      }
-    } catch (error) {
-      console.error("Error al enviar login:", error);
-      alert("Error del servidor");
-    }
-  });
-</script>
