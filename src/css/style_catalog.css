@@ -1,3 +1,25 @@
+/* Refuerzo: nunca subrayar ni cambiar color en .nav-text, ni aunque reciba hover/focus directo */
+.nav-drums-custom .nav-text,
+.nav-drums-custom .nav-text:hover,
+.nav-drums-custom .nav-text:focus {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: #23272b !important;
+    background: none !important;
+}
+
+/* Iconos de la barra de navegación secundaria del catálogo */
+.nav-icon-catalog {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: inline-block;
+    /* vertical-align: middle; */
+    margin-right: 0.4em;
+    /* Centrado vertical perfecto con flexbox en el padre si hiciera falta */
+    /* Si hiciera falta más ajuste, usar position: relative y top: 2px; */
+}
+
 body {
     background-color: #f3f2ee;
     font-family: "Outfit", sans-serif;
@@ -70,6 +92,7 @@ a.btn-outline-primary:hover,
     border: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -83,6 +106,27 @@ a.btn-outline-primary:hover,
     border-top-right-radius: 16px;
     object-fit: cover;
     height: 220px;
+    width: 100%;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.card-img-top-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: #fff;
+}
+
+.card-content {
+    /* Eliminado: no se usa en la estructura actual */
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.04) rotate(-0.7deg);
 }
 
 /* Precio */
@@ -157,6 +201,14 @@ a.btn-outline-primary:hover,
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     z-index: 5;
     position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0;
+    top: 0;
+    margin-top: 0 !important;
 }
 
 .nav-drums-custom .container {
@@ -169,10 +221,10 @@ a.btn-outline-primary:hover,
 .nav-drums-custom ul {
     display: flex;
     align-items: center;
-    gap: 2em;
     margin: 0;
     padding: 0;
     height: 60px;
+    gap: 2em;
 }
 
 .nav-drums-custom li {
@@ -190,10 +242,16 @@ a.btn-outline-primary:hover,
 
 .nav-drums-custom a {
     color: #23272b;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1.5rem;
-    padding: 0.2em 0.6em 0.1em 0.6em;
+    display: flex;
+    align-items: center;
+    padding: 0.13em 0.5em;
     border-radius: 0;
+    /* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
+    transition: color 0.18s ease, background 0.18s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
+    /* sombra invisible por defecto */
 }
 
 .nav-drums-custom .nav-text {
@@ -204,33 +262,51 @@ a.btn-outline-primary:hover,
     display: inline-block;
     min-width: 0;
     padding: 0 4px;
+    transition: color 0.18s ease, background 0.18s ease;
 }
 
-.nav-drums-custom a .nav-text {
-    border-bottom: none;
-    transition: background 0.2s, color 0.2s, font-weight 0.2s, border-bottom 0.2s;
-    display: inline-block;
-    min-width: 0;
-    padding: 0 4px;
-}
 
-/* Hover/focus: outline amarillo, sin fondo, borde tipo píldora */
-.nav-drums-custom a:hover .nav-text,
-.nav-drums-custom a:focus .nav-text {
-    outline: 4px solid #f6a61a;
-    outline-offset: 2px;
+
+/* Hover/focus: outline amarillo, sin fondo, borde tipo píldora, SIN subrayado ni cambio de color en el texto */
+.nav-drums-custom a:hover,
+.nav-drums-custom a:focus {
+    /* Simula outline amarillo con box-shadow fade in y animación border-radius */
+    box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
     background: none;
-    color: #23272b;
+    color: #23272b !important;
     border-radius: 999px;
     font-weight: 600;
-    box-shadow: none;
+    text-decoration: none !important;
 }
 
-/* Activo: fondo amarillo, sin outline, borde tipo píldora */
+/* Elimina subrayado y color en hover/focus SOLO para el texto dentro del enlace */
+.nav-drums-custom a:hover .nav-text,
+.nav-drums-custom a:focus .nav-text {
+    color: #23272b !important;
+    text-decoration: none !important;
+    background: none !important;
+    border-bottom: none !important;
+}
+
+
+/* Activo: fondo amarillo, borde tipo píldora, sin outline, efecto igual que el outline pero relleno */
+.nav-drums-custom a.active {
+    background: #f6a61a;
+    color: #23272b !important;
+    border-radius: 999px;
+    /* Igualar el tamaño visual al hover/focus: box-shadow invisible del mismo grosor */
+    box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
+    font-weight: 600;
+    /* Sumar el grosor del outline al padding para igualar el área total */
+    padding: calc(0.13em + 4px) calc(0.5em + 4px);
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* El texto dentro del enlace activo mantiene el mismo estilo, sin fondo adicional */
 .nav-drums-custom a.active .nav-text {
-    background-color: #f6a61a;
+    background: none;
     color: #23272b;
-    padding: 5px 16px;
+    padding: 0 4px;
     border-radius: 999px;
     font-weight: 600;
     outline: none;
@@ -238,22 +314,15 @@ a.btn-outline-primary:hover,
 }
 
 /* El enlace activo NO cambia en hover/focus */
-.nav-drums-custom a.active:hover .nav-text,
-.nav-drums-custom a.active:focus .nav-text {
-    background-color: #f6a61a;
-    color: #23272b;
+.nav-drums-custom a.active:hover,
+.nav-drums-custom a.active:focus {
+    background: #f6a61a;
+    color: #23272b !important;
     border-radius: 999px;
-    font-weight: 600;
-    outline: none;
     box-shadow: none;
-    padding: 5px 16px;
+    font-weight: 600;
 }
 
-.nav-drums-custom a,
-.nav-drums-custom a:focus,
-.nav-drums-custom a:hover {
-    font-weight: 600;
-}
 
 /* Icono de búsqueda */
 .search-icon-drums {
@@ -347,9 +416,10 @@ a.btn-outline-primary:hover,
 
 #header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    ;
     z-index: 10;
     position: relative;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 /* Contenedor interior para la barra secundaria, igual que el header */

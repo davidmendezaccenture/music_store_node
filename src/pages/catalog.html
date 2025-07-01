@@ -17,38 +17,52 @@
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
 </head>
 
+<!-- Mejora SEO: descripción de la página -->
+<meta name="description"
+    content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
+
 <body>
     <!-- Cabecera de la página -->
     <div id="header"></div>
+    <!-- Barra de navegación secundaria FUERA del main para que quede pegada al header y el fondo ocupe 100vw -->
+    <nav class="nav-drums-custom mb-3" aria-label="Navegación secundaria de productos">
+        <div class="container px-0">
+            <ul>
+                <li>
+                    <a href="#" onclick="setFamilia('cuerda'); return false;" aria-label="Ver productos de cuerda">
+                        <img src="../assets/images/catalog_icons/cuerda.webp" alt="Icono cuerda"
+                            class="nav-icon-catalog">
+                        <span class="nav-text">cuerda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="setFamilia('percusion'); return false;"
+                        aria-label="Ver productos de percusión">
+                        <img src="../assets/images/catalog_icons/percusion.webp" alt="Icono percusión"
+                            class="nav-icon-catalog">
+                        <span class="nav-text">percusión</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="setFamilia('teclado'); return false;" aria-label="Ver productos de teclado">
+                        <img src="../assets/images/catalog_icons/teclados.webp" alt="Icono teclado"
+                            class="nav-icon-catalog">
+                        <span class="nav-text">teclado</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="setFamilia('dj'); return false;" aria-label="Ver productos de DJ">
+                        <img src="../assets/images/catalog_icons/dj.webp" alt="Icono DJ" class="nav-icon-catalog">
+                        <span class="nav-text">dj</span>
+                    </a>
+                </li>
+            </ul>
+            <span class="search-icon-drums">
+                <i class="bi bi-search"></i>
+            </span>
+        </div>
+    </nav>
     <main class="container py-4" role="main">
-        <!-- Barra de navegación secundaria -->
-        <nav class="nav-drums-custom mb-3" aria-label="Navegación secundaria de productos">
-            <div class="container px-0">
-                <ul style="gap: 1.2em;">
-                    <li>
-                        <a href="#" onclick="setFamilia('cuerda'); return false;" aria-label="Ver productos de cuerda">
-                            <span class="nav-text">Cuerda</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="setFamilia('percusion'); return false;"
-                            aria-label="Ver productos de percusión">
-                            <span class="nav-text">Percusión</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="setFamilia('teclado'); return false;"
-                            aria-label="Ver productos de teclado">
-                            <span class="nav-text">Teclado</span>
-                        </a>
-                    </li>
-                    <!-- Puedes añadir más familias aquí -->
-                </ul>
-                <span class="search-icon-drums">
-                    <i class="bi bi-search"></i>
-                </span>
-            </div>
-        </nav>
         <!-- Botón para volver a Home -->
         <div class="mb-4">
             <a href="../pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
@@ -90,7 +104,9 @@
         </section>
         <!-- Catálogo dinámico -->
         <section class="row g-4" role="region" aria-label="Catálogo de productos">
-            <div id="products-list" class="row g-4" role="region" aria-label="Catálogo de productos"></div>
+            <div class="container px-0 mt-4">
+                <div id="products-list" class="row g-4" role="region" aria-label="Catálogo de productos"></div>
+            </div>
         </section>
         <hr class="divisor-fade" />
     </main>

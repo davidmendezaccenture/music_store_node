@@ -4,7 +4,8 @@
 
   // --- INICIO CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
   // Variable global para la familia activa
-  let familiaActiva = 'cuerda'; // Valor por defecto
+  // Almacena la familia activa en localStorage para persistencia tras recarga
+  let familiaActiva = localStorage.getItem('familiaCatalogoActiva') || 'cuerda';
 
   // Diccionario de familias y sus categorías
   const familias = {
@@ -17,6 +18,18 @@
   // Función para cambiar la familia activa (llámala desde la barra secundaria)
   window.setFamilia = function (nuevaFamilia) {
     familiaActiva = nuevaFamilia;
+    localStorage.setItem('familiaCatalogoActiva', familiaActiva);
+    // Quitar clase active de todos los enlaces
+    document.querySelectorAll('.nav-drums-custom a').forEach(a => {
+      a.classList.remove('active');
+      a.removeAttribute('aria-current');
+    });
+    // Añadir clase active al enlace correspondiente
+    const enlaceActivo = document.querySelector(`.nav-drums-custom a[onclick*="setFamilia('${nuevaFamilia}'"]`);
+    if (enlaceActivo) {
+      enlaceActivo.classList.add('active');
+      enlaceActivo.setAttribute('aria-current', 'page');
+    }
     poblarCategorias(productos); // repobla el select de categorías según la familia
     filtrarYMostrar();
   };
@@ -34,6 +47,21 @@
   // 2. Eventos con jQuery
   $(document).ready(function () {
     cargarProductos();
+
+    // Activar la pestaña correcta al cargar la página
+    setTimeout(function () {
+      // Quitar clase active de todos los enlaces
+      document.querySelectorAll('.nav-drums-custom a').forEach(a => {
+        a.classList.remove('active');
+        a.removeAttribute('aria-current');
+      });
+      // Añadir clase active al enlace correspondiente
+      const enlaceActivo = document.querySelector(`.nav-drums-custom a[onclick*="setFamilia('${familiaActiva}'"]`);
+      if (enlaceActivo) {
+        enlaceActivo.classList.add('active');
+        enlaceActivo.setAttribute('aria-current', 'page');
+      }
+    }, 0);
 
     $('#search-input-guitar').on('input', filtrarYMostrar);
     $('#filtro-categoria').on('change', filtrarYMostrar);
@@ -132,9 +160,11 @@
     }
     $contenedor.html(
       lista.map(p => `
-        <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="col-12 col-md-6 col-lg-3 d-flex mb-3">
           <div class="card flex-fill h-100">
-            <img src="${p.image}" class="card-img-top" alt="${p.name}" />
+            <div class="card-img-top-wrapper">
+              <img src="${p.image}" class="card-img-top" alt="${p.name}" />
+            </div>
             <div class="card-body d-flex flex-column">
               <h2 class="h5 card-title">${p.name}</h2>
               <p class="card-text">${p.description}</p>

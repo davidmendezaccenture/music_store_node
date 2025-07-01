@@ -1,3 +1,63 @@
+/* === Botones CTA igual que en servicios === */
+.background-resaltado {
+    background-color: #f6a61a;
+    color: #000000;
+}
+
+.btn.background-resaltado:hover {
+    background-color: #f6a61a;
+    color: white;
+    transform: none;
+    box-shadow: none;
+}
+
+.txt-resaltado {
+    border: 2px solid #f6a61a;
+}
+
+.btn.txt-resaltado:hover {
+    background-color: transparent;
+    color: #f6a61a;
+    border-color: #f6a61a;
+}
+
+/* Fondo blanco de lado a lado para la sección Dónde estamos */
+.donde-estamos-section {
+    background: #fff;
+    padding: 4em 0;
+}
+
+/* Padding personalizado para la sección CTA especial */
+.cta-aboutus-section {
+    padding-top: 4em;
+}
+
+
+.seccion-sandshotel .mapa-container {
+    box-shadow: 0 2px 16px 0 #23272b22;
+}
+
+/* ================= MAPA GOOGLE MAPS ================= */
+.mapa-container {
+    width: 100%;
+    /* max-width: 500px; */
+    /* margin: 0 auto; */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px 0 #23272b22;
+    background: #fff;
+}
+
+.mapa-iframe {
+    width: 100%;
+    height: 350px;
+    min-height: 250px;
+    min-width: 200px;
+    border: 0;
+    display: block;
+    pointer-events: auto;
+}
+
 .sobre-nosotros {
     font-size: 3em;
 }
@@ -120,53 +180,8 @@
     height: 100%;
 }
 
-/* Línea divisoria simple y fina entre secciones */
-.divisor-fade {
-    border: none;
-    border-top: 2px solid #23272bb4;
-    margin: 5em auto;
-    width: 30%;
-}
-
 main {
     padding-bottom: 80px;
     margin-bottom: 1em;
     /* Ajusta el valor según la altura de tu footer */
-}
-
-.texto-mapa {
-    height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.titulo-mapa {
-    line-height: 1.2;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-top: 0;
-}
-
-.parrafo-mapa {
-    text-align: justify;
-    font-size: 1.18rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-.mapa-container {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.mapa-iframe {
-    width: 100%;
-    height: 320px;
-    border: 0;
-    border-radius: 12px;
-    display: block;
 }

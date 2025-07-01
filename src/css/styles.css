@@ -271,7 +271,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -285,7 +285,8 @@ header {
 /* Touch targets mejorados para accesibilidad - Pautas WCAG 2.1 AA: mínimo 44x44px */
 .control-buscador {
   background-color: rgba(238, 236, 231, 0.693);
-  height: 48px; /* Ya cumple con el mínimo de 44px */
+  height: 48px;
+  /* Ya cumple con el mínimo de 44px */
   font-size: 1.1rem;
   border-radius: 999px !important;
   padding-right: 3rem !important;
@@ -426,6 +427,15 @@ a:focus .nav-text {
   background-color: transparent;
 }
 
+/*********************** COMENTADO POR SERGIO: BLOQUE QUE SUBRAYA LOS ENLACES DE LA NAVEGACIÓN SECUNDARIA ***********************/
+/*
+a:hover .nav-text,
+a:focus .nav-text {
+  border-bottom: 2px solid #f6a61a;
+  background-color: transparent;
+}
+*/
+
 .icon-image {
   transition: transform 0.2s;
   width: 30px;
@@ -476,7 +486,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem; /* espacio entre flechas e imagen */
+  gap: 1rem;
+  /* espacio entre flechas e imagen */
 }
 
 .carrousel-inner picture {
@@ -534,6 +545,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
 @media (max-width: 1085px) {
+
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 30px !important;
@@ -546,6 +558,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   .carousel-indicators-custom {
     gap: 0.4rem !important;
   }
+
   .carousel-indicators-custom .indicator {
     width: 15px !important;
     height: 15px !important;
@@ -553,6 +566,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 @media (max-width: 562px) {
+
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 25px !important;
@@ -561,6 +575,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     margin: 3% !important;
   }
 }
+
 /* media queries para tamaño imagenes destacadas */
 @media (max-width: 770px) {
   .img-carrousel {
@@ -576,12 +591,16 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   /* margin: 5%; */
-  height: 350px; /* Fija la altura exacta */
-  min-height: 350px; /* Opcional, refuerza el mínimo */
-  max-height: 350px; /* Opcional, refuerza el máximo */
+  height: 350px;
+  /* Fija la altura exacta */
+  min-height: 350px;
+  /* Opcional, refuerza el mínimo */
+  max-height: 350px;
+  /* Opcional, refuerza el máximo */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribuye el contenido verticalmente */
+  justify-content: space-between;
+  /* Distribuye el contenido verticalmente */
 }
 
 .opinion-card-container {
@@ -590,8 +609,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   justify-content: space-between;
   align-items: center;
   height: 330px;
-  max-width: 220px; /* Puedes ajustar este valor */
-  /* margin: 0 auto; */ /* Elimina o comenta esta línea */
+  max-width: 220px;
+  /* Puedes ajustar este valor */
+  /* margin: 0 auto; */
+  /* Elimina o comenta esta línea */
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
@@ -705,6 +726,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     align-items: center !important;
     margin-bottom: 1.5rem;
   }
+
   .opinion-carousel-card {
     width: 100% !important;
     float: none !important;
@@ -712,12 +734,15 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     display: block !important;
     opacity: 1 !important;
   }
+
   .opinion-carousel-card:nth-child(n + 4) {
     display: none !important;
   }
+
   .opinion-carousel-arrow {
     display: none !important;
   }
+
   .opinion-carousel-card:last-child {
     margin-bottom: 0;
   }
@@ -946,6 +971,7 @@ body.dark-mode .accordion-body {
 body.dark-mode .txt-resaltado {
   color: white;
 }
+
 body.dark-mode .txt-resaltado:hover,
 body.dark-mode .txt-resaltado:focus {
   color: #f6a61a !important;
@@ -1039,7 +1065,8 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
 /* Media queries para touch targets en dispositivos móviles */
 @media (max-width: 768px) {
   .control-buscador {
-    height: 50px; /* Aumentar ligeramente en móviles */
+    height: 50px;
+    /* Aumentar ligeramente en móviles */
     font-size: 1rem;
   }
 
