@@ -87,35 +87,36 @@
   }
 
   // 5. Mostrar productos
-  function mostrarProductos(lista) {
-    let $contenedor = $('#products-list');
-    let $contador = $('#result-count');
-    if ($contador.length) $contador.text(`${lista.length} resultados encontrados`);
-    if (!lista.length) {
-      $contenedor.html('<p>No se encontraron productos.</p>');
-      return;
-    }
-    $contenedor.html(
-      lista.map(p => `
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
-            <img src="${p.image}" class="card-img-top" alt="${p.name}" />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">${p.name}</h5>
-              <p class="card-text">${p.description}</p>
-              <p class="mb-2">
-                ${p.offerPrice < p.price
-                  ? `<span class="text-muted text-decoration-line-through">${p.price} €</span>
-                     <span class="fw-bold text-danger ms-2">${p.offerPrice} €</span>`
-                  : `<span class="fw-bold">${p.price} €</span>`
-                }
-              </p>
-              <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
-                Añadir a la cesta
-              </button>
-            </div>
-          </div>
-        </div>
-      `).join(''));
+function mostrarProductos(lista) {
+  let $contenedor = $('#products-list');
+  let $contador = $('#result-count');
+  if ($contador.length) $contador.text(`${lista.length} resultados encontrados`);
+  if (!lista.length) {
+    $contenedor.html('<p>No se encontraron productos.</p>');
+    return;
   }
+  $contenedor.empty();
+  const template = document.getElementById('product-card-template');
+  lista.forEach(p => {
+    const clone = template.content.cloneNode(true);
+    const card = clone.querySelector('.card');
+    clone.querySelector('.card-img-top').src = p.image;
+    clone.querySelector('.card-img-top').alt = p.name;
+    clone.querySelector('.card-title').textContent = p.name;
+    clone.querySelector('.card-text').textContent = p.description;
+    // Precio/oferta
+    const priceBlock = clone.querySelector('.price-block');
+    if (p.offerPrice < p.price) {
+      priceBlock.innerHTML = `<span class="text-muted text-decoration-line-through">${p.price} €</span>
+        <span class="fw-bold text-danger ms-2">${p.offerPrice} €</span>`;
+    } else {
+      priceBlock.innerHTML = `<span class="fw-bold">${p.price} €</span>`;
+    }
+    // Botón
+    const btn = clone.querySelector('.add-to-cart');
+    btn.setAttribute('data-id', p.id);
+    btn.setAttribute('aria-label', `Añadir ${p.name} a la cesta`);
+    $contenedor.append(clone);
+  });
+}
 })();

@@ -194,11 +194,29 @@
       <!-- Catálogo de guitarras -->
       <section class="row g-4" role="region" aria-label="Catálogo de guitarras">
         <div
-          id="products-list"
-          class="row g-4"
-          role="region"
-          aria-label="Catálogo de productos"
-        ></div>
+            id="products-list"
+            class="row g-4"
+            role="region"
+            aria-label="Catálogo de productos"
+          >
+        </div>
+
+        <!-- Plantilla de tarjeta de producto -->
+        <template id="product-card-template">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+              <img class="card-img-top" alt="" />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p class="mb-2 price-block"></p>
+                <button class="btn btn-primary add-to-cart" data-id="">
+                  Añadir a la cesta
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
 
         <!-- Guitarra Acústica -->
         <!-- <div class="col-md-6 col-lg-4">
