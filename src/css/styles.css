@@ -34,7 +34,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
 }
 
 #header {
@@ -76,7 +76,6 @@ header {
 .navbar-nav .nav-link:focus {
   color: #f6a61a;
   outline: none !important;
-  /* box-shadow: 0 0 0 2px #f6a61a40; */
 }
 
 .nav-link img:hover,
@@ -94,7 +93,7 @@ header {
 /* Estilo hamburguesa navbar */
 
 .navbar-toggler {
-  background-color: transparent;
+  background-color: #110d0c;
   border: 2px solid #f6a61a;
   border-radius: 6px;
   padding: 6px 10px;
@@ -111,18 +110,45 @@ header {
   background-color: rgba(246, 166, 26, 0.1);
 }
 
+/* Estilo para el menú desplegable de la navbar */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #110d0c;
+    border: 1px solid #f6a61a;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    margin-top: 0;
+    padding: 15px;
+    z-index: 3;
+  }
+
+  /* Estilos para los enlaces dentro del desplegable */
+  .navbar-collapse .navbar-nav .nav-link {
+    color: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 2px 0;
+  }
+
+  .navbar-collapse .navbar-nav .nav-link:hover {
+    background-color: rgba(246, 166, 26, 0.1);
+    color: #f6a61a;
+  }
+
+  .navbar-collapse .navbar-nav .nav-link.active {
+    background-color: rgba(246, 166, 26, 0.2);
+    color: #f6a61a;
+  }
+}
+
 /* Overlay para mejorar el contraste */
 
 /* Centrar el contenido del header */
 
 /* Estilo para el logo de Rat Pack Instruments */
 .logo-main {
-  /* margin-left: 10px; */
-  /* Margen izquierdo */
   width: 150px;
   margin-right: 10px;
-  /* border-radius: 50%; */
-  /* transition: transform 0.2s; */
 }
 
 .logo-main-h1 {
@@ -132,8 +158,8 @@ header {
 
 /* Estilo logos pago */
 .pago-logo {
-  width: 40px;
-  height: auto;
+  width: 32px;
+  height: 32px;
   margin-right: 10px;
   border-radius: 50%;
 }
@@ -202,23 +228,24 @@ header {
 .pago-logo:focus,
 .social-logo:hover,
 .social-logo:focus {
-  background-color: #f3e9fc;
   border-radius: 50%;
   transform: scale(1.15);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 8px #480289ce;
+  transition: transform 0.2s;
 }
 
 /* Estilo ventajas */
 .lista-ventajas {
   text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 .lista-ventajas:hover,
 .lista-ventajas:focus {
-  color: #480289ce;
-  text-shadow: 0 2px 8px #a259e6, 0 0 1px #fff;
-  transition: color 0.2s, text-shadow 0.2s;
+  color: #f6a61a;
+  transform: scale(1.1) !important;
 }
 
 /* Control de la barra de busqueda */
@@ -255,13 +282,14 @@ header {
   position: relative;
 }
 
+/* Touch targets mejorados para accesibilidad - Pautas WCAG 2.1 AA: mínimo 44x44px */
 .control-buscador {
   background-color: rgba(238, 236, 231, 0.693);
-  height: 48px;
+  height: 48px; /* Ya cumple con el mínimo de 44px */
   font-size: 1.1rem;
   border-radius: 999px !important;
-  padding-right: 2.5rem !important;
-  /* Espacio para la lupa */
+  padding-right: 3rem !important;
+  /* Espacio para la lupa con touch target adecuado */
 }
 
 .control-buscador:focus {
@@ -278,18 +306,32 @@ header {
   box-shadow: none;
   outline: none;
   z-index: 2;
-  right: 16px !important;
+  right: 12px !important;
+  /* Mínimo 44x44px para touch targets según pautas de accesibilidad */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
 }
 
 .lupa-inside-input:hover,
 .lupa-inside-input:active,
 .lupa-inside-input:focus {
   color: #f6a61a !important;
-  /* O el color que prefieras */
-  background: none !important;
+  background-color: rgba(246, 166, 26, 0.1) !important;
   box-shadow: none !important;
   outline: none !important;
   border: none !important;
+}
+
+/* Focus visible para mejor accesibilidad en navegación por teclado */
+.lupa-inside-input:focus-visible {
+  outline: 2px solid #f6a61a !important;
+  outline-offset: 2px;
 }
 
 /* NewsLetter */
@@ -405,27 +447,43 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3%;
-  margin-bottom: 5%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Estilo para la imagen del carrusel */
 .img-carrousel {
-  width: 35vw;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1500px;
   border-radius: 10px;
-  height: auto;
+  height: 40vh;
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
-
-  /* Opcional: para evitar que el espacio colapse */
   background: #f8f9fa;
-  /* o el color de fondo de tu carrusel */
+  object-fit: cover;
+  display: block;
 }
 
 .img-carrousel.fade-out {
   opacity: 0;
+}
+
+.carrousel-inner {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* espacio entre flechas e imagen */
+}
+
+.carrousel-inner picture {
+  flex: 1 1 auto;
+  display: block;
+  width: 100%;
+  margin: 0;
 }
 
 /* Estilo para las flechas del carrusel */
@@ -474,30 +532,76 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   background-color: #23272b;
 }
 
-/* estilo para las Cards de Opiniones de Clientes */
-.opinion-card {
-  margin: 5%;
-  height: 400px;
+/* media queries para botones e indicadores de ruleta de imágenes destacadas*/
+@media (max-width: 1085px) {
+  .product-carousel-arrow,
+  .opinion-carousel-arrow {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1rem !important;
+    margin: 5% !important;
+    z-index: 2 !important;
+  }
+
+  .carousel-indicators-custom {
+    gap: 0.4rem !important;
+  }
+  .carousel-indicators-custom .indicator {
+    width: 15px !important;
+    height: 15px !important;
+  }
 }
 
-/* Barra para el texto de las opiniones */
-.texto-div {
-  max-height: 200px;
-  /* a partir de 200px se mostrará la barra de desplazamiento */
-  overflow-y: auto;
+@media (max-width: 562px) {
+  .product-carousel-arrow,
+  .opinion-carousel-arrow {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 0.7rem !important;
+    margin: 3% !important;
+  }
+}
+/* media queries para tamaño imagenes destacadas */
+@media (max-width: 770px) {
+  .img-carrousel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .carrousel-container {
+    margin-top: 2rem;
+  }
+}
+
+/* estilo para las Cards de Opiniones de Clientes */
+.opinion-card {
+  /* margin: 5%; */
+  height: 350px; /* Fija la altura exacta */
+  min-height: 350px; /* Opcional, refuerza el mínimo */
+  max-height: 350px; /* Opcional, refuerza el máximo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
 }
 
 .opinion-card-container {
-  max-width: 300px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 330px;
+  max-width: 220px; /* Puedes ajustar este valor */
+  /* margin: 0 auto; */ /* Elimina o comenta esta línea */
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
+  padding: 1rem !important;
+  gap: 0.5rem;
 }
 
 .img-card {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -513,7 +617,20 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-weight: 300;
   font-size: 1rem;
   color: #000000;
-  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto-div {
+  min-height: 60%;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  padding-bottom: 0.5rem;
 }
 
 .opinion-card-container {
@@ -524,13 +641,18 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 .opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  /* COLOR A CAMBIAR CUANDO ESTÉ DECIDIDO!!*/
+}
+
+.opinion-carousel-row {
+  overflow: visible !important;
 }
 
 .opinion-carousel-card {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .opinion-carousel-card.active {
@@ -544,10 +666,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow,
 .product-carousel-arrow {
+  flex: 0 0 auto;
   width: 48px;
   height: 48px;
   padding: 0;
-  margin: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -568,11 +690,36 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   border: none !important;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
+
   /* En escritorio, muestra 3 cards a la vez */
-  .opinion-carousel-card {
+/* .opinion-carousel-card {
     width: 33.3333%;
     float: left;
+  }  */
+
+@media (max-width: 991.98px) {
+  .opinion-carousel-row {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    margin-bottom: 1.5rem;
+  }
+  .opinion-carousel-card {
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 1rem;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .opinion-carousel-card:nth-child(n + 4) {
+    display: none !important;
+  }
+  .opinion-carousel-arrow {
+    display: none !important;
+  }
+  .opinion-carousel-card:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -630,8 +777,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* Footer sticky */
 .pre-footer {
   background-color: #dedbd9;
-  padding: 2rem;
-  margin-top: auto;
+  padding-top: 1.5rem;
   color: #110d0c;
   /* Empuja el footer hacia abajo */
 }
@@ -639,21 +785,31 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 #footer {
   color: #dedbd9;
   background-color: #110d0c;
-  margin-top: 0;
 }
 
 /* Darkmode */
+/* Darkmode - Agrupado y refactorizado */
 body.dark-mode,
-body.dark-mode .opinion-card-container {
+body.dark-mode .opinion-card-container,
+body.dark-mode .pre-footer {
   background-color: #181818 !important;
   color: #f1f1f1 !important;
 }
 
 body.dark-mode .bg-white,
 body.dark-mode .bg-light,
-body.dark-mode .card {
+body.dark-mode .card,
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode .btn-buscador,
+body.dark-mode .modal-content,
+body.dark-mode .footer {
   background-color: #232323 !important;
   color: #f1f1f1 !important;
+}
+
+body.dark-mode .footer {
+  color: #f6a61a !important;
 }
 
 body.dark-mode .newsletter-section {
@@ -661,29 +817,7 @@ body.dark-mode .newsletter-section {
   color: #f1f1f1 !important;
 }
 
-body.dark-mode .footer {
-  background-color: #232323 !important;
-  color: #f6a61a !important;
-}
-
-body.dark-mode .pre-footer {
-  background-color: #181818 !important;
-  color: #f1f1f1 !important;
-}
-
-body.dark-mode .form-control,
-body.dark-mode .form-select,
-body.dark-mode .btn-buscador {
-  background-color: #232323 !important;
-  color: #f1f1f1 !important;
-}
-
-body.dark-mode .modal-content {
-  background-color: #232323 !important;
-  color: #f1f1f1 !important;
-}
-
-/* Color de texto */
+/* Colores de texto agrupados */
 body.dark-mode .form-text,
 body.dark-mode .text-muted,
 body.dark-mode .db-text,
@@ -694,7 +828,7 @@ body.dark-mode .lupa-inside-input i {
   color: #f1f1f1 !important;
 }
 
-/* Color de bordes */
+/* Colores de borde y filtros */
 body.dark-mode .icon-circle {
   border-color: #f1f1f1 !important;
 }
@@ -707,6 +841,7 @@ body.dark-mode .icon-image {
   filter: brightness(0) invert(1);
 }
 
+/* Media query para iconos en pantallas pequeñas */
 @media (max-width: 450px) {
   .icon-image {
     width: 30px !important;
@@ -714,6 +849,7 @@ body.dark-mode .icon-image {
   }
 }
 
+/* Efectos hover agrupados */
 body.dark-mode .lupa-inside-input:hover,
 body.dark-mode .lupa-inside-input:focus,
 body.dark-mode .lupa-inside-input:active,
@@ -721,7 +857,12 @@ body.dark-mode .lupa-inside-input:hover i,
 body.dark-mode .lupa-inside-input:focus i,
 body.dark-mode .lupa-inside-input:active i {
   color: #f6a61a !important;
-  /* naranja en hover/focus */
+}
+
+/* Focus visible en modo oscuro */
+body.dark-mode .lupa-inside-input:focus-visible {
+  outline: 2px solid #f6a61a !important;
+  outline-offset: 2px;
 }
 
 /* Estilo para el tabulador de navegación secundaria de productos */
@@ -780,13 +921,137 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   color: #110d0c !important;
 }
 
+body.dark-mode .accordion-item {
+  border: 1px solid #f6a61a !important;
+  background-color: #232323;
+}
+
+body.dark-mode .accordion-button.collapsed {
+  background-color: #232323;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .accordion-collapse {
+  border: none;
+  background-color: #232323;
+}
+
+body.dark-mode .accordion-body {
+  background-color: #232323;
+  color: white;
+  border-top: 1px solid #f6a61a4d;
+}
+
+body.dark-mode .txt-resaltado {
+  color: white;
+}
+body.dark-mode .txt-resaltado:hover,
+body.dark-mode .txt-resaltado:focus {
+  color: #f6a61a !important;
+}
+
 .contact-container {
   column-gap: 5rem;
 }
+
 /* Línea divisoria simple y fina entre secciones */
 .divisor-fade {
   border: none;
   border-top: 2px solid #23272bb4;
-  margin: 1em auto;
+  margin: 3em auto;
   width: 30%;
+}
+
+/* Estilos para el buscador global del header */
+
+.dropdown-search-global {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.not-found-message {
+  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* Estilos para el offcanvas menu */
+.offcanvas-body .list-group-item.active {
+  background-color: rgba(246, 166, 26, 0.1);
+  border-color: #f6a61a;
+  color: #f6a61a;
+}
+
+.offcanvas-body .list-group-item.active .fw-bold {
+  color: #f6a61a;
+}
+
+.offcanvas-body .list-group-item.active i {
+  color: #f6a61a;
+}
+
+/* Estilos dark mode para el offcanvas */
+body.dark-mode .offcanvas,
+body.dark-mode .offcanvas-header,
+body.dark-mode .offcanvas-body .list-group-item {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .offcanvas-header {
+  border-bottom: 1px solid #f6a61a4d !important;
+}
+
+body.dark-mode .offcanvas-title {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .offcanvas-title i {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .btn-close {
+  filter: invert(1) !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item {
+  border-color: #f6a61a4d !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item:hover {
+  background-color: rgba(246, 166, 26, 0.1) !important;
+  color: #f6a61a !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item:hover .fw-bold,
+body.dark-mode .offcanvas-body .list-group-item:hover i {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .offcanvas-body .list-group-item .text-muted {
+  color: #aaa !important;
+}
+
+/* Media queries para touch targets en dispositivos móviles */
+@media (max-width: 768px) {
+  .control-buscador {
+    height: 50px; /* Aumentar ligeramente en móviles */
+    font-size: 1rem;
+  }
+
+  .lupa-inside-input {
+    /* Asegurar área de toque mínima en móviles */
+    min-width: 48px;
+    min-height: 48px;
+    padding: 10px;
+  }
+
+  /* Espaciado entre elementos interactivos para evitar activación accidental */
+  .buscador-input-wrapper {
+    margin: 8px 0;
+  }
 }

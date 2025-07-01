@@ -94,8 +94,9 @@
               role="listitem"
               aria-label="Producto en el carrito"
             >
-              <div class="row g-0 align-items-center">
-                <div class="col-md-2 text-center">
+              <div class="row g-0 align-items-center flex-row">
+                <!-- Imagen: ocupa 3 columnas en móvil y 2 en md+ -->
+                <div class="col-3 col-md-2 text-center">
                   <img
                     src=""
                     class="img-fluid rounded"
@@ -103,19 +104,19 @@
                     style="max-width: 80px"
                   />
                 </div>
-                <div class="col-md-3">
+                <!-- Info: ocupa 9 columnas en móvil y 3 en md+ -->
+                <div class="col-9 col-md-3">
                   <div class="card-body">
                     <h5 class="card-title mb-1"></h5>
                     <p class="card-text mb-1"></p>
                   </div>
                 </div>
-                <div class="col-md-2 text-center">
+                <div class="col-6 col-md-2 text-center">
                   <span class="fw-bold price"></span>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-6 col-md-3 text-center">
                   <div
                     class="input-group justify-content-center cart-qty-group"
-                    mb-4
                   >
                     <button
                       class="btn btn-outline-secondary btn-sm btn-decrease"
@@ -140,9 +141,9 @@
                     </button>
                   </div>
                 </div>
-                <div class="col-md-2 text-center">
+                <div class="col-12 col-md-2 text-center mt-2 mt-md-0">
                   <button
-                    class="btn btn-primary rounded-pill px-4 btn-remove delete-product-btn"
+                    class="btn btn-primary rounded-pill px-2 px-md-4 btn-remove delete-product-btn"
                     aria-label="Eliminar producto"
                   >
                     Eliminar
@@ -279,7 +280,9 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="guestCheckoutLabel">¡Ups!</h5>
+              <h5 class="modal-title" id="guestCheckoutLabel">
+                <i class="bi bi-person-exclamation fs-2"></i>
+              </h5>
               <button
                 type="button"
                 class="btn-close"
@@ -289,7 +292,7 @@
             </div>
             <div class="modal-body">
               ¿Tienes cuenta?.<br />
-              <strong>inicia sesión para continuar</strong>
+              <strong>Regístrate para continuar con la compra.</strong>
             </div>
             <div class="modal-footer">
               <a
@@ -310,6 +313,32 @@
       </div>
     </main>
 
+  <!-- Modal de búsqueda global -->
+  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow" style="display:none; position:absolute; z-index:1055; min-width:350px;">
+    <div class="container">
+      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
+        <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
+          <input
+            class="form-control control-buscador rounded-pill pe-5"
+            type="search"
+            placeholder="Buscar productos..."
+            aria-label="Buscador global"
+            id="global-search-input"
+            autocomplete="off"
+          />
+          <button
+            class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
+            type="submit"
+            aria-label="Buscar"
+          >
+            <i class="bi bi-search fs-5"></i>
+          </button>
+        </div>
+      </form>
+      <div id="global-search-results" class="mt-2"></div>
+    </div>
+  </div>
+
     <!-- ::::::::::::::::::::::: FIN CONTENIDO PRINCIPAL ::::::::::::::::::::::: -->
 
     <!-- Footer -->
@@ -321,6 +350,6 @@
     <script src="../js/app.js"></script>
     <script src="../js/contact.js"></script>
     <script src="../js/cart.js"></script>
-    <script src="../js/register.js"></script>
+    <script src="../js/register.js"></script><script src="../js/header.js"></script>
   </body>
 </html>
