@@ -444,7 +444,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Estilo para el carrusel */
 
-#carouselProductos {
+/* #carouselProductos {
   width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -457,18 +457,18 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   object-fit: scale-down !important;
   width: 100% !important;
   
-}
+} */
  
-/* .carrousel-container {
+.carrousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-} */
+}
 
 /* Estilo para la imagen del carrusel */
-/* .img-carrousel {
+.img-carrousel {
   width: 100%;
   max-width: 1500px;
   border-radius: 10px;
@@ -492,19 +492,19 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   align-items: center;
   justify-content: center; 
-   espacio entre flechas e imagen 
-   gap: 1rem; 
-} */
+  /* espacio entre flechas e imagen */
+  gap: 1rem; 
+}
 
-/* .carrousel-inner picture {
+.carrousel-inner picture {
   flex: 1 1 auto;
   display: block;
   width: 100%;
   margin: 0;
-} */
+}
 
 /* Estilo para las flechas del carrusel */
-/* .carrousel-control {
+.carrousel-control {
   width: 40px;
   border: none;
   background-color: transparent;
@@ -519,10 +519,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   align-items: center;
   justify-content: center;
   width: 100%;
-} */
+}
 
 /* Estilo para los indicadores del carrusel */
-/* .carousel-indicators-custom {
+/* /* .carousel-indicators-custom {
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -567,7 +567,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     width: 15px !important;
     height: 15px !important;
   }
-}
+} */
 
 @media (max-width: 562px) {
   .product-carousel-arrow,
@@ -577,9 +577,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     font-size: 0.7rem !important;
     margin: 3% !important;
   }
-} */
+}
 /* media queries para tamaño imagenes destacadas */
-/* @media (max-width: 770px) {
+@media (max-width: 770px) {
   .img-carrousel {
     width: 100% !important;
     max-width: 100% !important;
@@ -588,7 +588,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   .carrousel-container {
     margin-top: 2rem;
   }
-} */
+}
 
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
