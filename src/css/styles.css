@@ -576,9 +576,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   /* margin: 5%; */
-  height: 350px; /* Fija la altura exacta */
-  min-height: 350px; /* Opcional, refuerza el mínimo */
-  max-height: 350px; /* Opcional, refuerza el máximo */
+  min-height: 240px; /* Opcional, refuerza el mínimo */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Distribuye el contenido verticalmente */
@@ -589,19 +588,60 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 330px;
-  max-width: 220px; /* Puedes ajustar este valor */
+ height: 340px;
+  min-height: 220px;
+  max-width: 320px;
   /* margin: 0 auto; */ /* Elimina o comenta esta línea */
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fff;
   padding: 1rem !important;
   gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+
+   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.texto-opinion-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+
+.stars {
+  margin-top: auto;
+  /* Ajusta el espacio según lo necesites */
+  font-size: 1.1rem;
+}
+
+.texto-opinion-card p.db-text:last-of-type {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.3rem;
+}
+/* Asegura que el bloque de estrellas no tenga margen extra y se quede dentro */
+/* .opinion-card-container > div:last-child {
+  margin-bottom: 0 !important;
+  flex-shrink: 0;
+} */
+
+/* Opcional: reduce el tamaño de fuente de las estrellas si es necesario */
+.opinion-card-container i.bi-star-fill,
+.opinion-card-container i.bi-star-half,
+.opinion-card-container i.bi-star {
+  font-size: 1.1rem;
 }
 
 .img-card {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -633,10 +673,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   padding-bottom: 0.5rem;
 }
 
-.opinion-card-container {
-  transition: transform 0.2s, box-shadow 0.2s;
+.db-text {
+  font-size: 0.9rem;
 }
-
 .opinion-card:hover .opinion-card-container,
 .opinion-card:focus-within .opinion-card-container {
   transform: scale(1.04);
@@ -645,6 +684,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-row {
   overflow: visible !important;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 
 .opinion-carousel-card {
@@ -653,6 +694,11 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   transition: opacity 0.5s ease;
   margin-left: 6px;
   margin-right: 6px;
+   flex: 0 0 200px !important; /* Ancho fijo para la columna */
+  max-width: 200px !important;
+  min-width: 200px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .opinion-carousel-card.active {
@@ -669,7 +715,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   flex: 0 0 auto;
   width: 48px;
   height: 48px;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -680,6 +725,12 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   border: none !important;
   transition: background 0.2s, color 0.2s;
 }
+
+.opinion-carousel-arrow {
+  z-index: 2;
+  /* Puedes aumentar el tamaño o separarlos más si lo deseas */
+}
+
 
 .opinion-carousel-arrow:hover,
 .opinion-carousel-arrow:focus,
@@ -704,6 +755,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     flex-wrap: nowrap !important;
     align-items: center !important;
     margin-bottom: 1.5rem;
+
   }
   .opinion-carousel-card {
     width: 100% !important;
@@ -717,6 +769,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   }
   .opinion-carousel-arrow {
     display: none !important;
+
   }
   .opinion-carousel-card:last-child {
     margin-bottom: 0;
