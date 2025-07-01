@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 /* Layout sticky footer para evitar espacios en blanco */
 html,
 body {
@@ -522,7 +521,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 /* Estilo para los indicadores del carrusel */
-/* /* .carousel-indicators-custom {
+ .carousel-indicators-custom {
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -546,11 +545,11 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 .indicator.active {
+.indicator.active {
   background-color: #23272b;
-} */
-
+}
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
-/* @media (max-width: 1085px) {
+ @media (max-width: 1085px) {
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 30px !important;
@@ -558,7 +557,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     font-size: 1rem !important;
     margin: 5% !important;
     z-index: 2 !important;
-  }
+  } 
 
   .carousel-indicators-custom {
     gap: 0.4rem !important;
@@ -567,7 +566,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     width: 15px !important;
     height: 15px !important;
   }
-} */
+} 
 
 @media (max-width: 562px) {
   .product-carousel-arrow,
@@ -1125,4 +1124,5 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
   .buscador-input-wrapper {
     margin: 8px 0;
   }
+}
 }

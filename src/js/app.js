@@ -111,10 +111,10 @@ function initFooter() {
 // Aquí va la lógica del carrusel de Productos en el Main
 function initCarousel() {
   var images = [
-    "/assets/images/guitar1.png",
-    "/assets/images/drum2.png",
-    "/assets/images/amp1.png",
-    "/assets/images/bass1.png",
+    "/assets/images/bg-carrusel-1.png",
+    "/assets/images/bg-carrusel-2.png",
+    "/assets/images/bg-carrusel-3.png",
+    "/assets/images/bg-carrusel-4.png",
   ];
   var current = 0;
 
