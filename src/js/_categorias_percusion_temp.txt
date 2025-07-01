@@ -1,0 +1,3 @@
+// Temporal: listado de categorías de percusión para revisión
+// Añade aquí las categorías que encuentres en products.json relacionadas con percusión
+// Ejemplo: 'acoustic-drums', 'electronic-drums', 'drum-accessories', 'percussion', 'drum-kits', etc.

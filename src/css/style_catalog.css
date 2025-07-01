@@ -1,0 +1,367 @@
+body {
+    background-color: #f3f2ee;
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
+}
+
+h2.h5 {
+    font-weight: 300;
+}
+
+h1.h1 {
+    font-weight: 600;
+}
+
+/* Botón de volver a Home */
+
+a.btn-outline-primary,
+.btn-outline-primary {
+    background-color: #23272b;
+    color: #fff;
+    border-color: #23272b;
+    font-weight: 300;
+    border-radius: 999px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+a.btn-outline-primary:hover,
+.btn-outline-primary:hover {
+    background-color: #f6a61a;
+    color: #23272b;
+    border-color: #f6a61a;
+}
+
+/*filtro*/
+
+.dropdown-toggle {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid black !important;
+    border-radius: 30px;
+    font-weight: 300;
+    box-shadow: none !important;
+}
+
+.dropdown-toggle:hover {
+    background-color: rgb(116, 116, 116) !important;
+    color: white !important;
+}
+
+.dropdown-menu {
+    border-radius: 12px;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-weight: 300;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(116, 116, 116);
+    color: white;
+}
+
+/* Tarjetas */
+
+.card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+}
+
+.card:hover {
+    /* Sin animación ni movimiento */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: none;
+}
+
+.card-img-top {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    object-fit: cover;
+    height: 220px;
+}
+
+/* Precio */
+
+.card .card-text+p {
+    font-size: 1.1rem;
+}
+
+.text-decoration-line-through {
+    color: #ae0000;
+    font-weight: 400;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.95rem;
+    text-decoration: line-through;
+    display: inline;
+}
+
+/* Nuevo estilo para el precio en oferta */
+.card .price-offer {
+    color: #23272b;
+    font-weight: 600;
+    background-color: #f6a61a;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* Botón "Añadir a la cesta" */
+
+.card .btn-primary {
+    margin-top: auto;
+    border-radius: 999px;
+    font-weight: 300;
+    background-color: #23272b;
+    color: #fff;
+    border-color: #23272b;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.card .btn-primary:hover {
+    background-color: #f6a61a;
+    color: #23272b;
+    border-color: #f6a61a;
+}
+
+/* Barra secundaria de navegación personalizada para drums */
+/* .second-navbar-drums {
+    background-color: #f6a61a;
+    border-radius: 0;
+    padding: 0.2em 1.5em;
+    text-align: left !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+} */
+
+/* .second-navbar-drums .nav-text,
+.second-navbar-drums a,
+.second-navbar-drums a.active .nav-text {
+    all: unset;
+} */
+
+/* Barra secundaria de navegación personalizada desde cero */
+.nav-drums-custom {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    position: relative;
+}
+
+.nav-drums-custom .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* No tocar padding ni max-width, usar Bootstrap puro */
+}
+
+.nav-drums-custom ul {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+}
+
+.nav-drums-custom li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-width: max-content;
+}
+
+.nav-drums-custom li:first-child {
+    margin-left: 0 !important;
+}
+
+.nav-drums-custom a {
+    color: #23272b;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.2em 0.6em 0.1em 0.6em;
+    border-radius: 0;
+}
+
+.nav-drums-custom .nav-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    display: inline-block;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+.nav-drums-custom a .nav-text {
+    border-bottom: none;
+    transition: background 0.2s, color 0.2s, font-weight 0.2s, border-bottom 0.2s;
+    display: inline-block;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+/* Hover/focus: outline amarillo, sin fondo, borde tipo píldora */
+.nav-drums-custom a:hover .nav-text,
+.nav-drums-custom a:focus .nav-text {
+    outline: 4px solid #f6a61a;
+    outline-offset: 2px;
+    background: none;
+    color: #23272b;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+/* Activo: fondo amarillo, sin outline, borde tipo píldora */
+.nav-drums-custom a.active .nav-text {
+    background-color: #f6a61a;
+    color: #23272b;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    outline: none;
+    box-shadow: none;
+}
+
+/* El enlace activo NO cambia en hover/focus */
+.nav-drums-custom a.active:hover .nav-text,
+.nav-drums-custom a.active:focus .nav-text {
+    background-color: #f6a61a;
+    color: #23272b;
+    border-radius: 999px;
+    font-weight: 600;
+    outline: none;
+    box-shadow: none;
+    padding: 5px 16px;
+}
+
+.nav-drums-custom a,
+.nav-drums-custom a:focus,
+.nav-drums-custom a:hover {
+    font-weight: 600;
+}
+
+/* Icono de búsqueda */
+.search-icon-drums {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.5rem;
+    color: #23272b;
+    align-self: center;
+    padding-right: 1em;
+}
+
+@media (max-width: 576px) {
+    .search-icon-drums {
+        margin-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Elimina cualquier padding/margin lateral extra de Bootstrap en .container si existiera */
+.nav-drums-custom .container,
+.nav-drums-custom ul,
+.nav-drums-custom li,
+.nav-drums-custom a {
+    box-sizing: border-box !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+    .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+
+    h2.h5 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .nav-drums-custom a,
+    .nav-drums-custom .nav-text {
+        font-size: 1.2rem;
+    }
+
+    .nav-drums-custom .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        max-width: 100%;
+    }
+
+    .nav-drums-custom ul {
+        padding-left: 12px !important;
+    }
+}
+
+#cart-count {
+    display: none;
+}
+
+/* Alert personalizado para el carrito */
+.custom-alert {
+    background-color: rgba(238, 236, 231) !important;
+    /* Gris claro */
+    color: #23272b !important;
+    border: #23272b 1px solid !important;
+}
+
+.custom-alert,
+.custom-alert .bi {
+    color: #23272b !important;
+}
+
+#addToCartAlert {
+    display: none;
+    z-index: 2000;
+    min-width: 300px;
+    top: 240px !important;
+}
+
+.divisor-fade {
+    border: none;
+    border-top: 2px solid #23272bb4;
+    margin: 5em auto;
+    width: 30%;
+}
+
+#header {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    ;
+    z-index: 10;
+    position: relative;
+}
+
+/* Contenedor interior para la barra secundaria, igual que el header */
+.nav-drums-inner {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    box-sizing: border-box;
+}

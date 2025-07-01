@@ -1,0 +1,120 @@
+<!-- Copia de drums.html para pruebas de lógica dinámica. Estructura igual que drums.html actual. -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style_catalog.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+</head>
+
+<body>
+    <!-- Cabecera de la página -->
+    <div id="header"></div>
+    <main class="container py-4" role="main">
+        <!-- Barra de navegación secundaria -->
+        <nav class="nav-drums-custom mb-3" aria-label="Navegación secundaria de productos">
+            <div class="container px-0">
+                <ul style="gap: 1.2em;">
+                    <li>
+                        <a href="#" onclick="setFamilia('cuerda'); return false;" aria-label="Ver productos de cuerda">
+                            <span class="nav-text">Cuerda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="setFamilia('percusion'); return false;"
+                            aria-label="Ver productos de percusión">
+                            <span class="nav-text">Percusión</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="setFamilia('teclado'); return false;"
+                            aria-label="Ver productos de teclado">
+                            <span class="nav-text">Teclado</span>
+                        </a>
+                    </li>
+                    <!-- Puedes añadir más familias aquí -->
+                </ul>
+                <span class="search-icon-drums">
+                    <i class="bi bi-search"></i>
+                </span>
+            </div>
+        </nav>
+        <!-- Botón para volver a Home -->
+        <div class="mb-4">
+            <a href="../pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
+        </div>
+        <!-- Filtros y ordenación -->
+        <section class="filter">
+            <div class="row mb-4" role="region" aria-label="Filtros de productos">
+                <div class="col-md-3 mb-2">
+                    <input id="search-input-guitar" class="form-control" type="search"
+                        placeholder="Buscar por nombre..." aria-label="Buscar producto" />
+                </div>
+                <div class="col-md-2 mb-2">
+                    <select id="filtro-categoria" class="form-select" aria-label="Filtrar por categoría"></select>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <select id="filtro-precio" class="form-select" aria-label="Filtrar por precio">
+                        <option value="">Todos los precios</option>
+                        <option value="<300">Menos de 300€</option>
+                        <option value="300-600">300€ - 600€</option>
+                        <option value=">600">Más de 600€</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-2 d-flex align-items-center">
+                    <input type="checkbox" id="filtro-oferta" class="form-check-input me-2" aria-label="Solo ofertas" />
+                    <label for="filtro-oferta" class="form-check-label">Solo ofertas</label>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select id="ordenar-productos" class="form-select" aria-label="Ordenar productos">
+                        <option value="">Ordenar por...</option>
+                        <option value="precio-asc">Precio: menor a mayor</option>
+                        <option value="precio-desc">Precio: mayor a menor</option>
+                        <option value="oferta">Solo ofertas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <span id="result-count" aria-live="polite"></span>
+            </div>
+        </section>
+        <!-- Catálogo dinámico -->
+        <section class="row g-4" role="region" aria-label="Catálogo de productos">
+            <div id="products-list" class="row g-4" role="region" aria-label="Catálogo de productos"></div>
+        </section>
+        <hr class="divisor-fade" />
+    </main>
+    <!-- Guarda la URL actual como última página de compra -->
+    <script>
+        localStorage.setItem("lastShopPage", window.location.href);
+    </script>
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Alert de Producto añadido con éxito -->
+    <div id="addToCartAlert" class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
+        role="alert">
+        ¡Producto añadido a la cesta!
+    </div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script src="../js/header.js"></script>
+</body>
+
+</html>

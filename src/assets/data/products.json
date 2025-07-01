@@ -178,5 +178,185 @@
         "image": "../assets/images/drum5.png",
         "description": "Set completo de batería para principiantes y avanzados.",
         "category": "drums"
+    },
+    {
+        "id": 21,
+        "name": "Teclado Digital ProKeys 88",
+        "price": 1200,
+        "offerPrice": 999,
+        "image": "../assets/images/key1.png",
+        "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
+        "category": "keyboards"
+    },
+    {
+        "id": 22,
+        "name": "Sintetizador Analógico RetroWave",
+        "price": 950,
+        "offerPrice": 850,
+        "image": "../assets/images/key2.jpg",
+        "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
+        "category": "keyboards"
+    },
+    {
+        "id": 23,
+        "name": "Workstation Creativa KeyMaster",
+        "price": 1800,
+        "offerPrice": 1590,
+        "image": "../assets/images/key3.jpg",
+        "description": "Workstation profesional con pantalla táctil, sampler y cientos de sonidos. Todo en uno para el músico moderno.",
+        "category": "keyboards"
+    },
+    {
+        "id": 24,
+        "name": "Teclado Compacto UrbanKeys",
+        "price": 350,
+        "offerPrice": 299,
+        "image": "../assets/images/key1.png",
+        "description": "Teclado compacto de 61 teclas, ideal para espacios reducidos y músicos urbanos.",
+        "category": "keyboards"
+    },
+    {
+        "id": 25,
+        "name": "Sintetizador Digital FutureSound",
+        "price": 700,
+        "offerPrice": 650,
+        "image": "../assets/images/key2.jpg",
+        "description": "Sintetizador digital con más de 500 sonidos y conectividad USB/MIDI.",
+        "category": "keyboards"
+    },
+    {
+        "id": 26,
+        "name": "Piano Digital Studio88",
+        "price": 1100,
+        "offerPrice": 999,
+        "image": "../assets/images/key3.jpg",
+        "description": "Piano digital de 88 teclas con acción de martillo y altavoces integrados.",
+        "category": "keyboards"
+    },
+    {
+        "id": 27,
+        "name": "Teclado Portátil EasyPlay",
+        "price": 220,
+        "offerPrice": 199,
+        "image": "../assets/images/key1.png",
+        "description": "Teclado portátil con 100 ritmos y acompañamientos automáticos.",
+        "category": "keyboards"
+    },
+    {
+        "id": 28,
+        "name": "Sintetizador GrooveBox",
+        "price": 800,
+        "offerPrice": 750,
+        "image": "../assets/images/key2.jpg",
+        "description": "Sintetizador GrooveBox con secuenciador y pads de percusión.",
+        "category": "keyboards"
+    },
+    {
+        "id": 29,
+        "name": "Teclado Infantil FunKeys",
+        "price": 90,
+        "offerPrice": 75,
+        "image": "../assets/images/key1.png",
+        "description": "Teclado infantil de 32 teclas, ideal para los más pequeños.",
+        "category": "keyboards"
+    },
+    {
+        "id": 30,
+        "name": "Piano Digital HomeClassic",
+        "price": 1500,
+        "offerPrice": 1350,
+        "image": "../assets/images/key3.jpg",
+        "description": "Piano digital clásico para el hogar, con mueble y tres pedales.",
+        "category": "keyboards"
+    },
+    {
+        "id": 35,
+        "name": "Bajo Rocker",
+        "price": 550,
+        "offerPrice": 500,
+        "image": "../assets/images/bass5.png",
+        "description": "Bajo eléctrico potente para rock y metal.",
+        "category": "basses"
+    },
+    {
+        "id": 36,
+        "name": "Guitarra Acústica Travel",
+        "price": 320,
+        "offerPrice": 290,
+        "image": "../assets/images/guitar7.png",
+        "description": "Guitarra acústica compacta para viajar.",
+        "category": "acoustic-guitars"
+    },
+    {
+        "id": 37,
+        "name": "Batería Jazz Studio",
+        "price": 850,
+        "offerPrice": 800,
+        "image": "../assets/images/drum1.png",
+        "description": "Batería acústica especial para jazz y estudio.",
+        "category": "drums"
+    },
+    {
+        "id": 38,
+        "name": "Batería Infantil MiniDrum",
+        "price": 220,
+        "offerPrice": 200,
+        "image": "../assets/images/drum4.png",
+        "description": "Batería pequeña para niños y principiantes.",
+        "category": "drums"
+    },
+    {
+        "id": 39,
+        "name": "Batería Studio Pro",
+        "price": 1200,
+        "offerPrice": 1100,
+        "image": "../assets/images/drum1.png",
+        "description": "Batería profesional para estudio de grabación.",
+        "category": "drums"
+    },
+    {
+        "id": 40,
+        "name": "Set de Percusión Latina",
+        "price": 500,
+        "offerPrice": 450,
+        "image": "../assets/images/drum3.png",
+        "description": "Set de percusión latina: congas y bongos.",
+        "category": "drums"
+    },
+    {
+        "id": 41,
+        "name": "Batería Electrónica Pro",
+        "price": 950,
+        "offerPrice": 900,
+        "image": "../assets/images/drum5.png",
+        "description": "Batería electrónica avanzada con pads sensibles.",
+        "category": "drums"
+    },
+    {
+        "id": 42,
+        "name": "Caja Metálica",
+        "price": 300,
+        "offerPrice": 270,
+        "image": "../assets/images/drum4.png",
+        "description": "Caja metálica con sonido brillante.",
+        "category": "drums"
+    },
+    {
+        "id": 43,
+        "name": "Teclado Vintage ClassicKeys",
+        "price": 650,
+        "offerPrice": 600,
+        "image": "../assets/images/key2.jpg",
+        "description": "Teclado vintage con sonidos clásicos de los 80.",
+        "category": "keyboards"
+    },
+    {
+        "id": 44,
+        "name": "Sintetizador Modular SynthLab",
+        "price": 2000,
+        "offerPrice": 1800,
+        "image": "../assets/images/key3.jpg",
+        "description": "Sintetizador modular para experimentación sonora avanzada.",
+        "category": "keyboards"
     }
 ]

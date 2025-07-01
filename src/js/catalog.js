@@ -2,6 +2,26 @@
   let productos = [];
   let productosFiltrados = [];
 
+  // --- INICIO CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
+  // Variable global para la familia activa
+  let familiaActiva = 'cuerda'; // Valor por defecto
+
+  // Diccionario de familias y sus categorías
+  const familias = {
+    cuerda: ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'],
+    percusion: ['drums', 'acoustic-drums', 'electronic-drums', 'drum-accessories'],
+    teclado: ['synths', 'digital-pianos', 'keyboards']
+    // Puedes añadir más familias aquí
+  };
+
+  // Función para cambiar la familia activa (llámala desde la barra secundaria)
+  window.setFamilia = function (nuevaFamilia) {
+    familiaActiva = nuevaFamilia;
+    poblarCategorias(productos); // repobla el select de categorías según la familia
+    filtrarYMostrar();
+  };
+  // --- FIN CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
+
   // 1. Cargar productos
   function cargarProductos() {
     $.getJSON('../assets/data/products.json', function (data) {
@@ -24,13 +44,17 @@
 
   // 3. Poblar select de categorías dinámicamente
   function poblarCategorias(productos) {
-    // Solo categorías de guitarras
-    const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
+
+    // --- INICIO CAMBIO: usar familia activa ---
+
+    // const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
+    const categoriasValidas = familias[familiaActiva] || [];
+
     // Extrae categorías únicas presentes en los productos
     const categorias = [...new Set(
       productos
         .map(p => p.category)
-        .filter(cat => cat && categoriasGuitarra.includes(cat))
+        .filter(cat => cat && categoriasValidas.includes(cat))
     )];
 
     // Mapea a nombres legibles
@@ -38,14 +62,18 @@
       "acoustic-guitars": "Acústicas",
       "electric-guitars": "Eléctricas",
       "classical-guitars": "Clásicas",
-      "basses": "Bajos"
+      "basses": "Bajos",
+      "acoustic-drums": "Baterías acústicas",
+      "electronic-drums": "Baterías electrónicas",
+      "drum-accessories": "Accesorios",
+      "synths": "Sintetizadores",
+      "digital-pianos": "Pianos digitales",
+      "keyboards": "Teclados"
     };
-
     let options = `<option value="">Todas las categorías</option>`;
     categorias.forEach(cat => {
       options += `<option value="${cat}">${nombres[cat] || cat}</option>`;
     });
-
     $('#filtro-categoria').html(options);
   }
 
@@ -53,12 +81,19 @@
   function filtrarYMostrar() {
     let query = ($('#search-input-guitar').val() || '').trim().toLowerCase();
 
-    // Solo guitarras: ajusta los nombres de categoría según tu JSON
-    const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
+    // --- INICIO CAMBIO: usar familia activa ---
 
+    // const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
+    // productosFiltrados = productos
+    //   .filter(p => categoriasGuitarra.includes(p.category)) // Solo guitarras
+    //   .filter(p => p.name.toLowerCase().includes(query));
+
+    const categoriasValidas = familias[familiaActiva] || [];
     productosFiltrados = productos
-      .filter(p => categoriasGuitarra.includes(p.category)) // Solo guitarras
+      .filter(p => categoriasValidas.includes(p.category))
       .filter(p => p.name.toLowerCase().includes(query));
+
+    // --- FIN CAMBIO: usar familia activa ---
 
     // Filtro por categoría
     let categoria = $('#filtro-categoria').val();
@@ -97,22 +132,24 @@
     }
     $contenedor.html(
       lista.map(p => `
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100">
+        <div class="col-12 col-md-6 col-lg-3 d-flex">
+          <div class="card flex-fill h-100">
             <img src="${p.image}" class="card-img-top" alt="${p.name}" />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">${p.name}</h5>
+              <h2 class="h5 card-title">${p.name}</h2>
               <p class="card-text">${p.description}</p>
-              <p class="mb-2">
-                ${p.offerPrice < p.price
-                  ? `<span class="text-muted text-decoration-line-through">${p.price} €</span>
-                     <span class="fw-bold text-danger ms-2">${p.offerPrice} €</span>`
-                  : `<span class="fw-bold">${p.price} €</span>`
-                }
-              </p>
-              <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
-                Añadir a la cesta
-              </button>
+              <div class="mt-auto">
+                <p class="mb-2">
+                  ${p.offerPrice < p.price
+          ? `<span class="text-decoration-line-through">${p.price} €</span>
+                     <span class="price-offer ms-2">${p.offerPrice} €</span>`
+          : `<span class="fw-bold">${p.price} €</span>`
+        }
+                </p>
+                <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
+                  Añadir a la cesta
+                </button>
+              </div>
             </div>
           </div>
         </div>
