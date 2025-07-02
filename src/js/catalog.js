@@ -70,6 +70,24 @@
     $('#ordenar-productos').on('change', filtrarYMostrar);
   });
 
+  // Leer categoría de la URL y filtrar automáticamente
+const params = new URLSearchParams(window.location.search);
+const categoriaUrl = params.get('category');
+if (categoriaUrl) {
+  // Detectar familia por categoría (opcional, si quieres cambiar la familia activa)
+  for (const [familia, cats] of Object.entries(familias)) {
+    if (cats.includes(categoriaUrl)) {
+      window.setFamilia(familia);
+      break;
+    }
+  }
+  // Espera a que se rellene el select y selecciona la categoría
+  setTimeout(() => {
+    $('#filtro-categoria').val(categoriaUrl);
+    filtrarYMostrar();
+  }, 100);
+}
+
   // 3. Poblar select de categorías dinámicamente
   function poblarCategorias(productos) {
 

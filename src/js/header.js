@@ -56,7 +56,7 @@ function renderGlobalResults(lista, query) {
     <ul class="list-group list-group-flush">
       ${lista.map(p => `
         <li class="list-group-item">
-          <a href="/pages/producto.html?id=${p.id}" class="text-decoration-none">
+          <a href="/pages/catalog.html?category=${encodeURIComponent(p.category || '')}" class="text-decoration-none">
             <strong>${highlight(p.name, query)}</strong>
             <span class="text-muted small ms-2">${p.category || ''}</span>
           </a>
