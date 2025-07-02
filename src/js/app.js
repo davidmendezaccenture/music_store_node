@@ -56,12 +56,16 @@ $(document).ready(function () {
       $('.offcanvas-body .list-group-item[href$="contact.html"]').addClass(
         "active"
       );
-    } else if (path.includes("faq.html")) {
-      $('.offcanvas-body .list-group-item[href$="faq.html"]').addClass(
-        "active"
-      );
     } else if (path.includes("newsletter.html")) {
       $('.offcanvas-body .list-group-item[href$="newsletter.html"]').addClass(
+        "active"
+      );
+    } else if (path.includes("media.html")) {
+      $('.offcanvas-body .list-group-item[href$="media.html"]').addClass(
+        "active"
+      );
+    } else if (path.includes("faq.html")) {
+      $('.offcanvas-body .list-group-item[href$="faq.html"]').addClass(
         "active"
       );
     }
@@ -121,10 +125,10 @@ function initFooter() {
 // Aquí va la lógica del carrusel de Productos en el Main
 function initCarousel() {
   var images = [
-    "/assets/images/bg-carrusel-1.png",
-    "/assets/images/bg-carrusel-2.png",
-    "/assets/images/bg-carrusel-3.png",
-    "/assets/images/bg-carrusel-4.png",
+    "/assets/images/bg-carrusel-1.webp",
+    "/assets/images/bg-carrusel-2.webp",
+    "/assets/images/bg-carrusel-3.webp",
+    "/assets/images/bg-carrusel-4.webp",
   ];
   var current = 0;
 

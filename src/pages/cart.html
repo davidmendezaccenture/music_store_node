@@ -28,7 +28,7 @@
       rel="stylesheet"
     />
     <!-- icono tittle -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
   </head>
   <body>
     <!-- Cabecera de la página -->
@@ -72,7 +72,7 @@
             aria-live="polite"
           >
             <img
-              src="/assets/images/emptycart.png"
+              src="/assets/images/emptycart.webp"
               alt="Carrito vacío"
               class="img-emptycart"
             />
@@ -192,7 +192,7 @@
                 >
                   <span>Pagar con PayPal Express</span>
                   <img
-                    src="/assets/images/paypal.png"
+                    src="/assets/images/paypal.webp"
                     alt="PayPal"
                     style="height: 24px"
                   />
@@ -203,7 +203,7 @@
                 >
                   <span>Pagar con Amazon Pay</span>
                   <img
-                    src="/assets/images/amazon-icon.png"
+                    src="/assets/images/amazon-icon.webp"
                     alt="Amazon Pay"
                     style="height: 24px"
                   />
@@ -313,31 +313,42 @@
       </div>
     </main>
 
-  <!-- Modal de búsqueda global -->
-  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow" style="display:none; position:absolute; z-index:1055; min-width:350px;">
-    <div class="container">
-      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
-        <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
-          <input
-            class="form-control control-buscador rounded-pill pe-5"
-            type="search"
-            placeholder="Buscar productos..."
-            aria-label="Buscador global"
-            id="global-search-input"
-            autocomplete="off"
-          />
-          <button
-            class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
-            type="submit"
-            aria-label="Buscar"
+    <!-- Modal de búsqueda global -->
+    <div
+      id="globalSearchDropdown"
+      class="search-bar py-1 buscador shadow"
+      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+    >
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
+        >
+          <div
+            class="buscador-input-wrapper position-relative w-100"
+            style="max-width: 400px"
           >
-            <i class="bi bi-search fs-5"></i>
-          </button>
-        </div>
-      </form>
-      <div id="global-search-results" class="mt-2"></div>
+            <input
+              class="form-control control-buscador rounded-pill pe-5"
+              type="search"
+              placeholder="Buscar productos..."
+              aria-label="Buscador global"
+              id="global-search-input"
+              autocomplete="off"
+            />
+            <button
+              class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
+              type="submit"
+              aria-label="Buscar"
+            >
+              <i class="bi bi-search fs-5"></i>
+            </button>
+          </div>
+        </form>
+        <div id="global-search-results" class="mt-2"></div>
+      </div>
     </div>
-  </div>
 
     <!-- ::::::::::::::::::::::: FIN CONTENIDO PRINCIPAL ::::::::::::::::::::::: -->
 
@@ -350,6 +361,7 @@
     <script src="../js/app.js"></script>
     <script src="../js/contact.js"></script>
     <script src="../js/cart.js"></script>
-    <script src="../js/register.js"></script><script src="../js/header.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/header.js"></script>
   </body>
 </html>

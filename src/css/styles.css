@@ -258,7 +258,7 @@ header {
 }
 
 .buscador-form:focus-within {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .buscador-overlay {
@@ -270,7 +270,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -465,9 +465,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   height: 350px !important;
   object-fit: scale-down !important;
   width: 100% !important;
-  
+
 } */
- 
+
 .carrousel-container {
   display: flex;
   flex-direction: column;
@@ -500,9 +500,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   /* espacio entre flechas e imagen */
-  gap: 1rem; 
+  gap: 1rem;
 }
 
 .carrousel-inner picture {
@@ -531,7 +531,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 /* Estilo para los indicadores del carrusel */
- .carousel-indicators-custom {
+.carousel-indicators-custom {
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -559,7 +559,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
- @media (max-width: 1085px) {
+@media (max-width: 1085px) {
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 30px !important;
@@ -567,7 +567,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     font-size: 1rem !important;
     margin: 5% !important;
     z-index: 2 !important;
-  } 
+  }
 
   .carousel-indicators-custom {
     gap: 0.4rem !important;
@@ -577,10 +577,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     width: 15px !important;
     height: 15px !important;
   }
-} 
+}
 
 @media (max-width: 562px) {
-
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 25px !important;
@@ -618,7 +617,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
- height: 340px;
+  height: 340px;
   min-height: 220px;
   max-width: 320px;
   /* margin: 0 auto; */ /* Elimina o comenta esta línea */
@@ -630,7 +629,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   transition: transform 0.2s, box-shadow 0.2s;
   overflow: hidden;
 
-   width: 100%;
+  width: 100%;
   min-width: 0;
   max-width: 100%;
 }
@@ -640,7 +639,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   margin-bottom: 0.2rem;
   font-weight: 600;
 }
-
 
 .stars {
   margin-top: auto;
@@ -725,7 +723,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   transition: opacity 0.5s ease;
   margin-left: 6px;
   margin-right: 6px;
-   flex: 0 0 200px !important; /* Ancho fijo para la columna */
+  flex: 0 0 200px !important; /* Ancho fijo para la columna */
   max-width: 200px !important;
   min-width: 200px !important;
   padding-left: 0 !important;
@@ -762,7 +760,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   /* Puedes aumentar el tamaño o separarlos más si lo deseas */
 }
 
-
 .opinion-carousel-arrow:hover,
 .opinion-carousel-arrow:focus,
 .product-carousel-arrow:hover,
@@ -786,7 +783,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     flex-wrap: nowrap !important;
     align-items: center !important;
     margin-bottom: 1.5rem;
-
   }
 
   .opinion-carousel-card {
@@ -803,7 +799,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
   .opinion-carousel-arrow {
     display: none !important;
-
   }
 
   .opinion-carousel-card:last-child {
