@@ -75,7 +75,7 @@
     "direccion": "avenidaa pinta",
     "email": "admin@gmail.com",
     "password": "sWxiXRRuK@9gh#b",
-    "isLoggedIn": 1
+    "isLoggedIn": 0
   },
   {
     "nombre": "dpoawld",
@@ -88,6 +88,19 @@
     "direccion": "dasdas",
     "email": "yes@gmail.com",
     "password": "8Kdfnqg3qSXy#uC",
+    "isLoggedIn": 0
+  },
+  {
+    "nombre": "Lore",
+    "apellidos": "Rod",
+    "fechaNacimiento": "1977-12-06",
+    "telefono": "666555444",
+    "pais": "España",
+    "region": "Málaga",
+    "codigoPostal": "29000",
+    "direccion": "Calle Luz, 6",
+    "email": "lore@email.com",
+    "password": "1234",
     "isLoggedIn": 0
   }
 ]

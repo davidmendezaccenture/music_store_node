@@ -13,5 +13,80 @@
         "quantity": 1
       }
     ]
+  },
+  {
+    "user": {},
+    "items": [
+      {
+        "id": 1,
+        "name": "Guitarra Acústica",
+        "price": 180,
+        "offerPrice": 150,
+        "image": "../assets/images/guitar7.png",
+        "description": "Guitarra acústica de alta calidad.",
+        "category": "acoustic-guitars",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "user": {},
+    "items": [
+      {
+        "id": 2,
+        "name": "Guitarra Eléctrica",
+        "price": 350,
+        "offerPrice": 300,
+        "image": "../assets/images/guitar3.png",
+        "description": "Guitarra eléctrica para músicos avanzados.",
+        "category": "electric-guitars",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "user": {},
+    "items": [
+      {
+        "id": 2,
+        "name": "Guitarra Eléctrica",
+        "price": 350,
+        "offerPrice": 300,
+        "image": "../assets/images/guitar3.png",
+        "description": "Guitarra eléctrica para músicos avanzados.",
+        "category": "electric-guitars",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "user": "admin@gmail.com",
+    "items": [
+      {
+        "id": 1,
+        "name": "Guitarra Acústica",
+        "price": 180,
+        "offerPrice": 150,
+        "image": "../assets/images/guitar7.png",
+        "description": "Guitarra acústica de alta calidad.",
+        "category": "acoustic-guitars",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "user": "lore@email.com",
+    "items": [
+      {
+        "id": 3,
+        "name": "Bajo Eléctrico",
+        "price": 300,
+        "offerPrice": 250,
+        "image": "../assets/images/bass5.png",
+        "description": "Bajo eléctrico con diseño ergonómico.",
+        "category": "basses",
+        "quantity": 1
+      }
+    ]
   }
 ]

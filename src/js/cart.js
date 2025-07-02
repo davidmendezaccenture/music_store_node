@@ -22,39 +22,50 @@ function cargarProductos() {
 
 // Obtener usuario actual (o guest)
 function getCurrentUser() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  return user?.username || 'guest';
+  return fetch('/api/current-user')
+    .then(res => res.json())
+    .then(data => {
+      if (data.isLoggedIn && data.usuario) {
+        return data.usuario; // Usuario logueado (objeto usuario sin password)
+      } else {
+        return 'guest'; // No hay usuario logueado
+      }
+    });
 }
+
+// function getCurrentUser() {
+//   return Promise.resolve('guest');
+// }
 
 // Obtener carrito
 function fetchCart() {
-  const user = getCurrentUser();
-  if (user === 'guest') {
-    // Invitado: usa localStorage
-    const items = JSON.parse(localStorage.getItem('cart')) || [];
-    return $.Deferred().resolve({ items }).promise();
-  } else {
-    // Logueado: usa backend
-    return $.get(`/api/cart?user=${encodeURIComponent(user)}`);
-  }
+  return getCurrentUser().then(user => {
+    if (user === 'guest') {
+      // Invitado: usa localStorage
+      const items = JSON.parse(localStorage.getItem('cart')) || [];
+      return { items };
+    } else {
+      // Logueado: usa backend
+      return $.get(`/api/cart?user=${encodeURIComponent(user.email)}`);
+    }
+  });
 }
 
 // Guardar carrito
 function saveCart(items) {
-  const user = getCurrentUser();
-  if (user === 'guest') {
-    // Invitado: guarda en localStorage
-    localStorage.setItem('cart', JSON.stringify(items));
-    return $.Deferred().resolve().promise();
-  } else {
-    // Logueado: guarda en backend
-    return $.ajax({
-      url: '/api/cart',
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ user, items })
-    });
-  }
+  return getCurrentUser().then(user => {
+    if (user === 'guest') {
+      localStorage.setItem('cart', JSON.stringify(items));
+      return;
+    } else {
+      return $.ajax({
+        url: '/api/cart',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ user: user.email, items })
+      });
+    }
+  });
 }
 
 // Actualizar contador del carrito
@@ -243,18 +254,19 @@ $(document).ready(function () {
       });
 
   // Lógica del botón "ir a caja" para usuarios no logueados y guest
-  $(document).on('click', '.btn-checkout', function (e) {
-    e.preventDefault();
-    const user = getCurrentUser();
+$(document).on('click', '.btn-checkout', function (e) {
+  e.preventDefault();
+  getCurrentUser().then(function(user) {
     if (user === 'guest') {
       // Mostrar modal para guest
       const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
       modal.show();
     } else {
       // Aquí irá la lógica de checkout real para usuarios logueados
-      // window.location.href = '/pages/checkout.html';
+      window.location.href = '/pages/checkout.html';
     }
   });
+});
 
   // Manejo del botón "Seguir comprando"
   $('#seguirComprandoBtn').on('click', function () {
