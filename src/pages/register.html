@@ -128,46 +128,26 @@
         </div>
     </main>
 
-    <script>
 
-        (function () {
-            const form = document.getElementById("registerForm");
-            const capFld = document.getElementById("captcha");
-            const capLbl = document.getElementById("captchaLabel");
+    <!-- Modales registro -->
+    <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mensajeModalLabel">Mensaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="mensajeModalBody">
+                    <!-- Aquí irá el mensaje -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            // Genera un captcha aleatorio
-            let captcha = Math.floor(1000 + Math.random() * 9000).toString();
-            capLbl.textContent = "Captcha: " + captcha;
-
-            form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                // Validar captcha
-                if (capFld.value !== captcha) {
-                    alert("Captcha incorrecto");
-                    return;
-                }
-
-                const formData = new FormData(form);
-                const user = {};
-                formData.forEach((value, key) => user[key] = value);
-
-                // Validación extra: email y contraseña coinciden
-                if (user.email !== user.emailConfirm) {
-                    alert("Los correos electrónicos no coinciden");
-                    return;
-                }
-                if (user.password !== user.passwordConfirm) {
-                    alert("Las contraseñas no coinciden");
-                    return;
-                }
-            });
-        })();
-
-
-
-        
-    </script>
+    
     <!-- Linea divisoria superior del footer -->
     <!--     <div class="linea-divisora-fina"></div> -->
     <!-- Footer -->
