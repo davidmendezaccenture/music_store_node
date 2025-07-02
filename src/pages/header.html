@@ -10,7 +10,7 @@
       <h1 class="logo-main-h1">
         <a class="navbar-brand d-flex align-items-center flex-grow-1" href="/">
           <img
-            src="/assets/images/logo.png"
+            src="/assets/images/logo.webp"
             class="logo-main"
             alt="Rat Pack Instruments - Logo"
           />
@@ -28,10 +28,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i
-          class="bi bi-list"
-          style="color: rgba(238, 236, 231, 0.693); font-size: 1.5rem"
-        ></i>
+        <i class="bi bi-list"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-lg-0">
@@ -66,17 +63,6 @@
         </ul>
         <!-- Botones a la derecha -->
         <div class="d-flex align-items-center gap-2 me-auto">
-          <a
-            class="nav-link"
-            id="carritoButton"
-            href="/pages/cart.html"
-            aria-label="Ver carrito de compras"
-          >
-            <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
-            <span class="visually-hidden">Carrito</span>
-            <!-- Contador de compras junto al carrito -->
-            <span id="cart-count" class="badge rounded-pill bg-light">0</span>
-          </a>
           <!-- Indicamos el target al modal que queremos abrir con la id-->
           <a
             class="nav-link"
@@ -87,6 +73,18 @@
             <i class="bi bi-person-circle login-logo" aria-hidden="true"></i>
             <span class="visually-hidden">Iniciar sesión</span>
             <div id="userStatus" class="d-flex align-items-center gap-2"></div>
+          </a>
+          <!-- Carrito -->
+          <a
+            class="nav-link"
+            id="carritoButton"
+            href="/pages/cart.html"
+            aria-label="Ver carrito de compras"
+          >
+            <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
+            <span class="visually-hidden">Carrito</span>
+            <!-- Contador de compras junto al carrito -->
+            <span id="cart-count" class="badge rounded-pill bg-light">0</span>
           </a>
           <!-- Darkmode -->
           <button
@@ -178,7 +176,7 @@
       </a>
 
       <a
-        href="#"
+        href="/pages/newsletter.html"
         class="list-group-item list-group-item-action d-flex align-items-center"
       >
         <i class="bi bi-newspaper me-3"></i>

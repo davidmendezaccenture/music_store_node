@@ -33,16 +33,12 @@ app.get("/api/products", (req, res) => {
   );
 });
 
-//---------------------------------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------///
+//-----------------------------------------------------LOGIN-----------------------------------------------------///
+//---------------------------------------------------------------------------------------------------------------///
 
 // Middleware para leer datos de formularios
 app.use(express.urlencoded({ extended: true }));
-
-// Servir archivos estáticos desde src
-app.use(express.static(path.join(__dirname, "src")));
-app.use(express.json()); // leer JSON del body!
-app.use(express.static("src")); // archivos estáticos (HTML, CSS, JS, etc.)
 
 // RUTA POST /register
 app.post("/api/register", (req, res) => {
@@ -106,6 +102,7 @@ app.post("/api/register", (req, res) => {
       direccion,
       email,
       password,
+      isLoggedIn: 0, // Bandera de login
     });
 
     fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
@@ -125,20 +122,130 @@ app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   fs.readFile(usersPath, "utf-8", (err, data) => {
-    if (err) return res.status(500).send("Error al leer los usuarios");
+    if (err)
+      return res.status(500).json({ error: "Error al leer los usuarios" });
 
-    const usuarios = JSON.parse(data);
-    const usuario = usuarios.find(
+    let usuarios = JSON.parse(data);
+    const userIndex = usuarios.findIndex(
       (u) => u.email === email && u.password === password
     );
 
-    if (!usuario) return res.status(401).send("Credenciales incorrectas");
+    if (userIndex === -1)
+      return res.status(401).json({ error: "Credenciales incorrectas" });
 
-    res.json({ mensaje: "Bienvenido", nombre: usuario.nombre });
+    // Actualizar estado de login a 1 (true)
+    usuarios[userIndex].isLoggedIn = 1;
+
+    // Guardar cambios en el archivo
+    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (writeErr) => {
+      if (writeErr) {
+        console.error("Error al actualizar estado de login:", writeErr);
+        return res.status(500).json({ error: "Error al actualizar sesión" });
+      }
+
+      // Devolver datos del usuario (sin password)
+      const { password: _, ...userWithoutPassword } = usuarios[userIndex];
+      res.json({
+        mensaje: "Login exitoso",
+        usuario: userWithoutPassword,
+      });
+    });
   });
 });
-//---------------------------------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------------------------------
+
+// RUTA POST /logout
+app.post("/logout", (req, res) => {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: "Email requerido para logout" });
+  }
+
+  fs.readFile(usersPath, "utf-8", (err, data) => {
+    if (err)
+      return res.status(500).json({ error: "Error al leer los usuarios" });
+
+    let usuarios = JSON.parse(data);
+    const userIndex = usuarios.findIndex((u) => u.email === email);
+
+    if (userIndex === -1) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    // Actualizar estado de login a 0 (false)
+    usuarios[userIndex].isLoggedIn = 0;
+
+    // Guardar cambios en el archivo
+    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (writeErr) => {
+      if (writeErr) {
+        console.error("Error al actualizar estado de logout:", writeErr);
+        return res.status(500).json({ error: "Error al cerrar sesión" });
+      }
+
+      res.json({ mensaje: "Logout exitoso" });
+    });
+  });
+});
+
+// RUTA GET /api/user-status/:email - Verificar estado de login
+app.get("/api/user-status/:email", (req, res) => {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+  const { email } = req.params;
+
+  fs.readFile(usersPath, "utf-8", (err, data) => {
+    if (err)
+      return res.status(500).json({ error: "Error al leer los usuarios" });
+
+    const usuarios = JSON.parse(data);
+    const usuario = usuarios.find((u) => u.email === email);
+
+    if (!usuario) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    // Devolver datos del usuario (sin password) solo si está logueado
+    if (usuario.isLoggedIn === 1) {
+      const { password: _, ...userWithoutPassword } = usuario;
+      res.json({
+        isLoggedIn: true,
+        usuario: userWithoutPassword,
+      });
+    } else {
+      res.json({
+        isLoggedIn: false,
+      });
+    }
+  });
+});
+
+// RUTA GET /api/current-user - Obtener usuario actualmente logueado
+app.get("/api/current-user", (req, res) => {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+
+  fs.readFile(usersPath, "utf-8", (err, data) => {
+    if (err)
+      return res.status(500).json({ error: "Error al leer los usuarios" });
+
+    const usuarios = JSON.parse(data);
+    const usuarioLogueado = usuarios.find((u) => u.isLoggedIn === 1);
+
+    if (!usuarioLogueado) {
+      return res.json({ isLoggedIn: false });
+    }
+
+    // Devolver datos del usuario (sin password)
+    const { password: _, ...userWithoutPassword } = usuarioLogueado;
+    res.json({
+      isLoggedIn: true,
+      usuario: userWithoutPassword,
+    });
+  });
+});
+
+//---------------------------------------------------------------------------------------------------------------///
+//-----------------------------------------------------CARRITO---------------------------------------------------///
+//---------------------------------------------------------------------------------------------------------------///
 
 // Obtener carrito
 app.get("/api/cart", (req, res) => {
@@ -199,6 +306,10 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+//---------------------------------------------------------------------------------------------------------------///
+//------------------------------------------------Contacto-ChatBot-----------------------------------------------///
+//---------------------------------------------------------------------------------------------------------------///
 
 // Guardado información de contacto
 
