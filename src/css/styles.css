@@ -545,9 +545,9 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 .indicator.active {
-.indicator.active {
   background-color: #23272b;
 }
+
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
  @media (max-width: 1085px) {
   .product-carousel-arrow,
