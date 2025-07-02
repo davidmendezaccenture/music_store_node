@@ -52,13 +52,15 @@
   padding: 0.13em 0.5em;
   border-radius: 0;
   /* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
-  transition: color 0.18s ease, background 0.18s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.18s ease, background 0.18s ease,
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
   /* sombra invisible por defecto */
 }
 
 .catalog-secondary-nav .catalog-secondary-nav-text {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.2;
@@ -96,7 +98,10 @@
   font-weight: 600;
   /* Sumar el grosor del outline al padding para igualar el área total */
   padding: calc(0.13em + 4px) calc(0.5em + 4px);
-  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.18s ease, color 0.18s ease,
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .catalog-secondary-nav a.active .catalog-secondary-nav-text {
@@ -411,7 +416,7 @@ header {
 }
 
 .buscador-form:focus-within {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .buscador-overlay {
@@ -423,7 +428,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -618,7 +623,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   height: 350px !important;
   object-fit: scale-down !important;
   width: 100% !important;
-  
+
 } */
 
 .carrousel-container {
@@ -713,7 +718,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
 @media (max-width: 1085px) {
-
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 30px !important;
@@ -734,7 +738,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 @media (max-width: 562px) {
-
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 25px !important;
@@ -796,7 +799,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   margin-bottom: 0.2rem;
   font-weight: 600;
 }
-
 
 .stars {
   margin-top: auto;
@@ -921,7 +923,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   /* Puedes aumentar el tamaño o separarlos más si lo deseas */
 }
 
-
 .opinion-carousel-arrow:hover,
 .opinion-carousel-arrow:focus,
 .product-carousel-arrow:hover,
@@ -945,7 +946,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     flex-wrap: nowrap !important;
     align-items: center !important;
     margin-bottom: 1.5rem;
-
   }
 
   .opinion-carousel-card {
@@ -962,7 +962,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
   .opinion-carousel-arrow {
     display: none !important;
-
   }
 
   .opinion-carousel-card:last-child {

@@ -1,77 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalle de producto</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/style_detail.css" />
 
     <!-- Fuente seleccionada para usar en el proyecto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- icono tittle -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-</head>
+    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+  </head>
 
-<body>
+  <body>
     <div id="header"></div>
     <div class="container my-5">
-        <h2 class="text-center mb-4">Detalle del producto</h2>
+      <h2 class="text-center mb-4">Detalle del producto</h2>
 
-        <div class="product-card shadow p-4 rounded bg-white">
-            <div class="row g-4 align-items-center">
-                <!-- Imagen -->
-                <div class="col-md-6 text-center">
-                    <img src="../assets/images/guitar7.png" alt="Guitarra Acústica Premium" class="img-fluid rounded" />
-                </div>
+      <div class="product-card shadow p-4 rounded bg-white">
+        <div class="row g-4 align-items-center">
+          <!-- Imagen -->
+          <div class="col-md-6 text-center">
+            <img
+              src="../assets/images/guitar7.webp"
+              alt="Guitarra Acústica Premium"
+              class="img-fluid rounded"
+            />
+          </div>
 
-                <!-- Detalles del producto -->
-                <div class="col-md-6">
-                    <span class="badge bg-secondary mb-2">Guitarras acusticas</span>
-                    <h3 class="fw-semibold">Guitarra Acústica Premium</h3>
+          <!-- Detalles del producto -->
+          <div class="col-md-6">
+            <span class="badge bg-secondary mb-2">Guitarras acusticas</span>
+            <h3 class="fw-semibold">Guitarra Acústica Premium</h3>
 
-                    <div class="mb-3">
-                        <span class="text-primary fw-bold fs-3 me-2">€800.00</span>
-                        <span class="text-muted text-decoration-line-through">€750.00</span>
-                    </div>
-
-                    <h6 class="fw-bold">Descripción</h6>
-                    <p>Guitarra acústica con acabados de lujo.</p>
-
-                    <!-- Botones -->
-                    <div class="d-grid gap-2 mb-3">
-                        <button class="btn btn-primary">
-                            <i class="bi bi-cart-plus me-2"></i>Añadir al carrito
-                        </button>
-                        <button class="btn btn-outline-secondary">
-                            ← Seguir comprando
-                        </button>
-                    </div>
-
-                    <!-- Iconos de beneficios -->
-                    <div class="d-flex justify-content-around text-center mt-4 small text-muted">
-                        <div>
-                            <i class="bi bi-truck fs-4"></i><br />
-                            Envío gratuito
-                        </div>
-                        <div>
-                            <i class="bi bi-arrow-counterclockwise fs-4"></i><br />
-                            Devolución fácil
-                        </div>
-                        <div>
-                            <i class="bi bi-shield-lock fs-4"></i><br />
-                            Pago seguro
-                        </div>
-                    </div>
-                </div>
+            <div class="mb-3">
+              <span class="text-primary fw-bold fs-3 me-2">€800.00</span>
+              <span class="text-muted text-decoration-line-through"
+                >€750.00</span
+              >
             </div>
+
+            <h6 class="fw-bold">Descripción</h6>
+            <p>Guitarra acústica con acabados de lujo.</p>
+
+            <!-- Botones -->
+            <div class="d-grid gap-2 mb-3">
+              <button class="btn btn-primary">
+                <i class="bi bi-cart-plus me-2"></i>Añadir al carrito
+              </button>
+              <button class="btn btn-outline-secondary">
+                ← Seguir comprando
+              </button>
+            </div>
+
+            <!-- Iconos de beneficios -->
+            <div
+              class="d-flex justify-content-around text-center mt-4 small text-muted"
+            >
+              <div>
+                <i class="bi bi-truck fs-4"></i><br />
+                Envío gratuito
+              </div>
+              <div>
+                <i class="bi bi-arrow-counterclockwise fs-4"></i><br />
+                Devolución fácil
+              </div>
+              <div>
+                <i class="bi bi-shield-lock fs-4"></i><br />
+                Pago seguro
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <div id="footer"></div>
@@ -86,6 +102,5 @@
     <script src="../js/register.js"></script>
     <script src="../js/catalog.js"></script>
     <script src="../js/header.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  // Autocompletar email si hay usuario logueado
+  $.get("/api/current-user", function (data) {
+    if (data && data.isLoggedIn && data.usuario && data.usuario.email) {
+      $("#newsletterEmail").val(data.usuario.email).prop("readonly", true);
+      $("#newsletterEmailBottom")
+        .val(data.usuario.email)
+        .prop("readonly", true);
+    }
+  });
+
   // Función para mostrar el toast
   function showNewsletterToast() {
     const toast = new bootstrap.Toast($("#newsletterToast"));

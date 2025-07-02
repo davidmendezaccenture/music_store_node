@@ -61,18 +61,7 @@
   },
   {
     "user": "admin@gmail.com",
-    "items": [
-      {
-        "id": 1,
-        "name": "Guitarra Acústica",
-        "price": 180,
-        "offerPrice": 150,
-        "image": "../assets/images/guitar7.png",
-        "description": "Guitarra acústica de alta calidad.",
-        "category": "acoustic-guitars",
-        "quantity": 1
-      }
-    ]
+    "items": []
   },
   {
     "user": "lore@email.com",
