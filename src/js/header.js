@@ -7,22 +7,23 @@ $(document).ready(function () {
   });
 
   // Mostrar el dropdown al hacer click en el input
-$(document).on('click', '#search-input-global', function (e) {
-  e.preventDefault();
-  const $input = $(this);
-  const offset = $input.offset();
-  const width = $input.outerWidth();
-  const height = $input.outerHeight();
+  $(document).on('click', '#search-input-global', function (e) {
+    console.log('Evento input disparado');
+    console.log('allProducts:', allProducts);
+    e.preventDefault();
+    const $input = $(this);
+    const offset = $input.offset();
+    const width = $input.outerWidth();
 
-  $('#globalSearchDropdown').css({
-    top: offset.top,
-    left: offset.left,
-    width: width,
-    display: 'block'
+    $('#globalSearchDropdown').css({
+      top: offset.top + $input.outerHeight(),
+      left: offset.left,
+      width: width,
+      display: 'block'
+    });
+
+    $('#global-search-results').html('<div class="text-center py-2 text-muted">Escribe para buscar productos...</div>');
   });
-  $('#global-search-input').val('').focus();
-  $('#global-search-results').empty();
-});
 
   // Cerrar el dropdown al hacer click fuera
   $(document).on('mousedown', function(e) {
@@ -30,9 +31,11 @@ $(document).on('click', '#search-input-global', function (e) {
       $('#globalSearchDropdown').hide();
     }
   });
-
+ console.log('Buscador:', $('#search-input-global').length);
   // Buscar en todos los productos al escribir
-  $('#global-search-input').on('input', function () {
+  $('#search-input-global').on('input', function () {
+    console.log('Evento input disparado');
+    $('#globalSearchDropdown').show();
     const query = $(this).val().trim().toLowerCase();
     let resultados = [];
     if (query.length > 1) {
@@ -47,8 +50,13 @@ $(document).on('click', '#search-input-global', function (e) {
 
 // Renderizar resultados en texto tipo lista
 function renderGlobalResults(lista, query) {
-    const $res = $('#global-search-results');
-  if (!query || lista.length === 0) {
+   console.log('Renderizando resultados:', lista, query); 
+  const $res = $('#global-search-results');
+  if (!query) {
+    $res.html('');
+    return;
+  }
+  if (lista.length === 0) {
     $res.html('<div class="text-center py-3 not-found-message">No se encontraron resultados.</div>');
     return;
   }
@@ -66,7 +74,6 @@ function renderGlobalResults(lista, query) {
   `);
 }
 
-// Resalta el texto buscado
 function highlight(text, query) {
   const re = new RegExp(`(${query})`, 'gi');
   return text.replace(re, '<mark>$1</mark>');

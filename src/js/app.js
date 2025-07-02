@@ -16,6 +16,20 @@ $(document).ready(function () {
         localStorage.setItem("darkMode", "disabled");
       }
     });
+
+        // Asocia aquí el evento de búsqueda global
+    $(document).on('input', '#search-input-global', function () {
+      $('#globalSearchDropdown').show();
+      const query = $(this).val().trim().toLowerCase();
+      let resultados = [];
+      if (query.length > 1) {
+        resultados = allProducts.filter(p =>
+          p.name.toLowerCase().includes(query) ||
+          (p.category && p.category.toLowerCase().includes(query))
+        );
+      }
+      renderGlobalResults(resultados, query);
+    });
     // Estado inicial del botón
     if (localStorage.getItem("darkMode") === "enabled") {
       $("body").addClass("dark-mode");
