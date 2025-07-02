@@ -22,7 +22,7 @@ $(document).ready(function () {
       display: 'block'
     });
 
-    $('#global-search-results').html('<div class="text-center py-2 text-muted">Escribe para buscar productos...</div>');
+    $('#global-search-results').html('');
   });
 
   // Cerrar el dropdown al hacer click fuera
