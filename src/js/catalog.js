@@ -5,7 +5,16 @@
   // --- INICIO CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
   // Variable global para la familia activa
   // Almacena la familia activa en localStorage para persistencia tras recarga
-  let familiaActiva = localStorage.getItem('familiaCatalogoActiva') || 'cuerda';
+  // Si hay parámetro familia en la URL, úsalo como familia activa
+  function getFamiliaFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('familia');
+  }
+  let familiaActiva = getFamiliaFromURL() || localStorage.getItem('familiaCatalogoActiva') || 'cuerda';
+  // Si viene por URL, actualiza el localStorage
+  if (getFamiliaFromURL()) {
+    localStorage.setItem('familiaCatalogoActiva', familiaActiva);
+  }
 
   // Diccionario de familias y sus categorías
   const familias = {
@@ -20,12 +29,12 @@
     familiaActiva = nuevaFamilia;
     localStorage.setItem('familiaCatalogoActiva', familiaActiva);
     // Quitar clase active de todos los enlaces
-    document.querySelectorAll('.nav-drums-custom a').forEach(a => {
+    document.querySelectorAll('.catalog-secondary-nav a').forEach(a => {
       a.classList.remove('active');
       a.removeAttribute('aria-current');
     });
     // Añadir clase active al enlace correspondiente
-    const enlaceActivo = document.querySelector(`.nav-drums-custom a[onclick*="setFamilia('${nuevaFamilia}'"]`);
+    const enlaceActivo = document.querySelector(`.catalog-secondary-nav a[onclick*="setFamilia('${nuevaFamilia}'"]`);
     if (enlaceActivo) {
       enlaceActivo.classList.add('active');
       enlaceActivo.setAttribute('aria-current', 'page');
@@ -51,12 +60,12 @@
     // Activar la pestaña correcta al cargar la página
     setTimeout(function () {
       // Quitar clase active de todos los enlaces
-      document.querySelectorAll('.nav-drums-custom a').forEach(a => {
+      document.querySelectorAll('.catalog-secondary-nav a').forEach(a => {
         a.classList.remove('active');
         a.removeAttribute('aria-current');
       });
       // Añadir clase active al enlace correspondiente
-      const enlaceActivo = document.querySelector(`.nav-drums-custom a[onclick*="setFamilia('${familiaActiva}'"]`);
+      const enlaceActivo = document.querySelector(`.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`);
       if (enlaceActivo) {
         enlaceActivo.classList.add('active');
         enlaceActivo.setAttribute('aria-current', 'page');

@@ -22,46 +22,175 @@
     content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
 
 <body>
-    <!-- Cabecera de la página -->
-    <div id="header"></div>
-    <!-- Barra de navegación secundaria FUERA del main para que quede pegada al header y el fondo ocupe 100vw -->
-    <nav class="nav-drums-custom mb-3" aria-label="Navegación secundaria de productos">
+    <!-- Cabecera de la página (header completo) -->
+    <header class="main-header">
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg" aria-label="Barra de navegación principal" role="navigation">
+            <div class="container mt-3 contenedor-main-navbar">
+                <!-- Logo + título -->
+                <h1 class="logo-main-h1">
+                    <a class="navbar-brand d-flex align-items-center flex-grow-1" href="/">
+                        <img src="/assets/images/logo.webp" class="logo-main" alt="Rat Pack Instruments - Logo" />
+                        <!-- Linea invisible para accesibilidad -->
+                        <span class="visually-hidden">Rat Pack Instruments</span></a>
+                </h1>
+                <!-- Menu desplegable para pantallas moviles o pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-sections" aria-current="page" href="/pages/index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-sections" href="#" data-bs-toggle="offcanvas"
+                                data-bs-target="#servicesOffcanvas" aria-controls="servicesOffcanvas">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-sections" href="/pages/about_us.html">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-sections" href="/pages/contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <!-- Botones a la derecha -->
+                    <div class="d-flex align-items-center gap-2 me-auto">
+                        <!-- Indicamos el target al modal que queremos abrir con la id-->
+                        <a class="nav-link" id="loginButton" href="#" aria-label="Iniciar sesión o acceder a tu cuenta">
+                            <i class="bi bi-person-circle login-logo" aria-hidden="true"></i>
+                            <span class="visually-hidden">Iniciar sesión</span>
+                            <div id="userStatus" class="d-flex align-items-center gap-2"></div>
+                        </a>
+                        <!-- Carrito -->
+                        <a class="nav-link" id="carritoButton" href="/pages/cart.html"
+                            aria-label="Ver carrito de compras">
+                            <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
+                            <span class="visually-hidden">Carrito</span>
+                            <!-- Contador de compras junto al carrito -->
+                            <span id="cart-count" class="badge rounded-pill bg-light">0</span>
+                        </a>
+                        <!-- Darkmode -->
+                        <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false"
+                            aria-label="Activar modo oscuro">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Barra de búsqueda -->
+        <div class="search-bar py-1 buscador">
+            <div class="container">
+                <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de busqueda">
+                    <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
+                        <input class="form-control control-buscador rounded-pill pe-5" type="search"
+                            placeholder="Buscar productos..." aria-label="Buscador" id="search-input-global" />
+                        <button class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
+                            type="submit" aria-label="Buscar">
+                            <i class="bi bi-search fs-5"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- Overlay para la barra de búsqueda -->
+                <div class="buscador-overlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegación secundaria dinámica SOLO para catálogo (SPA) -->
+    <nav class="catalog-secondary-nav mb-3" aria-label="Navegación secundaria de productos">
         <div class="container px-0">
             <ul>
                 <li>
                     <a href="#" onclick="setFamilia('cuerda'); return false;" aria-label="Ver productos de cuerda">
                         <img src="../assets/images/catalog_icons/cuerda.webp" alt="Icono cuerda"
-                            class="nav-icon-catalog">
-                        <span class="nav-text">cuerda</span>
+                            class="catalog-secondary-nav-icon">
+                        <span class="catalog-secondary-nav-text">cuerda</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" onclick="setFamilia('percusion'); return false;"
                         aria-label="Ver productos de percusión">
                         <img src="../assets/images/catalog_icons/percusion.webp" alt="Icono percusión"
-                            class="nav-icon-catalog">
-                        <span class="nav-text">percusión</span>
+                            class="catalog-secondary-nav-icon">
+                        <span class="catalog-secondary-nav-text">percusión</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" onclick="setFamilia('teclado'); return false;" aria-label="Ver productos de teclado">
                         <img src="../assets/images/catalog_icons/teclados.webp" alt="Icono teclado"
-                            class="nav-icon-catalog">
-                        <span class="nav-text">teclado</span>
+                            class="catalog-secondary-nav-icon">
+                        <span class="catalog-secondary-nav-text">teclado</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" onclick="setFamilia('dj'); return false;" aria-label="Ver productos de DJ">
-                        <img src="../assets/images/catalog_icons/dj.webp" alt="Icono DJ" class="nav-icon-catalog">
-                        <span class="nav-text">dj</span>
+                        <img src="../assets/images/catalog_icons/dj.webp" alt="Icono DJ"
+                            class="catalog-secondary-nav-icon">
+                        <span class="catalog-secondary-nav-text">dj</span>
                     </a>
                 </li>
             </ul>
-            <span class="search-icon-drums">
+            <span class="catalog-secondary-nav-search">
                 <i class="bi bi-search"></i>
             </span>
         </div>
     </nav>
+
+    <!-- Offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="servicesOffcanvas"
+        aria-labelledby="servicesOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title" id="servicesOffcanvasLabel">
+                <i class="bi bi-tools me-2"></i>Servicios
+            </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group list-group-flush">
+                <!-- Secciones menu -->
+                <a href="/pages/services.html" class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="bi bi-wrench-adjustable me-3"></i>
+                    <div>
+                        <div class="fw-bold">Servicio Técnico</div>
+                        <small class="text-muted">Reparación y mantenimiento</small>
+                    </div>
+                </a>
+                <a href="/pages/contact.html" class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="bi bi-envelope me-3"></i>
+                    <div>
+                        <div class="fw-bold">Contacto</div>
+                        <small class="text-muted">Ponte en contacto con nosotros</small>
+                    </div>
+                </a>
+                <a href="/pages/newsletter.html"
+                    class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="bi bi-newspaper me-3"></i>
+                    <div>
+                        <div class="fw-bold">Newsletter</div>
+                        <small class="text-muted">Suscríbete a nuestras novedades</small>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="bi bi-camera-video me-3"></i>
+                    <div>
+                        <div class="fw-bold">Media</div>
+                        <small class="text-muted">Videos y contenido multimedia</small>
+                    </div>
+                </a>
+                <a href="/pages/faq.html" class="list-group-item list-group-item-action d-flex align-items-center">
+                    <i class="bi bi-question-circle me-3"></i>
+                    <div>
+                        <div class="fw-bold">FAQ</div>
+                        <small class="text-muted">Preguntas frecuentes</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
     <main class="container py-4" role="main">
         <!-- Botón para volver a Home -->
         <div class="mb-4">
