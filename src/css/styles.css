@@ -634,7 +634,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   width: 100%;
   max-width: 1500px;
   border-radius: 10px;
-  height: 40vh;
+  height: 45vh;
   margin: 0 auto;
   transition: opacity 0.5s ease;
   opacity: 1;
