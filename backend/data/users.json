@@ -101,6 +101,6 @@
     "direccion": "Calle Luz, 6",
     "email": "lore@email.com",
     "password": "1234",
-    "isLoggedIn": 1
+    "isLoggedIn": 0
   }
 ]
