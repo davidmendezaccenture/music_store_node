@@ -35,6 +35,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (res.ok) {
         alert(data.mensaje);
+
+        // Auto-login después del registro exitoso
+        try {
+          const loginRes = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: usuario.email,
+              password: usuario.password,
+            }),
+          });
+
+          const loginData = await loginRes.json();
+
+          if (loginRes.ok) {
+            // Guardar datos del usuario en localStorage
+            localStorage.setItem(
+              "currentUser",
+              JSON.stringify(loginData.usuario)
+            );
+            localStorage.setItem("isLoggedIn", "true");
+
+            // Actualizar estado de auth.js si está disponible
+            if (typeof window.updateAuthState === "function") {
+              window.updateAuthState(loginData.usuario, true);
+            }
+
+            alert("¡Registro exitoso! Has sido conectado automáticamente.");
+          } else {
+            alert("Registro exitoso. Por favor, inicia sesión manualmente.");
+          }
+        } catch (loginErr) {
+          console.error("Error en auto-login:", loginErr);
+          alert("Registro exitoso. Por favor, inicia sesión manualmente.");
+        }
+
         window.location.href = "/index.html";
       } else {
         alert(data.error || "Error desconocido al registrar");

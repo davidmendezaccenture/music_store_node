@@ -9,7 +9,8 @@
     "codigoPostal": "13200",
     "direccion": "Jesús del Perdón",
     "email": "vicentemartinlara@gmail.com",
-    "password": "PepitoPerez.2025"
+    "password": "PepitoPerez.2025",
+    "isLoggedIn": 0
   },
   {
     "nombre": "Vicente",
@@ -21,7 +22,8 @@
     "codigoPostal": "13200",
     "direccion": "Jesús del Perdón",
     "email": "vicentemartin@gmail.com",
-    "password": "PepitoPerez.2025"
+    "password": "PepitoPerez.2025",
+    "isLoggedIn": 0
   },
   {
     "nombre": "Vicente",
@@ -33,7 +35,8 @@
     "codigoPostal": "13200",
     "direccion": "Jesús del Perdón",
     "email": "1234@gmail.com",
-    "password": "PepitoPerez.2025"
+    "password": "PepitoPerez.2025",
+    "isLoggedIn": 0
   },
   {
     "nombre": "Miguel",
@@ -45,7 +48,8 @@
     "codigoPostal": "13200",
     "direccion": "Jesús del Perdón",
     "email": "123466@gmail.com",
-    "password": "PepitoPerez.2025"
+    "password": "PepitoPerez.2025",
+    "isLoggedIn": 0
   },
   {
     "nombre": "Carlos",
@@ -57,18 +61,33 @@
     "codigoPostal": "13200",
     "direccion": "Jesús del Perdón",
     "email": "1234661@gmail.com",
-    "password": "PepitoPerez.2025"
+    "password": "PepitoPerez.2025",
+    "isLoggedIn": 0
   },
   {
-    "nombre": "Lorena",
-    "apellidos": "Garcia",
-    "fechaNacimiento": "1995-03-02",
-    "telefono": "12345685",
+    "nombre": "Test",
+    "apellidos": "das",
+    "fechaNacimiento": "1998-12-03",
+    "telefono": "123456789",
     "pais": "España",
-    "region": "Manzanares",
-    "codigoPostal": "13200",
-    "direccion": "Jesús del Perdón",
-    "email": "lorena@gmail.com",
-    "password": "PepitoPerez.2025"
+    "region": "Asturias",
+    "codigoPostal": "33209",
+    "direccion": "avenidaa pinta",
+    "email": "admin@gmail.com",
+    "password": "sWxiXRRuK@9gh#b",
+    "isLoggedIn": 1
+  },
+  {
+    "nombre": "dpoawld",
+    "apellidos": "daskld",
+    "fechaNacimiento": "3233-03-23",
+    "telefono": "321345678",
+    "pais": "España",
+    "region": "Asturias",
+    "codigoPostal": "33209",
+    "direccion": "dasdas",
+    "email": "yes@gmail.com",
+    "password": "8Kdfnqg3qSXy#uC",
+    "isLoggedIn": 0
   }
 ]

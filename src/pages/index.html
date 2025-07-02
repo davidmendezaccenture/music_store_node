@@ -385,106 +385,47 @@
       </div>
     </main>
 
-  <!-- Modal de búsqueda global -->
-<div id="globalSearchDropdown" class="search-bar py-1 buscador shadow" style="display:none; position:absolute; z-index:1055; min-width:350px;">
-  <div class="container">
-    <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
-      <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
-        <input
-          class="form-control control-buscador rounded-pill pe-5"
-          type="search"
-          placeholder="Buscar productos..."
-          aria-label="Buscador global"
-          id="global-search-input"
-          autocomplete="off"
-        />
-        <button
-          class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
-          type="submit"
-          aria-label="Buscar"
+    <!-- Modal de búsqueda global -->
+    <div
+      id="globalSearchDropdown"
+      class="search-bar py-1 buscador shadow"
+      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+    >
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
         >
-          <i class="bi bi-search fs-5"></i>
-        </button>
+          <div
+            class="buscador-input-wrapper position-relative w-100"
+            style="max-width: 400px"
+          >
+            <input
+              class="form-control control-buscador rounded-pill pe-5"
+              type="search"
+              placeholder="Buscar productos..."
+              aria-label="Buscador global"
+              id="global-search-input"
+              autocomplete="off"
+            />
+            <button
+              class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
+              type="submit"
+              aria-label="Buscar"
+            >
+              <i class="bi bi-search fs-5"></i>
+            </button>
+          </div>
+        </form>
+        <div id="global-search-results" class="mt-2"></div>
       </div>
-    </form>
-    <div id="global-search-results" class="mt-2"></div>
-  </div>
-</div>
+    </div>
     <!-- Sección preparada para Listado de Productos Destacados -->
 
     <section id="products-list"></section>
     <!-- ...Final del Main... -->
-    <hr class="divisor-fade mt-0 mb-0" />
-    <!-- Newsletter -->
-    <section
-      class="newsletter-section py-4"
-      role="regin"
-      aria-label="Sección de suscripción a la newsletter"
-    >
-      <div class="container container-newsletter">
-        <div class="row align-items-center justify-content-center">
-          <!-- Imagen a la izquierda -->
-          <div class="col-md-3 text-center mb-4 mb-md-0">
-            <img
-              src="https://fast-images.static-thomann.de/pics//images/newsletter/envelope-newsletter.png"
-              alt="Newsletter"
-              class="img-fluid img-logo"
-              style="max-width: 140px"
-            />
-          </div>
-          <!-- Contenido a la derecha -->
-          <div class="col-md-7">
-            <h2 class="mb-2 fw-bold">¡No te pierdas nada!</h2>
-            <p class="mb-1">
-              Contribuciones inspiradoras, ofertas y novedades directamente en
-              tu correo.
-            </p>
-            <ul class="list-unstyled mb-3">
-              <li>
-                <i class="bi bi-check-circle-fill text-success me-2"></i>Ofertas
-                exclusivas
-              </li>
-              <li>
-                <i class="bi bi-check-circle-fill text-success me-2"></i
-                >Novedades y lanzamientos
-              </li>
-              <li>
-                <i class="bi bi-check-circle-fill text-success me-2"></i
-                >Consejos y trucos para músicos
-              </li>
-            </ul>
-            <form
-              class="d-flex flex-column flex-sm-row gap-2"
-              autocomplete="off"
-              aria-label="Formulario de suscripción a la newsletter"
-            >
-              <input
-                type="email"
-                class="form-control rounded-pill"
-                placeholder="Dirección de e-mail*"
-                aria-label="Correo electrónico"
-                required
-              />
-              <button type="submit" class="btn btn-primary rounded-pill px-4">
-                Suscribirse
-              </button>
-            </form>
-            <small class="form-text text-muted mt-2 d-block">
-              Haciendo clic en "Regístrate ahora", acepto recibir publicidad vía
-              email. Darse de baja es posible en cualquier momento. Puedes
-              encontrar más información sobre Newsletter en nuestra
-              <a href="/politica-privacidad" target="_blank"
-                >política de privacidad</a
-              >.<br />
-              * Campo obligatorio
-            </small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Linea divisoria superior del footer -->
-    <!-- <div class="linea-divisora-fina"></div> -->
+    <!-- <hr class="divisor-fade mt-0 mb-0" /> -->
     <!-- Footer -->
     <div id="footer"></div>
 
