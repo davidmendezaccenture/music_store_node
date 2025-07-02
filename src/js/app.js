@@ -60,6 +60,10 @@ $(document).ready(function () {
       $('.offcanvas-body .list-group-item[href$="faq.html"]').addClass(
         "active"
       );
+    } else if (path.includes("newsletter.html")) {
+      $('.offcanvas-body .list-group-item[href$="newsletter.html"]').addClass(
+        "active"
+      );
     }
   });
 
@@ -86,9 +90,15 @@ $(document).ready(function () {
 /* Funcion on click para no repetir código */
 function initLoginModal() {
   $("#loginButton").on("click", function (e) {
-    e.preventDefault();
-    var modal = new bootstrap.Modal(document.getElementById("loginModal"));
-    modal.show();
+    // Verificar si el usuario está logueado antes de abrir el modal
+    const isUserLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (!isUserLoggedIn) {
+      e.preventDefault();
+      var modal = new bootstrap.Modal(document.getElementById("loginModal"));
+      modal.show();
+    }
+    // Si está logueado, no hace nada (permite que funcionen los clicks internos como logout)
   });
 }
 

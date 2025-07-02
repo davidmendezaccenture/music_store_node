@@ -1,21 +1,3 @@
-/* Skip Link para accesibilidad */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 9999;
-  font-weight: bold;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
 /* Icono bicolor personalizado */
 .icon-bicolor {
   background: linear-gradient(45deg, #f6a61a 50%, #dedbd9 50%);
