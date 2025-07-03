@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Guitarra Acústica",
     "price": 180,
-    "offerPrice": 150,
+    "offerPrice": 180,
     "image": "../assets/images/guitar7.webp",
     "description": "Guitarra acústica de alta calidad.",
     "category": "acoustic-guitars"
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Guitarra Flamenca",
     "price": 200,
-    "offerPrice": 180,
+    "offerPrice": 200,
     "image": "../assets/images/guitar12.webp",
     "description": "Guitarra flamenca con un diseño tradicional.",
     "category": "classical-guitars"
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Bajo Jazz",
     "price": 500,
-    "offerPrice": 450,
+    "offerPrice": 500,
     "image": "../assets/images/bass3.webp",
     "description": "Bajo eléctrico ideal para jazz y funk.",
     "category": "basses"
@@ -66,7 +66,7 @@
     "id": 8,
     "name": "Guitarra Les Paul",
     "price": 700,
-    "offerPrice": 650,
+    "offerPrice": 700,
     "image": "../assets/images/guitar1.webp",
     "description": "Guitarra eléctrica estilo Les Paul.",
     "category": "electric-guitars"
@@ -93,7 +93,7 @@
     "id": 11,
     "name": "Amplificador Marshall",
     "price": 500,
-    "offerPrice": 450,
+    "offerPrice": 500,
     "image": "../assets/images/amp2.webp",
     "description": "Amplificador de guitarra con sonido clásico.",
     "category": "amplifiers"
@@ -138,7 +138,7 @@
     "id": 16,
     "name": "Batería Electrónica",
     "price": 600,
-    "offerPrice": 550,
+    "offerPrice": 600,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica compacta y versátil.",
     "category": "drums"
@@ -147,7 +147,7 @@
     "id": 17,
     "name": "Set de Platillos",
     "price": 400,
-    "offerPrice": 350,
+    "offerPrice": 400,
     "image": "../assets/images/drum3.webp",
     "description": "Set de platillos de alta calidad para bateristas profesionales.",
     "category": "drums"
@@ -165,7 +165,7 @@
     "id": 19,
     "name": "Pedal de Bombo",
     "price": 150,
-    "offerPrice": 130,
+    "offerPrice": 150,
     "image": "../assets/images/drum5.webp",
     "description": "Pedal de bombo con acción suave y precisa.",
     "category": "drums"
@@ -201,7 +201,7 @@
     "id": 23,
     "name": "Workstation Creativa KeyMaster",
     "price": 1800,
-    "offerPrice": 1590,
+    "offerPrice": 1800,
     "image": "../assets/images/key3.webp",
     "description": "Workstation profesional con pantalla táctil, sampler y cientos de sonidos. Todo en uno para el músico moderno.",
     "category": "keyboards"
@@ -210,7 +210,7 @@
     "id": 24,
     "name": "Teclado Compacto UrbanKeys",
     "price": 350,
-    "offerPrice": 299,
+    "offerPrice": 350,
     "image": "../assets/images/key1.webp",
     "description": "Teclado compacto de 61 teclas, ideal para espacios reducidos y músicos urbanos.",
     "category": "keyboards"
@@ -228,7 +228,7 @@
     "id": 26,
     "name": "Piano Digital Studio88",
     "price": 1100,
-    "offerPrice": 999,
+    "offerPrice": 1100,
     "image": "../assets/images/key3.webp",
     "description": "Piano digital de 88 teclas con acción de martillo y altavoces integrados.",
     "category": "keyboards"
@@ -246,7 +246,7 @@
     "id": 28,
     "name": "Sintetizador GrooveBox",
     "price": 800,
-    "offerPrice": 750,
+    "offerPrice": 800,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador GrooveBox con secuenciador y pads de percusión.",
     "category": "keyboards"
@@ -255,7 +255,7 @@
     "id": 29,
     "name": "Teclado Infantil FunKeys",
     "price": 90,
-    "offerPrice": 75,
+    "offerPrice": 90,
     "image": "../assets/images/key1.webp",
     "description": "Teclado infantil de 32 teclas, ideal para los más pequeños.",
     "category": "keyboards"
@@ -273,7 +273,7 @@
     "id": 35,
     "name": "Bajo Rocker",
     "price": 550,
-    "offerPrice": 500,
+    "offerPrice": 550,
     "image": "../assets/images/bass5.webp",
     "description": "Bajo eléctrico potente para rock y metal.",
     "category": "basses"
@@ -291,7 +291,7 @@
     "id": 37,
     "name": "Batería Jazz Studio",
     "price": 850,
-    "offerPrice": 800,
+    "offerPrice": 850,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica especial para jazz y estudio.",
     "category": "drums"
@@ -318,7 +318,7 @@
     "id": 40,
     "name": "Set de Percusión Latina",
     "price": 500,
-    "offerPrice": 450,
+    "offerPrice": 500,
     "image": "../assets/images/drum3.webp",
     "description": "Set de percusión latina: congas y bongos.",
     "category": "drums"
@@ -327,7 +327,7 @@
     "id": 41,
     "name": "Batería Electrónica Pro",
     "price": 950,
-    "offerPrice": 900,
+    "offerPrice": 950,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica avanzada con pads sensibles.",
     "category": "drums"
@@ -354,7 +354,7 @@
     "id": 44,
     "name": "Sintetizador Modular SynthLab",
     "price": 2000,
-    "offerPrice": 1800,
+    "offerPrice": 2000,
     "image": "../assets/images/key3.webp",
     "description": "Sintetizador modular para experimentación sonora avanzada.",
     "category": "keyboards"

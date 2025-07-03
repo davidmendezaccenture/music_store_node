@@ -35,7 +35,7 @@
 .accordion-button:not(.collapsed) {
   background-color: #f6a61a;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }

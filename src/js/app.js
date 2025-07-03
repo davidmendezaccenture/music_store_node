@@ -23,10 +23,11 @@ $(document).ready(function () {
       const query = $(this).val().trim().toLowerCase();
       let resultados = [];
       if (query.length > 1) {
+        const queryNorm = normalizeText(query);
         resultados = allProducts.filter(
           (p) =>
-            p.name.toLowerCase().includes(query) ||
-            (p.category && p.category.toLowerCase().includes(query))
+            normalizeText(p.name).includes(query) ||
+            (p.category && normalizeText(p.category).includes(query))
         );
       }
       renderGlobalResults(resultados, query);
