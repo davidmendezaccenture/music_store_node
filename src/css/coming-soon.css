@@ -1,0 +1,27 @@
+main.container {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+   min-height: calc(100vh - 160px);
+   margin-bottom: 80px;
+   margin-top: 80px;
+}
+
+.uc-img {
+width:500px;
+}
+
+.back-index {
+  background-color: black !important;
+  color: #F6A61A !important;
+  border: none;
+}
+.back-index:hover,
+.back-index:focus {
+  background-color: #f6a61a !important;
+  color: black !important;
+}
+
+.icon-bicolor {
+    width: 50px;
+    height: 50px;
+}
