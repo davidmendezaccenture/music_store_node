@@ -968,35 +968,46 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   opacity: 0;
 }
 
-.opinion-carousel-arrow,
-.product-carousel-arrow {
+.opinion-carousel-arrow {
   flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  /* Tamaño del icono */
-  background-color: #000 !important;
-  color: #f6a61a !important;
+  font-size: 1.1rem;
   border: none !important;
+  z-index: 2;
   transition: background 0.2s, color 0.2s;
+  color: black !important;
+  border-radius: 50%;
 }
 
 .opinion-carousel-arrow {
   z-index: 2;
-  /* Puedes aumentar el tamaño o separarlos más si lo deseas */
 }
 
 .opinion-carousel-arrow:hover,
-.opinion-carousel-arrow:focus,
-.product-carousel-arrow:hover,
-.product-carousel-arrow:focus {
-  background-color: #f6a61a !important;
-  color: #000 !important;
+.opinion-carousel-arrow:focus
+{
+  background: lightgray !important; /* Quita fondo en hover/focus */
+  box-shadow: none !important;
   border: none !important;
+  font-size: 2rem; /* Aumenta el tamaño del icono */
+  outline: none !important;
+  color: #000 !important;
+  border-radius: 50%;
 }
+
+
+.opinion-carousel-arrow:hover i,
+.opinion-carousel-arrow:focus i {
+  color: #f6a61a !important;
+}
+
+
+
+
 
 /* @media (min-width: 992px) {
 
