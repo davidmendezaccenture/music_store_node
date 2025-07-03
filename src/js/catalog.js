@@ -193,7 +193,7 @@
               <img src="${p.image}" class="card-img-top" alt="${p.name}" />
             </div>
             <div class="card-body d-flex flex-column">
-              <h2 class="h5 card-title">${p.name}</h2>
+              <h2 class="h5 card-title fw-bold">${p.name}</h2>
               <p class="card-text">${p.description}</p>
               <div class="mt-auto d-flex flex-column gap-2">
                 <div class="d-block">
@@ -207,10 +207,11 @@
                 </div>
                 <div class="d-flex justify-content-between gap-2">
                   <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id}'" aria-label="Ver detalle">
-                    detalle
+                    ver detalle
                   </button>
-                  <button class="btn btn-primary add-to-cart ms-auto" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
-                    añadir a carrito
+                  <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
+                    <i class="bi bi-cart"></i>
+                    <span class="cart-plus">+</span>
                   </button>
                 </div>
               </div>

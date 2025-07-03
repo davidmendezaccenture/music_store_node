@@ -175,7 +175,8 @@ body {
 
 main.c-main {
   flex: 1;
-  margin-top: 6.7rem; /* 3 rem = 6.7 */
+  margin-top: 6.7rem;
+  /* 3 rem = 6.7 */
 }
 
 main {
@@ -467,7 +468,7 @@ body {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
