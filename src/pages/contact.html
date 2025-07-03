@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/style_chatbot.css" />
+    <link rel="stylesheet" href="../css/services.css" />
     <!-- Fuente seleccionada para usar en el proyecto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,13 +38,16 @@
   </head>
   <body>
     <!-- Cabecera de la página -->
-    <div id="header"></div>
+    <header id="header"></header>
 
-    <main class="container py-5 pt-4 pb-4">
+    <main class="container py-5 pb-4">
       <div class="row justify-content-center contact-container">
-        <h2 class="text-center mb-4">Tu satisfacción es nuestra prioridad</h2>
+        <h2 class="text-center mb-4">
+          <i class="bi bi-envelope-fill me-3 icon-bicolor"></i>Tu satisfacción
+          es nuestra prioridad
+        </h2>
         <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
-          <div class="card shadow-lg border-0 rounded-4 h-100">
+          <div class="card border-1 rounded-4 h-100">
             <div class="card-body p-4">
               <form id="contactForm" novalidate>
                 <h2 class="text-center mb-4">Contacto</h2>
@@ -116,7 +120,7 @@
                 <p class="form-text text-center mb-2">* Campos obligatorios</p>
                 <button
                   type="submit"
-                  class="btn btn-primary w-100 rounded-pill mt-2"
+                  class="btn w-100 rounded-pill mt-2 background-resaltado"
                 >
                   <i class="bi bi-envelope-fill me-2"></i>Enviar mensaje
                 </button>
@@ -143,7 +147,8 @@
         >
           <div class="text-center mb-3">
             <h5 class="mb-3 horario-text">
-              <i class="bi bi-clock me-2"></i>Horario de atención
+              <i class="bi bi-clock me-3 icon-bicolor-vertical"></i>Horario de
+              atención
             </h5>
             <ul class="list-unstyled mb-3">
               <li class="mb-3">Lunes a Viernes: 9:00 - 20:00</li>
@@ -195,7 +200,7 @@
           </div>
           <a
             href="tel:+34900123456"
-            class="btn btn-success rounded-pill w-100 mb-4"
+            class="btn rounded-pill w-100 mb-4 txt-resaltado"
           >
             <i class="bi bi-telephone-fill me-2"></i>Llamar al soporte +34 900
             123 456
