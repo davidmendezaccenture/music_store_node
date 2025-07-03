@@ -313,3 +313,7 @@ body.dark-mode .chatbot-resize-handle:hover {
     right: 10px;
   }
 }
+
+.card {
+  border-color: #f6a61a;
+}

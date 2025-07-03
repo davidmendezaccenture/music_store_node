@@ -1,6 +1,6 @@
 /* Icono bicolor personalizado */
 .icon-bicolor {
-  background: linear-gradient(45deg, #f6a61a 50%, #dedbd9 50%);
+  background: linear-gradient(45deg, #f6a61a 50%, #232323 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -8,7 +8,7 @@
 }
 
 .icon-bicolor:hover {
-  background: linear-gradient(45deg, #dedbd9 50%, #f6a61a 50%);
+  background: linear-gradient(45deg, #232323 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -38,6 +38,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.accordion-button:not(.collapsed) i {
+  color: #000;
 }
 
 /* Mantener la flecha del acordeón en su posición */

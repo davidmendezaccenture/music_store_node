@@ -33,148 +33,152 @@
 
   <body>
     <!-- Cabecera de la página (header completo) -->
-    <header class="main-header">
-      <!-- NavBar -->
-      <nav
-        class="navbar navbar-expand-lg"
-        aria-label="Barra de navegación principal"
-        role="navigation"
-      >
-        <div class="container mt-3 contenedor-main-navbar">
-          <!-- Logo + título -->
-          <h1 class="logo-main-h1">
-            <a
-              class="navbar-brand d-flex align-items-center flex-grow-1"
-              href="/"
+    <header id="header">
+      <div class="main-header">
+        <!-- NavBar -->
+        <nav
+          class="navbar navbar-expand-lg"
+          aria-label="Barra de navegación principal"
+          role="navigation"
+        >
+          <div class="container mt-3 contenedor-main-navbar">
+            <!-- Logo + título -->
+            <h1 class="logo-main-h1">
+              <a
+                class="navbar-brand d-flex align-items-center flex-grow-1"
+                href="/"
+              >
+                <img
+                  src="/assets/images/logo.webp"
+                  class="logo-main"
+                  alt="Rat Pack Instruments - Logo"
+                />
+                <!-- Linea invisible para accesibilidad -->
+                <span class="visually-hidden">Rat Pack Instruments</span></a
+              >
+            </h1>
+            <!-- Menu desplegable para pantallas moviles o pequeñas -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-              <img
-                src="/assets/images/logo.webp"
-                class="logo-main"
-                alt="Rat Pack Instruments - Logo"
-              />
-              <!-- Linea invisible para accesibilidad -->
-              <span class="visually-hidden">Rat Pack Instruments</span></a
-            >
-          </h1>
-          <!-- Menu desplegable para pantallas moviles o pequeñas -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="bi bi-list"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-lg-0">
-              <li class="nav-item">
+              <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link navbar-sections"
+                    aria-current="page"
+                    href="/pages/index.html"
+                    >Inicio</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link navbar-sections"
+                    href="#"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#servicesOffcanvas"
+                    aria-controls="servicesOffcanvas"
+                    >Servicios</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link navbar-sections"
+                    href="/pages/about_us.html"
+                    >Sobre nosotros</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navbar-sections" href="/pages/contact.html"
+                    >Contacto</a
+                  >
+                </li>
+              </ul>
+              <!-- Botones a la derecha -->
+              <div class="d-flex align-items-center gap-2 me-auto">
+                <!-- Indicamos el target al modal que queremos abrir con la id-->
                 <a
-                  class="nav-link navbar-sections"
-                  aria-current="page"
-                  href="/pages/index.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link navbar-sections"
+                  class="nav-link"
+                  id="loginButton"
                   href="#"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#servicesOffcanvas"
-                  aria-controls="servicesOffcanvas"
-                  >Servicios</a
+                  aria-label="Iniciar sesión o acceder a tu cuenta"
                 >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navbar-sections" href="/pages/about_us.html"
-                  >Sobre nosotros</a
+                  <i
+                    class="bi bi-person-circle login-logo"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="visually-hidden">Iniciar sesión</span>
+                  <div
+                    id="userStatus"
+                    class="d-flex align-items-center gap-2"
+                  ></div>
+                </a>
+                <!-- Carrito -->
+                <a
+                  class="nav-link"
+                  id="carritoButton"
+                  href="/pages/cart.html"
+                  aria-label="Ver carrito de compras"
                 >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navbar-sections" href="/pages/contact.html"
-                  >Contacto</a
+                  <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
+                  <span class="visually-hidden">Carrito</span>
+                  <!-- Contador de compras junto al carrito -->
+                  <span id="cart-count" class="badge rounded-pill bg-light"
+                    >0</span
+                  >
+                </a>
+                <!-- Darkmode -->
+                <button
+                  id="darkModeToggle"
+                  class="dark-mode-toggle"
+                  aria-pressed="false"
+                  aria-label="Activar modo oscuro"
                 >
-              </li>
-            </ul>
-            <!-- Botones a la derecha -->
-            <div class="d-flex align-items-center gap-2 me-auto">
-              <!-- Indicamos el target al modal que queremos abrir con la id-->
-              <a
-                class="nav-link"
-                id="loginButton"
-                href="#"
-                aria-label="Iniciar sesión o acceder a tu cuenta"
-              >
-                <i
-                  class="bi bi-person-circle login-logo"
-                  aria-hidden="true"
-                ></i>
-                <span class="visually-hidden">Iniciar sesión</span>
-                <div
-                  id="userStatus"
-                  class="d-flex align-items-center gap-2"
-                ></div>
-              </a>
-              <!-- Carrito -->
-              <a
-                class="nav-link"
-                id="carritoButton"
-                href="/pages/cart.html"
-                aria-label="Ver carrito de compras"
-              >
-                <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
-                <span class="visually-hidden">Carrito</span>
-                <!-- Contador de compras junto al carrito -->
-                <span id="cart-count" class="badge rounded-pill bg-light"
-                  >0</span
-                >
-              </a>
-              <!-- Darkmode -->
-              <button
-                id="darkModeToggle"
-                class="dark-mode-toggle"
-                aria-pressed="false"
-                aria-label="Activar modo oscuro"
-              >
-                <i class="bi bi-moon"></i>
-              </button>
+                  <i class="bi bi-moon"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-      <!-- Barra de búsqueda -->
-      <div class="search-bar py-1 buscador">
-        <div class="container">
-          <form
-            class="d-flex justify-content-center buscador-form"
-            role="search"
-            aria-label="Barra de busqueda"
-          >
-            <div
-              class="buscador-input-wrapper position-relative w-100"
-              style="max-width: 400px"
+        </nav>
+        <!-- Barra de búsqueda -->
+        <div class="search-bar py-1 buscador">
+          <div class="container">
+            <form
+              class="d-flex justify-content-center buscador-form"
+              role="search"
+              aria-label="Barra de busqueda"
             >
-              <input
-                class="form-control control-buscador rounded-pill pe-5"
-                type="search"
-                placeholder="Buscar productos..."
-                aria-label="Buscador"
-                id="search-input-global"
-              />
-              <button
-                class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
-                type="submit"
-                aria-label="Buscar"
+              <div
+                class="buscador-input-wrapper position-relative w-100"
+                style="max-width: 400px"
               >
-                <i class="bi bi-search fs-5"></i>
-              </button>
-            </div>
-          </form>
-          <!-- Overlay para la barra de búsqueda -->
-          <div class="buscador-overlay"></div>
+                <input
+                  class="form-control control-buscador rounded-pill pe-5"
+                  type="search"
+                  placeholder="Buscar productos..."
+                  aria-label="Buscador"
+                  id="search-input-global"
+                />
+                <button
+                  class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
+                  type="submit"
+                  aria-label="Buscar"
+                >
+                  <i class="bi bi-search fs-5"></i>
+                </button>
+              </div>
+            </form>
+            <!-- Overlay para la barra de búsqueda -->
+            <div class="buscador-overlay"></div>
+          </div>
         </div>
       </div>
     </header>
