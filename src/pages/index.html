@@ -269,215 +269,146 @@
         aria-label="Opiniones de nuestros clientes"
       >
         <h2 class="text-center mb-4">
-          <i class="bi bi-chat-dots me-3 icon-bicolor-vertical"></i>Opiniones de
-          nuestros clientes
+          <i class="bi bi-chat-dots me-3 icon-bicolor-vertical"></i>
+          Opiniones de nuestros clientes
         </h2>
-        <div
-          class="d-flex align-items-center justify-content-center gap-0 flex-nowrap"
-        >
+        <div class="d-flex align-items-center justify-content-center gap-0 flex-nowrap">
           <!-- Flecha izquierda -->
           <button
             class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
             aria-label="Opinión anterior"
           >
-            <i class="bi bi-chevron-left"></i>
+            <i class="bi bi-chevron-left opinion-carousel-arrow left"></i>
           </button>
-          <!-- Cards -->
-          <div
-            class="row opinion-carousel-row justify-content-center"
-            style="overflow-x: auto"
-          >
-            <!-- Card 1 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card1.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3 class="db-text">Luis Navas</h3>
-                      <p class="mb-1 db-text">Saxofonista</p>
-                      <p class="db-text">
-                        Llegó todo rapidísimo y en buen estado.
-                      </p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
+          <!-- Ventana del carrusel -->
+          <div class="opinion-carousel-viewport">
+            <div class="opinion-carousel-row">
+              <!-- Card 1 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3 class="db-text">Luis Navas</h3>
+                        <p class="mb-1 db-text">Saxofonista</p>
+                        <p class="db-text">Llegó todo rapidísimo y en buen estado.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-half text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ... fin card 1... -->
-            </div>
-            <!-- Card 2 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card2.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3 class="db-text">Susi Márquez</h3>
-                      <p class="mb-1 db-text">Batería</p>
-                      <p class="db-text">Siempre ayudan si tienes dudas.</p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
+                </section>
+              </div>
+              <!-- Card 2 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3 class="db-text">Susi Márquez</h3>
+                        <p class="mb-1 db-text">Batería</p>
+                        <p class="db-text">Siempre ayudan si tienes dudas.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-half text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ...fin card 2... -->
-            </div>
-            <!-- Card 3 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card3.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3 class="db-text">Roger Plaza</h3>
-                      <p class="mb-1 db-text">Pianista</p>
-                      <p class="db-text">Materiales de alta calidad.</p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
+                </section>
+              </div>
+              <!-- Card 3 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3 class="db-text">Roger Plaza</h3>
+                        <p class="mb-1 db-text">Pianista</p>
+                        <p class="db-text">Materiales de alta calidad.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-half text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ...fin card 3... -->
-            </div>
-            <!-- Card 4 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card4.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3>Lisa Gómez</h3>
-                      <p class="mb-1">Clarinetista</p>
-                      <p class="db-text">Los productos son de alta calidad.</p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
+                </section>
+              </div>
+              <!-- Card 4 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3>Lisa Gómez</h3>
+                        <p class="mb-1">Clarinetista</p>
+                        <p class="db-text">Los productos son de alta calidad.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ...fin card 4... -->
-            </div>
-            <!-- Card 5 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card5.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3>Silvio González</h3>
-                      <p class="mb-1">Cantante</p>
-                      <p class="db-text">
-                        Incluyen regalitos extra con los pedidos.
-                      </p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
+                </section>
+              </div>
+              <!-- Card 5 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3>Silvio González</h3>
+                        <p class="mb-1">Cantante</p>
+                        <p class="db-text">Incluyen regalitos extra con los pedidos.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-half text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ...fin card 5... -->
-            </div>
-            <!-- Card 6 -->
-            <div class="col-12 col-md-3 opinion-carousel-card">
-              <section class="opinion-card" tabindex="0">
-                <div
-                  class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                >
-                  <!-- <div class="img-div mb-1">
-                    <img
-                      src="/assets/images/foto-card6.webp"
-                      alt="Foto de cliente"
-                      class="img-card"
-                    />
-                  </div> -->
-                  <div class="texto-div w-100">
-                    <div class="texto-opinion-card">
-                      <h3>Fran Burgos</h3>
-                      <p class="mb-1">Cantante</p>
-                      <p class="db-text">
-                        Siempre llega todo en perfecto estado.
-                      </p>
-                      <div class="stars">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-half text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
-                        <i class="bi bi-star text-warning"></i>
+                </section>
+              </div>
+              <!-- Card 6 -->
+              <div class="opinion-carousel-card">
+                <section class="opinion-card" tabindex="0">
+                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                    <div class="texto-div w-100">
+                      <div class="texto-opinion-card">
+                        <h3>Fran Burgos</h3>
+                        <p class="mb-1">Cantante</p>
+                        <p class="db-text">Siempre llega todo en perfecto estado.</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-half text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                          <i class="bi bi-star text-warning"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- ...fin card 6... -->
+                </section>
+              </div>
             </div>
           </div>
           <!-- Flecha derecha -->
@@ -485,7 +416,7 @@
             class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
             aria-label="Opinión siguiente"
           >
-            <i class="bi bi-chevron-right"></i>
+            <i class="bi bi-chevron-right opinion-carousel-arrow"></i>
           </button>
         </div>
       </div>

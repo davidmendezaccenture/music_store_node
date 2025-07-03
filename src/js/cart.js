@@ -80,6 +80,7 @@ function updateCartCount(items) {
 }
 
 // Añadir producto al carrito
+
 function addToCartById(id) {
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
@@ -103,6 +104,7 @@ function addToCartById(id) {
   });
 }
 
+  
 // Renderizar carrito en cart.html
 function renderCart(items) {
   $('#cart-loader').hide(); // Oculta el loader al renderizar el carrito
@@ -263,7 +265,7 @@ $(document).on('click', '.btn-checkout', function (e) {
       modal.show();
     } else {
       // Aquí irá la lógica de checkout real para usuarios logueados
-      window.location.href = '/pages/checkout.html';
+      window.location.href = '/pages/coming-soon.html';
     }
   });
 });
