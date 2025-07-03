@@ -5,24 +5,32 @@ $(document).ready(function () {
   $.getJSON('../assets/data/products.json', function (data) {
     allProducts = data;
   });
+  
 
-  // Mostrar el dropdown al hacer click en el input
-  $(document).on('click', '#search-input-global', function (e) {
-    console.log('Evento input disparado');
-    console.log('allProducts:', allProducts);
-    e.preventDefault();
-    const $input = $(this);
-    const offset = $input.offset();
-    const width = $input.outerWidth();
+  // Buscar en todos los productos al escribir
+  $(document).on('input', '#search-input-global', function () {
+    const query = $(this).val().trim().toLowerCase();
+    if (query.length > 1) {
+      const $input = $(this);
+      const offset = $input.offset();
+      const width = $input.outerWidth();
 
-    $('#globalSearchDropdown').css({
-      top: offset.top + $input.outerHeight(),
-      left: offset.left,
-      width: width,
-      display: 'block'
-    });
+      $('#globalSearchDropdown').css({
+        top: offset.top + $input.outerHeight(),
+        left: offset.left,
+        width: width,
+        display: 'block'
+      });
 
-    $('#global-search-results').html('');
+      let resultados = allProducts.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        (p.category && p.category.toLowerCase().includes(query))
+      );
+      renderGlobalResults(resultados, query);
+    } else {
+      $('#globalSearchDropdown').hide();
+      $('#global-search-results').html('');
+    }
   });
 
   // Cerrar el dropdown al hacer click fuera
@@ -31,47 +39,35 @@ $(document).ready(function () {
       $('#globalSearchDropdown').hide();
     }
   });
- console.log('Buscador:', $('#search-input-global').length);
-  // Buscar en todos los productos al escribir
-  $('#search-input-global').on('input', function () {
-    console.log('Evento input disparado');
-    $('#globalSearchDropdown').show();
-    const query = $(this).val().trim().toLowerCase();
-    let resultados = [];
-    if (query.length > 1) {
-      resultados = allProducts.filter(p =>
-        p.name.toLowerCase().includes(query) ||
-        (p.category && p.category.toLowerCase().includes(query))
-      );
-    }
-    renderGlobalResults(resultados, query);
-  });
 });
 
 // Renderizar resultados en texto tipo lista
 function renderGlobalResults(lista, query) {
-   console.log('Renderizando resultados:', lista, query); 
   const $res = $('#global-search-results');
-  if (!query) {
+  if (query && lista.length > 0) {
+    $res.html(`
+      <ul class="list-group list-group-flush">
+        ${lista.map(p => `
+          <li class="list-group-item">
+            <a href="/pages/catalog.html?category=${encodeURIComponent(p.category || '')}" class="text-decoration-none global-search-link">
+              <strong>${highlight(p.name, query)}</strong>
+              <span class="text-muted small ms-2">${p.category || ''}</span>
+            </a>
+          </li>
+        `).join('')}
+      </ul>
+    `);
+  } else if (query) {
+    $res.html('<div class="text-muted px-3 py-2">No se encontraron productos.</div>');
+  } else {
     $res.html('');
-    return;
   }
-  if (lista.length === 0) {
-    $res.html('<div class="text-center py-3 not-found-message">No se encontraron resultados.</div>');
-    return;
-  }
-  $res.html(`
-    <ul class="list-group list-group-flush">
-      ${lista.map(p => `
-        <li class="list-group-item">
-          <a href="/pages/catalog.html?category=${encodeURIComponent(p.category || '')}" class="text-decoration-none">
-            <strong>${highlight(p.name, query)}</strong>
-            <span class="text-muted small ms-2">${p.category || ''}</span>
-          </a>
-        </li>
-      `).join('')}
-    </ul>
-  `);
+
+  // Limpiar input y ocultar modal al hacer click en un resultado
+  $('.global-search-link').on('click', function() {
+    $('#search-input-global').val('');
+    $('#globalSearchDropdown').hide();
+  });
 }
 
 function highlight(text, query) {

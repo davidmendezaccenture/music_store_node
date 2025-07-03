@@ -81,6 +81,7 @@ function updateCartCount(items) {
 
 // Añadir producto al carrito
 
+function addToCartById(id) {
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
       let items = cartData.items || [];
@@ -101,6 +102,7 @@ function updateCartCount(items) {
       });
     });
   });
+}
 
   
 // Renderizar carrito en cart.html
