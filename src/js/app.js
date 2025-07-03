@@ -17,15 +17,16 @@ $(document).ready(function () {
       }
     });
 
-        // Asocia aquí el evento de búsqueda global
-    $(document).on('input', '#search-input-global', function () {
-      $('#globalSearchDropdown').show();
+    // Asocia aquí el evento de búsqueda global
+    $(document).on("input", "#search-input-global", function () {
+      $("#globalSearchDropdown").show();
       const query = $(this).val().trim().toLowerCase();
       let resultados = [];
       if (query.length > 1) {
-        resultados = allProducts.filter(p =>
-          p.name.toLowerCase().includes(query) ||
-          (p.category && p.category.toLowerCase().includes(query))
+        resultados = allProducts.filter(
+          (p) =>
+            p.name.toLowerCase().includes(query) ||
+            (p.category && p.category.toLowerCase().includes(query))
         );
       }
       renderGlobalResults(resultados, query);
@@ -89,7 +90,7 @@ $(document).ready(function () {
   initNewsletterForm();
   initFeedbackSection();
   initFooter();
-  initCarousel(); // Inicializa el carrusel de imágenes
+  //initCarousel(); // Inicializa el carrusel de imágenes
 
   // ...carga dinámica del modal...
   // Cuando el modal esté cargado, asigna el evento al botón de login
@@ -137,102 +138,102 @@ function initFooter() {
   $("#footer").load("/pages/footer.html");
 }
 // Aquí va la lógica del carrusel de Productos en el Main
-function initCarousel() {
-  var images = [
-    "/assets/images/bg-carrusel-1.webp",
-    "/assets/images/bg-carrusel-2.webp",
-    "/assets/images/bg-carrusel-3.webp",
-    "/assets/images/bg-carrusel-4.webp",
-  ];
-  var current = 0;
+// function initCarousel() {
+//   var images = [
+//     "/assets/images/bg-carrusel-1.png",
+//     "/assets/images/bg-carrusel-2.png",
+//     "/assets/images/bg-carrusel-3.png",
+//     "/assets/images/bg-carrusel-4.png",
+//   ];
+//   var current = 0;
 
-  // Generar indicadores dinámicamente
-  var $indicatorsContainer = $(".carousel-indicators-custom");
-  $indicatorsContainer.empty(); // Limpia los indicadores existentes
-  images.forEach(function (_, idx) {
-    $indicatorsContainer.append(
-      `<span class="indicator${
-        idx === 0 ? " active" : ""
-      }" data-index="${idx}" role="tab" aria-selected="${
-        idx === 0
-      }" tabindex="0" aria-label="Imagen ${idx + 1}"></span>`
+// Generar indicadores dinámicamente
+// var $indicatorsContainer = $(".carousel-indicators-custom");
+// $indicatorsContainer.empty(); // Limpia los indicadores existentes
+// images.forEach(function (_, idx) {
+//   $indicatorsContainer.append(
+//     `<span class="indicator${
+//       idx === 0 ? " active" : ""
+//     }" data-index="${idx}" role="tab" aria-selected="${
+//       idx === 0
+//     }" tabindex="0" aria-label="Imagen ${idx + 1}"></span>`
+//   );
+// });
+
+// function showImage(index) {
+//   $(".img-carrousel").attr("src", images[index]);
+//   $(".indicator")
+//     .removeClass("active")
+//     .attr("aria-selected", "false")
+//     .attr("tabindex", "0");
+//   $(".indicator")
+//     .eq(index)
+//     .addClass("active")
+//     .attr("aria-selected", "true")
+//     .attr("tabindex", "0");
+// }
+
+// $(".product-carousel-arrow.right").on("click", function () {
+//   current = (current + 1) % images.length;
+//   showImage(current);
+// });
+
+// $(".product-carousel-arrow.left").on("click", function () {
+//   current = (current - 1 + images.length) % images.length;
+//   showImage(current);
+// });
+
+// Lógica para los indicadores
+// $indicatorsContainer.on("click", ".indicator", function () {
+//   var index = $(this).data("index");
+//   current = index;
+//   showImage(current);
+// });
+
+// Inicializa el carrusel en la primera imagen
+// showImage(current);
+
+// Lógica para el carrusel de opiniones de clientes
+$(function () {
+  // Número de cards a mostrar a la vez
+  var visibleCards = 3;
+  var $cards = $(".opinion-carousel-card");
+  var totalCards = $cards.length;
+  var currentStart = 0;
+
+  function showCards(start) {
+    $cards.removeClass("active");
+    for (let i = 0; i < visibleCards; i++) {
+      let idx = start + i;
+      if (idx < totalCards) {
+        $cards.eq(idx).addClass("active");
+      }
+    }
+    // Deshabilita los botones si corresponde
+    $(".opinion-carousel-arrow.left").prop("disabled", start === 0);
+    $(".opinion-carousel-arrow.right").prop(
+      "disabled",
+      start >= totalCards - visibleCards
     );
-  });
-
-  function showImage(index) {
-    $(".img-carrousel").attr("src", images[index]);
-    $(".indicator")
-      .removeClass("active")
-      .attr("aria-selected", "false")
-      .attr("tabindex", "0");
-    $(".indicator")
-      .eq(index)
-      .addClass("active")
-      .attr("aria-selected", "true")
-      .attr("tabindex", "0");
   }
 
-  $(".product-carousel-arrow.right").on("click", function () {
-    current = (current + 1) % images.length;
-    showImage(current);
-  });
-
-  $(".product-carousel-arrow.left").on("click", function () {
-    current = (current - 1 + images.length) % images.length;
-    showImage(current);
-  });
-
-  // Lógica para los indicadores
-  $indicatorsContainer.on("click", ".indicator", function () {
-    var index = $(this).data("index");
-    current = index;
-    showImage(current);
-  });
-
-  // Inicializa el carrusel en la primera imagen
-  showImage(current);
-
-  $(function () {
-    // Número de cards a mostrar a la vez
-    var visibleCards = 3;
-    var $cards = $(".opinion-carousel-card");
-    var totalCards = $cards.length;
-    var currentStart = 0;
-
-    function showCards(start) {
-      $cards.removeClass("active");
-      for (let i = 0; i < visibleCards; i++) {
-        let idx = start + i;
-        if (idx < totalCards) {
-          $cards.eq(idx).addClass("active");
-        }
-      }
-      // Deshabilita los botones si corresponde
-      $(".opinion-carousel-arrow.left").prop("disabled", start === 0);
-      $(".opinion-carousel-arrow.right").prop(
-        "disabled",
-        start >= totalCards - visibleCards
-      );
+  $(".opinion-carousel-arrow.left").click(function () {
+    if (currentStart > 0) {
+      currentStart--;
+      showCards(currentStart);
     }
-
-    $(".opinion-carousel-arrow.left").click(function () {
-      if (currentStart > 0) {
-        currentStart--;
-        showCards(currentStart);
-      }
-    });
-
-    $(".opinion-carousel-arrow.right").click(function () {
-      if (currentStart < totalCards - visibleCards) {
-        currentStart++;
-        showCards(currentStart);
-      }
-    });
-
-    // Inicializa mostrando la primera
-    showCards(currentStart);
   });
-}
+
+  $(".opinion-carousel-arrow.right").click(function () {
+    if (currentStart < totalCards - visibleCards) {
+      currentStart++;
+      showCards(currentStart);
+    }
+  });
+
+  // Inicializa mostrando la primera
+  showCards(currentStart);
+});
 
 // Función para cargar el contenido de la navegación de productos
 // filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js

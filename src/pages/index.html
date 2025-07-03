@@ -86,7 +86,7 @@
 
       <!-- Carrusel de imágenes -->
       <!-- Botón izquierdo -->
-      <section
+      <!-- <section
         class="carrousel-container"
         role="region"
         aria-label="Carrusel de imágenes de productos"
@@ -95,35 +95,171 @@
           <button
             class="product-carousel-arrow left btn btn-outline-secondary rounded-circle"
             aria-label="Imagen anterior"
-          >
-            <!-- Imagen central -->
-            <i class="bi bi-chevron-left"></i>
+          > -->
+      <!-- Imagen central -->
+      <!-- <i class="bi bi-chevron-left"></i>
           </button>
           <picture>
-            <img alt="Imágenes de productos" src="" class="img-carrousel" />
-          </picture>
-          <!-- Botón derecho -->
-          <button
+            <img
+              alt="Imágenes de productos"
+              src=""
+              class="img-carrousel"
+            />
+          </picture> -->
+      <!-- Botón derecho -->
+      <!-- <button
             class="product-carousel-arrow right btn btn-outline-secondary rounded-circle"
             aria-label="Imagen siguiente"
           >
             <i class="bi bi-chevron-right"></i>
           </button>
-        </div>
-        <!-- Indicadores del Carrusel de imágenes -->
-        <div
+        </div> -->
+      <!-- Indicadores del Carrusel de imágenes -->
+      <!-- <div
           class="carousel-indicators-custom mb-4"
           role="tablist"
           aria-label="Indicadores del carrusel"
+        > -->
+      <!-- Los indicadores se generarán aquí -->
+      <!-- </div>
+      </section>  -->
+
+      <div class="carousel-bg-black">
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide mb-5 carousel-custom-size"
         >
-          <!-- Los indicadores se generarán aquí -->
+          <div
+            id="carouselExampleCaptions"
+            class="carousel slide mb-5 carousel-custom-size"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <video
+                  class="d-block w-100"
+                  src="/assets/images/media-index-gallery.mp4"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  poster="/assets/images/poster.jpg"
+                  Tu
+                  navegador
+                  no
+                  soporta
+                  el
+                  vídeo.
+                ></video>
+                <div class="video-title-overlay">
+                  <h4 id="video-title">Rat Pack Instruments</h4>
+                </div>
+              </div>
+              <!-- Slide 2: Imagen -->
+              <div class="carousel-item">
+                <img
+                  src="/assets/images/bg-carrusel-4.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Batería acústica</h5>
+                  <p>
+                    Descubre la potencia y versatilidad de nuestras baterías
+                    para todos los estilos musicales.
+                  </p>
+                </div>
+              </div>
+              <!-- Slide 3: Imagen -->
+              <div class="carousel-item">
+                <img
+                  src="/assets/images/bg-carrusel-2.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Bajo eléctrico</h5>
+                  <p>
+                    Graves profundos y gran presencia: el bajo perfecto para tu
+                    banda o estudio.
+                  </p>
+                </div>
+              </div>
+              <!-- Slide 4: Imagen -->
+              <div class="carousel-item">
+                <img
+                  src="/assets/images/bg-carrusel-3.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Guitarras eléctricas</h5>
+                  <p>
+                    Explora nuestra selección de guitarras eléctricas en la
+                    tienda de jazz más emblemática.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
       <!-- Fin del carrusel de imágenes -->
 
       <!-- Carrusel de opiniones -->
       <div
-        class="container-fluid my-4 py-5 rounded opinion-carousel-container pb-0 pt-0"
+        class="container-fluid my-4 py-5 rounded opinion-carousel-container pb-0 pt-0 mb-5"
         role="region"
         aria-label="Opiniones de nuestros clientes"
       >
@@ -135,13 +271,12 @@
           <button
             class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
             aria-label="Opinión anterior"
-            style="z-index: 2"
           >
             <i class="bi bi-chevron-left"></i>
           </button>
           <!-- Cards -->
           <div
-            class="row opinion-carousel-row g-5 justify-content-center mb-5"
+            class="row opinion-carousel-row justify-content-center"
             style="overflow-x: auto"
           >
             <!-- Card 1 -->
@@ -150,13 +285,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card1.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3 class="db-text">Luis Navas</h3>
@@ -183,13 +318,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card2.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3 class="db-text">Susi Márquez</h3>
@@ -214,13 +349,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card3.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3 class="db-text">Roger Plaza</h3>
@@ -245,13 +380,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card4.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3>Lisa Gómez</h3>
@@ -276,13 +411,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card5.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3>Silvio González</h3>
@@ -309,13 +444,13 @@
                 <div
                   class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
                 >
-                  <div class="img-div mb-1">
+                  <!-- <div class="img-div mb-1">
                     <img
                       src="/assets/images/foto-card6.webp"
                       alt="Foto de cliente"
                       class="img-card"
                     />
-                  </div>
+                  </div> -->
                   <div class="texto-div w-100">
                     <div class="texto-opinion-card">
                       <h3>Fran Burgos</h3>

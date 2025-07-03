@@ -611,6 +611,56 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Estilo para el carrusel */
 
+#carouselExampleCaptions .carousel-item img {
+  height: 350px;
+  object-fit: cover;
+}
+
+#carouselExampleCaptions .carousel-item video {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  background: rgba(255, 255, 255, 0.85); /* Blanco con opacidad */
+  color: #222 !important; /* Texto negro */
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  position: absolute;
+  text-align: center;
+  max-width: 90%;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+  color: #222 !important;
+  margin-bottom: 0.5rem;
+}
+
+.video-title-overlay {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  pointer-events: none; /* Para que no bloquee los controles del carrusel */
+}
+
+#video-title {
+  color: #fff;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 8px #000;
+  font-weight: 700;
+  margin: 0;
+}
 /* #carouselProductos {
   width: 100vw;
   margin-left: 50%;
@@ -626,16 +676,16 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 } */
 
-.carrousel-container {
+/* .carrousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
+} */
 
 /* Estilo para la imagen del carrusel */
-.img-carrousel {
+/* .img-carrousel {
   width: 100%;
   max-width: 1500px;
   border-radius: 10px;
@@ -659,8 +709,11 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* espacio entre flechas e imagen */
+   espacio entre flechas e imagen
   gap: 1rem;
+  justify-content: center;
+   espacio entre flechas e imagen
+   gap: 1rem;
 }
 
 .carrousel-inner picture {
@@ -668,10 +721,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: block;
   width: 100%;
   margin: 0;
-}
+} */
 
 /* Estilo para las flechas del carrusel */
-.carrousel-control {
+/* .carrousel-control {
   width: 40px;
   border: none;
   background-color: transparent;
@@ -686,10 +739,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   align-items: center;
   justify-content: center;
   width: 100%;
-}
+} */
 
 /* Estilo para los indicadores del carrusel */
-.carousel-indicators-custom {
+/* .carousel-indicators-custom {
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -714,10 +767,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .indicator.active {
   background-color: #23272b;
-}
+} */
 
 /* media queries para botones e indicadores de ruleta de imágenes destacadas*/
-@media (max-width: 1085px) {
+/* @media (max-width: 1085px) {
   .product-carousel-arrow,
   .opinion-carousel-arrow {
     width: 30px !important;
@@ -745,10 +798,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     font-size: 0.7rem !important;
     margin: 3% !important;
   }
-}
+} */
 
 /* media queries para tamaño imagenes destacadas */
-@media (max-width: 770px) {
+/* @media (max-width: 770px) {
   .img-carrousel {
     width: 100% !important;
     max-width: 100% !important;
@@ -757,13 +810,12 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   .carrousel-container {
     margin-top: 2rem;
   }
-}
+} */
 
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   /* margin: 5%; */
-  min-height: 240px;
-  /* Opcional, refuerza el mínimo */
+  /* min-height: 240px;  */
 
   display: flex;
   flex-direction: column;
@@ -776,8 +828,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 340px;
-  min-height: 220px;
+  height: 250px;
+  min-height: 180px;
   max-width: 320px;
   /* margin: 0 auto; */
   /* Elimina o comenta esta línea */
@@ -798,6 +850,22 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-size: 1.05rem;
   margin-bottom: 0.2rem;
   font-weight: 600;
+}
+/* POR AQUI*/
+.opinion-carousel-flex {
+  width: 100%;
+  align-items: center;
+  position: relative;
+  /* justify-content: center;  <-- quítalo o coméntalo */
+}
+
+.opinion-carousel-arrow {
+  margin: 0 12px; /* Ajusta la separación respecto a las cards */
+}
+
+.opinion-carousel-row {
+  flex: 0 1 auto; /* Solo ocupa el espacio de las cards */
+  min-width: 0;
 }
 
 .stars {
@@ -829,18 +897,18 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-size: 1.1rem;
 }
 
-.img-card {
+/* .img-card {
   width: 48px;
   height: 48px;
   object-fit: cover;
   border-radius: 50%;
-}
+} */
 
-.img-logo {
+/* .img-logo {
   width: 200px;
   height: 150px;
   object-fit: cover;
-}
+} */
 
 .texto-opinion-card {
   font-family: "Outfit", sans-serif;
