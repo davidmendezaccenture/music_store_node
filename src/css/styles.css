@@ -175,7 +175,7 @@ body {
 
 main {
   flex: 1;
-  margin-top: 3rem;
+  margin-top: 5.4rem;
 }
 
 /* Fuente outfit */
@@ -429,7 +429,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -625,8 +625,10 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 .carousel-caption {
-  background: rgba(255, 255, 255, 0.85); /* Blanco con opacidad */
-  color: #222 !important; /* Texto negro */
+  background: rgba(255, 255, 255, 0.85);
+  /* Blanco con opacidad */
+  color: #222 !important;
+  /* Texto negro */
   border-radius: 12px;
   padding: 1rem 1.5rem;
   display: inline-block;
@@ -652,7 +654,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   z-index: 2;
   width: 100%;
   text-align: center;
-  pointer-events: none; /* Para que no bloquee los controles del carrusel */
+  pointer-events: none;
+  /* Para que no bloquee los controles del carrusel */
 }
 
 #video-title {
@@ -662,6 +665,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   font-weight: 700;
   margin: 0;
 }
+
 /* #carouselProductos {
   width: 100vw;
   margin-left: 50%;
@@ -849,6 +853,7 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   margin-bottom: 0.2rem;
   font-weight: 600;
 }
+
 /* POR AQUI*/
 .opinion-carousel-flex {
   width: 100%;
@@ -858,11 +863,13 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 }
 
 .opinion-carousel-arrow {
-  margin: 0 12px; /* Ajusta la separación respecto a las cards */
+  margin: 0 12px;
+  /* Ajusta la separación respecto a las cards */
 }
 
 .opinion-carousel-row {
-  flex: 0 1 auto; /* Solo ocupa el espacio de las cards */
+  flex: 0 1 auto;
+  /* Solo ocupa el espacio de las cards */
   min-width: 0;
 }
 
