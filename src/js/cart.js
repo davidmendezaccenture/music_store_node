@@ -80,7 +80,7 @@ function updateCartCount(items) {
 }
 
 // Añadir producto al carrito
-function addToCartById(id) {
+
   cargarProductos().then(function () {
     fetchCart().then(function (cartData) {
       let items = cartData.items || [];
@@ -101,8 +101,8 @@ function addToCartById(id) {
       });
     });
   });
-}
 
+  
 // Renderizar carrito en cart.html
 function renderCart(items) {
   $('#cart-loader').hide(); // Oculta el loader al renderizar el carrito
