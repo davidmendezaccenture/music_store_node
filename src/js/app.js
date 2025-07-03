@@ -196,47 +196,50 @@ function initFooter() {
 // Lógica para el carrusel de opiniones de clientes
 $(function () {
   // Número de cards a mostrar a la vez
-// Suponiendo 3 visibles
-const visibleCards = 3;
-const $row = $('.opinion-carousel-row');
-const $cards = $('.opinion-carousel-card');
-const totalCards = $cards.length;
-let currentStart = 0;
+  // Suponiendo 3 visibles
+  const visibleCards = 3;
+  const $row = $(".opinion-carousel-row");
+  const $cards = $(".opinion-carousel-card");
+  const totalCards = $cards.length;
+  let currentStart = 0;
 
-function updateCarousel() {
-  const cardWidth = 200 + 12; // ancho card + gap
-  const offset = currentStart * cardWidth;
-  $row.css('transform', `translateX(-${offset}px)`);
-  $('.opinion-carousel-arrow.left').prop('disabled', currentStart === 0);
-  $('.opinion-carousel-arrow.right').prop('disabled', currentStart >= totalCards - visibleCards);
-}
-
-$('.opinion-carousel-arrow.left').click(function () {
-  if (currentStart > 0) {
-    currentStart--;
-    updateCarousel();
+  function updateCarousel() {
+    const cardWidth = 200 + 12; // ancho card + gap
+    const offset = currentStart * cardWidth;
+    $row.css("transform", `translateX(-${offset}px)`);
+    $(".opinion-carousel-arrow.left").prop("disabled", currentStart === 0);
+    $(".opinion-carousel-arrow.right").prop(
+      "disabled",
+      currentStart >= totalCards - visibleCards
+    );
   }
-});
 
-$('.opinion-carousel-arrow.right').click(function () {
-  if (currentStart < totalCards - visibleCards) {
-    currentStart++;
-    updateCarousel();
-  }
-});
+  $(".opinion-carousel-arrow.left").click(function () {
+    if (currentStart > 0) {
+      currentStart--;
+      updateCarousel();
+    }
+  });
 
-updateCarousel();
+  $(".opinion-carousel-arrow.right").click(function () {
+    if (currentStart < totalCards - visibleCards) {
+      currentStart++;
+      updateCarousel();
+    }
+  });
 
-// Función para cargar el contenido de la navegación de productos
-// filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js
-document.addEventListener("DOMContentLoaded", function () {
-  const placeholder = document.getElementById("nav-secundaria-placeholder");
-  if (placeholder) {
-    fetch("../pages/nav-products.html")
-      .then((res) => res.text())
-      .then((html) => {
-        placeholder.innerHTML = html;
-      });
-  }
-});
-});// <-- Cierra la función jQuery $(function () { ... )
+  updateCarousel();
+
+  // Función para cargar el contenido de la navegación de productos
+  // filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js
+  document.addEventListener("DOMContentLoaded", function () {
+    const placeholder = document.getElementById("nav-secundaria-placeholder");
+    if (placeholder) {
+      fetch("../pages/nav-products.html")
+        .then((res) => res.text())
+        .then((html) => {
+          placeholder.innerHTML = html;
+        });
+    }
+  });
+}); // <-- Cierra la función jQuery $(function () { ... )

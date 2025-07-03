@@ -39,23 +39,38 @@
 
   // Función para cambiar la familia activa (llámala desde la barra secundaria)
   window.setFamilia = function (nuevaFamilia) {
+    console.log("setFamilia llamada con:", nuevaFamilia);
     familiaActiva = nuevaFamilia;
     localStorage.setItem("familiaCatalogoActiva", familiaActiva);
-    // Quitar clase active de todos los enlaces
+
+    // Quitar clase active de todos los enlaces en AMBAS barras
     document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
       a.classList.remove("active");
       a.removeAttribute("aria-current");
     });
-    // Añadir clase active al enlace correspondiente
-    const enlaceActivo = document.querySelector(
+
+    // Añadir clase active al enlace correspondiente en la barra secundaria
+    const enlaceSecundario = document.querySelector(
       `.catalog-secondary-nav a[onclick*="setFamilia('${nuevaFamilia}'"]`
     );
-    if (enlaceActivo) {
-      enlaceActivo.classList.add("active");
-      enlaceActivo.setAttribute("aria-current", "page");
+    if (enlaceSecundario) {
+      enlaceSecundario.classList.add("active");
+      enlaceSecundario.setAttribute("aria-current", "page");
     }
-    poblarCategorias(productos); // repobla el select de categorías según la familia
-    filtrarYMostrar();
+
+    // También activar el enlace correspondiente en el header si existe
+    const enlaceHeader = document.querySelector(
+      `.catalog-secondary-nav a[href*="familia=${nuevaFamilia}"]`
+    );
+    if (enlaceHeader) {
+      enlaceHeader.classList.add("active");
+      enlaceHeader.setAttribute("aria-current", "page");
+    }
+
+    if (typeof productos !== "undefined" && productos.length > 0) {
+      poblarCategorias(productos);
+      filtrarYMostrar();
+    }
   };
   // --- FIN CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
 
@@ -70,10 +85,17 @@
 
   // 2. Eventos con jQuery
   $(document).ready(function () {
+    console.log("Catalog.js document ready ejecutado");
+    console.log(
+      "Elementos .catalog-secondary-nav encontrados:",
+      document.querySelectorAll(".catalog-secondary-nav a").length
+    );
+
     cargarProductos();
 
     // Activar la pestaña correcta al cargar la página
     setTimeout(function () {
+      console.log("Activando pestaña para familia:", familiaActiva);
       // Quitar clase active de todos los enlaces
       document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
         a.classList.remove("active");
