@@ -102,5 +102,18 @@
     "email": "lore@email.com",
     "password": "1234",
     "isLoggedIn": 0
+  },
+  {
+    "nombre": "VicentePrueba2",
+    "apellidos": "MartinPrueba2",
+    "fechaNacimiento": "1992-03-10",
+    "telefono": "663959220",
+    "pais": "España",
+    "region": "Manzanares",
+    "codigoPostal": "13200",
+    "direccion": "Amapola",
+    "email": "VicentePrueba2@gmail.com",
+    "password": "8Kdfnqg3qSXy#uC",
+    "isLoggedIn": 0
   }
 ]
