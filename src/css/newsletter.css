@@ -50,53 +50,53 @@
 }
 
 /* Iconos diagonal */
-.icon-bicolor {
+/* .icon-bicolor {
   background: linear-gradient(315deg, #110d0c 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-}
+} */
 
 /* horizontal */
-.icon-bicolor-horizontal {
+/* .icon-bicolor-horizontal {
   background: linear-gradient(90deg, #110d0c 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-}
+} */
 
 /* Iconos vertical */
-.icon-bicolor-vertical {
+/* .icon-bicolor-vertical {
   background: linear-gradient(180deg, #110d0c 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-}
+} */
 
 /* Efecto hover para los iconos bicolor Diagonal */
-.icon-bicolor:hover {
+/* .icon-bicolor:hover {
   background: linear-gradient(315deg, #f6a61a 50%, #110d0c 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
-}
+} */
 /* Horizontal */
-.icon-bicolor-horizontal:hover {
+/* .icon-bicolor-horizontal:hover {
   background: linear-gradient(90deg, #f6a61a 50%, #110d0c 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
-}
+} */
 /* Vertical */
-.icon-bicolor-vertical:hover {
+/* .icon-bicolor-vertical:hover {
   background: linear-gradient(180deg, #f6a61a 50%, #110d0c 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
-}
+} */
 
 /* Estilos de Botones */
 .txt-resaltado {
@@ -138,5 +138,6 @@
 
 /* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
 h2 {
-  font-size: 2.5rem; /* Tamaño explícito para evitar cambios del navegador */
+  font-size: 2.5rem;
+  /* Tamaño explícito para evitar cambios del navegador */
 }
