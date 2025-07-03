@@ -1050,12 +1050,6 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   border-radius: 50%;
 }
 
-
-.opinion-carousel-arrow:hover i,
-.opinion-carousel-arrow:focus i {
-  /* color: #f6a61a !important; */
-}
-
 .opinion-carousel-arrow:disabled,
 .opinion-carousel-arrow[disabled] {
   background: #e0e0e0 !important;   /* Fondo gris claro */
