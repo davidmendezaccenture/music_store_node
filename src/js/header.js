@@ -1,11 +1,15 @@
 let allProducts = [];
 
 $(document).ready(function () {
+  // Evita que el formulario del buscador se envíe al pulsar Enter
+  $(document).on('submit', '.buscador-form', function(e) {
+    e.preventDefault();
+  });
+
   // Cargar productos globales solo una vez
   $.getJSON('../assets/data/products.json', function (data) {
     allProducts = data;
   });
-  
 
   // Buscar en todos los productos al escribir
   $(document).on('input', '#search-input-global', function () {
