@@ -10,17 +10,6 @@ main.container {
 width:500px;
 }
 
-.back-index {
-  background-color: black !important;
-  color: #F6A61A !important;
-  border: none;
-}
-.back-index:hover,
-.back-index:focus {
-  background-color: #f6a61a !important;
-  color: black !important;
-}
-
 .icon-bicolor {
     width: 50px;
     height: 50px;
