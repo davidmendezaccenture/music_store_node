@@ -28,28 +28,29 @@
             <div class="row g-4 align-items-center">
                 <!-- Imagen -->
                 <div class="col-md-6 text-center">
-                    <img src="../assets/images/guitar7.png" alt="Guitarra Acústica Premium" class="img-fluid rounded" />
+                    <img src="" alt="Guitarra Acústica Premium" class="img-fluid rounded product-image" />
                 </div>
 
                 <!-- Detalles del producto -->
                 <div class="col-md-6">
-                    <span class="badge bg-secondary mb-2">Guitarras acusticas</span>
-                    <h3 class="fw-semibold">Guitarra Acústica Premium</h3>
+                    <span class="badge bg-secondary mb-2 product-category"></span>
+                    <h3 class="fw-semibold product-name"></h3>
 
                     <div class="mb-3">
-                        <span class="text-primary fw-bold fs-3 me-2">€800.00</span>
-                        <span class="text-muted text-decoration-line-through">€750.00</span>
+                        <span class="text-primary fw-bold fs-3 me-2 product-price"></span>
+                        <span class="text-muted text-decoration-line-through product-old-price"></span>
                     </div>
 
                     <h6 class="fw-bold">Descripción</h6>
-                    <p>Guitarra acústica con acabados de lujo.</p>
+                    <p class="product-description"></p>
 
                     <!-- Botones -->
                     <div class="d-grid gap-2 mb-3">
                         <button class="btn btn-primary">
-                            <i class="bi bi-cart-plus me-2"></i>Añadir al carrito
+                            <i class="bi bi-cart-plus me-2"></i>
+                            Añadir al carrito
                         </button>
-                        <button class="btn btn-outline-secondary">
+                        <button class="btn btn-outline-secondary" onclick="window.location.href='/pages/catalog.html'">
                             ← Seguir comprando
                         </button>
                     </div>
@@ -86,6 +87,34 @@
     <script src="../js/register.js"></script>
     <script src="../js/catalog.js"></script>
     <script src="../js/header.js"></script>
+
+    <script>
+        // Función para obtener parámetros de la URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Cargar producto y mostrarlo
+        $(document).ready(function () {
+            const productId = getQueryParam('id');
+            if (!productId) return;
+
+            $.getJSON('../assets/data/products.json', function (productos) {
+                const producto = productos.find(p => String(p.id) === String(productId));
+                if (!producto) return;
+
+                // Actualiza los elementos del DOM con los datos del producto
+                $('.product-image').attr('src', producto.image).attr('alt', producto.name);
+                $('.product-category').text(producto.category);
+                $('.product-name').text(producto.name);
+                $('.product-price').text(`€${producto.offerPrice < producto.price ? producto.offerPrice : producto.price}`);
+                $('.product-old-price').text(producto.offerPrice < producto.price ? `€${producto.price}` : '');
+                $('.product-description').text(producto.description);
+            });
+        });
+    </script>
+
 </body>
 
 </html>

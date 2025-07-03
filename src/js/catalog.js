@@ -176,6 +176,9 @@
           : `<span class="fw-bold">${p.price} €</span>`
         }
                 </p>
+                <button class="btn btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id}'" aria-label="detalles">
+                  Detalles del producto
+                </button>
                 <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
                   Añadir a la cesta
                 </button>
