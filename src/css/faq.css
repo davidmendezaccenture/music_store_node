@@ -1,6 +1,6 @@
 /* Icono bicolor personalizado */
-.icon-bicolor {
-  background: linear-gradient(45deg, #f6a61a 50%, #232323 50%);
+/* .icon-bicolor {
+  background: linear-gradient(45deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -8,7 +8,7 @@
 }
 
 .icon-bicolor:hover {
-  background: linear-gradient(45deg, #232323 50%, #f6a61a 50%);
+  background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -17,7 +17,7 @@
 
 .icon-resaltado {
   color: #f6a61a;
-}
+} */
 
 /* Acordeón personalizado */
 .accordion-item {
@@ -39,6 +39,7 @@
   align-items: center;
   text-align: center;
 }
+
 .accordion-button:not(.collapsed) i {
   color: #000;
 }
@@ -80,6 +81,7 @@
 .txt-resaltado {
   border: 2px solid #f6a61a;
 }
+
 .txt-resaltado:hover {
   background-color: transparent;
   color: #f6a61a;
@@ -89,6 +91,7 @@
 .background-resaltado {
   background-color: #f6a61a;
 }
+
 .background-resaltado:hover {
   background-color: #f6a61a;
   color: white;
@@ -96,7 +99,8 @@
 
 /* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
 h1 {
-  font-size: 2.5rem; /* Tamaño explícito para evitar cambios del navegador */
+  font-size: 2.5rem;
+  /* Tamaño explícito para evitar cambios del navegador */
 }
 
 h1.display-4 {

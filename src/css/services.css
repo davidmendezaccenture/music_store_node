@@ -35,7 +35,7 @@
 
 /* Iconos diagonal */
 .icon-bicolor {
-  background: linear-gradient(45deg, #232323 50%, #f6a61a 50%);
+  background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -44,7 +44,7 @@
 
 /* horizontal */
 .icon-bicolor-horizontal {
-  background: linear-gradient(90deg, #232323 50%, #f6a61a 50%);
+  background: linear-gradient(90deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -53,7 +53,7 @@
 
 /* Iconos vertical */
 .icon-bicolor-vertical {
-  background: linear-gradient(180deg, #232323 50%, #f6a61a 50%);
+  background: linear-gradient(180deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -62,21 +62,23 @@
 
 /* Efecto hover para los iconos bicolor Diagonal */
 .icon-bicolor:hover {
-  background: linear-gradient(45deg, #f6a61a 50%, #232323 50%);
+  background: linear-gradient(45deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
 }
+
 /* Horizontal */
 .icon-bicolor-horizontal:hover {
-  background: linear-gradient(90deg, #f6a61a 50%, #232323 50%);
+  background: linear-gradient(90deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
 }
+
 /* Vertical */
 .icon-bicolor-vertical:hover {
-  background: linear-gradient(180deg, #f6a61a 50%, #232323 50%);
+  background: linear-gradient(180deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
@@ -84,13 +86,11 @@
 
 /* Círculos bicolor para los pasos del proceso */
 .circle-bicolor1 {
-  background: linear-gradient(
-    45deg,
-    #f6a61a 24%,
-    #f6a61a 25%,
-    #dedbd9 26%,
-    #dedbd9 100%
-  );
+  background: linear-gradient(45deg,
+      #f6a61a 24%,
+      #f6a61a 25%,
+      #dedbd9 26%,
+      #dedbd9 100%);
 }
 
 .circle-bicolor2 {
@@ -121,7 +121,8 @@
 
 /* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
 h2 {
-  font-size: 2.5rem; /* Tamaño explícito para evitar cambios del navegador */
+  font-size: 2.5rem;
+  /* Tamaño explícito para evitar cambios del navegador */
 }
 
 h2.display-4 {
