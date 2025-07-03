@@ -90,7 +90,6 @@ $(document).ready(function () {
   initNewsletterForm();
   initFeedbackSection();
   initFooter();
-  //initCarousel(); // Inicializa el carrusel de imágenes
 
   // ...carga dinámica del modal...
   // Cuando el modal esté cargado, asigna el evento al botón de login
@@ -196,44 +195,36 @@ function initFooter() {
 // Lógica para el carrusel de opiniones de clientes
 $(function () {
   // Número de cards a mostrar a la vez
-  var visibleCards = 3;
-  var $cards = $(".opinion-carousel-card");
-  var totalCards = $cards.length;
-  var currentStart = 0;
+// Suponiendo 3 visibles
+const visibleCards = 3;
+const $row = $('.opinion-carousel-row');
+const $cards = $('.opinion-carousel-card');
+const totalCards = $cards.length;
+let currentStart = 0;
 
-  function showCards(start) {
-    $cards.removeClass("active");
-    for (let i = 0; i < visibleCards; i++) {
-      let idx = start + i;
-      if (idx < totalCards) {
-        $cards.eq(idx).addClass("active");
-      }
-    }
-    // Deshabilita los botones si corresponde
-    $(".opinion-carousel-arrow.left").prop("disabled", start === 0);
-    $(".opinion-carousel-arrow.right").prop(
-      "disabled",
-      start >= totalCards - visibleCards
-    );
+function updateCarousel() {
+  const cardWidth = 200 + 12; // ancho card + gap
+  const offset = currentStart * cardWidth;
+  $row.css('transform', `translateX(-${offset}px)`);
+  $('.opinion-carousel-arrow.left').prop('disabled', currentStart === 0);
+  $('.opinion-carousel-arrow.right').prop('disabled', currentStart >= totalCards - visibleCards);
+}
+
+$('.opinion-carousel-arrow.left').click(function () {
+  if (currentStart > 0) {
+    currentStart--;
+    updateCarousel();
   }
-
-  $(".opinion-carousel-arrow.left").click(function () {
-    if (currentStart > 0) {
-      currentStart--;
-      showCards(currentStart);
-    }
-  });
-
-  $(".opinion-carousel-arrow.right").click(function () {
-    if (currentStart < totalCards - visibleCards) {
-      currentStart++;
-      showCards(currentStart);
-    }
-  });
-
-  // Inicializa mostrando la primera
-  showCards(currentStart);
 });
+
+$('.opinion-carousel-arrow.right').click(function () {
+  if (currentStart < totalCards - visibleCards) {
+    currentStart++;
+    updateCarousel();
+  }
+});
+
+updateCarousel();
 
 // Función para cargar el contenido de la navegación de productos
 // filepath: c:\Users\Usuaria\OneDrive\Escritorio\FRONTEND ACCENTURE\musicstore\src\js\app.js
@@ -247,3 +238,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+});// <-- Cierra la función jQuery $(function () { ... )
