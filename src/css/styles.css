@@ -173,9 +173,13 @@ body {
   min-height: 100vh;
 }
 
-main {
+main.c-main {
   flex: 1;
-  margin-top: 5.4rem;
+  margin-top: 6.7rem; /* 3 rem = 6.7 */
+}
+
+main {
+  margin-top: 3rem;
 }
 
 /* Fuente outfit */
@@ -185,18 +189,37 @@ body {
   background-color: rgba(238, 236, 231, 0.693);
 }
 
-header {
-  background-image: url("/assets/images/bg-carrusel-1.webp");
-  /* Ajustes de imagen */
+/* header {
+  background-image: url("/assets/images/testvic1.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 1rem;
-  height: 200px;
+  min-height: 200px;
+} */
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Centrar la navbar dentro del main-header */
+.main-header .navbar {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #header {
-  min-height: 174px;
+  background-image: url("/assets/images/testvic1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 220px;
+  height: 220px;
 }
 
 /* Estilo para la navbar txt */
@@ -204,7 +227,7 @@ header {
   font-family: "Outfit", sans-serif;
   font-weight: 500;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #f1f1f1;
 }
 
@@ -212,7 +235,7 @@ header {
 .contenedor-main-navbar {
   background-color: #110d0c;
   width: 100%;
-  height: 70px;
+  height: 90px;
   padding: 0 30px;
   border-radius: 999px;
 }
@@ -332,7 +355,7 @@ header {
 
 /* Login logo */
 .login-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-right: 0px;
   /* Margen derecho */
   /* border-radius: 50%; */
@@ -348,11 +371,12 @@ header {
   color: #f6a61a;
   /* Color del icono */
   transition: background 0.2s, color 0.2s;
+  margin-right: 10px;
 }
 
 /* Cart style */
 .cart-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -365,6 +389,11 @@ header {
   color: #f6a61a;
   /* Color del icono */
   transition: background 0.2s, color 0.2s;
+  margin-right: 10px;
+}
+
+.dm-logo {
+  font-size: 1.6rem;
 }
 
 .cart-logo:hover,
@@ -429,7 +458,7 @@ header {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -1382,17 +1411,19 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
 
 #loginButton .user-logged-icon {
   color: #f6a61a;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 #loginButton .user-logged-greeting {
   color: white;
   font-weight: 600;
+  font-size: 1.1rem !important;
 }
 
 #loginButton .user-logged-name {
   color: #f6a61a;
   font-weight: 700;
+  font-size: 1.1rem !important;
 }
 
 #loginButton .btn-logout {
@@ -1405,7 +1436,7 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
   justify-content: center;
   color: #f6a61a;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 #loginButton .btn-logout:hover {
