@@ -1,3 +1,22 @@
+/* Botón ver detalle en tarjetas catálogo (igual que seguir comprando en detail-product) */
+.card .btn-detail {
+    border-radius: 999px;
+    background-color: #fff;
+    color: #23272b;
+    border: 1.5px solid #f6a61a;
+    font-weight: 300;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.card .btn-detail:hover,
+.card .btn-detail:focus {
+    background-color: #f6a61a;
+    color: #23272b;
+    border-color: #f6a61a;
+}
+
 /* Refuerzo: nunca subrayar ni cambiar color en .catalog-secondary-nav-text, ni aunque reciba hover/focus directo */
 .catalog-secondary-nav .catalog-secondary-nav-text,
 .catalog-secondary-nav .catalog-secondary-nav-text:hover,
@@ -172,6 +191,25 @@ a.btn-outline-primary:hover,
 }
 
 .card .btn-primary:hover {
+    background-color: #f6a61a;
+    color: #23272b;
+    border-color: #f6a61a;
+}
+
+/* Botón ver detalle en tarjetas catálogo (igual que seguir comprando en detail-product) */
+.card .btn-detail {
+    border-radius: 999px;
+    background-color: #fff;
+    color: #23272b;
+    border: 1.5px solid #f6a61a;
+    font-weight: 300;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.card .btn-detail:hover,
+.card .btn-detail:focus {
     background-color: #f6a61a;
     color: #23272b;
     border-color: #f6a61a;

@@ -195,20 +195,24 @@
             <div class="card-body d-flex flex-column">
               <h2 class="h5 card-title">${p.name}</h2>
               <p class="card-text">${p.description}</p>
-              <div class="mt-auto">
-                <p class="mb-2">
-                  ${p.offerPrice < p.price
-          ? `<span class="text-decoration-line-through">${p.price} €</span>
-                     <span class="price-offer ms-2">${p.offerPrice} €</span>`
-          : `<span class="fw-bold">${p.price} €</span>`
+              <div class="mt-auto d-flex flex-column gap-2">
+                <div class="d-block">
+                  <p class="mb-2 mt-2">
+                    ${p.offerPrice < p.price
+          ? `<span class=\"text-decoration-line-through\">${p.price} €</span>
+                         <span class=\"price-offer ms-2\">${p.offerPrice} €</span>`
+          : `<span class=\"fw-bold\">${p.price} €</span>`
         }
-                </p>
-                <button class="btn btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id}'" aria-label="detalles">
-                  Detalles del producto
-                </button>
-                <button class="btn btn-primary add-to-cart" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
-                  Añadir a la cesta
-                </button>
+                  </p>
+                </div>
+                <div class="d-flex justify-content-between gap-2">
+                  <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id}'" aria-label="Ver detalle">
+                    detalle
+                  </button>
+                  <button class="btn btn-primary add-to-cart ms-auto" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
+                    añadir a carrito
+                  </button>
+                </div>
               </div>
             </div>
           </div>
