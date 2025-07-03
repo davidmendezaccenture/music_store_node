@@ -80,33 +80,26 @@ function updateCartCount(items) {
 }
 
 // Añadir producto al carrito
+
 function addToCartById(id) {
-  // Si productos ya está cargado, no vuelvas a cargar
-  if (productos && productos.length) {
-    return addToCartLogic(id);
-  }
-  // Si no, espera a que se cargue
   cargarProductos().then(function () {
-    addToCartLogic(id);
-  });
-}
+    fetchCart().then(function (cartData) {
+      let items = cartData.items || [];
+      const producto = productos.find(p => p.id === id);
+      if (!producto) return;
 
-function addToCartLogic(id) {
-  fetchCart().then(function (cartData) {
-    let items = cartData.items || [];
-    const producto = productos.find(p => p.id === id);
-    if (!producto) return;
-
-    let found = items.find(item => item.id === id);
-    if (found) {
-      found.quantity = (found.quantity || 1) + 1;
-    } else {
-      items.push({ ...producto, quantity: 1 });
-    }
-    saveCart(items).then(function () {
-      updateCartCount(items);
-      showAddToCartAlert();
-      if ($('#cart-content').length) renderCart(items);
+      let found = items.find(item => item.id === id);
+      if (found) {
+        found.quantity = (found.quantity || 1) + 1;
+      } else {
+        items.push({ ...producto, quantity: 1 });
+      }
+      saveCart(items).then(function () {
+        updateCartCount(items);
+        showAddToCartAlert(); // Muestra el mensaje de éxito al añadir al carrito
+        // Si estamos en cart.html, actualiza la vista del carrito
+        if ($('#cart-content').length) renderCart(items);
+      });
     });
   });
 }
