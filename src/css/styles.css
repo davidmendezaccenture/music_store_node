@@ -1025,12 +1025,13 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   border: none !important;
   z-index: 2;
   transition: background 0.2s, color 0.2s;
   color: black !important;
   border-radius: 50%;
+  background: grey !important;
 }
 
 .opinion-carousel-arrow {
@@ -1052,10 +1053,23 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow:hover i,
 .opinion-carousel-arrow:focus i {
-  color: #f6a61a !important;
+  /* color: #f6a61a !important; */
 }
 
+.opinion-carousel-arrow:disabled,
+.opinion-carousel-arrow[disabled] {
+  background: #e0e0e0 !important;   /* Fondo gris claro */
+  color: #bdbdbd !important;        /* Icono gris */
+  opacity: 0.6 !important;          /* Más transparente */
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  border: none !important;
+}
 
+.opinion-carousel-arrow:disabled i,
+.opinion-carousel-arrow[disabled] i {
+  color: #bdbdbd !important;        /* Icono gris */
+}
 
 
 
