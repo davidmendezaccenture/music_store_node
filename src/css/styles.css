@@ -222,6 +222,15 @@ body {
   height: 220px;
 }
 
+#header1 {
+  background-image: url("/assets/images/testvic1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 220px;
+  height: 220px;
+}
+
 /* Estilo para la navbar txt */
 .navbar-sections {
   font-family: "Outfit", sans-serif;
