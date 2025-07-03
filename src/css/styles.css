@@ -304,21 +304,31 @@ body {
 /* Estilo para el menú desplegable de la navbar */
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background-color: #110d0c;
-    border: 1px solid #f6a61a;
-    border-top: none;
-    border-radius: 0 0 15px 15px;
+    background-color: #110d0cd7;
     margin-top: 0;
-    padding: 15px;
-    z-index: 3;
+    padding-top: 0;
+    z-index: 6;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    /* max-width: 400px; */
+    border-radius: 5px;
   }
 
   /* Estilos para los enlaces dentro del desplegable */
   .navbar-collapse .navbar-nav .nav-link {
     color: #f1f1f1;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     border-radius: 8px;
-    margin: 2px 0;
+    /* margin: 2px 0; */
+  }
+
+  .navbar-collapse .nav-links {
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.4rem;
   }
 
   .navbar-collapse .navbar-nav .nav-link:hover {

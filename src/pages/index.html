@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/services.css" />
+    <link rel="stylesheet" href="../css/style_catalog.css" />
     <!-- Fuente seleccionada para usar en el proyecto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -272,7 +273,9 @@
           <i class="bi bi-chat-dots me-3 icon-bicolor-vertical"></i>
           Opiniones de nuestros clientes
         </h2>
-        <div class="d-flex align-items-center justify-content-center gap-0 flex-nowrap">
+        <div
+          class="d-flex align-items-center justify-content-center gap-0 flex-nowrap"
+        >
           <!-- Flecha izquierda -->
           <button
             class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
@@ -286,12 +289,16 @@
               <!-- Card 1 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3 class="db-text">Luis Navas</h3>
                         <p class="mb-1 db-text">Saxofonista</p>
-                        <p class="db-text">Llegó todo rapidísimo y en buen estado.</p>
+                        <p class="db-text">
+                          Llegó todo rapidísimo y en buen estado.
+                        </p>
                         <div class="stars">
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -307,7 +314,9 @@
               <!-- Card 2 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3 class="db-text">Susi Márquez</h3>
@@ -328,7 +337,9 @@
               <!-- Card 3 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3 class="db-text">Roger Plaza</h3>
@@ -349,12 +360,16 @@
               <!-- Card 4 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3>Lisa Gómez</h3>
                         <p class="mb-1">Clarinetista</p>
-                        <p class="db-text">Los productos son de alta calidad.</p>
+                        <p class="db-text">
+                          Los productos son de alta calidad.
+                        </p>
                         <div class="stars">
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -370,12 +385,16 @@
               <!-- Card 5 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3>Silvio González</h3>
                         <p class="mb-1">Cantante</p>
-                        <p class="db-text">Incluyen regalitos extra con los pedidos.</p>
+                        <p class="db-text">
+                          Incluyen regalitos extra con los pedidos.
+                        </p>
                         <div class="stars">
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -391,12 +410,16 @@
               <!-- Card 6 -->
               <div class="opinion-carousel-card">
                 <section class="opinion-card" tabindex="0">
-                  <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div
+                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
+                  >
                     <div class="texto-div w-100">
                       <div class="texto-opinion-card">
                         <h3>Fran Burgos</h3>
                         <p class="mb-1">Cantante</p>
-                        <p class="db-text">Siempre llega todo en perfecto estado.</p>
+                        <p class="db-text">
+                          Siempre llega todo en perfecto estado.
+                        </p>
                         <div class="stars">
                           <i class="bi bi-star-fill text-warning"></i>
                           <i class="bi bi-star-fill text-warning"></i>
@@ -423,19 +446,40 @@
     </main>
 
     <!-- Modal de búsqueda global -->
-
     <div
       id="globalSearchDropdown"
       class="search-bar py-1 buscador shadow"
-      style="
-        display: none;
-        position: absolute;
-        z-index: 1055;
-        min-width: 350px;
-        background-color: white;
-      "
+      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
     >
-      <div id="global-search-results" class="mt-2"></div>
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
+        >
+          <!-- <div
+                class="buscador-input-wrapper position-relative w-100"
+                style="max-width: 400px"
+            >
+                <input
+                class="form-control control-buscador rounded-pill pe-5"
+                type="search"
+                placeholder="Buscar productos..."
+                aria-label="Buscador global"
+                id="global-search-input"
+                autocomplete="off"
+                />
+                <button
+                class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
+                type="submit"
+                aria-label="Buscar"
+                >
+                <i class="bi bi-search fs-5"></i>
+                </button>
+            </div> -->
+        </form>
+        <div id="global-search-results" class="mt-2"></div>
+      </div>
     </div>
     <!-- Sección preparada para Listado de Productos Destacados -->
 
