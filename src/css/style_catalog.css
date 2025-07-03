@@ -1,7 +1,7 @@
-/* Refuerzo: nunca subrayar ni cambiar color en .nav-text, ni aunque reciba hover/focus directo */
-.nav-drums-custom .nav-text,
-.nav-drums-custom .nav-text:hover,
-.nav-drums-custom .nav-text:focus {
+/* Refuerzo: nunca subrayar ni cambiar color en .catalog-secondary-nav-text, ni aunque reciba hover/focus directo */
+.catalog-secondary-nav .catalog-secondary-nav-text,
+.catalog-secondary-nav .catalog-secondary-nav-text:hover,
+.catalog-secondary-nav .catalog-secondary-nav-text:focus {
     text-decoration: none !important;
     border-bottom: none !important;
     color: #23272b !important;
@@ -9,7 +9,7 @@
 }
 
 /* Iconos de la barra de navegación secundaria del catálogo */
-.nav-icon-catalog {
+.catalog-secondary-nav-icon {
     width: 32px;
     height: 32px;
     object-fit: contain;
@@ -196,7 +196,7 @@ a.btn-outline-primary:hover,
 } */
 
 /* Barra secundaria de navegación personalizada desde cero */
-.nav-drums-custom {
+.catalog-secondary-nav {
     background: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     z-index: 5;
@@ -211,14 +211,14 @@ a.btn-outline-primary:hover,
     margin-top: 0 !important;
 }
 
-.nav-drums-custom .container {
+.catalog-secondary-nav .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     /* No tocar padding ni max-width, usar Bootstrap puro */
 }
 
-.nav-drums-custom ul {
+.catalog-secondary-nav ul {
     display: flex;
     align-items: center;
     margin: 0;
@@ -227,7 +227,7 @@ a.btn-outline-primary:hover,
     gap: 2em;
 }
 
-.nav-drums-custom li {
+.catalog-secondary-nav li {
     margin: 0;
     padding: 0;
     display: flex;
@@ -236,11 +236,11 @@ a.btn-outline-primary:hover,
     min-width: max-content;
 }
 
-.nav-drums-custom li:first-child {
+.catalog-secondary-nav li:first-child {
     margin-left: 0 !important;
 }
 
-.nav-drums-custom a {
+.catalog-secondary-nav a {
     color: #23272b;
     text-decoration: none !important;
     font-size: 1.5rem;
@@ -254,7 +254,7 @@ a.btn-outline-primary:hover,
     /* sombra invisible por defecto */
 }
 
-.nav-drums-custom .nav-text {
+.catalog-secondary-nav .catalog-secondary-nav-text {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
@@ -268,8 +268,8 @@ a.btn-outline-primary:hover,
 
 
 /* Hover/focus: outline amarillo, sin fondo, borde tipo píldora, SIN subrayado ni cambio de color en el texto */
-.nav-drums-custom a:hover,
-.nav-drums-custom a:focus {
+.catalog-secondary-nav a:hover,
+.catalog-secondary-nav a:focus {
     /* Simula outline amarillo con box-shadow fade in y animación border-radius */
     box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
     background: none;
@@ -280,8 +280,8 @@ a.btn-outline-primary:hover,
 }
 
 /* Elimina subrayado y color en hover/focus SOLO para el texto dentro del enlace */
-.nav-drums-custom a:hover .nav-text,
-.nav-drums-custom a:focus .nav-text {
+.catalog-secondary-nav a:hover .catalog-secondary-nav-text,
+.catalog-secondary-nav a:focus .catalog-secondary-nav-text {
     color: #23272b !important;
     text-decoration: none !important;
     background: none !important;
@@ -290,7 +290,7 @@ a.btn-outline-primary:hover,
 
 
 /* Activo: fondo amarillo, borde tipo píldora, sin outline, efecto igual que el outline pero relleno */
-.nav-drums-custom a.active {
+.catalog-secondary-nav a.active {
     background: #f6a61a;
     color: #23272b !important;
     border-radius: 999px;
@@ -303,7 +303,7 @@ a.btn-outline-primary:hover,
 }
 
 /* El texto dentro del enlace activo mantiene el mismo estilo, sin fondo adicional */
-.nav-drums-custom a.active .nav-text {
+.catalog-secondary-nav a.active .catalog-secondary-nav-text {
     background: none;
     color: #23272b;
     padding: 0 4px;
@@ -314,8 +314,8 @@ a.btn-outline-primary:hover,
 }
 
 /* El enlace activo NO cambia en hover/focus */
-.nav-drums-custom a.active:hover,
-.nav-drums-custom a.active:focus {
+.catalog-secondary-nav a.active:hover,
+.catalog-secondary-nav a.active:focus {
     background: #f6a61a;
     color: #23272b !important;
     border-radius: 999px;
@@ -325,7 +325,7 @@ a.btn-outline-primary:hover,
 
 
 /* Icono de búsqueda */
-.search-icon-drums {
+.catalog-secondary-nav-search {
     margin-left: 0;
     margin-right: 0;
     font-size: 1.5rem;
@@ -335,17 +335,17 @@ a.btn-outline-primary:hover,
 }
 
 @media (max-width: 576px) {
-    .search-icon-drums {
+    .catalog-secondary-nav-search {
         margin-left: 0;
         padding-right: 0;
     }
 }
 
 /* Elimina cualquier padding/margin lateral extra de Bootstrap en .container si existiera */
-.nav-drums-custom .container,
-.nav-drums-custom ul,
-.nav-drums-custom li,
-.nav-drums-custom a {
+.catalog-secondary-nav .container,
+.catalog-secondary-nav ul,
+.catalog-secondary-nav li,
+.catalog-secondary-nav a {
     box-sizing: border-box !important;
 }
 
@@ -368,7 +368,7 @@ a.btn-outline-primary:hover,
 @media (max-width: 576px) {
 
     .nav-drums-custom a,
-    .nav-drums-custom .nav-text {
+    .catalog-secondary-nav .catalog-secondary-nav-text {
         font-size: 1.2rem;
     }
 

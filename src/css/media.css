@@ -1,0 +1,103 @@
+/* Newsletter Page Styles */
+
+/* Iconos diagonal */
+.icon-bicolor {
+  background: linear-gradient(315deg, #110d0c 50%, #f6a61a 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* horizontal */
+.icon-bicolor-horizontal {
+  background: linear-gradient(90deg, #110d0c 50%, #f6a61a 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Iconos vertical */
+.icon-bicolor-vertical {
+  background: linear-gradient(180deg, #110d0c 50%, #f6a61a 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Efecto hover para los iconos bicolor Diagonal */
+.icon-bicolor:hover {
+  background: linear-gradient(315deg, #f6a61a 50%, #110d0c 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+/* Horizontal */
+.icon-bicolor-horizontal:hover {
+  background: linear-gradient(90deg, #f6a61a 50%, #110d0c 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+/* Vertical */
+.icon-bicolor-vertical:hover {
+  background: linear-gradient(180deg, #f6a61a 50%, #110d0c 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+/* Estilos de Botones */
+.txt-resaltado {
+  border: 2px solid #f6a61a;
+}
+
+.txt-negro {
+  color: #000000;
+}
+
+.btn-size {
+  width: 80px;
+  height: 80px;
+}
+
+.background-resaltado {
+  background-color: #f6a61a;
+  color: #000000;
+  border-color: #f6a61a;
+}
+
+.text-gold {
+  color: #f6a61a;
+}
+
+/* Eliminar hover de botones con clases personalizadas */
+.btn.background-resaltado:hover {
+  background-color: #f6a61a;
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn.txt-resaltado:hover {
+  background-color: transparent;
+  color: #f6a61a;
+  border-color: #f6a61a;
+}
+
+/* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
+h2 {
+  font-size: 2.5rem; /* Tamaño explícito para evitar cambios del navegador */
+}
+
+.galeria-style-fill {
+  height: 400px;
+  object-fit: fill;
+}
+
+.galeria-style-cover {
+  height: 400px;
+  object-fit: cover;
+}

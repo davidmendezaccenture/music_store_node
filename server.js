@@ -21,6 +21,9 @@ const transporter = nodemailer.createTransport({
 // Servir estáticos
 app.use(express.static(path.join(__dirname, "src")));
 
+// Ejecutar logout al iniciar el servidor
+logoutAllUsers();
+
 // Obtener productos
 app.get("/api/products", (req, res) => {
   const productsPath = path.join(__dirname, "src/assets/data/products.json");
@@ -516,3 +519,53 @@ IMPORTANTE: Al recomendar productos, siempre menciona:
     res.status(500).json({ error: errorMessage });
   }
 });
+
+//---------------------------------------------------------------------------------------------------------------///
+//---------------------------------------------------Log Out-----------------------------------------------------///
+//---------------------------------------------------------------------------------------------------------------///
+
+// Función para desloguear todos los usuarios al iniciar el servidor
+function logoutAllUsers() {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+
+  fs.readFile(usersPath, "utf-8", (err, data) => {
+    if (err) {
+      console.log("Error al leer usuarios para logout inicial:", err);
+      return;
+    }
+
+    try {
+      let usuarios = JSON.parse(data);
+      let usuariosModificados = 0;
+
+      // Poner todos los usuarios como deslogueados
+      usuarios.forEach((usuario) => {
+        if (usuario.isLoggedIn === 1) {
+          usuario.isLoggedIn = 0;
+          usuariosModificados++;
+        }
+      });
+
+      // Solo escribir si hay cambios
+      if (usuariosModificados > 0) {
+        fs.writeFile(
+          usersPath,
+          JSON.stringify(usuarios, null, 2),
+          (writeErr) => {
+            if (writeErr) {
+              console.log("Error al desloguear usuarios:", writeErr);
+            } else {
+              console.log(
+                `${usuariosModificados} usuarios deslogueados al iniciar el servidor`
+              );
+            }
+          }
+        );
+      } else {
+        console.log("Todos los usuarios ya estaban deslogueados");
+      }
+    } catch (parseErr) {
+      console.log("Error al parsear usuarios.json:", parseErr);
+    }
+  });
+}

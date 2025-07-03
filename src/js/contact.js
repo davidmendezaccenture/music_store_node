@@ -118,3 +118,12 @@ $(function () {
     $(selector).removeClass("is-invalid").next(".invalid-feedback").text("");
   }
 });
+
+// Autocompletar email si hay usuario logueado
+$(document).ready(function () {
+  $.get("/api/current-user", function (data) {
+    if (data && data.isLoggedIn && data.usuario && data.usuario.email) {
+      $("#email").val(data.usuario.email).prop("readonly", true);
+    }
+  });
+});
