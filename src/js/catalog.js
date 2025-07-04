@@ -80,6 +80,20 @@
       productos = data;
       poblarCategorias(productos); // <-- Llama aquí
       filtrarYMostrar();
+      // Marcar la pestaña activa solo cuando los enlaces existen
+      setTimeout(function () {
+        document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
+          a.classList.remove("active");
+          a.removeAttribute("aria-current");
+        });
+        const enlaceActivo = document.querySelector(
+          `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
+        );
+        if (enlaceActivo) {
+          enlaceActivo.classList.add("active");
+          enlaceActivo.setAttribute("aria-current", "page");
+        }
+      }, 0);
     });
   }
 
@@ -93,23 +107,7 @@
 
     cargarProductos();
 
-    // Activar la pestaña correcta al cargar la página
-    setTimeout(function () {
-      console.log("Activando pestaña para familia:", familiaActiva);
-      // Quitar clase active de todos los enlaces
-      document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
-        a.classList.remove("active");
-        a.removeAttribute("aria-current");
-      });
-      // Añadir clase active al enlace correspondiente
-      const enlaceActivo = document.querySelector(
-        `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
-      );
-      if (enlaceActivo) {
-        enlaceActivo.classList.add("active");
-        enlaceActivo.setAttribute("aria-current", "page");
-      }
-    }, 0);
+    // Eliminado el setTimeout de marcado de pestaña activa, ahora se hace tras cargarProductos
 
     $("#search-input-guitar").on("input", filtrarYMostrar);
     $("#filtro-categoria").on("change", filtrarYMostrar);
@@ -255,23 +253,20 @@
               <div class="mt-auto d-flex flex-column gap-2">
                 <div class="d-block">
                   <p class="mb-2 mt-2">
-                    ${
-                      p.offerPrice < p.price
-                        ? `<span class=\"text-decoration-line-through\">${p.price} €</span>
+                    ${p.offerPrice < p.price
+              ? `<span class=\"text-decoration-line-through\">${p.price} €</span>
                          <span class=\"price-offer ms-2\">${p.offerPrice} €</span>`
-                        : `<span class=\"fw-bold\">${p.price} €</span>`
-                    }
+              : `<span class=\"fw-bold\">${p.price} €</span>`
+            }
                   </p>
                 </div>
                 <div class="d-flex justify-content-between gap-2">
-                  <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${
-                    p.id
-                  }'" aria-label="Ver detalle">
+                  <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id
+            }'" aria-label="Ver detalle">
                     ver detalle
                   </button>
-                  <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${
-                    p.id
-                  }" aria-label="Añadir ${p.name} a la cesta">
+                  <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${p.id
+            }" aria-label="Añadir ${p.name} a la cesta">
                     <i class="bi bi-cart"></i>
                     <span class="cart-plus">+</span>
                   </button>
