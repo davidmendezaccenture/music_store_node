@@ -662,7 +662,15 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
   color: black;
 }
 
-/* Estilo para el carrusel */
+/* Estilo para la galería de imágenes */
+/* color de los puntos controladores */
+.carousel-indicators [data-bs-target] {
+  background-color: gray; /*inactivo*/
+}
+
+.carousel-indicators .active {
+  background-color: #f6a61a; /*activo*/
+}
 
 #carouselExampleCaptions .carousel-item img {
   height: 350px;
