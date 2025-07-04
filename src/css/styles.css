@@ -1354,6 +1354,94 @@ body.dark-mode .txt-resaltado:focus {
   color: #f6a61a !important;
 }
 
+body.dark-mode .catalog-secondary-nav {
+  background-color: #232323 !important;
+}
+
+body.dark-mode .catalog-secondary-nav,
+body.dark-mode .catalog-secondary-nav ul,
+body.dark-mode .catalog-secondary-nav li {
+  background-color: #232323 !important;
+}
+
+body.dark-mode .catalog-secondary-nav a,
+body.dark-mode .catalog-secondary-nav .catalog-secondary-nav-text {
+  color: #f1f1f1 !important;
+  fill: #f1f1f1 !important;
+}
+
+body.dark-mode .catalog-secondary-nav a:hover .catalog-secondary-nav-text,
+body.dark-mode .catalog-secondary-nav a:focus .catalog-secondary-nav-text,
+body.dark-mode .catalog-secondary-nav a:active .catalog-secondary-nav-text {
+  color: white !important;
+}
+
+body.dark-mode .catalog-secondary-nav .form-control,
+body.dark-mode .catalog-secondary-nav .control-buscador {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+  border: 1.5px solid #f6a61a !important;
+  box-shadow: none !important;
+}
+/* body.dark-mode .catalog-secondary-nav-icon {
+  filter: brightness(0) invert(1);
+} */
+body.dark-mode .catalog-secondary-nav .form-control:focus,
+body.dark-mode .catalog-secondary-nav .control-buscador:focus {
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 0 0.1rem #ffd70080 !important;
+  outline: none !important;
+}
+
+body.dark-mode .card.flex-fill.h-100 {
+  background: #232323 !important;
+  color: #f1f1f1 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+body.dark-mode .card-img-top-wrapper,
+body.dark-mode .donde-estamos-section {
+  background: #232323 !important;
+}
+
+body.dark-mode #search-input-guitar::placeholder {
+  color: #f1f1f1 !important;
+  opacity: 1 !important;
+  border-color: #f6a61a !important;
+}
+
+body.dark-mode #search-input-guitar,
+body.dark-mode #filtro-categoria,
+body.dark-mode #filtro-precio,
+body.dark-mode #filtro-oferta,
+body.dark-mode #ordenar-productos {
+  border-color: #f6a61a !important;
+}
+body.dark-mode #search-input-guitar:focus,
+body.dark-mode #filtro-categoria:focus,
+body.dark-mode #filtro-precio:focus,
+body.dark-mode #filtro-oferta:focus,
+body.dark-mode #ordenar-productos:focus {
+  box-shadow: none !important;
+}
+body.dark-mode #filtro-oferta {
+  background-color: #232323 !important;
+}
+
+body.dark-mode .card .btn-detail {
+  border-radius: 999px;
+  background-color: #bfb4a8;
+  color: #232323;
+  border: 1.5px solid #f6a61a;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+body.dark-mode .catalog-secondary-nav-icon {
+  filter: brightness(0) invert(1);
+}
+
 .contact-container {
   column-gap: 5rem;
 }
