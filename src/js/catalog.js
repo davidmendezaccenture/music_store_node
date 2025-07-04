@@ -78,7 +78,29 @@
   function cargarProductos() {
     $.getJSON("../assets/data/products.json", function (data) {
       productos = data;
-      poblarCategorias(productos); // <-- Llama aquí
+      poblarCategorias(productos);
+
+      // ANTES de mostrar, verificar parámetros URL
+      const params = new URLSearchParams(window.location.search);
+      const categoriaUrl = params.get("category");
+      const searchUrl = params.get("search");
+
+      // Si hay categoría, detectar y cambiar la familia PRIMERO
+      if (categoriaUrl) {
+        for (const [familia, cats] of Object.entries(familias)) {
+          if (cats.includes(categoriaUrl)) {
+            window.setFamilia(familia);
+            break;
+          }
+        }
+        $("#filtro-categoria").val(categoriaUrl);
+      }
+
+      if (searchUrl) {
+        $("#search-input-guitar").val(searchUrl);
+      }
+
+      // Ahora sí filtrar y mostrar (ya con filtros aplicados)
       filtrarYMostrar();
       // Marcar la pestaña activa solo cuando los enlaces existen
       setTimeout(function () {
@@ -115,24 +137,6 @@
     $("#filtro-oferta").on("change", filtrarYMostrar);
     $("#ordenar-productos").on("change", filtrarYMostrar);
   });
-
-  // Leer categoría de la URL y filtrar automáticamente
-  const params = new URLSearchParams(window.location.search);
-  const categoriaUrl = params.get("category");
-  if (categoriaUrl) {
-    // Detectar familia por categoría
-    for (const [familia, cats] of Object.entries(familias)) {
-      if (cats.includes(categoriaUrl)) {
-        window.setFamilia(familia);
-        break;
-      }
-    }
-    // Espera a que se rellene el select y selecciona la categoría
-    setTimeout(() => {
-      $("#filtro-categoria").val(categoriaUrl);
-      filtrarYMostrar();
-    }, 100);
-  }
 
   // 3. Poblar select de categorías dinámicamente
   function poblarCategorias(productos) {
