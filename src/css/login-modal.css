@@ -1,0 +1,18 @@
+.btn-primary {
+  margin-top: auto;
+  border-radius: 999px;
+  font-weight: 300;
+  background-color: #23272b;
+  color: #fff;
+  border-color: #23272b;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #f6a61a !important;
+    color: #23272b !important;
+    border-color: #f6a61a !important;
+}

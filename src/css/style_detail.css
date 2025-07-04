@@ -26,10 +26,11 @@ img {
   padding-right: 1.5em;
 }
 
-.btn-primary:hover {
-  background-color: #f6a61a;
-  color: #23272b;
-  border-color: #f6a61a;
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #f6a61a !important;
+    color: #23272b !important;
+    border-color: #f6a61a !important;
 }
 
 .btn-outline-secondary {
@@ -44,10 +45,11 @@ img {
   padding-right: 1.5em;
 }
 
-.btn-outline-secondary:hover {
-  background-color: #f6a61a;
-  color: #23272b;
-  border-color: #f6a61a;
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: #f6a61a !important;
+  color: #23272b !important;
+  border-color: #f6a61a !important;
 }
 
 .product-price {
