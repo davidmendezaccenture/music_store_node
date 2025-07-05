@@ -1,8 +1,10 @@
-/* --- Barra secundaria de navegación catálogo: subrayado animado y tilteo --- */
+/* --- Barra secundaria de navegación catálogo: subrayado animado y animación --- */
 .catalog-secondary-nav,
 .catalog-secondary-nav .container,
 .catalog-secondary-nav ul,
 .catalog-secondary-nav li,
+
+/* icono + texto */
 .catalog-secondary-nav a {
   box-sizing: border-box;
 }
@@ -64,33 +66,8 @@
   position: relative;
 }
 
-/* Animación de tilteo sutil para icono y texto en hover, solo si NO es active */
-.catalog-secondary-nav a:not(.active):hover .catalog-secondary-nav-text,
-.catalog-secondary-nav a:not(.active):focus .catalog-secondary-nav-text,
-.catalog-secondary-nav a:not(.active):hover .catalog-secondary-nav-icon,
-.catalog-secondary-nav a:not(.active):focus .catalog-secondary-nav-icon {
-  animation: tilt-sutil 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes tilt-sutil {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  30% {
-    transform: rotate(-3deg);
-  }
-
-  60% {
-    transform: rotate(2deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 /* Subrayado animado para pestaña activa: crece desde el centro */
+/* icono + texto */
 .catalog-secondary-nav a::after {
   content: "";
   display: block;
@@ -109,6 +86,7 @@
   pointer-events: none;
 }
 
+/* icono + texto */
 .catalog-secondary-nav a.active::after,
 .catalog-secondary-nav a.active.underline-visible::after {
   transform: scaleX(1);
@@ -116,6 +94,7 @@
 }
 
 /* Línea corta en hover/focus para pestañas NO activas usando ::before */
+/* icono + texto */
 .catalog-secondary-nav a::before {
   content: "";
   display: block;
@@ -133,6 +112,7 @@
   pointer-events: none;
 }
 
+/* icono + texto */
 .catalog-secondary-nav a:not(.active):hover::before,
 .catalog-secondary-nav a:not(.active):focus::before {
   left: 40%;
@@ -141,10 +121,12 @@
   transform: scaleX(1);
 }
 
+/* icono + texto */
 .catalog-secondary-nav a.active::before {
   transition-delay: 0.12s, 0.12s, 0s, 0s;
 }
 
+/* icono + texto */
 .catalog-secondary-nav a.active.underline-visible::before {
   left: 45%;
   right: 45%;
@@ -182,8 +164,15 @@
   padding-right: 1em;
 }
 
+/*
+============================================================
+== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
+== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
+============================================================
+/*
 @media (max-width: 576px) {
   .catalog-secondary-nav .container {
+    padding-top: 1em;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
@@ -225,37 +214,54 @@
     align-self: stretch;
     box-sizing: border-box;
   }
+  }
 }
-
-@media (min-width: 577px) and (max-width: 900px) {
+/*
+============================================================
+== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
+== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
+============================================================
+*/
+@media (max-width: 770px) {
   .catalog-secondary-nav .container {
+    padding-top: 1em;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
   }
 
+  /* Compensar el mayor alto de la barra secundaria en 3 líneas */
+  main.c-main {
+    margin-top: 15rem !important;
+  }
+
   .catalog-secondary-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5em 1.2em;
+    justify-content: center;
     align-items: stretch;
-    gap: 0.2em 0.5em;
     height: auto;
-    width: 100%;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0.5em;
   }
 
   .catalog-secondary-nav li {
-    width: 48%;
-    min-width: 0;
+    width: auto;
+    min-width: max-content;
     margin-bottom: 0.2em;
     height: auto;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .catalog-secondary-nav a {
-    width: 100%;
+    width: auto;
     justify-content: flex-start;
     font-size: 1.3rem;
     padding-left: 0.5em;

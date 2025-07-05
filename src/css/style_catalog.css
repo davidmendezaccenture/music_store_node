@@ -1,3 +1,13 @@
+main {
+  margin-bottom: 3em;
+}
+
+@media (max-width: 770px) {
+  main {
+    margin-top: 13rem !important;
+  }
+}
+
 /* Botón circular de carrito con animación */
 .btn-cart {
   width: 44px;
@@ -192,6 +202,17 @@ a.btn-outline-primary:hover,
   transform: none;
 }
 
+/* Ajuste de tarjetas en móvil: margen lateral y ancho reducido */
+@media (max-width: 576px) {
+  .card {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2em;
+    box-sizing: border-box;
+  }
+}
+
 .card-img-top {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -286,6 +307,46 @@ a.btn-outline-primary:hover,
   color: #23272b;
   border-color: #f6a61a;
 }
+
+#cart-count {
+  display: none;
+}
+
+/* Alert personalizado para el carrito */
+.custom-alert {
+  background-color: rgba(238, 236, 231) !important;
+  /* Gris claro */
+  color: #23272b !important;
+  border: #23272b 1px solid !important;
+}
+
+.custom-alert,
+.custom-alert .bi {
+  color: #23272b !important;
+}
+
+#addToCartAlert {
+  display: none;
+  z-index: 2000;
+  min-width: 300px;
+  top: 240px !important;
+}
+
+.divisor-fade {
+  border: none;
+  border-top: 2px solid #23272bb4;
+  margin: 5em auto;
+  width: 30%;
+}
+
+#header {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  position: relative;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 
 /* Barra secundaria de navegación personalizada para drums */
 /* .second-navbar-drums {
@@ -576,47 +637,9 @@ a.btn-outline-primary:hover,
   }
 } */
 
-#cart-count {
-  display: none;
-}
-
-/* Alert personalizado para el carrito */
-.custom-alert {
-  background-color: rgba(238, 236, 231) !important;
-  /* Gris claro */
-  color: #23272b !important;
-  border: #23272b 1px solid !important;
-}
-
-.custom-alert,
-.custom-alert .bi {
-  color: #23272b !important;
-}
-
-#addToCartAlert {
-  display: none;
-  z-index: 2000;
-  min-width: 300px;
-  top: 240px !important;
-}
-
-.divisor-fade {
-  border: none;
-  border-top: 2px solid #23272bb4;
-  margin: 5em auto;
-  width: 30%;
-}
-
-#header {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  position: relative;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
 
 /* Contenedor interior para la barra secundaria, igual que el header */
-.nav-drums-inner {
+/* .nav-drums-inner {
   background-color: transparent;
   width: 100%;
   max-width: 1140px;
@@ -627,4 +650,4 @@ a.btn-outline-primary:hover,
   align-items: center;
   height: 44px;
   box-sizing: border-box;
-}
+} */
