@@ -228,7 +228,6 @@
 
 /* Estilo para el menú desplegable de la navbar */
 @media (max-width: 991.98px) {
-  /* Tu código existente sin cambios */
   .navbar-collapse {
     background-color: #110d0c;
     margin-top: 0rem;
@@ -236,10 +235,10 @@
     z-index: 6;
     position: absolute;
     top: 100%;
-    left: 0 !important; /* CAMBIO: era 50% */
-    transform: none !important; /* CAMBIO: era translateX(-50%) */
-    width: 100% !important; /* CAMBIO: era 85% */
-    border-radius: 0 !important; /* CAMBIO: era 5px */
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    border-radius: 0 !important;
   }
 
   /* Estilos para los enlaces dentro del desplegable */
