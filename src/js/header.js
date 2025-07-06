@@ -28,7 +28,7 @@ const allowedCategories = [
 ];
 
 $(document).ready(function () {
-  // Si necesitas cargar productos para otras funciones, puedes dejar esto
+  // Cargar productos desde el JSON (si es necesario en otras partes)
   $.getJSON("../assets/data/products.json", function (data) {
     allProducts = data;
   });
@@ -109,7 +109,7 @@ function renderGlobalCategoryResults(categories, query) {
   });
 }
 
-// Navegación con flechas arriba/abajo en los resultados del buscador global
+// Navegación con flechas arriba/abajo en los resultados del buscador global y seleccion con Enter
 $(document).on("keydown", "#search-input-global, .global-search-link", function (e) {
   const $links = $(".global-search-link");
   let idx = $links.index(document.activeElement);
@@ -128,8 +128,25 @@ $(document).on("keydown", "#search-input-global, .global-search-link", function 
     } else {
       $("#search-input-global").focus();
     }
-  } else if (e.key === "Enter" && $(document.activeElement).hasClass("global-search-link")) {
-    window.location.href = $(document.activeElement).attr("href");
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if ($(document.activeElement).hasClass("global-search-link")) {
+      // Si está sobre un resultado, navega a su enlace
+      window.location.href = $(document.activeElement).attr("href");
+    } else if ($(document.activeElement).is("#search-input-global")) {
+      // Si está en el input, navega a la primera coincidencia si existe
+      const query = $(this).val().trim();
+      if (query.length > 1) {
+        const queryNorm = normalizeText(query);
+        const matchedCategories = allowedCategories.filter(cat =>
+          normalizeText(cat.name).includes(queryNorm) ||
+          (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
+        );
+        if (matchedCategories.length > 0) {
+          window.location.href = matchedCategories[0].url;
+        }
+      }
+    }
   }
 });
 
@@ -167,22 +184,4 @@ function highlight(text, query) {
 // Prevenir submit del formulario
 $(document).on("submit", ".buscador-form", function (e) {
   e.preventDefault();
-});
-
-// Manejar Enter en el input de búsqueda SOLO para categorías permitidas y keywords
-$(document).on("keydown", "#search-input-global", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    const query = $(this).val().trim();
-    if (query.length > 1) {
-      const queryNorm = normalizeText(query);
-      const matchedCategories = allowedCategories.filter(cat =>
-        normalizeText(cat.name).includes(queryNorm) ||
-        (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
-      );
-      if (matchedCategories.length > 0) {
-        window.location.href = matchedCategories[0].url;
-      }
-    }
-  }
 });

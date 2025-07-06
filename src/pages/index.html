@@ -351,34 +351,30 @@
   </main>
 
   <!-- Modal de búsqueda global -->
-  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow"
-    style="display: none; position: absolute; z-index: 1055; min-width: 350px">
-    <div class="container">
-      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
-        <!-- <div
-                class="buscador-input-wrapper position-relative w-100"
-                style="max-width: 400px"
-            >
-                <input
-                class="form-control control-buscador rounded-pill pe-5"
-                type="search"
-                placeholder="Buscar productos..."
-                aria-label="Buscador global"
-                id="global-search-input"
-                autocomplete="off"
-                />
-                <button
-                class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y p-0"
-                type="submit"
-                aria-label="Buscar"
-                >
-                <i class="bi bi-search fs-5"></i>
-                </button>
-            </div> -->
-      </form>
-      <div id="global-search-results" class="mt-2"></div>
+    <div id="globalSearchDropdown" 
+         class="search-bar py-1 buscador shadow"
+         style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="global-search-label"
+         aria-describedby="global-search-results"
+         tabindex="-1">
+      <div class="container">
+        <form
+        class="d-flex justify-content-center buscador-form" 
+        role="search" 
+        aria-label="Barra de búsqueda global">
+        </form>
+        <div id="global-search-results" 
+            class="mt-2"
+            role="listbox"
+            aria-label="Resultados de búsqueda"
+            tabindex="0"
+            autocomplete="off">
+        </div>
+      </div>
     </div>
-  </div>
+    
   <!-- Sección preparada para Listado de Productos Destacados -->
 
   <!-- <section id="products-list"></section> -->
