@@ -1239,50 +1239,87 @@ a:hover .icon-image,
   /* Icono gris */
 }
 
-/* @media (min-width: 992px) {
-
-  /* En escritorio, muestra 3 cards a la vez */
-/* .opinion-carousel-card {
-    width: 33.3333%;
-    float: left;
-  }  */
-
-@media (max-width: 991.98px) {
+/* 2 cards, flechas visibles, navegación */
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .opinion-carousel-viewport {
+    width: 412px;
+    max-width: 100vw;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
   .opinion-carousel-row {
-    flex-direction: column !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
-    align-items: center !important;
-    margin-bottom: 1.5rem;
-    transform: none !important;
-    /* Quita el desplazamiento horizontal */
-    transition: none !important;
+    gap: 12px;
   }
-
   .opinion-carousel-card {
-    width: 100% !important;
-    float: none !important;
-    margin-bottom: 1rem;
+    flex: 0 0 200px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
     display: block !important;
-    opacity: 1 !important;
   }
+  .opinion-carousel-arrow {
+    display: flex !important;
+  }
+}
 
-  .opinion-carousel-card:nth-child(n + 4) {
+/* 2 cards, flechas ocultas, solo las dos primeras visibles */
+@media (max-width: 767px) and (min-width: 491px) {
+  .opinion-carousel-viewport {
+    width: 100vw;
+    max-width: 412px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .opinion-carousel-row {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 12px;
+  }
+  .opinion-carousel-card {
+    flex: 0 0 200px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    display: block !important;
+  }
+  .opinion-carousel-card:nth-child(n + 3) {
     display: none !important;
   }
-
   .opinion-carousel-arrow {
     display: none !important;
   }
+}
 
-  .opinion-carousel-card:last-child {
-    margin-bottom: 0;
-  }
-
+/* 1 card, flechas ocultas */
+@media (max-width: 490px) {
   .opinion-carousel-viewport {
-    width: 100% !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    width: 100vw;
+    max-width: 340px; /* o el ancho que prefieras */
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .opinion-carousel-row {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 12px;
+  }
+  .opinion-carousel-card {
+    flex: 0 0 auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: block !important;
+  }
+  .opinion-carousel-card:nth-child(n + 4) {
+    display: none !important;
+  }
+  .opinion-carousel-arrow {
+    display: none !important;
   }
 }
 
