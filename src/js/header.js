@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   // Buscar en todos los productos al escribir
   $(document).on("input", "#search-input-global", function () {
-    const query = $(this).val().trim().toLowerCase();
+    const query = $(this).val().trim();
     if (query.length > 1) {
       const queryNorm = normalizeText(query);
       const $input = $(this);
@@ -24,8 +24,8 @@ $(document).ready(function () {
 
       let resultados = allProducts.filter(
         (p) =>
-          normalizeText(p.name).includes(query) ||
-          (p.category && normalizeText(p.category).includes(query))
+          normalizeText(p.name).includes(queryNorm) ||
+          (p.category && normalizeText(p.category).includes(queryNorm))
       );
       renderGlobalResults(resultados, query);
     } else {
@@ -111,3 +111,30 @@ function highlight(text, query) {
     text.slice(end)
   );
 }
+
+// Prevenir submit del formulario
+$(document).on("submit", ".buscador-form", function (e) {
+  e.preventDefault();
+});
+
+// Manejar Enter en el input de búsqueda
+$(document).on("keydown", "#search-input-global", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const query = $(this).val().trim();
+    if (query.length > 1) {
+      // Tomar el primer resultado y navegar a él con el término de búsqueda
+      const resultados = allProducts.filter(
+        (p) =>
+          normalizeText(p.name).includes(normalizeText(query)) ||
+          (p.category &&
+            normalizeText(p.category).includes(normalizeText(query)))
+      );
+      if (resultados.length > 0) {
+        window.location.href = `/pages/catalog.html?category=${encodeURIComponent(
+          resultados[0].category || ""
+        )}&search=${encodeURIComponent(query)}`;
+      }
+    }
+  }
+});

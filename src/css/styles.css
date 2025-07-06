@@ -1,4 +1,14 @@
-/* Barra secundaria de navegación catálogo (copiada de style_catalog.css) */
+/* --- Barra secundaria de navegación catálogo: subrayado animado y animación --- */
+.catalog-secondary-nav,
+.catalog-secondary-nav .container,
+.catalog-secondary-nav ul,
+.catalog-secondary-nav li,
+
+/* icono + texto */
+.catalog-secondary-nav a {
+  box-sizing: border-box;
+}
+
 .catalog-secondary-nav {
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -11,14 +21,14 @@
   margin-right: -50vw;
   padding: 0;
   top: 0;
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 .catalog-secondary-nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* No tocar padding ni max-width, usar Bootstrap puro */
+  min-height: 65px;
 }
 
 .catalog-secondary-nav ul {
@@ -40,23 +50,89 @@
 }
 
 .catalog-secondary-nav li:first-child {
-  margin-left: 0 !important;
+  margin-left: 0;
 }
 
 .catalog-secondary-nav a {
-  color: #23272b;
-  text-decoration: none !important;
+  text-decoration: none;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   padding: 0.13em 0.5em;
   border-radius: 0;
-  /* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
-  transition: color 0.18s ease, background 0.18s ease,
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.18s, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  /* sombra invisible por defecto */
+  color: #23272b;
+  position: relative;
+}
+
+/* Subrayado animado para pestaña activa: crece desde el centro */
+/* icono + texto */
+.catalog-secondary-nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 6px;
+  background: #f6a61a;
+  border-radius: 999px;
+  z-index: 2;
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.18s;
+  pointer-events: none;
+}
+
+/* icono + texto */
+.catalog-secondary-nav a.active::after,
+.catalog-secondary-nav a.active.underline-visible::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Línea corta en hover/focus para pestañas NO activas usando ::before */
+/* icono + texto */
+.catalog-secondary-nav a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 45%;
+  right: 45%;
+  bottom: -8px;
+  height: 6px;
+  background: #f6a61a;
+  border-radius: 999px;
+  z-index: 2;
+  opacity: 0;
+  transform: scaleX(0.5);
+  transition: left 0.2s, right 0.2s, opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* icono + texto */
+.catalog-secondary-nav a:not(.active):hover::before,
+.catalog-secondary-nav a:not(.active):focus::before {
+  left: 40%;
+  right: 40%;
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* icono + texto */
+.catalog-secondary-nav a.active::before {
+  transition-delay: 0.12s, 0.12s, 0s, 0s;
+}
+
+/* icono + texto */
+.catalog-secondary-nav a.active.underline-visible::before {
+  left: 45%;
+  right: 45%;
+  opacity: 0 !important;
+  transform: scaleX(0.5);
+  transition-delay: 0s;
 }
 
 .catalog-secondary-nav .catalog-secondary-nav-text {
@@ -67,60 +143,7 @@
   display: inline-block;
   min-width: 0;
   padding: 0 4px;
-  transition: color 0.18s ease, background 0.18s ease;
-}
-
-.catalog-secondary-nav a:hover,
-.catalog-secondary-nav a:focus {
-  /* Simula outline amarillo con box-shadow fade in y animación border-radius */
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
-  background: none;
-  color: #23272b !important;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none !important;
-}
-
-.catalog-secondary-nav a:hover .catalog-secondary-nav-text,
-.catalog-secondary-nav a:focus .catalog-secondary-nav-text {
-  color: #23272b !important;
-  text-decoration: none !important;
-  background: none !important;
-  border-bottom: none !important;
-}
-
-.catalog-secondary-nav a.active {
-  background: #f6a61a;
-  color: #23272b !important;
-  border-radius: 999px;
-  /* Igualar el tamaño visual al hover/focus: box-shadow invisible del mismo grosor */
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  font-weight: 600;
-  /* Sumar el grosor del outline al padding para igualar el área total */
-  padding: calc(0.13em + 4px) calc(0.5em + 4px);
-  transition: background 0.18s ease, color 0.18s ease,
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.catalog-secondary-nav a.active .catalog-secondary-nav-text {
-  background: none;
-  color: #23272b;
-  padding: 0 4px;
-  border-radius: 999px;
-  font-weight: 600;
-  outline: none;
-  box-shadow: none;
-}
-
-.catalog-secondary-nav a.active:hover,
-.catalog-secondary-nav a.active:focus {
-  background: #f6a61a;
-  color: #23272b !important;
-  border-radius: 999px;
-  box-shadow: none;
-  font-weight: 600;
+  transition: background 0.18s, color 0.18s;
 }
 
 .catalog-secondary-nav-icon {
@@ -129,6 +152,7 @@
   object-fit: contain;
   display: inline-block;
   margin-right: 0.4em;
+  transition: color 0.18s, filter 0.18s;
 }
 
 .catalog-secondary-nav-search {
@@ -140,19 +164,141 @@
   padding-right: 1em;
 }
 
+/*
+============================================================
+== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
+== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
+============================================================
+/*
 @media (max-width: 576px) {
+  .catalog-secondary-nav .container {
+    padding-top: 1em;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .catalog-secondary-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2em;
+    height: auto;
+    width: 100%;
+  }
+
+  .catalog-secondary-nav li {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    margin-bottom: 0.2em;
+  }
+
+  .catalog-secondary-nav a {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+  }
+
+  .catalog-secondary-nav .catalog-secondary-nav-text {
+    font-size: 1.2rem;
+  }
+
   .catalog-secondary-nav-search {
-    margin-left: 0;
-    padding-right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0.5em 0.7em 0.7em 0.7em;
+    order: 2;
+    align-self: stretch;
+    box-sizing: border-box;
+  }
+  }
+}
+/*
+============================================================
+== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
+== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
+============================================================
+*/
+@media (max-width: 770px) {
+  .catalog-secondary-nav .container {
+    padding-top: 1em;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  /* Compensar el mayor alto de la barra secundaria en 3 líneas */
+  main.c-main {
+    margin-top: 15rem !important;
+  }
+
+  .catalog-secondary-nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5em 1.2em;
+    justify-content: center;
+    align-items: stretch;
+    height: auto;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+  }
+
+  .catalog-secondary-nav li {
+    width: auto;
+    min-width: max-content;
+    margin-bottom: 0.2em;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .catalog-secondary-nav a {
+    width: auto;
+    justify-content: flex-start;
+    font-size: 1.3rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.5em;
+  }
+
+  .catalog-secondary-nav .catalog-secondary-nav-text {
+    font-size: 1.3rem;
+  }
+
+  .catalog-secondary-nav-search {
+    width: 100%;
+    align-self: stretch;
+    margin: 0;
+    padding: 0.5em 0.5em 0.7em 0.5em;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    order: 2;
   }
 }
 
-.catalog-secondary-nav .container,
-.catalog-secondary-nav ul,
-.catalog-secondary-nav li,
-.catalog-secondary-nav a {
-  box-sizing: border-box !important;
+@media (max-width: 400px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+
+  h2.h5 {
+    font-size: 1.2rem;
+  }
 }
+
 
 /*reset css*/
 * {
@@ -180,7 +326,7 @@ main.c-main {
 }
 
 main {
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 /* Fuente outfit */
@@ -481,7 +627,7 @@ body {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -652,15 +798,15 @@ a:focus .nav-text {
 }
 
 a:hover .icon-image,
-a:focus .icon-image {
-  transform: scale(1.12);
-}
+/* ===========================================================
+==== PRUEBA NAVBAR SEG, SERGIO - INICIO BLOQUE CSS ===========
+============================================================= */
 
-/* Subrayado y color para el enlace activo de la navegación secundaria */
-nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
-  border-bottom: 2px solid black;
-  color: black;
-}
+
+
+/* ===========================================================
+==== PRUEBA NAVBAR SEG, SERGIO - FIN BLOQUE CSS ==============
+============================================================= */
 
 /* Estilo para la galería de imágenes */
 /* color de los puntos controladores */
@@ -1008,7 +1154,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 /* Ventana del carrusel */
 .opinion-carousel-viewport {
-  width: 624px; /* 3*200 + 2*12 */
+  width: 624px;
+  /* 3*200 + 2*12 */
   overflow: hidden;
   margin: 0 12px;
 }
@@ -1062,10 +1209,12 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow:hover,
 .opinion-carousel-arrow:focus {
-  background: lightgray !important; /* Quita fondo en hover/focus */
+  background: lightgray !important;
+  /* Quita fondo en hover/focus */
   box-shadow: none !important;
   border: none !important;
-  font-size: 2rem; /* Aumenta el tamaño del icono */
+  font-size: 2rem;
+  /* Aumenta el tamaño del icono */
   outline: none !important;
   color: #000 !important;
   border-radius: 50%;
@@ -1073,9 +1222,12 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow:disabled,
 .opinion-carousel-arrow[disabled] {
-  background: #e0e0e0 !important; /* Fondo gris claro */
-  color: #bdbdbd !important; /* Icono gris */
-  opacity: 0.6 !important; /* Más transparente */
+  background: #e0e0e0 !important;
+  /* Fondo gris claro */
+  color: #bdbdbd !important;
+  /* Icono gris */
+  opacity: 0.6 !important;
+  /* Más transparente */
   cursor: not-allowed !important;
   box-shadow: none !important;
   border: none !important;
@@ -1083,7 +1235,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
 
 .opinion-carousel-arrow:disabled i,
 .opinion-carousel-arrow[disabled] i {
-  color: #bdbdbd !important; /* Icono gris */
+  color: #bdbdbd !important;
+  /* Icono gris */
 }
 
 /* @media (min-width: 992px) {
@@ -1100,7 +1253,8 @@ nav[aria-label="Navegación secundaria de productos"] a.active .nav-text {
     flex-wrap: nowrap !important;
     align-items: center !important;
     margin-bottom: 1.5rem;
-    transform: none !important; /* Quita el desplazamiento horizontal */
+    transform: none !important;
+    /* Quita el desplazamiento horizontal */
     transition: none !important;
   }
 
@@ -1391,6 +1545,7 @@ body.dark-mode .catalog-secondary-nav .control-buscador {
   border: 1.5px solid #f6a61a !important;
   box-shadow: none !important;
 }
+
 /* body.dark-mode .catalog-secondary-nav-icon {
   filter: brightness(0) invert(1);
 } */
@@ -1406,6 +1561,7 @@ body.dark-mode .card.flex-fill.h-100 {
   color: #f1f1f1 !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
+
 body.dark-mode .card-img-top-wrapper,
 body.dark-mode .donde-estamos-section {
   background: #232323 !important;
@@ -1424,6 +1580,7 @@ body.dark-mode #filtro-oferta,
 body.dark-mode #ordenar-productos {
   border-color: #f6a61a !important;
 }
+
 body.dark-mode #search-input-guitar:focus,
 body.dark-mode #filtro-categoria:focus,
 body.dark-mode #filtro-precio:focus,
@@ -1431,6 +1588,7 @@ body.dark-mode #filtro-oferta:focus,
 body.dark-mode #ordenar-productos:focus {
   box-shadow: none !important;
 }
+
 body.dark-mode #filtro-oferta {
   background-color: #232323 !important;
 }

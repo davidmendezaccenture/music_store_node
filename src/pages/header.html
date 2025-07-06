@@ -1,98 +1,52 @@
 <div class="main-header">
   <!-- NavBar -->
-  <nav
-    class="navbar navbar-expand-lg"
-    aria-label="Barra de navegación principal"
-    role="navigation"
-  >
+  <nav class="navbar navbar-expand-lg" aria-label="Barra de navegación principal" role="navigation">
     <div class="container contenedor-main-navbar">
       <!-- Logo + título -->
       <h1 class="logo-main-h1">
         <a class="navbar-brand d-flex align-items-center flex-grow-1" href="/">
-          <img
-            src="/assets/images/logo_sin_fondo_limpio.webp"
-            class="logo-main"
-            alt="Rat Pack Instruments - Logo"
-          />
+          <img src="/assets/images/logo_sin_fondo_limpio.webp" class="logo-main" alt="Rat Pack Instruments - Logo" />
           <!-- Linea invisible para accesibilidad -->
-          <span class="visually-hidden">Rat Pack Instruments</span></a
-        >
+          <span class="visually-hidden">Rat Pack Instruments</span></a>
       </h1>
       <!-- Menu desplegable para pantallas moviles o pequeñas -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="bi bi-list"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-lg-0">
           <li class="nav-item me-2">
-            <a
-              class="nav-link navbar-sections"
-              aria-current="page"
-              href="/pages/index.html"
-              >Inicio</a
-            >
+            <a class="nav-link navbar-sections" aria-current="page" href="/pages/index.html">Inicio</a>
           </li>
           <li class="nav-item me-2">
-            <a
-              class="nav-link navbar-sections"
-              href="#"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#servicesOffcanvas"
-              aria-controls="servicesOffcanvas"
-              >Servicios</a
-            >
+            <a class="nav-link navbar-sections" href="#" data-bs-toggle="offcanvas" data-bs-target="#servicesOffcanvas"
+              aria-controls="servicesOffcanvas">Servicios</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link navbar-sections" href="/pages/about_us.html"
-              >Sobre nosotros</a
-            >
+            <a class="nav-link navbar-sections" href="/pages/about_us.html">Sobre nosotros</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link navbar-sections" href="/pages/contact.html"
-              >Contacto</a
-            >
+            <a class="nav-link navbar-sections" href="/pages/contact.html">Contacto</a>
           </li>
         </ul>
         <!-- Botones a la derecha -->
         <div class="d-flex align-items-center gap-2 me-auto nav-links">
           <!-- Indicamos el target al modal que queremos abrir con la id-->
-          <a
-            class="nav-link"
-            id="loginButton"
-            href="#"
-            aria-label="Iniciar sesión o acceder a tu cuenta"
-          >
+          <a class="nav-link" id="loginButton" href="#" aria-label="Iniciar sesión o acceder a tu cuenta">
             <i class="bi bi-person-circle login-logo" aria-hidden="true"></i>
             <span class="visually-hidden">Iniciar sesión</span>
             <div id="userStatus" class="d-flex align-items-center gap-2"></div>
           </a>
           <!-- Carrito -->
-          <a
-            class="nav-link"
-            id="carritoButton"
-            href="/pages/cart.html"
-            aria-label="Ver carrito de compras"
-          >
+          <a class="nav-link" id="carritoButton" href="/pages/cart.html" aria-label="Ver carrito de compras">
             <i class="bi bi-cart cart-logo" aria-hidden="true"></i>
             <span class="visually-hidden">Carrito</span>
             <!-- Contador de compras junto al carrito -->
             <span id="cart-count" class="badge rounded-pill bg-light">0</span>
           </a>
           <!-- Darkmode -->
-          <button
-            id="darkModeToggle"
-            class="dark-mode-toggle"
-            aria-pressed="false"
-            aria-label="Activar modo oscuro"
-          >
+          <button id="darkModeToggle" class="dark-mode-toggle" aria-pressed="false" aria-label="Activar modo oscuro">
             <i class="bi bi-moon dm-logo"></i>
           </button>
         </div>
@@ -102,40 +56,24 @@
 </div>
 
 <!-- Offcanvas -->
-<div
-  class="offcanvas offcanvas-start"
-  tabindex="-1"
-  id="servicesOffcanvas"
-  aria-labelledby="servicesOffcanvasLabel"
->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="servicesOffcanvas" aria-labelledby="servicesOffcanvasLabel">
   <div class="offcanvas-header">
     <h2 class="offcanvas-title" id="servicesOffcanvasLabel">
       <i class="bi bi-tools me-2"></i>Servicios
     </h2>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="list-group list-group-flush">
       <!-- Secciones menu -->
-      <a
-        href="/pages/services.html"
-        class="list-group-item list-group-item-action d-flex align-items-center"
-      >
+      <a href="/pages/services.html" class="list-group-item list-group-item-action d-flex align-items-center">
         <i class="bi bi-wrench-adjustable me-3"></i>
         <div>
           <div class="fw-bold">Servicio Técnico</div>
           <small class="text-muted">Reparación y mantenimiento</small>
         </div>
       </a>
-      <a
-        href="/pages/contact.html"
-        class="list-group-item list-group-item-action d-flex align-items-center"
-      >
+      <a href="/pages/contact.html" class="list-group-item list-group-item-action d-flex align-items-center">
         <i class="bi bi-envelope me-3"></i>
         <div>
           <div class="fw-bold">Contacto</div>
@@ -143,10 +81,7 @@
         </div>
       </a>
 
-      <a
-        href="/pages/newsletter.html"
-        class="list-group-item list-group-item-action d-flex align-items-center"
-      >
+      <a href="/pages/newsletter.html" class="list-group-item list-group-item-action d-flex align-items-center">
         <i class="bi bi-newspaper me-3"></i>
         <div>
           <div class="fw-bold">Newsletter</div>
@@ -154,10 +89,7 @@
         </div>
       </a>
 
-      <a
-        href="/pages/media.html"
-        class="list-group-item list-group-item-action d-flex align-items-center"
-      >
+      <a href="/pages/media.html" class="list-group-item list-group-item-action d-flex align-items-center">
         <i class="bi bi-camera-video me-3"></i>
         <div>
           <div class="fw-bold">Media</div>
@@ -165,10 +97,7 @@
         </div>
       </a>
 
-      <a
-        href="/pages/faq.html"
-        class="list-group-item list-group-item-action d-flex align-items-center"
-      >
+      <a href="/pages/faq.html" class="list-group-item list-group-item-action d-flex align-items-center">
         <i class="bi bi-question-circle me-3"></i>
         <div>
           <div class="fw-bold">FAQ</div>
@@ -180,93 +109,53 @@
 </div>
 
 <!-- Barra de navegación secundaria dinámica SOLO para catálogo (SPA) -->
-<nav
-  class="catalog-secondary-nav mb-3"
-  aria-label="Navegación secundaria de productos"
->
+<nav class="catalog-secondary-nav mb-3" aria-label="Navegación secundaria de productos">
   <div class="container px-0">
     <ul>
       <li>
-        <a
-          href="/pages/catalog.html?familia=cuerda"
+        <a href="/pages/catalog.html?familia=cuerda"
           onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('cuerda'); return false; }"
-          aria-label="Ver productos de cuerda"
-        >
-          <img
-            src="../assets/images/catalog_icons/cuerda.svg"
-            alt="Icono cuerda"
-            class="catalog-secondary-nav-icon"
-          />
-          <span class="catalog-secondary-nav-text">Cuerda</span>
+          aria-label="Ver productos de cuerda">
+          <img src="../assets/images/catalog_icons/cuerda.svg" alt="Icono cuerda" class="catalog-secondary-nav-icon" />
+          <span class="catalog-secondary-nav-text">cuerda</span>
         </a>
       </li>
       <li>
-        <a
-          href="/pages/catalog.html?familia=percusion"
+        <a href="/pages/catalog.html?familia=percusion"
           onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('percusion'); return false; }"
-          aria-label="Ver productos de percusión"
-        >
-          <img
-            src="../assets/images/catalog_icons/percusion.webp"
-            alt="Icono percusión"
-            class="catalog-secondary-nav-icon"
-          />
-          <span class="catalog-secondary-nav-text">Percusión</span>
+          aria-label="Ver productos de percusión">
+          <img src="../assets/images/catalog_icons/percusion.svg" alt="Icono percusión"
+            class="catalog-secondary-nav-icon" />
+          <span class="catalog-secondary-nav-text">percusión</span>
         </a>
       </li>
       <li>
-        <a
-          href="/pages/catalog.html?familia=teclado"
+        <a href="/pages/catalog.html?familia=teclado"
           onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('teclado'); return false; }"
-          aria-label="Ver productos de teclado"
-        >
-          <img
-            src="../assets/images/catalog_icons/teclados.webp"
-            alt="Icono teclado"
-            class="catalog-secondary-nav-icon"
-          />
-          <span class="catalog-secondary-nav-text">Teclado</span>
+          aria-label="Ver productos de teclado">
+          <img src="../assets/images/catalog_icons/teclados.svg" alt="Icono teclado"
+            class="catalog-secondary-nav-icon" />
+          <span class="catalog-secondary-nav-text">teclado</span>
         </a>
       </li>
       <li>
-        <a
-          href="/pages/catalog.html?familia=dj"
+        <a href="/pages/catalog.html?familia=dj"
           onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('dj'); return false; }"
-          aria-label="Ver productos de DJ"
-        >
-          <img
-            src="../assets/images/catalog_icons/dj.webp"
-            alt="Icono DJ"
-            class="catalog-secondary-nav-icon"
-          />
-          <span class="catalog-secondary-nav-text">Dj</span>
+          aria-label="Ver productos de DJ">
+          <img src="../assets/images/catalog_icons/dj.svg" alt="Icono DJ" class="catalog-secondary-nav-icon" />
+          <span class="catalog-secondary-nav-text">dj</span>
         </a>
       </li>
     </ul>
     <!-- Barra de búsqueda -->
     <div class="search-bar py-1 buscador">
       <div class="container">
-        <form
-          class="d-flex justify-content-center buscador-form"
-          role="search"
-          aria-label="Barra de busqueda"
-        >
-          <div
-            class="buscador-input-wrapper position-relative w-100"
-            style="max-width: 400px"
-          >
-            <input
-              class="form-control control-buscador rounded-pill pe-5"
-              type="search"
-              placeholder="Buscar productos..."
-              aria-label="Buscador"
-              id="search-input-global"
-            />
-            <button
-              class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
-              type="submit"
-              aria-label="Buscar"
-            >
+        <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de busqueda">
+          <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
+            <input class="form-control control-buscador rounded-pill pe-5" type="search"
+              placeholder="Buscar productos..." aria-label="Buscador" autocomplete="off" id="search-input-global" />
+            <button class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
+              type="submit" aria-label="Buscar">
               <i class="bi bi-search fs-5"></i>
             </button>
           </div>

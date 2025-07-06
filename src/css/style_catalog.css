@@ -1,3 +1,13 @@
+main {
+  margin-bottom: 3em;
+}
+
+@media (max-width: 770px) {
+  main {
+    margin-top: 13rem !important;
+  }
+}
+
 /* Botón circular de carrito con animación */
 .btn-cart {
   width: 44px;
@@ -192,6 +202,17 @@ a.btn-outline-primary:hover,
   transform: none;
 }
 
+/* Ajuste de tarjetas en móvil: margen lateral y ancho reducido */
+@media (max-width: 576px) {
+  .card {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2em;
+    box-sizing: border-box;
+  }
+}
+
 .card-img-top {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -222,7 +243,7 @@ a.btn-outline-primary:hover,
 
 /* Precio */
 
-.card .card-text + p {
+.card .card-text+p {
   font-size: 1.1rem;
 }
 
@@ -287,6 +308,46 @@ a.btn-outline-primary:hover,
   border-color: #f6a61a;
 }
 
+#cart-count {
+  display: none;
+}
+
+/* Alert personalizado para el carrito */
+.custom-alert {
+  background-color: rgba(238, 236, 231) !important;
+  /* Gris claro */
+  color: #23272b !important;
+  border: #23272b 1px solid !important;
+}
+
+.custom-alert,
+.custom-alert .bi {
+  color: #23272b !important;
+}
+
+#addToCartAlert {
+  display: none;
+  z-index: 2000;
+  min-width: 300px;
+  top: 240px !important;
+}
+
+.divisor-fade {
+  border: none;
+  border-top: 2px solid #23272bb4;
+  margin: 5em auto;
+  width: 30%;
+}
+
+#header {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  position: relative;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
 /* Barra secundaria de navegación personalizada para drums */
 /* .second-navbar-drums {
     background-color: #f6a61a;
@@ -306,7 +367,7 @@ a.btn-outline-primary:hover,
 } */
 
 /* Barra secundaria de navegación personalizada desde cero */
-.catalog-secondary-nav {
+/* .catalog-secondary-nav {
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   z-index: 5;
@@ -319,17 +380,17 @@ a.btn-outline-primary:hover,
   padding: 0;
   top: 0;
   margin-top: 0 !important;
-}
+} */
 
 /* --- Responsive barra secundaria catálogo --- */
-.catalog-secondary-nav .container {
+/* .catalog-secondary-nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-}
+} */
 
-.catalog-secondary-nav ul {
+/* .catalog-secondary-nav ul {
   display: flex;
   align-items: center;
   margin: 0;
@@ -338,38 +399,38 @@ a.btn-outline-primary:hover,
   gap: 2em;
   flex-direction: row;
   width: auto;
-}
+} */
 
-.catalog-secondary-nav li {
+/* .catalog-secondary-nav li {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   height: 100%;
   min-width: max-content;
-}
+} */
 
-.catalog-secondary-nav li:first-child {
+/* .catalog-secondary-nav li:first-child {
   margin-left: 0 !important;
-}
+} */
 
-.catalog-secondary-nav a {
+/* .catalog-secondary-nav a {
   color: #23272b;
   text-decoration: none !important;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   padding: 0.13em 0.5em;
-  border-radius: 0;
-  /* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
-  transition: color 0.18s ease, background 0.18s ease,
+  border-radius: 0; */
+/* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
+/* transition: color 0.18s ease, background 0.18s ease,
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  /* sombra invisible por defecto */
-}
+  box-shadow: 0 0 0 4px rgba(246, 166, 26, 0); */
+/* sombra invisible por defecto */
+/* } */
 
-.catalog-secondary-nav .catalog-secondary-nav-text {
+/* .catalog-secondary-nav .catalog-secondary-nav-text {
   font-family: "Outfit", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
@@ -378,47 +439,47 @@ a.btn-outline-primary:hover,
   min-width: 0;
   padding: 0 4px;
   transition: color 0.18s ease, background 0.18s ease;
-}
+} */
 
 /* Hover/focus: outline amarillo, sin fondo, borde tipo píldora, SIN subrayado ni cambio de color en el texto */
-.catalog-secondary-nav a:hover,
-.catalog-secondary-nav a:focus {
-  /* Simula outline amarillo con box-shadow fade in y animación border-radius */
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
+/* .catalog-secondary-nav a:hover,
+.catalog-secondary-nav a:focus { */
+/* Simula outline amarillo con box-shadow fade in y animación border-radius */
+/* box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
   background: none;
   color: #23272b !important;
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none !important;
-}
+} */
 
 /* Elimina subrayado y color en hover/focus SOLO para el texto dentro del enlace */
-.catalog-secondary-nav a:hover .catalog-secondary-nav-text,
+/* .catalog-secondary-nav a:hover .catalog-secondary-nav-text,
 .catalog-secondary-nav a:focus .catalog-secondary-nav-text {
   color: #23272b !important;
   text-decoration: none !important;
   background: none !important;
   border-bottom: none !important;
-}
+} */
 
 /* Activo: fondo amarillo, borde tipo píldora, sin outline, efecto igual que el outline pero relleno */
-.catalog-secondary-nav a.active {
+/* .catalog-secondary-nav a.active {
   background: #f6a61a;
   color: #23272b !important;
-  border-radius: 999px;
-  /* Igualar el tamaño visual al hover/focus: box-shadow invisible del mismo grosor */
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  font-weight: 600;
-  /* Sumar el grosor del outline al padding para igualar el área total */
-  padding: calc(0.13em + 4px) calc(0.5em + 4px);
+  border-radius: 999px; */
+/* Igualar el tamaño visual al hover/focus: box-shadow invisible del mismo grosor */
+/* box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
+  font-weight: 600; */
+/* Sumar el grosor del outline al padding para igualar el área total */
+/* padding: calc(0.13em + 4px) calc(0.5em + 4px);
   transition: background 0.18s ease, color 0.18s ease,
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+} */
 
 /* El texto dentro del enlace activo mantiene el mismo estilo, sin fondo adicional */
-.catalog-secondary-nav a.active .catalog-secondary-nav-text {
+/* .catalog-secondary-nav a.active .catalog-secondary-nav-text {
   background: none;
   color: #23272b;
   padding: 0 4px;
@@ -426,45 +487,45 @@ a.btn-outline-primary:hover,
   font-weight: 600;
   outline: none;
   box-shadow: none;
-}
+} */
 
 /* El enlace activo NO cambia en hover/focus */
-.catalog-secondary-nav a.active:hover,
+/* .catalog-secondary-nav a.active:hover,
 .catalog-secondary-nav a.active:focus {
   background: #f6a61a;
   color: #23272b !important;
   border-radius: 999px;
   box-shadow: none;
   font-weight: 600;
-}
+} */
 
 /* Icono de búsqueda */
-.catalog-secondary-nav-search {
+/* .catalog-secondary-nav-search {
   margin-left: 0;
   margin-right: 0;
   font-size: 1.5rem;
   color: #23272b;
   align-self: center;
   padding-right: 1em;
-}
+} */
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .catalog-secondary-nav-search {
     margin-left: 0;
     padding-right: 0;
   }
-}
+} */
 
 /* Elimina cualquier padding/margin lateral extra de Bootstrap en .container si existiera */
-.catalog-secondary-nav .container,
+/* .catalog-secondary-nav .container,
 .catalog-secondary-nav ul,
 .catalog-secondary-nav li,
 .catalog-secondary-nav a {
   box-sizing: border-box !important;
-}
+} */
 
 /* Responsive tweaks */
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .btn-group {
     flex-direction: column;
     gap: 0.5rem;
@@ -522,10 +583,10 @@ a.btn-outline-primary:hover,
     align-self: stretch;
     box-sizing: border-box;
   }
-}
+} */
 
 /* --- Versión intermedia: tablet o móvil horizontal (577px a 900px) --- */
-@media (min-width: 577px) and (max-width: 900px) {
+/* @media (min-width: 577px) and (max-width: 900px) {
   .catalog-secondary-nav .container {
     flex-direction: column;
     align-items: stretch;
@@ -574,49 +635,11 @@ a.btn-outline-primary:hover,
     box-sizing: border-box;
     order: 2;
   }
-}
+} */
 
-#cart-count {
-  display: none;
-}
-
-/* Alert personalizado para el carrito */
-.custom-alert {
-  background-color: rgba(238, 236, 231) !important;
-  /* Gris claro */
-  color: #23272b !important;
-  border: #23272b 1px solid !important;
-}
-
-.custom-alert,
-.custom-alert .bi {
-  color: #23272b !important;
-}
-
-#addToCartAlert {
-  display: none;
-  z-index: 2000;
-  min-width: 300px;
-  top: 240px !important;
-}
-
-.divisor-fade {
-  border: none;
-  border-top: 2px solid #23272bb4;
-  margin: 5em auto;
-  width: 30%;
-}
-
-#header {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  position: relative;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
 
 /* Contenedor interior para la barra secundaria, igual que el header */
-.nav-drums-inner {
+/* .nav-drums-inner {
   background-color: transparent;
   width: 100%;
   max-width: 1140px;
@@ -627,4 +650,4 @@ a.btn-outline-primary:hover,
   align-items: center;
   height: 44px;
   box-sizing: border-box;
-}
+} */
