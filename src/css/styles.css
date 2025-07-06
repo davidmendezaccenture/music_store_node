@@ -386,7 +386,7 @@
 
 @media (max-width: 770px) {
   .catalog-secondary-nav .container {
-    padding-top: 1rem;
+    padding-top: 1em;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
