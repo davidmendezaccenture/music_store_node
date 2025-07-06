@@ -81,7 +81,7 @@ function renderGlobalCategoryResults(categories, query) {
           .map(
             (cat) => `
           <li class="list-group-item">
-            <a href="${cat.url}" class="text-decoration-none global-search-link">
+            <a href="${cat.url}" class="text-decoration-none global-search-link" tabindex="0">
               <strong>${highlight(cat.name, query)}</strong>
             </a>
           </li>
@@ -90,6 +90,10 @@ function renderGlobalCategoryResults(categories, query) {
           .join("")}
       </ul>
     `);
+    // Mover el foco al primer resultado
+    setTimeout(() => {
+      $(".global-search-link").first().focus();
+    }, 0);
   } else if (query) {
     $res.html(
       '<div class="text-muted px-3 py-2">No se encontraron categorías.</div>'
@@ -104,6 +108,30 @@ function renderGlobalCategoryResults(categories, query) {
     $("#globalSearchDropdown").hide();
   });
 }
+
+// Navegación con flechas arriba/abajo en los resultados del buscador global
+$(document).on("keydown", "#search-input-global, .global-search-link", function (e) {
+  const $links = $(".global-search-link");
+  let idx = $links.index(document.activeElement);
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    if (idx === -1) {
+      $links.first().focus();
+    } else if (idx < $links.length - 1) {
+      $links.eq(idx + 1).focus();
+    }
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    if (idx > 0) {
+      $links.eq(idx - 1).focus();
+    } else {
+      $("#search-input-global").focus();
+    }
+  } else if (e.key === "Enter" && $(document.activeElement).hasClass("global-search-link")) {
+    window.location.href = $(document.activeElement).attr("href");
+  }
+});
 
 function normalizeText(text) {
   return text
