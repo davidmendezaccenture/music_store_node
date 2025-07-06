@@ -1,12 +1,39 @@
+// --- Buscador global solo por páginas principales (cuerda, percusión, teclado, dj) ---
+
+// Puedes dejar esto si lo usas en otras partes, pero ya no se usa para el buscador global
 let allProducts = [];
 
+// Define las páginas principales permitidas
+const allowedCategories = [
+  {
+    name: "cuerda",
+    url: "/pages/catalog.html?familia=cuerda",
+    keywords: ["guitarra", "guitarras", "bajo", "bajos", "acústica", "eléctrica", "clasica", "clásica", "bass", "string"]
+  },
+  {
+    name: "percusión",
+    url: "/pages/catalog.html?familia=percusion",
+    keywords: ["batería", "baterias", "bateria", "percusion", "percusión", "cajón", "cajon", "conga", "congas", "drum", "drums"]
+  },
+  {
+    name: "teclado",
+    url: "/pages/catalog.html?familia=teclado",
+    keywords: ["piano", "teclado", "sintetizador", "sinte", "keyboard", "synth"]
+  },
+  {
+    name: "dj",
+    url: "/pages/catalog.html?familia=dj",
+    keywords: ["dj", "controladora", "mezclador", "turntable", "vinilo", "vinilos", "plato", "platos"]
+  }
+];
+
 $(document).ready(function () {
-  // Cargar productos globales solo una vez
+  // Si necesitas cargar productos para otras funciones, puedes dejar esto
   $.getJSON("../assets/data/products.json", function (data) {
     allProducts = data;
   });
 
-  // Buscar en todos los productos al escribir
+  // Buscar solo en las categorías permitidas al escribir
   $(document).on("input", "#search-input-global", function () {
     const query = $(this).val().trim();
     if (query.length > 1) {
@@ -22,12 +49,12 @@ $(document).ready(function () {
         display: "block",
       });
 
-      let resultados = allProducts.filter(
-        (p) =>
-          normalizeText(p.name).includes(queryNorm) ||
-          (p.category && normalizeText(p.category).includes(queryNorm))
+      // Filtrar solo las categorías permitidas (nombre o keywords)
+      const matchedCategories = allowedCategories.filter(cat =>
+        normalizeText(cat.name).includes(queryNorm) ||
+        (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
       );
-      renderGlobalResults(resultados, query);
+      renderGlobalCategoryResults(matchedCategories, query);
     } else {
       $("#globalSearchDropdown").hide();
       $("#global-search-results").html("");
@@ -44,21 +71,18 @@ $(document).ready(function () {
   });
 });
 
-// Renderizar resultados en texto tipo lista
-function renderGlobalResults(lista, query) {
+// Renderizar resultados SOLO de categorías permitidas
+function renderGlobalCategoryResults(categories, query) {
   const $res = $("#global-search-results");
-  if (query && lista.length > 0) {
+  if (query && categories.length > 0) {
     $res.html(`
       <ul class="list-group list-group-flush">
-        ${lista
+        ${categories
           .map(
-            (p) => `
+            (cat) => `
           <li class="list-group-item">
-            <a href="/pages/catalog.html?category=${encodeURIComponent(
-              p.category || ""
-            )}" class="text-decoration-none global-search-link">
-              <strong>${highlight(p.name, query)}</strong>
-              <span class="text-muted small ms-2">${p.category || ""}</span>
+            <a href="${cat.url}" class="text-decoration-none global-search-link">
+              <strong>${highlight(cat.name, query)}</strong>
             </a>
           </li>
         `
@@ -68,7 +92,7 @@ function renderGlobalResults(lista, query) {
     `);
   } else if (query) {
     $res.html(
-      '<div class="text-muted px-3 py-2">No se encontraron productos.</div>'
+      '<div class="text-muted px-3 py-2">No se encontraron categorías.</div>'
     );
   } else {
     $res.html("");
@@ -117,23 +141,19 @@ $(document).on("submit", ".buscador-form", function (e) {
   e.preventDefault();
 });
 
-// Manejar Enter en el input de búsqueda
+// Manejar Enter en el input de búsqueda SOLO para categorías permitidas y keywords
 $(document).on("keydown", "#search-input-global", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     const query = $(this).val().trim();
     if (query.length > 1) {
-      // Tomar el primer resultado y navegar a él con el término de búsqueda
-      const resultados = allProducts.filter(
-        (p) =>
-          normalizeText(p.name).includes(normalizeText(query)) ||
-          (p.category &&
-            normalizeText(p.category).includes(normalizeText(query)))
+      const queryNorm = normalizeText(query);
+      const matchedCategories = allowedCategories.filter(cat =>
+        normalizeText(cat.name).includes(queryNorm) ||
+        (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
       );
-      if (resultados.length > 0) {
-        window.location.href = `/pages/catalog.html?category=${encodeURIComponent(
-          resultados[0].category || ""
-        )}&search=${encodeURIComponent(query)}`;
+      if (matchedCategories.length > 0) {
+        window.location.href = matchedCategories[0].url;
       }
     }
   }
