@@ -161,12 +161,12 @@ function updateHeaderUserStatus() {
   }
 
   if (isLoggedIn && currentUser) {
+    // Para añadir el hola           <small class="user-logged-greeting mb-0" style="font-size: 0.75rem;"><white>Hola, </small>
     // Usuario logueado - modificar el contenido del loginButton
     $loginButton.html(`
       <div class="d-flex align-items-center gap-2">
         <i class="bi bi-person-check user-logged-icon" aria-hidden="true"></i>
         <div class="d-flex flex-column text-start">
-          <small class="user-logged-greeting mb-0" style="font-size: 0.75rem;">Hola,</small>
           <span class="user-logged-name" style="font-size: 0.85rem;">${currentUser.nombre}</span>
         </div>
         <button class="btn btn-outline-secondary btn-logout ms-2" onclick="logout()" title="Cerrar sesión">
