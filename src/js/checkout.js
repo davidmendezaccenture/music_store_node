@@ -2,7 +2,7 @@ $(document).ready(function () {
   let cartItems = [];
   let promoDiscount = 0;
 
-  // 1. Obtener usuario y carrito
+  // Obtener usuario y carrito
   function getCurrentUser() {
     return fetch('/api/current-user')
       .then(res => res.json())
@@ -13,7 +13,7 @@ $(document).ready(function () {
     return $.get(`/api/cart?user=${encodeURIComponent(user.email)}`);
   }
 
-  // 2. Renderizar resumen del pedido
+  // Renderizar resumen del pedido
   function renderCartSummary() {
     const $list = $('#cart-summary ul.list-group');
     $list.empty();
@@ -61,7 +61,7 @@ $(document).ready(function () {
     $('#total-con-descuento').text(`€${totalConDescuento}`);
   }
 
-  // 3. Eliminar producto del resumen
+  // Eliminar producto del resumen
   $(document).on('click', '.btn-remove', function () {
     const id = $(this).closest('li').data('id');
     cartItems = cartItems.filter(item => item.id !== id);
@@ -69,7 +69,7 @@ $(document).ready(function () {
     renderCartSummary();
   });
 
-  // 4. Actualizar carrito en backend tras eliminar
+  // Actualizar carrito en backend tras eliminar
   function updateCartBackend() {
     getCurrentUser().then(user => {
       if (user) {
@@ -83,23 +83,30 @@ $(document).ready(function () {
     });
   }
 
-  // 5. Código promocional
-  $('#promo-code').on('input', function () {
-    const code = $(this).val().trim().toUpperCase();
-    // Ejemplo: código PROMO10 = 10% descuento
-    if (code === 'PROMO10') {
-      promoDiscount = 0.10;
-    } else {
-      promoDiscount = 0;
-    }
-    renderCartSummary();
-  });
+  // Aplicar código promocional
+$('#apply-promo').on('click', function () {
+  const code = $('#promo-code').val().trim().toUpperCase();
+  const $feedback = $('#promo-feedback');
+  if (code === 'SUMMERTIME') {
+    promoDiscount = 0.05;
+    $feedback.addClass('d-none').text('');
+  } else {
+    promoDiscount = 0;
+    $feedback.removeClass('d-none').text('El código promocional es incorrecto');
+  }
+  renderCartSummary();
+});
 
-  // 6. Inicialización
+// Oculta el mensaje al cambiar el input
+$('#promo-code').on('input', function () {
+  $('#promo-feedback').addClass('d-none').text('');
+});
+
+// Inicialización
   getCurrentUser().then(user => {
     if (!user) {
       // Si no hay usuario logueado, redirige o muestra mensaje
-      window.location.href = '/pages/login.html';
+      window.location.href = '/pages/register.html';
       return;
     }
     fetchCart(user).then(cartData => {
@@ -107,4 +114,9 @@ $(document).ready(function () {
       renderCartSummary();
     });
   });
+});
+
+// Botón cancelar redirige a carrito
+$('#cart-summary').on('click', '.btn-cancel', function () {
+  window.location.href = '/pages/cart.html';
 });

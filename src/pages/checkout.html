@@ -26,10 +26,16 @@
       <div class="col-lg-7">
         <h5 class="mb-4">Proceso de Pago</h5>
         <form id="checkout-form">
-          <div class="mb-3">
+         <div class="mb-3">
             <label for="promo-code" class="form-label">Código promocional</label>
-            <input type="text" class="form-control" id="promo-code" placeholder="Introduce tu código">
-          </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="promo-code" placeholder="Introduce tu código">
+                    <button class="btn btn-outline-success" type="button" id="apply-promo" title="Aplicar código">
+                    <i class="bi bi-check-circle"></i>
+                    </button>
+                </div>
+            <div id="promo-feedback" class="form-text text-danger d-none"></div>
+         </div>
           <div class="mb-3">
             <label for="payment-method" class="form-label">Método de Pago</label>
             <select class="form-select" id="payment-method" required>
@@ -114,7 +120,7 @@
               <span id="total-con-descuento">€9800</span>
             </div>
             <div class="d-flex justify-content-end gap-2">
-              <button class="btn btn-secondary" type="button">Cancelar</button>
+              <button class="btn btn-secondary btn-cancel" type="button">Cancelar</button>
               <button class="btn btn-primary" type="submit" form="checkout-form">Confirmar Pago</button>
             </div>
           </div>
