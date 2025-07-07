@@ -14,52 +14,71 @@ $(document).ready(function () {
   }
 
   // Renderizar resumen del pedido
-  function renderCartSummary() {
-    const $list = $('#cart-summary ul.list-group');
-    $list.empty();
-    let total = 0;
+function renderCartSummary() {
+  const $list = $('#cart-summary ul.list-group');
+  $list.empty();
+  let subtotal = 0;
 
-    cartItems.forEach((item, idx) => {
-      // Ajusta la ruta de la imagen a .webp y asegúrate de que sea absoluta
-      let imgSrc = item.image;
-      if (imgSrc) {
-        // Si la ruta es relativa, hazla absoluta
-        if (imgSrc.startsWith('..')) {
-          imgSrc = imgSrc.replace('..', '');
-        }
-        if (!imgSrc.startsWith('/')) {
-          imgSrc = '/' + imgSrc.replace(/^(\.\/|\/)/, '');
-        }
-        // Cambia la extensión a .webp si no lo es
-        imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-      } else {
-        imgSrc = '/assets/images/default.webp'; // Imagen por defecto si falta
-      }
+  cartItems.forEach((item) => {
+    let imgSrc = item.image;
+    if (imgSrc) {
+      if (imgSrc.startsWith('..')) imgSrc = imgSrc.replace('..', '');
+      if (!imgSrc.startsWith('/')) imgSrc = '/' + imgSrc.replace(/^(\.\/|\/)/, '');
+      imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    } else {
+      imgSrc = '/assets/images/default.webp';
+    }
 
-      const price = item.offerPrice || item.price;
-      total += price * (item.quantity || 1);
+    const price = item.offerPrice || item.price;
+    subtotal += price * (item.quantity || 1);
 
-      const $li = $(`
-        <li class="list-group-item d-flex align-items-center" data-id="${item.id}">
-          <img src="${imgSrc}" alt="${item.name}" class="rounded me-2" width="48" height="48">
-          <div class="flex-grow-1">
-            <div>${item.name}</div>
-            <small class="text-muted">Cantidad: ${item.quantity || 1}</small>
-          </div>
-          <span class="me-3">€${(price * (item.quantity || 1)).toFixed(2)}</span>
-          <button class="btn btn-link text-danger p-0 btn-remove" title="Eliminar">
-            <i class="bi bi-trash"></i>
-          </button>
-        </li>
-      `);
-      $list.append($li);
-    });
+    const $li = $(`
+      <li class="list-group-item d-flex align-items-center" data-id="${item.id}">
+        <img src="${imgSrc}" alt="${item.name}" class="rounded me-2" width="48" height="48">
+        <div class="flex-grow-1">
+          <div>${item.name}</div>
+          <small class="text-muted">Cantidad: ${item.quantity || 1}</small>
+        </div>
+        <span class="me-3">€${(price * (item.quantity || 1)).toFixed(2)}</span>
+        <button class="btn btn-link text-danger p-0 btn-remove" title="Eliminar">
+          <i class="bi bi-trash"></i>
+        </button>
+      </li>
+    `);
+    $list.append($li);
+  });
 
-    // Totales
-    $('#total-sin-descuento').text(`€${total.toFixed(2)}`);
-    const totalConDescuento = (total * (1 - promoDiscount)).toFixed(2);
-    $('#total-con-descuento').text(`€${totalConDescuento}`);
+  // Mostrar totales y descuento solo si hay código válido
+  let resumenHtml = '';
+  if (promoDiscount > 0) {
+    const descuento = subtotal * promoDiscount;
+    const total = subtotal - descuento;
+    resumenHtml += `
+      <div class="d-flex justify-content-between">
+        <span>Subtotal:</span>
+        <span>€${subtotal.toFixed(2)}</span>
+      </div>
+      <div class="d-flex justify-content-between">
+        <span>Descuento (${(promoDiscount * 100).toFixed(0)}%):</span>
+        <span class="text-success">-€${descuento.toFixed(2)}</span>
+      </div>
+      <div class="d-flex justify-content-between mb-3 fw-bold">
+        <span>Total:</span>
+        <span>€${total.toFixed(2)}</span>
+      </div>
+    `;
+  } else {
+    resumenHtml += `
+      <div class="d-flex justify-content-between mb-3 fw-bold">
+        <span>Total:</span>
+        <span>€${subtotal.toFixed(2)}</span>
+      </div>
+    `;
   }
+  // Inserta el resumen debajo de la lista
+  $list.parent().find('.resumen-totales').remove();
+  $list.after(`<div class="resumen-totales">${resumenHtml}</div>`);
+}
 
   // Eliminar producto del resumen
   $(document).on('click', '.btn-remove', function () {
