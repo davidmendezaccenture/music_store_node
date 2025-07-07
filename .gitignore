@@ -40,4 +40,4 @@ Thumbs.db
 # Archivos de datos locales
 music_store_node/backend/data/*.json
 backend/data/cart.json
-backend/data/user.json
+backend/data/users.json
