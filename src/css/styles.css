@@ -225,7 +225,6 @@
 == (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
 ============================================================
 */
-
 /* Estilo para el menú desplegable de la navbar */
 @media (max-width: 991.98px) {
   .navbar-collapse {
@@ -261,6 +260,16 @@
   .navbar-collapse .navbar-nav .nav-link.active {
     background-color: rgba(246, 166, 26, 0.2);
     color: #f6a61a;
+  }
+  .navbar-toggler .bi-list {
+    color: #fff !important;
+    font-size: 2rem;
+    transition: color 0.2s;
+  }
+
+  .navbar-toggler:hover .bi-list,
+  .navbar-toggler:focus .bi-list {
+    color: #fff !important;
   }
 
   /* NUEVAS REGLAS PARA MOVER LA NAVBAR ARRIBA */
@@ -312,9 +321,11 @@
 
   /* Asegurar que la navbar también ocupe todo el ancho */
   .main-header .navbar {
-    width: 100% !important;
+    width: 80% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    /*     margin-right: 3rem !important;
+    margin-left: 3rem !important; */
     padding: 0 !important;
     box-sizing: border-box !important;
   }
@@ -639,7 +650,7 @@ body {
   border-radius: 8px;
   background-color: transparent;
   color: white;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
+  /*  box-shadow: 0 0 0 1px #1969f6 !important; */
 }
 
 .login-logo:focus,
@@ -650,7 +661,7 @@ body {
 .dm-logo:focus-visible,
 #loginButton:focus,
 #carritoButton:focus {
-  outline: 2px solid #1969f6 !important;
+  outline: 1px solid #1969f6 !important;
   outline-offset: 2px;
   /* border-radius: 50% !important; */
   background-color: transparent;
@@ -1689,8 +1700,8 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   background-color: transparent !important;
   color: #f6a61a !important;
   border: #f6a61a !important;
-  box-shadow: 0 0 0 4px #f6a61a40 !important;
-  outline: 2px solid #f6a61a !important;
+  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
+  outline: 1px solid #1969f6 !important;
   border-radius: 8px !important;
 }
 
@@ -1984,4 +1995,8 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
   color: #000;
   padding: 0 2px;
   border-radius: 3px;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
