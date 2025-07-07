@@ -160,7 +160,24 @@ $(document).ready(function () {
         }
       }, 100);
     });
-    //----------------------Test mover menu hamburguesaa ------------------//
+    //----------------------Transicion suave entre páginas ------------------//
+    // --- Animaciones de entrada suaves del header y main tras carga ---
+    const header = document.querySelector("#header");
+    const main = document.querySelector("main");
+
+    if (header) {
+      header.classList.add("slide-in-header");
+      setTimeout(() => {
+        header.classList.remove("slide-in-header");
+      }, 450);
+    }
+
+    if (main) {
+      main.classList.add("slide-in-main");
+      setTimeout(() => {
+        main.classList.remove("slide-in-main");
+      }, 400);
+    }
   });
 
   initNavbar();

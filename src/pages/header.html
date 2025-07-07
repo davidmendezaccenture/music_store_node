@@ -269,9 +269,11 @@
               class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
               type="submit"
               aria-label="Buscar"
+              aria-hidden="true"
+              tabindex="-1"
             >
-              <i class="bi bi-search fs-5"></i>
-            </button>
+              <i class="bi bi-search fs-5"></i></button
+            ><!-- Añadido aria-hidden y tabindex para que no aparezca al navegar por teclado *All* -->
           </div>
         </form>
         <!-- Overlay para la barra de búsqueda -->

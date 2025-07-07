@@ -172,6 +172,7 @@
 == BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
 == (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
 ============================================================
+*/
 /*
 @media (max-width: 576px) {
   .catalog-secondary-nav .container {
@@ -321,7 +322,7 @@
 
   /* Asegurar que la navbar también ocupe todo el ancho */
   .main-header .navbar {
-    width: 80% !important;
+    width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     /*     margin-right: 3rem !important;
@@ -330,6 +331,14 @@
     box-sizing: border-box !important;
   }
 
+  .main-header .navbar {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+  .navbar-collapse {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
   /* Asegurar que la navbar secundaria también esté fija y forme parte del header "S" */
   .catalog-secondary-nav {
     position: static !important;
@@ -732,8 +741,27 @@ body {
 .pago-logo {
   width: 32px;
   height: 32px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-radius: 50%;
+}
+.pre-footer-pagos .navbar-brand:last-child {
+  margin-right: 0;
+}
+/* Navegacion por teclado */
+.pre-footer-pagos .navbar-brand:focus {
+  outline: 1px solid #1969f6;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.pre-footer-pagos .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.pre-footer-pagos .navbar-brand + .navbar-brand {
+  margin-left: 10px;
 }
 
 /* Estilo logos social */
@@ -743,7 +771,45 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-
+.pre-footer-social .navbar-brand:focus {
+  outline: 1px solid #1969f6 !important;
+  outline-offset: 2px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 8px;
+}
+.pre-footer-ventajas .lista-ventajas:focus {
+  outline: 1px solid #1969f6;
+  outline-offset: 2px !important;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 8px;
+}
+a:focus .pago-logo,
+a:focus-visible .pago-logo,
+a:focus .social-logo,
+a:focus-visible .social-logo {
+  filter: none !important;
+}
+/* Filtro pre-footer *S* */
+.pago-logo,
+.social-logo {
+  filter: grayscale(100%) contrast(1.1) brightness(1.1);
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Quitar el filtro al hacer hover */
+.pago-logo:hover,
+.pago-logo:focus,
+.social-logo:hover,
+.social-logo:focus {
+  filter: none;
+}
+.footer-color {
+  /* color: #f6a61a; */
+  font-weight: 600;
+}
 /* Login logo */
 .login-logo {
   font-size: 1.6rem;
@@ -1033,13 +1099,32 @@ a:hover .icon-image,
 /* Estilo para la galería de imágenes */
 /* color de los puntos controladores */
 .carousel-indicators [data-bs-target] {
-  background-color: gray; /*inactivo*/
+  background-color: #808080; /*inactivo*/
 }
 
 .carousel-indicators .active {
-  background-color: #f6a61a; /*activo*/
-}
+  background-color: #f6a61a;
+} /*activo*/
 
+/*-------------------------------- Navegacion por teclado *L* ------------------------------ */
+#carouselExampleCaptions .carousel-indicators button:focus,
+#carouselExampleCaptions .carousel-indicators button:focus-visible {
+  outline: 1px solid #1969f6;
+  outline-offset: 0px;
+  border: none;
+  /* box-shadow: 0 0 0 1px #1969f6 !important; */
+  position: static;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom-width: 10px;
+  border-top-width: 10px;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  opacity: 1 !important;
+}
+/* ---------------------------------------------------------------------------------- */
 #carouselExampleCaptions .carousel-item img {
   height: 350px;
   object-fit: cover;
@@ -1199,7 +1284,7 @@ a:hover .icon-image,
   background-color: #23272b;
 } */
 
-/* media queries para botones e indicadores de ruleta de imágenes destacadas*/
+/* media queries para botones e indicadores de ruleta de imágenes*/
 /* @media (max-width: 1085px) {
   .product-carousel-arrow,
   .opinion-carousel-arrow {
@@ -1275,6 +1360,19 @@ a:hover .icon-image,
   min-width: 0;
   max-width: 100%;
 }
+/* Navegacion por teclado *L* No veo como cambiarlo, esto modifica pero hace cosas raras,
+creo que por los estilos herdados de bootstrap o por el poco espacio entre tarjetas? help xD*/
+
+/* .opinion-card:focus,
+.opinion-card:focus-visible {
+  outline: 1px solid #1969f6 !important;*/
+/* outline-offset: 2px; */
+/*border-radius: 8px;
+  border: none;
+  /* box-shadow: 0 0 0 3px #1969f66b; */
+/*z-index: 2;
+  overflow: hidden;
+} */
 
 .texto-opinion-card h3 {
   font-size: 1.05rem;
@@ -2000,3 +2098,57 @@ body.dark-mode .offcanvas-body .list-group-item .text-muted {
 .no-wrap {
   white-space: nowrap;
 }
+.contenedor-main-navbar,
+.navbar,
+.navbar-nav .nav-link {
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1); /* Hace cosas, muchas cosas */
+}
+
+main,
+main.c-main,
+.catalog-secondary-nav {
+  transition: margin-top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Navegacion por teclado Form contact.html */
+.form-control:focus,
+.form-select:focus {
+  /* border-color: #1969f6 !important; */
+  box-shadow: none !important;
+  outline: 1px solid #1969f6 !important;
+  /* outline-offset: 1px; */
+  background-color: #fff;
+}
+/* ------------- */
+/* --- Transiciones coordinadas header + main --- */
+#header.slide-in-header {
+  transform: translateY(-100%);
+  animation: headerSlideIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes headerSlideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* main.slide-in-main {
+  transform: translateX(-40px);
+  opacity: 0;
+  animation: mainSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+
+
+@keyframes mainSlideIn {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} */
