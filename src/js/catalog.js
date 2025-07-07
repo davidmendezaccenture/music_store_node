@@ -1,3 +1,10 @@
+function normalizeText(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 (function () {
   let productos = [];
   let productosFiltrados = [];
@@ -229,6 +236,8 @@
           (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
         );
     }
+    console.log("Productos filtrados:", productosFiltrados);
+console.log("Contenedor existe:", !!document.getElementById("products-list"));
     mostrarProductos(productosFiltrados);
   }
 
