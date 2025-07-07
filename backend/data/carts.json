@@ -67,13 +67,13 @@
     "user": "lore@email.com",
     "items": [
       {
-        "id": 3,
-        "name": "Bajo Eléctrico",
-        "price": 300,
-        "offerPrice": 250,
-        "image": "../assets/images/bass5.png",
-        "description": "Bajo eléctrico con diseño ergonómico.",
-        "category": "basses",
+        "id": 21,
+        "name": "Teclado Digital ProKeys 88",
+        "price": 1200,
+        "offerPrice": 999,
+        "image": "../assets/images/key1.webp",
+        "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
+        "category": "keyboards",
         "quantity": 1
       }
     ]
