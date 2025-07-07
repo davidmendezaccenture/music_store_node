@@ -1,6 +1,7 @@
 $(document).ready(function () {
   let cartItems = [];
   let promoDiscount = 0;
+  let idToDelete = null;
 
   // Obtener usuario y carrito
   function getCurrentUser() {
@@ -81,12 +82,25 @@ function renderCartSummary() {
 }
 
   // Eliminar producto del resumen
-  $(document).on('click', '.btn-remove', function () {
-    const id = $(this).closest('li').data('id');
-    cartItems = cartItems.filter(item => item.id !== id);
+// Al pulsar el icono de eliminar, muestra el modal
+$(document).on('click', '.btn-remove', function () {
+  idToDelete = $(this).closest('li').data('id');
+  const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+  modal.show();
+});
+
+// Al confirmar en el modal, elimina el producto
+$('#deleteConfirmModal').on('click', '#confirmDeleteBtn', function () {
+  if (idToDelete !== null) {
+    cartItems = cartItems.filter(item => item.id !== idToDelete);
     updateCartBackend();
     renderCartSummary();
-  });
+    idToDelete = null;
+    // Oculta el modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
+    modal.hide();
+  }
+});
 
   // Actualizar carrito en backend tras eliminar
   function updateCartBackend() {

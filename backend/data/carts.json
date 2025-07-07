@@ -75,16 +75,6 @@
         "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
         "category": "keyboards",
         "quantity": 1
-      },
-      {
-        "id": 3,
-        "name": "Bajo Eléctrico",
-        "price": 300,
-        "offerPrice": 250,
-        "image": "../assets/images/bass5.webp",
-        "description": "Bajo eléctrico con diseño ergonómico.",
-        "category": "basses",
-        "quantity": 1
       }
     ]
   },
