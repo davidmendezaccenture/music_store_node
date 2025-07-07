@@ -24,6 +24,31 @@
 <body>
   <!-- Cabecera de la página -->
   <header id="header"></header>
+
+    <!-- Modal de búsqueda global -->
+    <div id="globalSearchDropdown" 
+         class="search-bar py-1 buscador shadow"
+         style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="global-search-label"
+         aria-describedby="global-search-results"
+         tabindex="-1">
+      <div class="container">
+        <form
+        class="d-flex justify-content-center buscador-form" 
+        role="search" 
+        aria-label="Barra de búsqueda global">
+        </form>
+        <div id="global-search-results" 
+            class="mt-2"
+            role="listbox"
+            aria-label="Resultados de búsqueda"
+            tabindex="0"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
   <!-- Contenido principal de la página -->
   <main class="container pb-0 c-main" role="main" aria-label="Contenido principal">
     <!-- Tu contenido aquí -->
@@ -349,31 +374,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Modal de búsqueda global -->
-    <div id="globalSearchDropdown" 
-         class="search-bar py-1 buscador shadow"
-         style="display: none; position: absolute; z-index: 1055; min-width: 350px"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="global-search-label"
-         aria-describedby="global-search-results"
-         tabindex="-1">
-      <div class="container">
-        <form
-        class="d-flex justify-content-center buscador-form" 
-        role="search" 
-        aria-label="Barra de búsqueda global">
-        </form>
-        <div id="global-search-results" 
-            class="mt-2"
-            role="listbox"
-            aria-label="Resultados de búsqueda"
-            tabindex="0"
-            autocomplete="off">
-        </div>
-      </div>
-    </div>
     
   <!-- Sección preparada para Listado de Productos Destacados -->
 

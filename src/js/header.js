@@ -69,7 +69,7 @@ $(document).ready(function () {
       $("#globalSearchDropdown").hide();
     }
   });
-});
+
 
 // Renderizar resultados SOLO de categorías permitidas
 function renderGlobalCategoryResults(categories, query) {
@@ -91,9 +91,9 @@ function renderGlobalCategoryResults(categories, query) {
       </ul>
     `);
     // Mover el foco al primer resultado
-    setTimeout(() => {
-      $(".global-search-link").first().focus();
-    }, 0);
+    // setTimeout(() => {
+    //   $(".global-search-link").first().focus();
+    // }, 0);
   } else if (query) {
     $res.html(
       '<div class="text-muted px-3 py-2">No se encontraron categorías.</div>'
@@ -102,6 +102,7 @@ function renderGlobalCategoryResults(categories, query) {
     $res.html("");
   }
 
+  
   // Limpiar input y ocultar modal al hacer click en un resultado
   $(".global-search-link").on("click", function () {
     $("#search-input-global").val("");
@@ -150,6 +151,16 @@ $(document).on("keydown", "#search-input-global, .global-search-link", function 
   }
 });
 
+$(document).on("keydown", "#search-input-global", function (e) {
+  if (e.key === "Tab" && !e.shiftKey) {
+    const $links = $(".global-search-link");
+    if ($links.length > 0) {
+      e.preventDefault();
+      $links.first().focus();
+    }
+  }
+});
+
 function normalizeText(text) {
   return text
     .normalize("NFD")
@@ -185,3 +196,5 @@ function highlight(text, query) {
 $(document).on("submit", ".buscador-form", function (e) {
   e.preventDefault();
 });
+
+}); 
