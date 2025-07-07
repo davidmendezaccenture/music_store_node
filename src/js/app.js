@@ -9,10 +9,16 @@ $(document).ready(function () {
       $("body").toggleClass("dark-mode");
       var isDark = $("body").hasClass("dark-mode");
       $(this).attr("aria-pressed", isDark);
-      // Guardar preferencia
+
+      // Cambiar el icono según el estado
+      const $icon = $(this).find("i");
       if (isDark) {
+        // Modo oscuro activado - mostrar icono de sol/bombilla
+        $icon.removeClass("bi-moon").addClass("bi-sun");
         localStorage.setItem("darkMode", "enabled");
       } else {
+        // Modo claro - mostrar icono de luna
+        $icon.removeClass("bi-sun").addClass("bi-moon");
         localStorage.setItem("darkMode", "disabled");
       }
     });
@@ -36,8 +42,12 @@ $(document).ready(function () {
     if (localStorage.getItem("darkMode") === "enabled") {
       $("body").addClass("dark-mode");
       $("#darkModeToggle").attr("aria-pressed", "true");
+      // Asegurar que el icono sea correcto al cargar
+      $("#darkModeToggle i").removeClass("bi-moon").addClass("bi-sun");
     } else {
       $("#darkModeToggle").attr("aria-pressed", "false");
+      // Asegurar que el icono sea correcto al cargar
+      $("#darkModeToggle i").removeClass("bi-sun").addClass("bi-moon");
     }
 
     // --- GESTIÓN DE ACTIVE EN NAVBAR ---
@@ -85,6 +95,72 @@ $(document).ready(function () {
         "active"
       );
     }
+
+    //----------------------Test mover menu hamburguesaa ------------------//
+    $(".navbar-toggler").on("click", function () {
+      // Usa los eventos nativos de Bootstrap en lugar de setTimeout
+      $("#navbarSupportedContent").on(
+        "shown.bs.collapse hidden.bs.collapse",
+        function () {
+          const isOpen = $(this).hasClass("show");
+          console.log("Menú abierto:", isOpen);
+
+          // Altura del menú desplegable
+          const menuHeight = isOpen ? $(this).outerHeight() : 0;
+          console.log("Altura del menú:", menuHeight);
+
+          // Calcular el margen total
+          if (isOpen) {
+            // Si el menú está abierto, añadir un atributo data que usaremos en el CSS
+            $("body").attr("data-menu-open", "true");
+            $(".catalog-secondary-nav").attr(
+              "style",
+              "margin-top: " + menuHeight + "px !important"
+            );
+            const windowWidth = $(window).width();
+            if (windowWidth <= 770) {
+              // (media  770px)
+              $("main").attr(
+                "style",
+                "margin-top: " + (menuHeight + 260) + "px !important"
+              );
+              $("main.c-main").attr(
+                "style",
+                "margin-top: " + (menuHeight + 315) + "px !important"
+              );
+            } else {
+              // ( Media 991.98px)
+              $("main").attr(
+                "style",
+                "margin-top: " + (menuHeight + 135) + "px !important"
+              );
+              $("main.c-main").attr(
+                "style",
+                "margin-top: " + (menuHeight + 195) + "px !important"
+              );
+            }
+          } else {
+            // Si está cerrado, quitar el atributo
+            $("body").removeAttr("data-menu-open");
+            // Remover el estilo de margin-top de la navbar secundaria
+            $(".catalog-secondary-nav").removeAttr("style");
+            // Remover los estilos inline para volver a los valores CSS
+            $("main, main.c-main").removeAttr("style");
+          }
+        }
+      );
+
+      // Disparar manualmente la primera vez
+      setTimeout(function () {
+        const isOpen = $("#navbarSupportedContent").hasClass("show");
+        if (isOpen) {
+          $("#navbarSupportedContent").trigger("shown.bs.collapse");
+        } else {
+          $("#navbarSupportedContent").trigger("hidden.bs.collapse");
+        }
+      }, 100);
+    });
+    //----------------------Test mover menu hamburguesaa ------------------//
   });
 
   initNavbar();

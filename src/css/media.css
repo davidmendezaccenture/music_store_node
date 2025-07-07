@@ -2,7 +2,7 @@
 
 /* Iconos diagonal */
 .icon-bicolor {
-  background: linear-gradient(315deg, #110d0c 50%, #f6a61a 50%);
+  background: linear-gradient(315deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -11,7 +11,7 @@
 
 /* horizontal */
 .icon-bicolor-horizontal {
-  background: linear-gradient(90deg, #110d0c 50%, #f6a61a 50%);
+  background: linear-gradient(90deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -20,7 +20,7 @@
 
 /* Iconos vertical */
 .icon-bicolor-vertical {
-  background: linear-gradient(180deg, #110d0c 50%, #f6a61a 50%);
+  background: linear-gradient(180deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -29,21 +29,21 @@
 
 /* Efecto hover para los iconos bicolor Diagonal */
 .icon-bicolor:hover {
-  background: linear-gradient(315deg, #f6a61a 50%, #110d0c 50%);
+  background: linear-gradient(315deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
 }
 /* Horizontal */
 .icon-bicolor-horizontal:hover {
-  background: linear-gradient(90deg, #f6a61a 50%, #110d0c 50%);
+  background: linear-gradient(90deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
 }
 /* Vertical */
 .icon-bicolor-vertical:hover {
-  background: linear-gradient(180deg, #f6a61a 50%, #110d0c 50%);
+  background: linear-gradient(180deg, #f6a61a 50%, #bfb4a8 50%);
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
