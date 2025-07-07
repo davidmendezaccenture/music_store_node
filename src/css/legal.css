@@ -1,0 +1,97 @@
+.icon-resaltado {
+    color: #f6a61a;
+}
+
+/* Acordeón personalizado */
+.accordion-item {
+    border: 1px solid #f6a61a4d;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: #333;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #f6a61a;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.accordion-button:not(.collapsed) i {
+    color: #000;
+}
+
+/* Mantener la flecha del acordeón en su posición */
+.accordion-button:not(.collapsed)::after {
+    position: absolute;
+    right: 1rem;
+    margin-left: 0;
+}
+
+/* Flecha dorada cuando está cerrado */
+.accordion-button.collapsed::after {
+    background-image: url("../assets/images/arrow-down-gold.svg");
+}
+
+/* Flecha blanca cuando está abierto */
+.accordion-button:not(.collapsed)::after {
+    position: absolute;
+    right: 1rem;
+    margin-left: 0;
+    background-image: url("../assets/images/arrow-down-white.svg");
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem #f6a61a40;
+}
+
+.accordion-body strong {
+    color: #f6a61a;
+}
+
+.accordion-body a {
+    color: #f6a61a;
+    font-weight: 600;
+}
+
+/* Botones CTA */
+.txt-resaltado {
+    border: 2px solid #f6a61a;
+}
+
+.txt-resaltado:hover {
+    background-color: transparent;
+    color: #f6a61a;
+    border-color: #f6a61a;
+}
+
+.background-resaltado {
+    background-color: #f6a61a;
+}
+
+.background-resaltado:hover {
+    background-color: #f6a61a;
+    color: white;
+}
+
+/* Warning de lighthouse. los h* dentro de contenedores necesitan font-size especifico en el futuro */
+h1 {
+    font-size: 2.5rem;
+    /* Tamaño explícito para evitar cambios del navegador */
+}
+
+h1.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+}
+
+@media (min-width: 1200px) {
+    h1.display-4 {
+        font-size: 3.5rem;
+    }
+}
