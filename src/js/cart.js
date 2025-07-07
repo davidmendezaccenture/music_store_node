@@ -264,8 +264,8 @@ $(document).on('click', '.btn-checkout', function (e) {
       const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
       modal.show();
     } else {
-      // Aquí irá la lógica de checkout real para usuarios logueados
-      window.location.href = '/pages/coming-soon.html';
+      // Lógica de checkout real para usuarios logueados
+      window.location.href = '/pages/checkout.html';
     }
   });
 });
