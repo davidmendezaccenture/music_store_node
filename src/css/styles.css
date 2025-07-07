@@ -294,7 +294,8 @@
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    order: 1 !important; /* Se posiciona primero dentro del header */
+    order: 1 !important;
+    /* Se posiciona primero dentro del header */
   }
 
   /* Quitar border-radius de la navbar y que ocupe todo el ancho */
@@ -328,15 +329,19 @@
     right: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    order: 2 !important; /* Se posiciona después de main-header */
+    order: 2 !important;
+    /* Se posiciona después de main-header */
   }
 
   /* Ajustar el contenido principal para que no quede oculto */
   main {
-    margin-top: 8.5rem !important; /* Aumentamos para compensar header + navbar secundaria */
+    margin-top: 8.5rem !important;
+    /* Aumentamos para compensar header + navbar secundaria */
   }
+
   main.c-main {
-    margin-top: 12.3rem !important; /* Aumentamos para compensar header + navbar secundaria */
+    margin-top: 12.3rem !important;
+    /* Aumentamos para compensar header + navbar secundaria */
   }
 
   /* Asegurar que no haya espacios extra en el body */
@@ -405,14 +410,14 @@
   .catalog-secondary-nav ul {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5em 1.2em;
+    gap: 1.5em 1.2em;
     justify-content: center;
     align-items: stretch;
     height: auto;
     width: max-content;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.5em;
+    margin-bottom: -0.5em;
   }
 
   .catalog-secondary-nav li {
@@ -439,15 +444,16 @@
     font-size: 1.3rem;
   }
 
-  .catalog-secondary-nav-search {
-    width: 100%;
-    align-self: stretch;
-    margin: 0;
+  /* Este bloque no estila, encontrar qué lo sobreescribe */
+  /* .catalog-secondary-nav-search {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0.5em 0.5em 0.7em 0.5em;
     font-size: 1.2rem;
     box-sizing: border-box;
-    order: 2;
-  }
+  } */
+
   /* Ajustar tamaño carrusel */
   .img-carrousel {
     width: 30vw;
@@ -457,6 +463,7 @@
   .carrousel-container {
     margin-top: 2rem;
   }
+
   /* Media queries para touch targets en dispositivos móviles */
   .control-buscador {
     height: 50px;
@@ -475,6 +482,7 @@
   .buscador-input-wrapper {
     margin: 8px 0;
   }
+
   /* Media query para móviles */
   #loginButton .user-logged-name {
     font-size: 0.8rem !important;
@@ -620,43 +628,6 @@ body {
   border-radius: none;
   box-shadow: none;
   color: #f6a61a;
-}
-/* Navegacion por teclado borde */
-.navbar-nav .nav-link:focus,
-.navbar-nav .nav-link:focus-visible {
-  outline: 2px solid #1969f6 !important;
-  outline-offset: 2px;
-  border-radius: 8px;
-  background-color: transparent;
-  color: white !important;
-  box-shadow: 0 0 0 1px #1969f6 !important;
-}
-
-.logo-main-h1 a:focus,
-.logo-main-h1 a:focus-visible {
-  outline: 2px solid #1969f6 !important;
-  outline-offset: 2px;
-  border-radius: 8px;
-  background-color: transparent;
-  color: white;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
-}
-
-.login-logo:focus,
-.login-logo:focus-visible,
-.cart-logo:focus,
-.cart-logo:focus-visible,
-.dm-logo:focus,
-.dm-logo:focus-visible,
-#loginButton:focus,
-#carritoButton:focus {
-  outline: 2px solid #1969f6 !important;
-  outline-offset: 2px;
-  /* border-radius: 50% !important; */
-  background-color: transparent;
-  color: #23272b !important;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
-  border-radius: 8px !important;
 }
 
 /* Efectos de la navbar */
@@ -838,7 +809,7 @@ body {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -1019,15 +990,7 @@ a:hover .icon-image,
 ==== PRUEBA NAVBAR SEG, SERGIO - FIN BLOQUE CSS ==============
 ============================================================= */
 
-/* Estilo para la galería de imágenes */
-/* color de los puntos controladores */
-.carousel-indicators [data-bs-target] {
-  background-color: gray; /*inactivo*/
-}
-
-.carousel-indicators .active {
-  background-color: #f6a61a; /*activo*/
-}
+/* Estilo para el carrusel */
 
 #carouselExampleCaptions .carousel-item img {
   height: 350px;
@@ -1450,89 +1413,13 @@ a:hover .icon-image,
   /* Icono gris */
 }
 
-/* 2 cards, flechas visibles, navegación */
-@media (max-width: 991.98px) and (min-width: 768px) {
-  .opinion-carousel-viewport {
-    width: 412px;
-    max-width: 100vw;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .opinion-carousel-row {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 12px;
-  }
-  .opinion-carousel-card {
-    flex: 0 0 200px !important;
-    max-width: 200px !important;
-    min-width: 200px !important;
-    display: block !important;
-  }
-  .opinion-carousel-arrow {
-    display: flex !important;
-  }
-}
+/* @media (min-width: 992px) {
 
-/* 2 cards, flechas ocultas, solo las dos primeras visibles */
-@media (max-width: 770px) and (min-width: 491px) {
-  .opinion-carousel-viewport {
-    width: 100vw;
-    max-width: 412px;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .opinion-carousel-row {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 12px;
-  }
-  .opinion-carousel-card {
-    flex: 0 0 200px !important;
-    max-width: 200px !important;
-    min-width: 200px !important;
-    display: block !important;
-  }
-  .opinion-carousel-card:nth-child(n + 3) {
-    display: none !important;
-  }
-  .opinion-carousel-arrow {
-    display: none !important;
-  }
-}
-
-/* 1 card, flechas ocultas */
-@media (max-width: 490px) {
-  .opinion-carousel-viewport {
-    width: 100vw;
-    max-width: 340px; /* o el ancho que prefieras */
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .opinion-carousel-row {
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    gap: 12px;
-  }
-  .opinion-carousel-card {
-    flex: 0 0 auto !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    display: block !important;
-  }
-  .opinion-carousel-card:nth-child(n + 4) {
-    display: none !important;
-  }
-  .opinion-carousel-arrow {
-    display: none !important;
-  }
-}
+  /* En escritorio, muestra 3 cards a la vez */
+/* .opinion-carousel-card {
+    width: 33.3333%;
+    float: left;
+  }  */
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
 
@@ -1684,14 +1571,13 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   border: none !important;
   box-shadow: none !important;
 }
-/* Navegacion por teclado borde */
+
 .dark-mode-toggle:focus {
   background-color: transparent !important;
   color: #f6a61a !important;
-  border: #f6a61a !important;
-  box-shadow: 0 0 0 4px #f6a61a40 !important;
-  outline: 2px solid #f6a61a !important;
-  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .dark-mode-toggle:active {
