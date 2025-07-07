@@ -67,13 +67,23 @@
     "user": "lore@email.com",
     "items": [
       {
-        "id": 3,
-        "name": "Bajo Eléctrico",
-        "price": 300,
-        "offerPrice": 250,
-        "image": "../assets/images/bass5.png",
-        "description": "Bajo eléctrico con diseño ergonómico.",
-        "category": "basses",
+        "id": 22,
+        "name": "Sintetizador Analógico RetroWave",
+        "price": 950,
+        "offerPrice": 850,
+        "image": "../assets/images/key2.webp",
+        "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
+        "category": "keyboards",
+        "quantity": 1
+      },
+      {
+        "id": 1,
+        "name": "Guitarra Acústica",
+        "price": 180,
+        "offerPrice": 180,
+        "image": "../assets/images/guitar7.webp",
+        "description": "Guitarra acústica de alta calidad.",
+        "category": "acoustic-guitars",
         "quantity": 1
       }
     ]

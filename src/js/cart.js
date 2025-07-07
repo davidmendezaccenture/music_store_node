@@ -131,10 +131,24 @@ function renderCart(items) {
     const price = item.offerPrice || item.price;
     total += price * (item.quantity || 1);
 
+    // Ajusta la ruta de la imagen a .webp y asegúrate de que sea absoluta
+    let imgSrc = item.image;
+    if (imgSrc) {
+      if (imgSrc.startsWith('..')) {
+        imgSrc = imgSrc.replace('..', '');
+      }
+      if (!imgSrc.startsWith('/')) {
+        imgSrc = '/' + imgSrc.replace(/^(\.\/|\/)/, '');
+      }
+      imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    } else {
+      imgSrc = '/assets/images/default.webp'; // Imagen por defecto si falta
+    }
+
     // Clonar template 
     const $tpl = $($('#cart-item-template').prop('content')).children().first().clone();
     $tpl.attr('data-id', item.id);
-    $tpl.find('img').attr('src', item.image).attr('alt', item.name);
+    $tpl.find('img').attr('src', imgSrc).attr('alt', item.name);
     $tpl.find('.card-title').text(item.name);
     $tpl.find('.card-text').text(item.description || '');
     $tpl.find('.price').text(`${price} €`);
