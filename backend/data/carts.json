@@ -67,23 +67,13 @@
     "user": "lore@email.com",
     "items": [
       {
-        "id": 22,
-        "name": "Sintetizador Analógico RetroWave",
-        "price": 950,
-        "offerPrice": 850,
-        "image": "../assets/images/key2.webp",
-        "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
+        "id": 21,
+        "name": "Teclado Digital ProKeys 88",
+        "price": 1200,
+        "offerPrice": 999,
+        "image": "../assets/images/key1.webp",
+        "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
         "category": "keyboards",
-        "quantity": 1
-      },
-      {
-        "id": 1,
-        "name": "Guitarra Acústica",
-        "price": 180,
-        "offerPrice": 180,
-        "image": "../assets/images/guitar7.webp",
-        "description": "Guitarra acústica de alta calidad.",
-        "category": "acoustic-guitars",
         "quantity": 1
       }
     ]

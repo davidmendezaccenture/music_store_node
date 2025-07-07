@@ -227,10 +227,9 @@ $(document).on('click', '.btn-decrease', function () {
 // Eliminar producto del carrito con modal de confirmación
 let idToDelete = null;
 
-$(document).on('click', '.btn-remove', function () {
+$('#cart-content').on('click', '.btn-remove', function () {
   const $item = $(this).closest('.cart-item');
   idToDelete = parseInt($item.data('id'));
-  // Muestra el modal de Bootstrap
   const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
   modal.show();
 });
