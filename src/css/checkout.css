@@ -57,3 +57,10 @@ h2 {
   color: #f6a61a !important;
   opacity: 0.9;
 }
+
+/* Estilos para modal Confirmar Compra */
+
+.modal-success-bg {
+  background-color: rgba(238, 236, 231) !important; /* Cambia este color por el que prefieras */
+}
+
