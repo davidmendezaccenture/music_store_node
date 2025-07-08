@@ -64,10 +64,19 @@
 
               <!-- Botones -->
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-primary">
+                
+                <button class="btn btn-primary add-to-cart" data-id="" id="addToCartById">
                   <i class="bi bi-cart-plus me-2"></i>
                   Añadir al carrito
                 </button>
+                
+              <!--
+                <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${p.id}" aria-label="Añadir ${p.name} a la cesta">
+                  <i class="bi bi-cart"></i>
+                    <span class="cart-plus">+</span>
+                </button>
+              -->
+
                 <button
                   class="btn btn-outline-secondary"
                   onclick="window.location.href='/pages/catalog.html'"
@@ -99,7 +108,17 @@
       </div>
     </main>
 
+    
+    <div
+      id="addToCartAlert"
+      class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
+      role="alert"
+    >
+      ¡Producto añadido a la cesta!
+    </div>
+
     <div id="footer"></div>
+    
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
