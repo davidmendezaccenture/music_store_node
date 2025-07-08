@@ -205,4 +205,39 @@ $(function () {
   $("#chatbot-container").on("click", function (e) {
     e.stopPropagation();
   });
+
+  // Ajustar el bottom del chatbot para no tapar el footer
+  function adjustChatbotBottom() {
+    var $chatbot = $("#chatbot-container");
+    var footer = document.getElementById("footer");
+    var chatbotDefaultBottom = 20;
+    var chatbotRaisedBottom = 65;
+    var threshold = 20; // Tolerancia para evitar parpadeos
+    if (footer) {
+      var footerRect = footer.getBoundingClientRect();
+      var windowH = window.innerHeight || document.documentElement.clientHeight;
+      // El salto ocurre cuando el final del footer está tocando la parte inferior de la ventana
+      if (
+        footerRect.bottom < windowH + threshold &&
+        footerRect.bottom > windowH - threshold
+      ) {
+        $chatbot.css("bottom", chatbotRaisedBottom + "px", "important");
+      } else {
+        $chatbot.css("bottom", chatbotDefaultBottom + "px", "important");
+      }
+    } else {
+      $chatbot.css("bottom", chatbotDefaultBottom + "px", "important");
+    }
+  }
+  // Forzar siempre el valor inicial a 20px al cargar la página
+  $(window).on("scroll resize", adjustChatbotBottom);
+  $(window).on("pageshow", function () {
+    $("#chatbot-container").css("bottom", "20px", "important");
+    setTimeout(adjustChatbotBottom, 50);
+  });
+  $(function () {
+    $("#chatbot-container").css("bottom", "20px", "important");
+    setTimeout(adjustChatbotBottom, 50);
+  });
+  adjustChatbotBottom();
 });

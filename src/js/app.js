@@ -197,6 +197,14 @@ $(document).ready(function () {
     // Si el modal ya está presente, asigna el evento directamente
     initLoginModal();
   }
+
+  /* // Cargar el chatbot dinámicamente al final del body
+  $("body").append('<div id="chatbot-placeholder"></div>');
+  $("#chatbot-placeholder").load("/pages/chatbot.html", function () {
+    if (typeof initChatbot === "function") {
+      initChatbot();
+    }
+  }); */
 });
 
 /* Funcion on click para no repetir código */
