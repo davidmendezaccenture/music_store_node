@@ -131,10 +131,24 @@ function renderCart(items) {
     const price = item.offerPrice || item.price;
     total += price * (item.quantity || 1);
 
+    // Ajusta la ruta de la imagen a .webp y asegúrate de que sea absoluta
+    let imgSrc = item.image;
+    if (imgSrc) {
+      if (imgSrc.startsWith('..')) {
+        imgSrc = imgSrc.replace('..', '');
+      }
+      if (!imgSrc.startsWith('/')) {
+        imgSrc = '/' + imgSrc.replace(/^(\.\/|\/)/, '');
+      }
+      imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    } else {
+      imgSrc = '/assets/images/default.webp'; // Imagen por defecto si falta
+    }
+
     // Clonar template 
     const $tpl = $($('#cart-item-template').prop('content')).children().first().clone();
     $tpl.attr('data-id', item.id);
-    $tpl.find('img').attr('src', item.image).attr('alt', item.name);
+    $tpl.find('img').attr('src', imgSrc).attr('alt', item.name);
     $tpl.find('.card-title').text(item.name);
     $tpl.find('.card-text').text(item.description || '');
     $tpl.find('.price').text(`${price} €`);
@@ -213,10 +227,9 @@ $(document).on('click', '.btn-decrease', function () {
 // Eliminar producto del carrito con modal de confirmación
 let idToDelete = null;
 
-$(document).on('click', '.btn-remove', function () {
+$('#cart-content').on('click', '.btn-remove', function () {
   const $item = $(this).closest('.cart-item');
   idToDelete = parseInt($item.data('id'));
-  // Muestra el modal de Bootstrap
   const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
   modal.show();
 });
@@ -264,8 +277,8 @@ $(document).on('click', '.btn-checkout', function (e) {
       const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
       modal.show();
     } else {
-      // Aquí irá la lógica de checkout real para usuarios logueados
-      window.location.href = '/pages/coming-soon.html';
+      // Lógica de checkout real para usuarios logueados
+      window.location.href = '/pages/checkout.html';
     }
   });
 });

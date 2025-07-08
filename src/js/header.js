@@ -1,14 +1,41 @@
+// --- Buscador global solo por páginas principales (cuerda, percusión, teclado, dj) ---
+
+// Puedes dejar esto si lo usas en otras partes, pero ya no se usa para el buscador global
 let allProducts = [];
 
+// Define las páginas principales permitidas
+const allowedCategories = [
+  {
+    name: "cuerda",
+    url: "/pages/catalog.html?familia=cuerda",
+    keywords: ["guitarra", "guitarras", "bajo", "bajos", "acústica", "eléctrica", "clasica", "clásica", "bass", "string"]
+  },
+  {
+    name: "percusión",
+    url: "/pages/catalog.html?familia=percusion",
+    keywords: ["batería", "baterias", "bateria", "percusion", "percusión", "cajón", "cajon", "conga", "congas", "drum", "drums"]
+  },
+  {
+    name: "teclado",
+    url: "/pages/catalog.html?familia=teclado",
+    keywords: ["piano", "teclado", "sintetizador", "sinte", "keyboard", "synth"]
+  },
+  {
+    name: "dj",
+    url: "/pages/catalog.html?familia=dj",
+    keywords: ["dj", "controladora", "mezclador", "turntable", "vinilo", "vinilos", "plato", "platos"]
+  }
+];
+
 $(document).ready(function () {
-  // Cargar productos globales solo una vez
+  // Cargar productos desde el JSON (si es necesario en otras partes)
   $.getJSON("../assets/data/products.json", function (data) {
     allProducts = data;
   });
 
-  // Buscar en todos los productos al escribir
+  // Buscar solo en las categorías permitidas al escribir
   $(document).on("input", "#search-input-global", function () {
-    const query = $(this).val().trim().toLowerCase();
+    const query = $(this).val().trim();
     if (query.length > 1) {
       const queryNorm = normalizeText(query);
       const $input = $(this);
@@ -22,12 +49,12 @@ $(document).ready(function () {
         display: "block",
       });
 
-      let resultados = allProducts.filter(
-        (p) =>
-          normalizeText(p.name).includes(query) ||
-          (p.category && normalizeText(p.category).includes(query))
+      // Filtrar solo las categorías permitidas (nombre o keywords)
+      const matchedCategories = allowedCategories.filter(cat =>
+        normalizeText(cat.name).includes(queryNorm) ||
+        (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
       );
-      renderGlobalResults(resultados, query);
+      renderGlobalCategoryResults(matchedCategories, query);
     } else {
       $("#globalSearchDropdown").hide();
       $("#global-search-results").html("");
@@ -42,23 +69,20 @@ $(document).ready(function () {
       $("#globalSearchDropdown").hide();
     }
   });
-});
 
-// Renderizar resultados en texto tipo lista
-function renderGlobalResults(lista, query) {
+
+// Renderizar resultados SOLO de categorías permitidas
+function renderGlobalCategoryResults(categories, query) {
   const $res = $("#global-search-results");
-  if (query && lista.length > 0) {
+  if (query && categories.length > 0) {
     $res.html(`
       <ul class="list-group list-group-flush">
-        ${lista
+        ${categories
           .map(
-            (p) => `
+            (cat) => `
           <li class="list-group-item">
-            <a href="/pages/catalog.html?category=${encodeURIComponent(
-              p.category || ""
-            )}" class="text-decoration-none global-search-link">
-              <strong>${highlight(p.name, query)}</strong>
-              <span class="text-muted small ms-2">${p.category || ""}</span>
+            <a href="${cat.url}" class="text-decoration-none global-search-link" tabindex="0">
+              <strong>${highlight(cat.name, query)}</strong>
             </a>
           </li>
         `
@@ -66,20 +90,76 @@ function renderGlobalResults(lista, query) {
           .join("")}
       </ul>
     `);
+    // Mover el foco al primer resultado
+    // setTimeout(() => {
+    //   $(".global-search-link").first().focus();
+    // }, 0);
   } else if (query) {
     $res.html(
-      '<div class="text-muted px-3 py-2">No se encontraron productos.</div>'
+      '<div class="text-muted px-3 py-2">No se encontraron categorías.</div>'
     );
   } else {
     $res.html("");
   }
 
+  
   // Limpiar input y ocultar modal al hacer click en un resultado
   $(".global-search-link").on("click", function () {
     $("#search-input-global").val("");
     $("#globalSearchDropdown").hide();
   });
 }
+
+// Navegación con flechas arriba/abajo en los resultados del buscador global y seleccion con Enter
+$(document).on("keydown", "#search-input-global, .global-search-link", function (e) {
+  const $links = $(".global-search-link");
+  let idx = $links.index(document.activeElement);
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    if (idx === -1) {
+      $links.first().focus();
+    } else if (idx < $links.length - 1) {
+      $links.eq(idx + 1).focus();
+    }
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    if (idx > 0) {
+      $links.eq(idx - 1).focus();
+    } else {
+      $("#search-input-global").focus();
+    }
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if ($(document.activeElement).hasClass("global-search-link")) {
+      // Si está sobre un resultado, navega a su enlace
+      window.location.href = $(document.activeElement).attr("href");
+    } else if ($(document.activeElement).is("#search-input-global")) {
+      // Si está en el input, navega a la primera coincidencia si existe
+      const query = $(this).val().trim();
+      if (query.length > 1) {
+        const queryNorm = normalizeText(query);
+        const matchedCategories = allowedCategories.filter(cat =>
+          normalizeText(cat.name).includes(queryNorm) ||
+          (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
+        );
+        if (matchedCategories.length > 0) {
+          window.location.href = matchedCategories[0].url;
+        }
+      }
+    }
+  }
+});
+
+$(document).on("keydown", "#search-input-global", function (e) {
+  if (e.key === "Tab" && !e.shiftKey) {
+    const $links = $(".global-search-link");
+    if ($links.length > 0) {
+      e.preventDefault();
+      $links.first().focus();
+    }
+  }
+});
 
 function normalizeText(text) {
   return text
@@ -111,3 +191,10 @@ function highlight(text, query) {
     text.slice(end)
   );
 }
+
+// Prevenir submit del formulario
+$(document).on("submit", ".buscador-form", function (e) {
+  e.preventDefault();
+});
+
+}); 

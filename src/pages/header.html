@@ -51,7 +51,9 @@
             >
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link navbar-sections" href="/pages/about_us.html"
+            <a
+              class="nav-link navbar-sections no-wrap"
+              href="/pages/about_us.html"
               >Sobre nosotros</a
             >
           </li>
@@ -197,7 +199,7 @@
             alt="Icono cuerda"
             class="catalog-secondary-nav-icon"
           />
-          <span class="catalog-secondary-nav-text">Cuerda</span>
+          <span class="catalog-secondary-nav-text">cuerda</span>
         </a>
       </li>
       <li>
@@ -207,11 +209,11 @@
           aria-label="Ver productos de percusión"
         >
           <img
-            src="../assets/images/catalog_icons/percusion.webp"
+            src="../assets/images/catalog_icons/percusion.svg"
             alt="Icono percusión"
             class="catalog-secondary-nav-icon"
           />
-          <span class="catalog-secondary-nav-text">Percusión</span>
+          <span class="catalog-secondary-nav-text">percusión</span>
         </a>
       </li>
       <li>
@@ -221,11 +223,11 @@
           aria-label="Ver productos de teclado"
         >
           <img
-            src="../assets/images/catalog_icons/teclados.webp"
+            src="../assets/images/catalog_icons/teclados.svg"
             alt="Icono teclado"
             class="catalog-secondary-nav-icon"
           />
-          <span class="catalog-secondary-nav-text">Teclado</span>
+          <span class="catalog-secondary-nav-text">teclado</span>
         </a>
       </li>
       <li>
@@ -235,11 +237,11 @@
           aria-label="Ver productos de DJ"
         >
           <img
-            src="../assets/images/catalog_icons/dj.webp"
+            src="../assets/images/catalog_icons/dj.svg"
             alt="Icono DJ"
             class="catalog-secondary-nav-icon"
           />
-          <span class="catalog-secondary-nav-text">Dj</span>
+          <span class="catalog-secondary-nav-text">dj</span>
         </a>
       </li>
     </ul>
@@ -260,15 +262,18 @@
               type="search"
               placeholder="Buscar productos..."
               aria-label="Buscador"
+              autocomplete="off"
               id="search-input-global"
             />
             <button
               class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
               type="submit"
               aria-label="Buscar"
+              aria-hidden="true"
+              tabindex="-1"
             >
-              <i class="bi bi-search fs-5"></i>
-            </button>
+              <i class="bi bi-search fs-5"></i></button
+            ><!-- Añadido aria-hidden y tabindex para que no aparezca al navegar por teclado *All* -->
           </div>
         </form>
         <!-- Overlay para la barra de búsqueda -->

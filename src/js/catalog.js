@@ -1,3 +1,10 @@
+function normalizeText(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 (function () {
   let productos = [];
   let productosFiltrados = [];
@@ -78,8 +85,44 @@
   function cargarProductos() {
     $.getJSON("../assets/data/products.json", function (data) {
       productos = data;
-      poblarCategorias(productos); // <-- Llama aquí
+      poblarCategorias(productos);
+
+      // ANTES de mostrar, verificar parámetros URL
+      const params = new URLSearchParams(window.location.search);
+      const categoriaUrl = params.get("category");
+      const searchUrl = params.get("search");
+
+      // Si hay categoría, detectar y cambiar la familia PRIMERO
+      if (categoriaUrl) {
+        for (const [familia, cats] of Object.entries(familias)) {
+          if (cats.includes(categoriaUrl)) {
+            window.setFamilia(familia);
+            break;
+          }
+        }
+        $("#filtro-categoria").val(categoriaUrl);
+      }
+
+      if (searchUrl) {
+        $("#search-input-guitar").val(searchUrl);
+      }
+
+      // Ahora sí filtrar y mostrar (ya con filtros aplicados)
       filtrarYMostrar();
+      // Marcar la pestaña activa solo cuando los enlaces existen
+      setTimeout(function () {
+        document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
+          a.classList.remove("active");
+          a.removeAttribute("aria-current");
+        });
+        const enlaceActivo = document.querySelector(
+          `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
+        );
+        if (enlaceActivo) {
+          enlaceActivo.classList.add("active");
+          enlaceActivo.setAttribute("aria-current", "page");
+        }
+      }, 0);
     });
   }
 
@@ -93,23 +136,7 @@
 
     cargarProductos();
 
-    // Activar la pestaña correcta al cargar la página
-    setTimeout(function () {
-      console.log("Activando pestaña para familia:", familiaActiva);
-      // Quitar clase active de todos los enlaces
-      document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
-        a.classList.remove("active");
-        a.removeAttribute("aria-current");
-      });
-      // Añadir clase active al enlace correspondiente
-      const enlaceActivo = document.querySelector(
-        `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
-      );
-      if (enlaceActivo) {
-        enlaceActivo.classList.add("active");
-        enlaceActivo.setAttribute("aria-current", "page");
-      }
-    }, 0);
+    // Eliminado el setTimeout de marcado de pestaña activa, ahora se hace tras cargarProductos
 
     $("#search-input-guitar").on("input", filtrarYMostrar);
     $("#filtro-categoria").on("change", filtrarYMostrar);
@@ -117,24 +144,6 @@
     $("#filtro-oferta").on("change", filtrarYMostrar);
     $("#ordenar-productos").on("change", filtrarYMostrar);
   });
-
-  // Leer categoría de la URL y filtrar automáticamente
-  const params = new URLSearchParams(window.location.search);
-  const categoriaUrl = params.get("category");
-  if (categoriaUrl) {
-    // Detectar familia por categoría
-    for (const [familia, cats] of Object.entries(familias)) {
-      if (cats.includes(categoriaUrl)) {
-        window.setFamilia(familia);
-        break;
-      }
-    }
-    // Espera a que se rellene el select y selecciona la categoría
-    setTimeout(() => {
-      $("#filtro-categoria").val(categoriaUrl);
-      filtrarYMostrar();
-    }, 100);
-  }
 
   // 3. Poblar select de categorías dinámicamente
   function poblarCategorias(productos) {
@@ -227,6 +236,8 @@
           (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
         );
     }
+    console.log("Productos filtrados:", productosFiltrados);
+console.log("Contenedor existe:", !!document.getElementById("products-list"));
     mostrarProductos(productosFiltrados);
   }
 
@@ -255,23 +266,20 @@
               <div class="mt-auto d-flex flex-column gap-2">
                 <div class="d-block">
                   <p class="mb-2 mt-2">
-                    ${
-                      p.offerPrice < p.price
-                        ? `<span class=\"text-decoration-line-through\">${p.price} €</span>
+                    ${p.offerPrice < p.price
+              ? `<span class=\"text-decoration-line-through\">${p.price} €</span>
                          <span class=\"price-offer ms-2\">${p.offerPrice} €</span>`
-                        : `<span class=\"fw-bold\">${p.price} €</span>`
-                    }
+              : `<span class=\"fw-bold\">${p.price} €</span>`
+            }
                   </p>
                 </div>
                 <div class="d-flex justify-content-between gap-2">
-                  <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${
-                    p.id
-                  }'" aria-label="Ver detalle">
+                  <button class="btn btn-outline-secondary btn-detail" onclick="window.location.href='/pages/detail-product.html?id=${p.id
+            }'" aria-label="Ver detalle">
                     ver detalle
                   </button>
-                  <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${
-                    p.id
-                  }" aria-label="Añadir ${p.name} a la cesta">
+                  <button class="btn btn-primary add-to-cart ms-auto btn-cart position-relative" data-id="${p.id
+            }" aria-label="Añadir ${p.name} a la cesta">
                     <i class="bi bi-cart"></i>
                     <span class="cart-plus">+</span>
                   </button>

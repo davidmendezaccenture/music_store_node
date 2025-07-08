@@ -279,172 +279,102 @@
       </section>
 
       <!-- Galería de Imágenes -->
-      <section
-        id="galeria-section"
-        class="py-5 bg-light"
-        aria-labelledby="galeria-heading"
-      >
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <!-- Carrusel -->
-              <div
-                id="galleryCarousel"
-                class="carousel slide carousel-fade"
-                data-bs-ride="carousel"
-                data-bs-interval="4000"
-              >
-                <div class="carousel-indicators">
-                  <button
-                    type="button"
-                    data-bs-target="#galleryCarousel"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#galleryCarousel"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#galleryCarousel"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#galleryCarousel"
-                    data-bs-slide-to="3"
-                    aria-label="Slide 4"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#galleryCarousel"
-                    data-bs-slide-to="4"
-                    aria-label="Slide 5"
-                  ></button>
-                </div>
-
-                <div class="carousel-inner rounded-4 shadow-lg">
-                  <div class="carousel-item active">
-                    <img
-                      src="/assets/images/amplis1.webp"
-                      class="d-block w-100 galeria-style-cover"
-                      alt="Reparación de amplificadores"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block rounded-3 p-3"
-                    >
-                      <h5 class="fw-bold">Reparación de Amplificadores</h5>
-                      <p>
-                        Trabajos de restauración de amplificadores vintage con
-                        técnicas especializadas.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <img
-                      src="/assets/images/guitar1.webp"
-                      class="d-block w-100 galeria-style-cover"
-                      alt="Setup de guitarras"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3"
-                    >
-                      <h5 class="fw-bold">Setup de Guitarras</h5>
-                      <p>
-                        Procesos de calibración y ajuste para el sonido
-                        perfecto.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <img
-                      src="/assets/images/team1.webp"
-                      class="d-block w-100 galeria-style-fill"
-                      alt="Nuestro equipo de trabajo"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3"
-                    >
-                      <h5 class="fw-bold">Nuestro Equipo</h5>
-                      <p>
-                        Técnicos especializados con años de experiencia en el
-                        sector.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <img
-                      src="/assets/images/bass1.webp"
-                      class="d-block w-100 galeria-style-cover"
-                      alt="Reparación de bajos"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3"
-                    >
-                      <h5 class="fw-bold">Reparación de Bajos</h5>
-                      <p>
-                        Servicios especializados para bajos eléctricos y
-                        acústicos.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <img
-                      src="/assets/images/drum1.webp"
-                      class="d-block w-100 galeria-style-cover"
-                      alt="Mantenimiento de baterías"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3"
-                    >
-                      <h5 class="fw-bold">Baterías y Percusión</h5>
-                      <p>Mantenimiento y reparación de equipos de percusión.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#galleryCarousel"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Anterior</span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#galleryCarousel"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Siguiente</span>
-                </button>
+      <!-- <section id="galeria-section" class="py-5 bg-light" aria-labelledby="galeria-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div id="galleryCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel"
+              data-bs-interval="4000">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3"
+                  aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4"
+                  aria-label="Slide 5"></button>
               </div>
+
+              <div class="carousel-inner rounded-4 shadow-lg">
+                <div class="carousel-item active">
+                  <img src="/assets/images/amplis1.webp" class="d-block w-100 galeria-style-cover"
+                    alt="Reparación de amplificadores" />
+                  <div class="carousel-caption d-none d-md-block rounded-3 p-3">
+                    <h5 class="fw-bold">Reparación de Amplificadores</h5>
+                    <p>
+                      Trabajos de restauración de amplificadores vintage con
+                      técnicas especializadas.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img src="/assets/images/guitar1.webp" class="d-block w-100 galeria-style-cover"
+                    alt="Setup de guitarras" />
+                  <div class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3">
+                    <h5 class="fw-bold">Setup de Guitarras</h5>
+                    <p>
+                      Procesos de calibración y ajuste para el sonido
+                      perfecto.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img src="/assets/images/team1.webp" class="d-block w-100 galeria-style-fill"
+                    alt="Nuestro equipo de trabajo" />
+                  <div class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3">
+                    <h5 class="fw-bold">Nuestro Equipo</h5>
+                    <p>
+                      Técnicos especializados con años de experiencia en el
+                      sector.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img src="/assets/images/bass1.webp" class="d-block w-100 galeria-style-cover"
+                    alt="Reparación de bajos" />
+                  <div class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3">
+                    <h5 class="fw-bold">Reparación de Bajos</h5>
+                    <p>
+                      Servicios especializados para bajos eléctricos y
+                      acústicos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img src="/assets/images/drum1.webp" class="d-block w-100 galeria-style-cover"
+                    alt="Mantenimiento de baterías" />
+                  <div class="carousel-caption d-none d-md-block bg-opacity-75 rounded-3 p-3">
+                    <h5 class="fw-bold">Baterías y Percusión</h5>
+                    <p>Mantenimiento y reparación de equipos de percusión.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section> -->
 
       <!-- CTA Section -->
-      <section class="py-5" aria-labelledby="cta-heading">
+      <section class="py-5 bg-white" aria-labelledby="cta-heading">
         <div class="container">
           <div class="row text-center">
             <div class="col-12">
