@@ -138,6 +138,20 @@ body {
     color: black !important;
     border: none;
   }
+/* Botón para ir a modal de login */
+/* Cambia el color del borde y texto en estado normal */
+.btn-outline-primary {
+  color: black !important;         /* color del texto */
+  border-color: black !important;  /* color del borde */
+}
+
+/* Cambia el color de fondo, borde y texto en hover/focus */
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  color: #1969f6 !important;            /* color del texto en hover */
+  background-color: rgba(238, 236, 231) !important; /* color de fondo en hover */
+  border-color: #1969f6 !important;  /* color del borde en hover */
+}
 
 .auth-button:hover,
 .auth-button:focus {
