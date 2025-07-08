@@ -45,8 +45,7 @@ h2 {
   opacity: 0.9;
 }
 
-.cancel-button,
-.close-button {
+.modal-cancel-btn {
   background-color: #6C757D !important;
   color: black !important;
   border: none;
