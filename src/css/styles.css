@@ -687,10 +687,19 @@ body {
   /* border-radius: 50% !important; */
   background-color: transparent;
   color: #23272b !important;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
+  box-shadow: none !important;
   border-radius: 8px !important;
 }
-
+.btn-logout:focus,
+.btn-logout:focus-visible {
+  outline: 1px solid #1969f6 !important;
+  /* border-radius: 50% !important; */
+  background-color: transparent;
+  border: none;
+  /* color: #23272b !important; */
+  box-shadow: none;
+  border-radius: 8px !important;
+}
 /* Efectos de la navbar */
 
 .navbar-nav .nav-link:hover,
@@ -775,7 +784,7 @@ body {
   margin: 0;
 }
 
-.pre-footer-pagos .navbar-brand+.navbar-brand {
+.pre-footer-pagos .navbar-brand + .navbar-brand {
   margin-left: 10px;
 }
 
@@ -937,7 +946,7 @@ a:focus-visible .social-logo {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -2108,3 +2117,10 @@ main.c-main,
     opacity: 1;
   }
 } */
+/* -------------Tamaño fuente de h para no hacer saltos de accesibilidad---------- */
+.h4-size {
+  font-size: 1.5rem;
+}
+.h5-size {
+  font-size: 1.25rem;
+}
