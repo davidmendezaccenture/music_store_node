@@ -1,0 +1,24 @@
+.border-form {
+    border: 1px solid #f6a61a !important;
+}
+
+h2 {
+  font-size: 2.5rem;
+  /* Tamaño explícito para evitar cambios del navegador */
+}
+
+.icon-bicolor {
+  background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Efecto hover para los iconos bicolor Diagonal */
+.icon-bicolor:hover {
+  background: linear-gradient(45deg, #f6a61a 50%, #bfb4a8 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
