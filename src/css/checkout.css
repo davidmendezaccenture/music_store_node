@@ -7,6 +7,7 @@ h2 {
   /* Tamaño explícito para evitar cambios del navegador */
 }
 
+/* Iconos bicolor Diagonal */
 .icon-bicolor {
   background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
   -webkit-background-clip: text;
@@ -21,4 +22,39 @@ h2 {
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.3s ease;
+}
+
+/* Estilos del modal eliminar producto en checkout */
+.del-prod-checkout {
+  background-color: rgba(238, 236, 231) !important; /* Gris claro */
+  color: #23272b !important;        
+  border: #23272b 1px solid !important;
+}
+
+.modal-delete-btn {
+  background-color: #D93444 !important;
+  color: black !important;
+  border: none;
+  opacity: 1;
+}
+
+.modal-delete-btn:hover,
+.modal-delete-btn:focus {
+  background-color: #f6a61a !important;
+  color: black !important;
+  opacity: 0.9;
+}
+
+.cancel-button,
+.close-button {
+  background-color: #6C757D !important;
+  color: black !important;
+  border: none;
+}
+
+.modal-cancel-btn:hover,
+.modal-cancel-btn:focus {  
+  background-color: black !important;
+  color: #f6a61a !important;
+  opacity: 0.9;
 }

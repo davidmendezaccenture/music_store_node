@@ -46,7 +46,7 @@ body {
 
 .custom-delete-modal .modal-content {
   background-color: rgba(238, 236, 231) !important; /* Gris claro */
-  color: #23272b !important;           /* Texto naranja */
+  color: #23272b !important;        
   border: #23272b 1px solid !important;
 }
 
