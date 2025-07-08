@@ -221,14 +221,129 @@ $('#cart-summary').on('click', '.btn-cancel', function () {
 });
 
 // Mostrar modal al confirmar pago
-$('#checkout-form').on('submit', function(e) {
-  e.preventDefault();
-  const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
-  modal.show();
-});
+// $('#checkout-form').on('submit', function(e) {
+//   e.preventDefault();
+//   const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+//   modal.show();
+// });
 
 // Botón "Seguir comprando"
 $('#paymentSuccessModal').on('click', '#seguirComprandoBtn', function() {
   const lastPage = sessionStorage.getItem('lastShoppingPage') || '/pages/index.html';
   window.location.href = lastPage;
+});
+
+// Validación personalizada del formulario de checkout
+$('#checkout-form').on('submit', function (e) {
+  e.preventDefault();
+  let valid = true;
+
+  // Nombre completo: solo letras y espacios, mínimo 2 caracteres
+  const nombre = $('#full-name').val().trim();
+  if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(nombre)) {
+    setError('#full-name', 'Introduce un nombre válido (solo letras, mínimo 2 caracteres).');
+    valid = false;
+  } else {
+    clearError('#full-name');
+  }
+
+  // Email
+  const email = $('#email').val().trim();
+  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+    setError('#email', 'Introduce un correo electrónico válido.');
+    valid = false;
+  } else {
+    clearError('#email');
+  }
+
+  // Calle
+  const street = $('#street').val().trim();
+  if (street.length < 2) {
+    setError('#street', 'Introduce una calle válida.');
+    valid = false;
+  } else {
+    clearError('#street');
+  }
+
+  // Número
+  const number = $('#number').val().trim();
+  if (!/^\d+[A-Za-z]?$/.test(number)) {
+    setError('#number', 'Introduce un número válido.');
+    valid = false;
+  } else {
+    clearError('#number');
+  }
+
+  // Ciudad
+  const city = $('#city').val().trim();
+  if (city.length < 2) {
+    setError('#city', 'Introduce una ciudad válida.');
+    valid = false;
+  } else {
+    clearError('#city');
+  }
+
+  // Código Postal
+  const postal = $('#postal-code').val().trim();
+  if (!/^\d{4,6}$/.test(postal)) {
+    setError('#postal-code', 'Introduce un código postal válido.');
+    valid = false;
+  } else {
+    clearError('#postal-code');
+  }
+
+  // Provincia
+  const province = $('#province').val().trim();
+  if (province.length < 2) {
+    setError('#province', 'Introduce una provincia válida.');
+    valid = false;
+  } else {
+    clearError('#province');
+  }
+
+  // País
+  const country = $('#country').val().trim();
+  if (country.length < 2) {
+    setError('#country', 'Introduce un país válido.');
+    valid = false;
+  } else {
+    clearError('#country');
+  }
+
+  // Teléfono (opcional, pero si se rellena debe ser válido)
+  const phone = $('#phone').val().trim();
+  if (phone && !/^[\d\s\-\(\)]{7,}$/.test(phone)) {
+    setError('#phone', 'Introduce un teléfono válido (mínimo 7 dígitos, solo números y símbolos).');
+    valid = false;
+  } else {
+    clearError('#phone');
+  }
+
+  // Método de pago
+  const payment = $('#payment-method').val();
+  if (!payment) {
+    setError('#payment-method', 'Selecciona un método de pago.');
+    valid = false;
+  } else {
+    clearError('#payment-method');
+  }
+
+  if (valid) {
+    // Si todo es válido, muestra el modal de confirmación de compra
+    const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+    modal.show();
+  }
+});
+
+// Funciones auxiliares para mostrar/ocultar errores
+function setError(selector, message) {
+  $(selector).addClass('is-invalid').next('.invalid-feedback').text(message);
+}
+function clearError(selector) {
+  $(selector).removeClass('is-invalid').next('.invalid-feedback').text('');
+}
+
+// Limpia el error al modificar el campo
+$('#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method').on('input change', function () {
+  clearError('#' + this.id);
 });
