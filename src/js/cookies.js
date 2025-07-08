@@ -1,5 +1,4 @@
 // Banner/Modal de cookies para Rat Pack Instruments
-// Banner/Modal de cookies para Rat Pack Instruments
 (function () {
     // Si estamos en legal.html y la URL contiene #collapseCookies, abrir el collapse automáticamente
     function autoOpenCollapseIfHash() {

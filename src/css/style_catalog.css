@@ -1,11 +1,32 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 main {
   margin-bottom: 3em;
   /* margin-top: 5em; */
 }
 
+@media (max-width: 991px) {
+  main {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 @media (max-width: 770px) {
   main {
-    /* margin-top: 18rem !important; */
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 770px) {
+
+  a.btn-outline-primary,
+  .btn-outline-primary {
+    margin-top: 3em !important;
   }
 }
 
@@ -206,6 +227,12 @@ a.btn-outline-primary:hover,
 
 /* Ajuste de tarjetas en móvil: margen lateral y ancho reducido */
 @media (max-width: 576px) {
+
+  main {
+    /* margin-top: 13em !important; */
+  }
+
+
   .card {
     max-width: 95vw;
     margin-left: auto;
@@ -297,7 +324,7 @@ a.btn-outline-primary:hover,
   background-color: #fff;
   color: #23272b;
   border: 1.5px solid #f6a61a;
-  font-weight: 300;
+  font-weight: 400;
   transition: background 0.2s, color 0.2s, border 0.2s;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -349,307 +376,14 @@ a.btn-outline-primary:hover,
   padding-bottom: 0 !important;
 }
 
-
-/* Barra secundaria de navegación personalizada para drums */
-/* .second-navbar-drums {
-    background-color: #f6a61a;
-    border-radius: 0;
-    padding: 0.2em 1.5em;
-    text-align: left !important;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-} */
-
-/* .second-navbar-drums .nav-text,
-.second-navbar-drums a,
-.second-navbar-drums a.active .nav-text {
-    all: unset;
-} */
-
-/* Barra secundaria de navegación personalizada desde cero */
-/* .catalog-secondary-nav {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 5;
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 0;
-  top: 0;
-  margin-top: 0 !important;
-} */
-
-/* --- Responsive barra secundaria catálogo --- */
-/* .catalog-secondary-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-} */
-
-/* .catalog-secondary-nav ul {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 60px;
-  gap: 2em;
-  flex-direction: row;
-  width: auto;
-} */
-
-/* .catalog-secondary-nav li {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  min-width: max-content;
-} */
-
-/* .catalog-secondary-nav li:first-child {
-  margin-left: 0 !important;
-} */
-
-/* .catalog-secondary-nav a {
-  color: #23272b;
-  text-decoration: none !important;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  padding: 0.13em 0.5em;
-  border-radius: 0; */
-/* Transición suave para color, background, sombra y border-radius (para evitar salto cuadrado) */
-/* transition: color 0.18s ease, background 0.18s ease,
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 0 4px rgba(246, 166, 26, 0); */
-/* sombra invisible por defecto */
-/* } */
-
-/* .catalog-secondary-nav .catalog-secondary-nav-text {
-  font-family: "Outfit", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  display: inline-block;
-  min-width: 0;
-  padding: 0 4px;
-  transition: color 0.18s ease, background 0.18s ease;
-} */
-
-/* Hover/focus: outline amarillo, sin fondo, borde tipo píldora, SIN subrayado ni cambio de color en el texto */
-/* .catalog-secondary-nav a:hover,
-.catalog-secondary-nav a:focus { */
-/* Simula outline amarillo con box-shadow fade in y animación border-radius */
-/* box-shadow: 0 0 0 4px rgba(246, 166, 26, 1);
-  background: none;
-  color: #23272b !important;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none !important;
-} */
-
-/* Elimina subrayado y color en hover/focus SOLO para el texto dentro del enlace */
-/* .catalog-secondary-nav a:hover .catalog-secondary-nav-text,
-.catalog-secondary-nav a:focus .catalog-secondary-nav-text {
-  color: #23272b !important;
-  text-decoration: none !important;
-  background: none !important;
-  border-bottom: none !important;
-} */
-
-/* Activo: fondo amarillo, borde tipo píldora, sin outline, efecto igual que el outline pero relleno */
-/* .catalog-secondary-nav a.active {
-  background: #f6a61a;
-  color: #23272b !important;
-  border-radius: 999px; */
-/* Igualar el tamaño visual al hover/focus: box-shadow invisible del mismo grosor */
-/* box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  font-weight: 600; */
-/* Sumar el grosor del outline al padding para igualar el área total */
-/* padding: calc(0.13em + 4px) calc(0.5em + 4px);
-  transition: background 0.18s ease, color 0.18s ease,
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-} */
-
-/* El texto dentro del enlace activo mantiene el mismo estilo, sin fondo adicional */
-/* .catalog-secondary-nav a.active .catalog-secondary-nav-text {
-  background: none;
-  color: #23272b;
-  padding: 0 4px;
-  border-radius: 999px;
-  font-weight: 600;
-  outline: none;
-  box-shadow: none;
-} */
-
-/* El enlace activo NO cambia en hover/focus */
-/* .catalog-secondary-nav a.active:hover,
-.catalog-secondary-nav a.active:focus {
-  background: #f6a61a;
-  color: #23272b !important;
-  border-radius: 999px;
-  box-shadow: none;
-  font-weight: 600;
-} */
-
-/* Icono de búsqueda */
-/* .catalog-secondary-nav-search {
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 1.5rem;
-  color: #23272b;
-  align-self: center;
-  padding-right: 1em;
-} */
-
-/* @media (max-width: 576px) {
-  .catalog-secondary-nav-search {
-    margin-left: 0;
-    padding-right: 0;
-  }
-} */
-
-/* Elimina cualquier padding/margin lateral extra de Bootstrap en .container si existiera */
-/* .catalog-secondary-nav .container,
-.catalog-secondary-nav ul,
-.catalog-secondary-nav li,
-.catalog-secondary-nav a {
-  box-sizing: border-box !important;
-} */
-
-/* Responsive tweaks */
-/* @media (max-width: 400px) {
-  .btn-group {
-    flex-direction: column;
-    gap: 0.5rem;
+@media (max-width: 991px) {
+  main {
+    /* margin-top: 13em !important; */
   }
 
-  .card-img-top {
-    height: 180px;
+  a.btn-outline-primary,
+  .btn-outline-primary {
+    margin-top: 7em;
   }
 
-  h2.h5 {
-    font-size: 1.2rem;
-  }
 }
-
-@media (max-width: 576px) {
-  .catalog-secondary-nav .container {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0;
-  }
-
-  .catalog-secondary-nav ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.2em;
-    height: auto;
-    width: 100%;
-  }
-
-  .catalog-secondary-nav li {
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    margin-bottom: 0.2em;
-  }
-
-  .catalog-secondary-nav a {
-    width: 100%;
-    justify-content: flex-start;
-    font-size: 1.2rem;
-    padding-left: 0.7em;
-    padding-right: 0.7em;
-  }
-
-  .catalog-secondary-nav .catalog-secondary-nav-text {
-    font-size: 1.2rem;
-  }
-
-  .catalog-secondary-nav-search {
-    width: 100%;
-    margin: 0;
-    padding: 0.5em 0.7em 0.7em 0.7em;
-    order: 2;
-    align-self: stretch;
-    box-sizing: border-box;
-  }
-} */
-
-/* --- Versión intermedia: tablet o móvil horizontal (577px a 900px) --- */
-/* @media (min-width: 577px) and (max-width: 900px) {
-  .catalog-secondary-nav .container {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0;
-  }
-
-  .catalog-secondary-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 0.2em 0.5em;
-    height: auto;
-    width: 100%;
-    margin-bottom: 0.5em;
-  }
-
-  .catalog-secondary-nav li {
-    width: 48%;
-    min-width: 0;
-    margin-bottom: 0.2em;
-    height: auto;
-    box-sizing: border-box;
-  }
-
-  .catalog-secondary-nav a {
-    width: 100%;
-    justify-content: flex-start;
-    font-size: 1.3rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-radius: 0.5em;
-  }
-
-  .catalog-secondary-nav .catalog-secondary-nav-text {
-    font-size: 1.3rem;
-  }
-
-  .catalog-secondary-nav-search {
-    width: 100%;
-    align-self: stretch;
-    margin: 0;
-    padding: 0.5em 0.5em 0.7em 0.5em;
-    font-size: 1.2rem;
-    box-sizing: border-box;
-    order: 2;
-  }
-} */
-
-
-/* Contenedor interior para la barra secundaria, igual que el header */
-/* .nav-drums-inner {
-  background-color: transparent;
-  width: 100%;
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  box-sizing: border-box;
-} */
