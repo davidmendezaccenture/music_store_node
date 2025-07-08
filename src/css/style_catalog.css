@@ -386,28 +386,4 @@ a.btn-outline-primary:hover,
     margin-top: 7em;
   }
 
-  .catalog-secondary-nav .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em 1em;
-  }
-
-  .catalog-secondary-nav-search {
-    flex-basis: 100%;
-    width: 100%;
-    margin: 0 auto;
-    order: 2;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .catalog-secondary-nav ul {
-    flex-wrap: nowrap;
-    width: auto;
-    justify-content: center;
-  }
 }
