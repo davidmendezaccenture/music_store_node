@@ -1,24 +1,25 @@
 /*reset css*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 /* Fuente outfit */
 body {
-    font-family: "Outfit", sans-serif;
-    font-size: 1rem;
-    background-color: rgba(238, 236, 231, 0.693);
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  background-color: rgba(238, 236, 231, 0.693);
   /*  */
 }
 
 .img-emptycart {
-    width:400px;
-    opacity:0.7;
+  width: 400px;
+  opacity: 0.7;
 }
 
 #cart-content {
-    display:none;
+  display: none;
 }
 
 #cart-count {
@@ -26,11 +27,13 @@ body {
 }
 
 #cart-empty {
-    display: none;
+  display: none;
 }
 
-#cart-content, #cart-empty {
-  min-height: 300px; /* Alto del spinner */
+#cart-content,
+#cart-empty {
+  min-height: 300px;
+  /* Alto del spinner */
 }
 
 /* Modal personalizado para eliminar producto */
@@ -45,8 +48,10 @@ body {
 }
 
 .custom-delete-modal .modal-content {
-  background-color: rgba(238, 236, 231) !important; /* Gris claro */
-  color: #23272b !important;           /* Texto naranja */
+  background-color: rgba(238, 236, 231) !important;
+  /* Gris claro */
+  color: #23272b !important;
+  /* Texto naranja */
   border: #23272b 1px solid !important;
 }
 
@@ -75,15 +80,43 @@ body {
   color: #fff !important;
 }
 
+
+a.regular-btn,
 .regular-btn {
-  background-color: black !important;
-  color: #F6A61A !important;
-  border: none;
+  margin-top: 2em;
+  background-color: #23272b;
+  color: #fff;
+  border-color: #23272b;
+  font-weight: 300;
+  border-radius: 999px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  transition: background 0.2s, color 0.2s, border 0.2s;
 }
-.regular-btn:hover,
-.regular-btn:focus {
-  background-color: #f6a61a !important;
-  color: black !important;
+
+a.regular-btn:hover,
+.regular-btn:hover {
+  background-color: #f6a61a;
+  color: #23272b;
+  border-color: #f6a61a;
+}
+
+
+@media (max-width: 991px) {
+
+  a.regular-btn,
+  .regular-btn {
+    margin-top: 12em;
+  }
+}
+
+
+@media (max-width: 770px) {
+
+  a.regular-btn,
+  .regular-btn {
+    margin-top: 16em !important;
+  }
 }
 
 .clear-btn {
@@ -91,6 +124,7 @@ body {
   color: black !important;
   border: black 1px solid !important;
 }
+
 .clear-btn:hover,
 .clear-btn:focus {
   background-color: transparent !important;
@@ -112,10 +146,11 @@ body {
 }
 
 .cart-qty-group {
-  max-width: 100px; /* o el ancho que prefieras */
+  max-width: 100px;
+  /* o el ancho que prefieras */
   width: 100%;
   margin: 0 auto;
-   /* margin-bottom: 1rem; */
+  /* margin-bottom: 1rem; */
 }
 
 .cart-qty-input {
@@ -126,18 +161,19 @@ body {
 }
 
 @media (max-width: 767px) {
+
   .cart-qty-group,
   .delete-product-btn {
     margin-bottom: 1rem;
   }
 }
 
-  /*Botón para ir a página de autenticación */
-  .auth-button {
-    background-color: #F6A61A !important;
-    color: black !important;
-    border: none;
-  }
+/*Botón para ir a página de autenticación */
+.auth-button {
+  background-color: #F6A61A !important;
+  color: black !important;
+  border: none;
+}
 
 .auth-button:hover,
 .auth-button:focus {
@@ -147,7 +183,7 @@ body {
 }
 
 /* Botón cerrar de los modales */
- .delete-product-btn {
+.delete-product-btn {
   background-color: #D93444 !important;
   color: black !important;
   border: none;
@@ -171,7 +207,7 @@ body {
 .close-button:hover,
 .close-button:focus,
 .cancel-button:hover,
-.cancel-button:focus {  
+.cancel-button:focus {
   background-color: black !important;
   color: #f6a61a !important;
   opacity: 0.9;
@@ -193,6 +229,7 @@ body {
   .cart-actions .row {
     flex-direction: column !important;
   }
+
   .cart-actions .col-12 {
     width: 100% !important;
     max-width: 100% !important;
@@ -200,20 +237,26 @@ body {
     margin-bottom: 0.5rem;
     text-align: center;
   }
+
   .cart-actions .col-12:last-child {
     margin-bottom: 0;
   }
-  .cart-item .col-3, /* Imagen */
-  .cart-item .col-9 { /* Texto */
+
+  .cart-item .col-3,
+  /* Imagen */
+  .cart-item .col-9 {
+    /* Texto */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
+
   .cart-item .col-3 {
     margin-top: 5px;
   }
+
   .cart-item .col-9 .card-body {
     align-items: center;
     justify-content: center;
