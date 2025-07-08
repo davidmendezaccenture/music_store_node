@@ -31,5 +31,6 @@ $(document).ready(function () {
             producto.offerPrice < producto.price ? `€${producto.price}` : ""
         );
         $(".product-description").text(producto.description);
+        $('.add-to-cart').attr('data-id', producto.id);
     });
 });
