@@ -294,3 +294,5 @@ console.log("Contenedor existe:", !!document.getElementById("products-list"));
     );
   }
 })();
+// Guardar la última página de compras en sessionStorage
+sessionStorage.setItem('lastShoppingPage', window.location.href);

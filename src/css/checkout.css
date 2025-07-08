@@ -1,0 +1,66 @@
+.border-form {
+    border: 1px solid #f6a61a !important;
+}
+
+h2 {
+  font-size: 2.5rem;
+  /* Tamaño explícito para evitar cambios del navegador */
+}
+
+/* Iconos bicolor Diagonal */
+.icon-bicolor {
+  background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Efecto hover para los iconos bicolor Diagonal */
+.icon-bicolor:hover {
+  background: linear-gradient(45deg, #f6a61a 50%, #bfb4a8 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+/* Estilos del modal eliminar producto en checkout */
+.del-prod-checkout {
+  background-color: rgba(238, 236, 231) !important; /* Gris claro */
+  color: #23272b !important;        
+  border: #23272b 1px solid !important;
+}
+
+.modal-delete-btn {
+  background-color: #D93444 !important;
+  color: black !important;
+  border: none;
+  opacity: 1;
+}
+
+.modal-delete-btn:hover,
+.modal-delete-btn:focus {
+  background-color: #f6a61a !important;
+  color: black !important;
+  opacity: 0.9;
+}
+
+.modal-cancel-btn {
+  background-color: #6C757D !important;
+  color: black !important;
+  border: none;
+}
+
+.modal-cancel-btn:hover,
+.modal-cancel-btn:focus {  
+  background-color: black !important;
+  color: #f6a61a !important;
+  opacity: 0.9;
+}
+
+/* Estilos para modal Confirmar Compra */
+
+.modal-success-bg {
+  background-color: rgba(238, 236, 231) !important; /* Cambia este color por el que prefieras */
+}
+

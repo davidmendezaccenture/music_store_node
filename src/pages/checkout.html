@@ -11,29 +11,68 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/services.css" />
   <link rel="stylesheet" href="../css/style_catalog.css" />
+  <link rel="stylesheet" href="../css/checkout.css" />
 </head>
 <body>
     <!-- Cabecera de la página -->
-     <header id="header"></header>
+     <header id="header" role="banner"></header>
 
+      <!-- Modal de búsqueda global -->
+    <div id="globalSearchDropdown" 
+         class="search-bar py-1 buscador shadow"
+         style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="global-search-label"
+         aria-describedby="global-search-results"
+         tabindex="-1">
+      <div class="container">
+        <form
+        class="d-flex justify-content-center buscador-form" 
+        role="search" 
+        aria-label="Barra de búsqueda global">
+        </form>
+        <div id="global-search-results" 
+            class="mt-2"
+            role="listbox"
+            aria-label="Resultados de búsqueda"
+            tabindex="0"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
+    
      <!-- Checkout -->
-    <main>
+    <main role="main">
   <div class="container py-5">
     <div class="row justify-content-center">
       <!-- Formulario de Proceso de Pago -->
-      <div class="col-lg-7">
-        <h2 class="text-center mb-4">
-          <i class="bi bi-credit-card me-3 icon-bicolor"></i>Proceso de Pago
+               <h2 class="text-center mb-4">
+          <i class="bi bi-credit-card me-3 icon-bicolor mb-4 text-center"></i>Proceso de Pago
         </h2>
-        <form id="checkout-form" class="bg-white border border-1 rounded-4 p-4">
+      <div class="col-lg-7">
+
+        <form id="checkout-form" 
+              class="bg-white border border-1 rounded-4 p-4 border-form" 
+              novalidate
+              aria-label="Formulario de proceso de pago"
+              >
+          <h2 class="text-center mb-4">Datos personales</h2>
          <div class="mb-3">
             <label for="promo-code" class="form-label">Código promocional</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="promo-code" placeholder="Introduce tu código">
-                    <button class="btn btn-outline-success" type="button" id="apply-promo" title="Aplicar código">
-                    <i class="bi bi-check-circle"></i>
+                    <input type="text" 
+                           class="form-control" 
+                           id="promo-code" 
+                           placeholder="Introduce tu código"
+                           >
+                    <button class="btn btn-outline-success" 
+                            type="button" 
+                            id="apply-promo" 
+                            title="Aplicar código" 
+                            aria-label="Aplicar código promocional">
+                    <i class="bi bi-check-circle" aria-hidden="true"></i>
                     </button>
                 </div>
             <div id="promo-feedback" class="form-text text-danger d-none"></div>
@@ -46,48 +85,58 @@
               <option value="paypal">PayPal Express</option>
               <option value="transferencia">Amazon Pay</option>
             </select>
+            <div class="invalid-feedback" role="alert"></div>
           </div>
           <div class="mb-3">
             <label for="full-name" class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" id="full-name" required>
+            <input type="text" class="form-control" id="full-name" required aria-required="true">
+            <div class="invalid-feedback" role="alert"></div>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
+            <input type="email" class="form-control" id="email" required aria-required="true">
+            <div class="invalid-feedback" role="alert"></div>
           </div>
           <div class="mb-3 row">
             <div class="col-8">
               <label for="street" class="form-label">Calle</label>
-              <input type="text" class="form-control" id="street" required>
+              <input type="text" class="form-control" id="street" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
             <div class="col-4">
               <label for="number" class="form-label">Número</label>
-              <input type="text" class="form-control" id="number" required>
+              <input type="text" class="form-control" id="number" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col-6">
               <label for="city" class="form-label">Ciudad</label>
-              <input type="text" class="form-control" id="city" required>
+              <input type="text" class="form-control" id="city" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
             <div class="col-6">
               <label for="postal-code" class="form-label">Código Postal</label>
-              <input type="text" class="form-control" id="postal-code" required>
+              <input type="text" class="form-control" id="postal-code" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col-6">
               <label for="province" class="form-label">Provincia</label>
-              <input type="text" class="form-control" id="province" required>
+              <input type="text" class="form-control" id="province" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
             <div class="col-6">
               <label for="country" class="form-label">País</label>
-              <input type="text" class="form-control" id="country" required>
+              <input type="text" class="form-control" id="country" required aria-required="true">
+              <div class="invalid-feedback" role="alert"></div>
             </div>
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Teléfono de contacto</label>
-            <input type="tel" class="form-control" id="phone" required>
+            <input type="tel" class="form-control" id="phone" required aria-required="true">
+            <div class="invalid-feedback" role="alert"></div>
           </div>
         </form>
       </div>
@@ -100,8 +149,8 @@
           <div class="card-body" id="cart-summary">
             <!-- Ejemplo de producto en el carrito -->
             <ul class="list-group mb-3">
-              <li class="list-group-item d-flex align-items-center">
-                <img src="https://via.placeholder.com/48" alt="Producto" class="rounded me-2" width="48" height="48">
+              <!-- <li class="list-group-item d-flex align-items-center"> -->
+                <!-- <img src="https://via.placeholder.com/48" alt="Imagen del producto" class="rounded me-2" width="48" height="48">
                 <div class="flex-grow-1">
                   <div>Sintetizador Korg</div>
                   <small class="text-muted">Cantidad: 2</small>
@@ -109,12 +158,12 @@
                 <span class="me-3">€1400.00</span>
                 <button class="btn btn-link text-danger p-0" title="Eliminar">
                   <i class="bi bi-trash"></i>
-                </button>
-              </li>
+                </button> -->
+              <!-- </li> -->
               <!-- Más productos aquí... -->
             </ul>
             <div class="d-flex justify-content-end gap-2">
-              <button class="btn btn-secondary btn-cancel" type="button">Cancelar</button>
+              <button class="btn btn-secondary rounded-pill modal-cancel-btn btn-cancel" type="button">Cancelar</button>
               <button class="btn btn-primary" type="submit" form="checkout-form">Confirmar Pago</button>
             </div>
           </div>
@@ -124,8 +173,89 @@
   </div>
 </main>
 
+<!-- Modal de eliminación de producto -->
+<div class="modal fade" 
+     id="deleteConfirmModal" 
+     tabindex="-1" 
+     aria-labelledby="deleteConfirmModalLabel"
+     aria-describedby="deleteConfirmModalDesc" 
+     aria-hidden="true" 
+     role="dialog" 
+     aria-modal="true"
+     >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content del-prod-checkout">
+      <div class="modal-header">
+        <h5 
+          class="modal-title" 
+          id="deleteConfirmModalLabel" 
+          aria-label="Eliminar producto"
+          >Eliminar producto
+        </h5>
+        <button 
+          type="button" 
+          class="btn-close" 
+          data-bs-dismiss="modal" 
+          aria-label="Cerrar"
+          >
+        </button>
+      </div>
+      <div class="modal-body" id="deleteConfirmModalDesc">
+        ¿Estás seguro de que deseas eliminar este producto del pedido?
+      </div>
+      <div class="modal-footer">
+        <button 
+          type="button" 
+          class="btn btn-secondary rounded-pill modal-cancel-btn " 
+          data-bs-dismiss="modal"
+          aria-label="Cancelar eliminación"
+          >Cancelar
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-danger rounded-pill modal-delete-btn" 
+          id="confirmDeleteBtn"
+          aria-label="Eliminar producto"
+          >Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación de Compra -->
+<div class="modal fade" 
+     id="paymentSuccessModal" 
+     tabindex="-1" 
+     aria-labelledby="paymentSuccessModalLabel" 
+     aria-hidden="true" 
+     role="dialog"
+     aria-modal="true"
+     >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center modal-success-bg">
+      <div class="modal-header border-0 justify-content-center">
+        <h5 class="modal-title w-100" id="paymentSuccessModalLabel">
+          <i class="bi bi-check-circle-fill text-success fs-1 me-2" aria-hidden="true"></i>
+          ¡Gracias por tu compra!
+        </h5>
+      </div>
+      <div class="modal-body" id="paymentSuccessModalDesc">
+        <p class="mb-3">Recibirás un email con el seguimiento del pedido.</p>
+        <p class="text-muted small mb-4">Pago seguro con cifrado.</p>
+        <button 
+          type="button" 
+          class="btn btn-primary" 
+          id="seguirComprandoBtn"
+          aria-label="Seguir comprando"
+          >Seguir comprando
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Footer -->
-  <div id="footer"></div>
+  <div id="footer" role="contentinfo"></div>
 
 
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

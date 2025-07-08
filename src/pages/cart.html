@@ -258,7 +258,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-primary rounded-pill px-4 cancel-button"
+                class="btn btn-secondary rounded-pill px-4 cancel-button"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -298,17 +298,23 @@
             </div>
             <div class="modal-body">
               ¿Tienes cuenta?.<br />
-              <strong>Regístrate para continuar con la compra.</strong>
+              <strong>Inicia Sesión o Regístrate para continuar con la compra.</strong>
             </div>
             <div class="modal-footer">
               <a
+                  type="button"
+                  class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button login-button-modal-guest"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+              >Iniciar Sesión</a>
+              <a
                 href="/pages/register.html"
-                class="btn btn-primary rounded-pill px-4 auth-button"
+                class="btn rounded-pill px-4 auth-button"
                 >Registrarse</a
               >
               <button
                 type="button"
-                class="btn btn-primary rounded-pill px-4 close-button"
+                class="btn rounded-pill px-4 close-button"
                 data-bs-dismiss="modal"
               >
                 Cerrar
