@@ -153,3 +153,16 @@ $('#promo-code').on('input', function () {
 $('#cart-summary').on('click', '.btn-cancel', function () {
   window.location.href = '/pages/cart.html';
 });
+
+// Mostrar modal al confirmar pago
+$('#checkout-form').on('submit', function(e) {
+  e.preventDefault();
+  const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+  modal.show();
+});
+
+// Botón "Seguir comprando"
+$('#paymentSuccessModal').on('click', '#seguirComprandoBtn', function() {
+  const lastPage = sessionStorage.getItem('lastShoppingPage') || '/pages/index.html';
+  window.location.href = lastPage;
+});
