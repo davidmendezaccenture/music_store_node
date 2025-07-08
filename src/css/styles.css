@@ -2161,3 +2161,10 @@ main.c-main,
     opacity: 1;
   }
 } */
+/* -------------Tamaño fuente de h para no hacer saltos de accesibilidad---------- */
+.h4-size {
+  font-size: 1.5rem;
+}
+.h5-size {
+  font-size: 1.25rem;
+}

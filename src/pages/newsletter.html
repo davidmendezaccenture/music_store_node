@@ -1,271 +1,345 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Suscríbete al newsletter de Rat Pack Instruments para recibir ofertas exclusivas, novedades y consejos musicales directamente en tu correo."
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Newsletter | Rat Pack Instruments</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/newsletter.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icono tittle -->
+    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Suscríbete al newsletter de Rat Pack Instruments para recibir ofertas exclusivas, novedades y consejos musicales directamente en tu correo." />
-  <meta name="robots" content="index, follow" />
-  <title>Newsletter | Rat Pack Instruments</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/services.css" />
-  <link rel="stylesheet" href="../css/newsletter.css" />
-  <!-- Fuente seleccionada para usar en el proyecto-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet" />
-  <!-- icono tittle -->
-  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-</head>
+  <body>
+    <!-- Skip Link para accesibilidad -->
+    <a href="#main-content" class="skip-link sr-only sr-only-focusable">
+      Saltar al contenido principal
+    </a>
 
-<body>
-  <!-- Skip Link para accesibilidad -->
-  <a href="#main-content" class="skip-link sr-only sr-only-focusable">
-    Saltar al contenido principal
-  </a>
+    <!-- Header-->
+    <div id="header"></div>
 
-  <!-- Header-->
-  <div id="header"></div>
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero-newsletter py-5 bg-white">
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="display-4 fw-bold mb-4">
+                <i
+                  class="bi bi-envelope-paper-fill icon-bicolor-horizontal"
+                ></i>
+                <span class="text-goldd">Únete</span> a nuestra Newsletter
+              </h2>
+              <p class="lead mb-4">
+                Mantente al día con las últimas novedades, ofertas exclusivas y
+                consejos del mundo musical. Sé el primero en conocer todo lo que
+                <strong>Rat Pack Instruments</strong> tiene para ti.
+              </p>
+              <div class="newsletter-form-hero">
+                <form
+                  id="newsletterForm"
+                  class="row g-3 justify-content-center"
+                >
+                  <div class="col-md-6">
+                    <div class="input-group input-group-lg">
+                      <span
+                        class="input-group-text background-resaltado txt-negro"
+                      >
+                        <i class="bi bi-envelope-fill"></i>
+                      </span>
+                      <input
+                        type="email"
+                        class="form-control db-placeholder"
+                        id="newsletterEmail"
+                        placeholder="tu@email.com"
+                        required
+                      />
+                      <button
+                        class="btn background-resaltado btn-lg fw-bold"
+                        type="submit"
+                      >
+                        ¡Suscribirme!
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <small class="text-muted mt-2 d-block">
+                  <i class="bi bi-shield-check text-gold"></i>
+                  <strong class="fw-bolder">No spam</strong>. Puedes darte de
+                  baja cuando quieras.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero-newsletter py-5 bg-white">
-      <div class="container text-center">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2 class="display-4 fw-bold mb-4">
-              <i class="bi bi-envelope-paper-fill icon-bicolor-horizontal"></i>
-              <span class="text-goldd">Únete</span> a nuestra Newsletter
-            </h2>
-            <p class="lead mb-4">
-              Mantente al día con las últimas novedades, ofertas exclusivas y
-              consejos del mundo musical. Sé el primero en conocer todo lo que
-              <strong>Rat Pack Instruments</strong> tiene para ti.
-            </p>
-            <div class="newsletter-form-hero">
-              <form id="newsletterForm" class="row g-3 justify-content-center">
+      <!-- Benefits Section -->
+      <section class="benefits-section py-5">
+        <div class="container">
+          <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="fw-bold mb-3">¿Por qué suscribirte?</h2>
+              <p class="text-muted">
+                Nuestra newsletter te ofrece acceso exclusivo a contenido
+                premium y ventajas únicas para músicos como tú.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div
+                class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm"
+              >
+                <div class="benefit-icon mb-3">
+                  <i class="bi bi-percent display-4 text-gold icon-bicolor"></i>
+                </div>
+                <h3 class="fw-bold mb-3">Ofertas Exclusivas</h3>
+                <p class="text-muted">
+                  Accede a descuentos especiales de hasta el 30% solo para
+                  suscriptores. Flash sales y promociones únicas.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div
+                class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm"
+              >
+                <div class="benefit-icon mb-3">
+                  <i
+                    class="bi bi-lightning-fill display-4 text-gold icon-bicolor-horizontal"
+                  ></i>
+                </div>
+                <h3 class="fw-bold mb-3">Acceso Anticipado</h3>
+                <p class="text-muted">
+                  Sé el primero en conocer y comprar nuevos instrumentos antes
+                  que nadie. Reservas anticipadas disponibles.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div
+                class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm"
+              >
+                <div class="benefit-icon mb-3">
+                  <i class="bi bi-tools display-4 text-gold icon-bicolor"></i>
+                </div>
+                <h3 class="fw-bold mb-3">Tips & Tutoriales</h3>
+                <p class="text-muted">
+                  Consejos de mantenimiento, configuración y técnicas de
+                  profesionales. Guías exclusivas para mejorar tu sonido.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div
+                class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm"
+              >
+                <div class="benefit-icon mb-3">
+                  <i
+                    class="bi bi-gift-fill display-4 text-gold icon-bicolor-vertical"
+                  ></i>
+                </div>
+                <h3 class="fw-bold mb-3">Sorteos y Regalos</h3>
+                <p class="text-muted">
+                  Participa en sorteos mensuales de instrumentos, accesorios y
+                  masterclasses con músicos reconocidos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-newsletter-section py-5 bg-light">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <h3 class="fw-bold mb-4 text-dark">
+                <a
+                  href="/pages/about_us.html"
+                  class="text-dark text-decoration-underline"
+                  >Sobre Rat Pack Instruments</a
+                >
+              </h3>
+              <p class="mb-3">
+                Somos una tienda especializada en instrumentos musicales con más
+                de una década de experiencia. Nuestra pasión es conectar a los
+                músicos con los instrumentos perfectos para expresar su arte.
+              </p>
+              <p class="mb-4">
+                Desde guitarras vintage hasta la tecnología más moderna,
+                seleccionamos cuidadosamente cada producto para garantizar la
+                mejor calidad y sonido. Nuestro equipo de expertos está siempre
+                dispuesto a asesorarte en tu elección.
+              </p>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="stat-item text-center">
+                    <div class="stat-number h3 fw-bold mb-1">500+</div>
+                    <div class="stat-label small text-muted">Instrumentos</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat-item text-center">
+                    <div class="stat-number h3 fw-bold mb-1">
+                      <span>1000+</span>
+                    </div>
+                    <div class="stat-label small text-muted">
+                      Clientes Felices
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 ps-lg-5">
+              <div class="newsletter-features">
+                <h4 class="fw-bold mb-4">¿Qué incluye nuestra Newsletter?</h4>
+                <div class="feature-list">
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-gold me-3"></i>
+                    <span>Novedades de productos cada semana</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-gold me-3"></i>
+                    <span>Entrevistas exclusivas con músicos</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-gold me-3"></i>
+                    <span>Reviews detalladas de equipos</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-gold me-3"></i>
+                    <span>Calendario de eventos musicales</span>
+                  </div>
+                  <div class="feature-item d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill text-gold me-3"></i>
+                    <span>Ofertas flash de 24 horas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section class="final-cta py-5 bg-gold text-dark">
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h3 class="fw-bold mb-3 db-text">
+                ¿Listo para formar parte de la familia?
+              </h3>
+              <p class="mb-4 db-text">
+                Únete a más de 1000 músicos que ya reciben nuestras newsletters
+                y disfrutan de beneficios exclusivos.
+              </p>
+              <form
+                id="newsletterFormBottom"
+                class="row g-3 justify-content-center"
+              >
                 <div class="col-md-6">
                   <div class="input-group input-group-lg">
-                    <span class="input-group-text background-resaltado txt-negro">
-                      <i class="bi bi-envelope-fill"></i>
-                    </span>
-                    <input type="email" class="form-control db-placeholder" id="newsletterEmail"
-                      placeholder="tu@email.com" required />
-                    <button class="btn background-resaltado btn-lg fw-bold" type="submit">
-                      ¡Suscribirme!
+                    <input
+                      type="email"
+                      class="form-control db-placeholder"
+                      id="newsletterEmailBottom"
+                      placeholder="tu@email.com"
+                      required
+                    />
+                    <button
+                      class="btn background-resaltado btn-lg fw-bold"
+                      type="submit"
+                    >
+                      Suscribirme Ahora
                     </button>
                   </div>
                 </div>
               </form>
-              <small class="text-muted mt-2 d-block">
-                <i class="bi bi-shield-check text-gold"></i>
-                <strong class="fw-bolder">No spam</strong>. Puedes darte de
-                baja cuando quieras.
-              </small>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section py-5">
-      <div class="container">
-        <div class="row text-center mb-5">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="fw-bold mb-3">¿Por qué suscribirte?</h2>
-            <p class="text-muted">
-              Nuestra newsletter te ofrece acceso exclusivo a contenido
-              premium y ventajas únicas para músicos como tú.
-            </p>
+    <!-- Newsletter Success Toast -->
+    <div
+      class="position-fixed start-50 translate-middle-x toast-position mt-4"
+      style="z-index: 1055"
+    >
+      <div
+        id="newsletterToast"
+        class="toast align-items-center text-white bg-gold border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body d-flex align-items-center">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <span
+              >¡Gracias por suscribirte! Pronto recibirás noticias
+              increíbles.</span
+            >
           </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Cerrar"
+          ></button>
         </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm">
-              <div class="benefit-icon mb-3">
-                <i class="bi bi-percent display-4 text-gold icon-bicolor"></i>
-              </div>
-              <h3 class="fw-bold mb-3">Ofertas Exclusivas</h3>
-              <p class="text-muted">
-                Accede a descuentos especiales de hasta el 30% solo para
-                suscriptores. Flash sales y promociones únicas.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm">
-              <div class="benefit-icon mb-3">
-                <i class="bi bi-lightning-fill display-4 text-gold icon-bicolor-horizontal"></i>
-              </div>
-              <h3 class="fw-bold mb-3">Acceso Anticipado</h3>
-              <p class="text-muted">
-                Sé el primero en conocer y comprar nuevos instrumentos antes
-                que nadie. Reservas anticipadas disponibles.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm">
-              <div class="benefit-icon mb-3">
-                <i class="bi bi-tools display-4 text-gold icon-bicolor"></i>
-              </div>
-              <h3 class="fw-bold mb-3">Tips & Tutoriales</h3>
-              <p class="text-muted">
-                Consejos de mantenimiento, configuración y técnicas de
-                profesionales. Guías exclusivas para mejorar tu sonido.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="benefit-card h-100 text-center p-4 border rounded-3 shadow-sm">
-              <div class="benefit-icon mb-3">
-                <i class="bi bi-gift-fill display-4 text-gold icon-bicolor-vertical"></i>
-              </div>
-              <h3 class="fw-bold mb-3">Sorteos y Regalos</h3>
-              <p class="text-muted">
-                Participa en sorteos mensuales de instrumentos, accesorios y
-                masterclasses con músicos reconocidos.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-newsletter-section py-5 bg-light">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h3 class="fw-bold mb-4 text-gold">
-              <a href="/pages/about_us.html" class="text-gold text-decoration-underline">Sobre Rat Pack Instruments</a>
-            </h3>
-            <p class="mb-3">
-              Somos una tienda especializada en instrumentos musicales con más
-              de una década de experiencia. Nuestra pasión es conectar a los
-              músicos con los instrumentos perfectos para expresar su arte.
-            </p>
-            <p class="mb-4">
-              Desde guitarras vintage hasta la tecnología más moderna,
-              seleccionamos cuidadosamente cada producto para garantizar la
-              mejor calidad y sonido. Nuestro equipo de expertos está siempre
-              dispuesto a asesorarte en tu elección.
-            </p>
-            <div class="row g-3">
-              <div class="col-6">
-                <div class="stat-item text-center">
-                  <div class="stat-number h3 fw-bold mb-1 background-resaltado">
-                    500+
-                  </div>
-                  <div class="stat-label small text-muted">Instrumentos</div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-item text-center">
-                  <div class="stat-number h3 fw-bold background-resaltado mb-1">
-                    <span>1000+</span>
-                  </div>
-                  <div class="stat-label small text-muted">
-                    Clientes Felices
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="newsletter-features">
-              <h4 class="fw-bold mb-4">¿Qué incluye nuestra Newsletter?</h4>
-              <div class="feature-list">
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="bi bi-check-circle-fill text-gold me-3"></i>
-                  <span>Novedades de productos cada semana</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="bi bi-check-circle-fill text-gold me-3"></i>
-                  <span>Entrevistas exclusivas con músicos</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="bi bi-check-circle-fill text-gold me-3"></i>
-                  <span>Reviews detalladas de equipos</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="bi bi-check-circle-fill text-gold me-3"></i>
-                  <span>Calendario de eventos musicales</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="bi bi-check-circle-fill text-gold me-3"></i>
-                  <span>Ofertas flash de 24 horas</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta py-5 bg-gold text-dark">
-      <div class="container text-center">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h3 class="fw-bold mb-3 db-text">
-              ¿Listo para formar parte de la familia?
-            </h3>
-            <p class="mb-4 db-text">
-              Únete a más de 1000 músicos que ya reciben nuestras newsletters
-              y disfrutan de beneficios exclusivos.
-            </p>
-            <form id="newsletterFormBottom" class="row g-3 justify-content-center">
-              <div class="col-md-6">
-                <div class="input-group input-group-lg">
-                  <input type="email" class="form-control db-placeholder" id="newsletterEmailBottom"
-                    placeholder="tu@email.com" required />
-                  <button class="btn background-resaltado btn-lg fw-bold" type="submit">
-                    Suscribirme Ahora
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Newsletter Success Toast -->
-  <div class="position-fixed start-50 translate-middle-x toast-position mt-4" style="z-index: 1055">
-    <div id="newsletterToast" class="toast align-items-center text-white bg-gold border-0" role="alert"
-      aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body d-flex align-items-center">
-          <i class="bi bi-check-circle-fill me-2"></i>
-          <span>¡Gracias por suscribirte! Pronto recibirás noticias
-            increíbles.</span>
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-          aria-label="Cerrar"></button>
       </div>
     </div>
-  </div>
 
-  <!-- Modal de búsqueda global -->
-  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow"
-    style="display: none; position: absolute; z-index: 1055; min-width: 350px">
-    <div class="container">
-      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
-        <!-- <div
+    <!-- Modal de búsqueda global -->
+    <div
+      id="globalSearchDropdown"
+      class="search-bar py-1 buscador shadow"
+      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+    >
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
+        >
+          <!-- <div
             class="buscador-input-wrapper position-relative w-100"
             style="max-width: 400px"
           >
@@ -285,21 +359,20 @@
               <i class="bi bi-search fs-5"></i>
             </button>
           </div> -->
-      </form>
-      <div id="global-search-results" class="mt-2"></div>
+        </form>
+        <div id="global-search-results" class="mt-2"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <div id="footer"></div>
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/auth.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/cart.js"></script>
-  <script src="../js/header.js"></script>
-  <script src="../js/newsletter.js"></script>
-</body>
-
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/newsletter.js"></script>
+  </body>
 </html>

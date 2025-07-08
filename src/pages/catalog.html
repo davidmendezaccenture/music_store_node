@@ -1,149 +1,224 @@
 <!-- Copia de drums.html para pruebas de lógica dinámica. Estructura igual que drums.html actual. -->
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de productos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style_catalog.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo de productos</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/style_catalog.css" />
-  <!-- Fuente seleccionada para usar en el proyecto-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-</head>
+  <!-- Mejora SEO: descripción de la página -->
+  <meta
+    name="description"
+    content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments."
+  />
 
-<!-- Mejora SEO: descripción de la página -->
-<meta name="description"
-  content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
+  <body>
+    <!-- Cabecera de la página (header completo) -->
+    <header id="header"></header>
 
-<body>
-
-
-  <!-- Cabecera de la página (header completo) -->
-  <header id="header"></header>
-
-  <!-- Offcanvas -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="servicesOffcanvas" aria-labelledby="servicesOffcanvasLabel">
-    <div class="offcanvas-header">
-      <h2 class="offcanvas-title" id="servicesOffcanvasLabel">
-        <i class="bi bi-tools me-2"></i>Servicios
-      </h2>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="list-group list-group-flush">
-        <!-- Secciones menu -->
-        <a href="/pages/services.html" class="list-group-item list-group-item-action d-flex align-items-center">
-          <i class="bi bi-wrench-adjustable me-3"></i>
-          <div>
-            <div class="fw-bold">Servicio Técnico</div>
-            <small class="text-muted">Reparación y mantenimiento</small>
-          </div>
-        </a>
-        <a href="/pages/contact.html" class="list-group-item list-group-item-action d-flex align-items-center">
-          <i class="bi bi-envelope me-3"></i>
-          <div>
-            <div class="fw-bold">Contacto</div>
-            <small class="text-muted">Ponte en contacto con nosotros</small>
-          </div>
-        </a>
-        <a href="/pages/newsletter.html" class="list-group-item list-group-item-action d-flex align-items-center">
-          <i class="bi bi-newspaper me-3"></i>
-          <div>
-            <div class="fw-bold">Newsletter</div>
-            <small class="text-muted">Suscríbete a nuestras novedades</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-          <i class="bi bi-camera-video me-3"></i>
-          <div>
-            <div class="fw-bold">Media</div>
-            <small class="text-muted">Videos y contenido multimedia</small>
-          </div>
-        </a>
-        <a href="/pages/faq.html" class="list-group-item list-group-item-action d-flex align-items-center">
-          <i class="bi bi-question-circle me-3"></i>
-          <div>
-            <div class="fw-bold">FAQ</div>
-            <small class="text-muted">Preguntas frecuentes</small>
-          </div>
-        </a>
+    <!-- Offcanvas -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="servicesOffcanvas"
+      aria-labelledby="servicesOffcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="servicesOffcanvasLabel">
+          <i class="bi bi-tools me-2"></i>Servicios
+        </h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="list-group list-group-flush">
+          <!-- Secciones menu -->
+          <a
+            href="/pages/services.html"
+            class="list-group-item list-group-item-action d-flex align-items-center"
+          >
+            <i class="bi bi-wrench-adjustable me-3"></i>
+            <div>
+              <div class="fw-bold">Servicio Técnico</div>
+              <small class="text-muted">Reparación y mantenimiento</small>
+            </div>
+          </a>
+          <a
+            href="/pages/contact.html"
+            class="list-group-item list-group-item-action d-flex align-items-center"
+          >
+            <i class="bi bi-envelope me-3"></i>
+            <div>
+              <div class="fw-bold">Contacto</div>
+              <small class="text-muted">Ponte en contacto con nosotros</small>
+            </div>
+          </a>
+          <a
+            href="/pages/newsletter.html"
+            class="list-group-item list-group-item-action d-flex align-items-center"
+          >
+            <i class="bi bi-newspaper me-3"></i>
+            <div>
+              <div class="fw-bold">Newsletter</div>
+              <small class="text-muted">Suscríbete a nuestras novedades</small>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="list-group-item list-group-item-action d-flex align-items-center"
+          >
+            <i class="bi bi-camera-video me-3"></i>
+            <div>
+              <div class="fw-bold">Media</div>
+              <small class="text-muted">Videos y contenido multimedia</small>
+            </div>
+          </a>
+          <a
+            href="/pages/faq.html"
+            class="list-group-item list-group-item-action d-flex align-items-center"
+          >
+            <i class="bi bi-question-circle me-3"></i>
+            <div>
+              <div class="fw-bold">FAQ</div>
+              <small class="text-muted">Preguntas frecuentes</small>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  <main class="container py-4" role="main">
-    <!-- Botón para volver a Home -->
-    <div class="mb-4">
-      <a href="../pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
+    <main class="container py-4" role="main">
+      <!-- Botón para volver a Home -->
+      <div class="mb-4">
+        <a
+          href="../pages/index.html"
+          class="btn btn-outline-primary"
+          aria-label="Volver al inicio"
+          >Volver</a
+        >
+      </div>
+      <!-- Filtros y ordenación -->
+      <section class="filter">
+        <div class="row mb-4" role="region" aria-label="Filtros de productos">
+          <div class="col-md-3 mb-2">
+            <input
+              id="search-input-guitar"
+              class="form-control"
+              type="search"
+              placeholder="Buscar por nombre..."
+              aria-label="Buscar producto"
+            />
+          </div>
+          <div class="col-md-2 mb-2">
+            <select
+              id="filtro-categoria"
+              class="form-select"
+              aria-label="Filtrar por categoría"
+            ></select>
+          </div>
+          <div class="col-md-2 mb-2">
+            <select
+              id="filtro-precio"
+              class="form-select"
+              aria-label="Filtrar por precio"
+            >
+              <option value="">Todos los precios</option>
+              <option value="<300">Menos de 300€</option>
+              <option value="300-600">300€ - 600€</option>
+              <option value=">600">Más de 600€</option>
+            </select>
+          </div>
+          <div class="col-md-2 mb-2 d-flex align-items-center">
+            <input
+              type="checkbox"
+              id="filtro-oferta"
+              class="form-check-input me-2"
+              aria-label="Solo ofertas"
+            />
+            <label for="filtro-oferta" class="form-check-label"
+              >Solo ofertas</label
+            >
+          </div>
+          <div class="col-md-3 mb-2">
+            <select
+              id="ordenar-productos"
+              class="form-select"
+              aria-label="Ordenar productos"
+            >
+              <option value="">Ordenar por...</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="oferta">Solo ofertas</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3">
+          <span id="result-count" aria-live="polite"></span>
+        </div>
+      </section>
+      <!-- Catálogo dinámico -->
+      <section class="row g-4" role="region" aria-label="Catálogo de productos">
+        <div class="container px-0 mt-4">
+          <div
+            id="products-list"
+            class="row g-4"
+            role="region"
+            aria-label="Catálogo de productos"
+          ></div>
+        </div>
+      </section>
+    </main>
+    <!-- Guarda la URL actual como última página de compra -->
+    <script>
+      localStorage.setItem("lastShopPage", window.location.href);
+    </script>
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Alert de Producto añadido con éxito -->
+    <div
+      id="addToCartAlert"
+      class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
+      role="alert"
+    >
+      ¡Producto añadido a la cesta!
     </div>
-    <!-- Filtros y ordenación -->
-    <section class="filter">
-      <div class="row mb-4" role="region" aria-label="Filtros de productos">
-        <div class="col-md-3 mb-2">
-          <input id="search-input-guitar" class="form-control" type="search" placeholder="Buscar por nombre..."
-            aria-label="Buscar producto" />
-        </div>
-        <div class="col-md-2 mb-2">
-          <select id="filtro-categoria" class="form-select" aria-label="Filtrar por categoría"></select>
-        </div>
-        <div class="col-md-2 mb-2">
-          <select id="filtro-precio" class="form-select" aria-label="Filtrar por precio">
-            <option value="">Todos los precios</option>
-            <option value="<300">Menos de 300€</option>
-            <option value="300-600">300€ - 600€</option>
-            <option value=">600">Más de 600€</option>
-          </select>
-        </div>
-        <div class="col-md-2 mb-2 d-flex align-items-center">
-          <input type="checkbox" id="filtro-oferta" class="form-check-input me-2" aria-label="Solo ofertas" />
-          <label for="filtro-oferta" class="form-check-label">Solo ofertas</label>
-        </div>
-        <div class="col-md-3 mb-2">
-          <select id="ordenar-productos" class="form-select" aria-label="Ordenar productos">
-            <option value="">Ordenar por...</option>
-            <option value="precio-asc">Precio: menor a mayor</option>
-            <option value="precio-desc">Precio: mayor a menor</option>
-            <option value="oferta">Solo ofertas</option>
-          </select>
-        </div>
-      </div>
-      <div class="mb-3">
-        <span id="result-count" aria-live="polite"></span>
-      </div>
-    </section>
-    <!-- Catálogo dinámico -->
-    <section class="row g-4" role="region" aria-label="Catálogo de productos">
-      <div class="container px-0 mt-4">
-        <div id="products-list" 
-             class="row g-4" 
-             role="region" 
-             aria-label="Catálogo de productos"></div>
-      </div>
-    </section>
-  </main>
-  <!-- Guarda la URL actual como última página de compra -->
-  <script>
-    localStorage.setItem("lastShopPage", window.location.href);
-  </script>
-  <!-- Footer -->
-  <div id="footer"></div>
-  <!-- Alert de Producto añadido con éxito -->
-  <div id="addToCartAlert" class="alert custom-alert position-fixed top-40 start-50 translate-middle-x mt-3 shadow"
-    role="alert">
-    ¡Producto añadido a la cesta!
-  </div>
 
-  <!-- Modal de búsqueda global -->
-  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow"
-    style="display: none; position: absolute; z-index: 1055; min-width: 350px">
-    <div class="container">
-      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
-        <!-- <div
+    <!-- Modal de búsqueda global -->
+    <div
+      id="globalSearchDropdown"
+      class="search-bar py-1 buscador shadow"
+      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
+    >
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
+        >
+          <!-- <div
                 class="buscador-input-wrapper position-relative w-100"
                 style="max-width: 400px"
             >
@@ -163,22 +238,20 @@
                 <i class="bi bi-search fs-5"></i>
                 </button>
             </div> -->
-      </form>
-      <div id="global-search-results" class="mt-2"></div>
+        </form>
+        <div id="global-search-results" class="mt-2"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/auth.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/contact.js"></script>
-  <script src="../js/cart.js"></script>
-  <script src="../js/register.js"></script>
-  <script src="../js/catalog.js"></script>
-  <script src="../js/header.js"></script>
-
-</body>
-
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script src="../js/header.js"></script>
+  </body>
 </html>
