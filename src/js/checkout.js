@@ -116,8 +116,74 @@ $('#deleteConfirmModal').on('click', '#confirmDeleteBtn', function () {
     });
   }
 
-  // Aplicar código promocional
+// Aplicar código promocional al hacer click en el botón
 $('#apply-promo').on('click', function () {
+  aplicarCodigoPromocional();
+});
+
+// Aplicar código promocional al pulsar Enter en el input
+$('#promo-code').on('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    aplicarCodigoPromocional();
+  }
+});
+
+// Aplicar código promocional al hacer click en el botón
+$('#apply-promo').on('click', function () {
+  aplicarCodigoPromocional();
+});
+
+// Aplicar código promocional al pulsar Enter en el input
+$('#promo-code').on('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    aplicarCodigoPromocional();
+  }
+});
+
+// Aplicar código promocional al hacer click en el botón
+$('#apply-promo').on('click', function () {
+  aplicarCodigoPromocional();
+});
+
+// Aplicar código promocional al pulsar Enter en el input
+$('#promo-code').on('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    aplicarCodigoPromocional();
+  }
+});
+
+// Función para aplicar el código promocional
+// Aplicar código promocional al hacer click en el botón
+$('#apply-promo').on('click', function () {
+  aplicarCodigoPromocional();
+});
+
+// Aplicar código promocional al pulsar Enter en el input
+$('#promo-code').on('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    aplicarCodigoPromocional();
+  }
+});
+
+// Aplicar código promocional al hacer click en el botón
+$('#apply-promo').on('click', function () {
+  aplicarCodigoPromocional();
+});
+
+// Aplicar código promocional al pulsar Enter en el input
+$('#promo-code').on('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    aplicarCodigoPromocional();
+  }
+});
+
+// Función para aplicar el código promocional
+function aplicarCodigoPromocional() {
   const code = $('#promo-code').val().trim().toUpperCase();
   const $feedback = $('#promo-feedback');
   if (code === 'SUMMERTIME') {
@@ -128,7 +194,7 @@ $('#apply-promo').on('click', function () {
     $feedback.removeClass('d-none').text('El código promocional es incorrecto');
   }
   renderCartSummary();
-});
+}
 
 // Oculta el mensaje al cambiar el input
 $('#promo-code').on('input', function () {
