@@ -675,10 +675,19 @@ body {
   /* border-radius: 50% !important; */
   background-color: transparent;
   color: #23272b !important;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
+  box-shadow: none !important;
   border-radius: 8px !important;
 }
-
+.btn-logout:focus,
+.btn-logout:focus-visible {
+  outline: 1px solid #1969f6 !important;
+  /* border-radius: 50% !important; */
+  background-color: transparent;
+  border: none;
+  /* color: #23272b !important; */
+  box-shadow: none;
+  border-radius: 8px !important;
+}
 /* Efectos de la navbar */
 
 .navbar-nav .nav-link:hover,
