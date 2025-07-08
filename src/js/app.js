@@ -201,9 +201,10 @@ $(document).ready(function () {
 
 /* Funcion on click para no repetir código */
 function initLoginModal() {
-  // Asigna el evento tanto al header como al footer (cargado dinámicamente)
-  $(document).on("click", "#loginButton, #loginButtonFooter", function (e) {
+  $("#loginButton, #loginButtonFooter").on("click", function (e) {
+    // Verificar si el usuario está logueado antes de abrir el modal
     const isUserLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
     if (!isUserLoggedIn) {
       e.preventDefault();
       var modal = new bootstrap.Modal(document.getElementById("loginModal"));
