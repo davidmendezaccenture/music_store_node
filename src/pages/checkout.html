@@ -24,19 +24,27 @@
     <div class="row justify-content-center">
       <!-- Formulario de Proceso de Pago -->
       <div class="col-lg-7">
-        <h5 class="mb-4">Proceso de Pago</h5>
-        <form id="checkout-form">
-          <div class="mb-3">
+        <h2 class="text-center mb-4">
+          <i class="bi bi-credit-card me-3 icon-bicolor"></i>Proceso de Pago
+        </h2>
+        <form id="checkout-form" class="bg-white border border-1 rounded-4 p-4">
+         <div class="mb-3">
             <label for="promo-code" class="form-label">Código promocional</label>
-            <input type="text" class="form-control" id="promo-code" placeholder="Introduce tu código">
-          </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="promo-code" placeholder="Introduce tu código">
+                    <button class="btn btn-outline-success" type="button" id="apply-promo" title="Aplicar código">
+                    <i class="bi bi-check-circle"></i>
+                    </button>
+                </div>
+            <div id="promo-feedback" class="form-text text-danger d-none"></div>
+         </div>
           <div class="mb-3">
             <label for="payment-method" class="form-label">Método de Pago</label>
             <select class="form-select" id="payment-method" required>
               <option value="">Selecciona un método</option>
               <option value="tarjeta">Tarjeta de crédito/débito</option>
-              <option value="paypal">PayPal</option>
-              <option value="transferencia">Transferencia bancaria</option>
+              <option value="paypal">PayPal Express</option>
+              <option value="transferencia">Amazon Pay</option>
             </select>
           </div>
           <div class="mb-3">
@@ -105,16 +113,8 @@
               </li>
               <!-- Más productos aquí... -->
             </ul>
-            <div class="d-flex justify-content-between">
-              <span>Total sin descuento:</span>
-              <span id="total-sin-descuento">€9800</span>
-            </div>
-            <div class="d-flex justify-content-between mb-3">
-              <span>Total con descuento:</span>
-              <span id="total-con-descuento">€9800</span>
-            </div>
             <div class="d-flex justify-content-end gap-2">
-              <button class="btn btn-secondary" type="button">Cancelar</button>
+              <button class="btn btn-secondary btn-cancel" type="button">Cancelar</button>
               <button class="btn btn-primary" type="submit" form="checkout-form">Confirmar Pago</button>
             </div>
           </div>

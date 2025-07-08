@@ -86,11 +86,13 @@
 
 /* Círculos bicolor para los pasos del proceso */
 .circle-bicolor1 {
-  background: linear-gradient(45deg,
-      #f6a61a 24%,
-      #f6a61a 25%,
-      #dedbd9 26%,
-      #dedbd9 100%);
+  background: linear-gradient(
+    45deg,
+    #f6a61a 24%,
+    #f6a61a 25%,
+    #dedbd9 26%,
+    #dedbd9 100%
+  );
 }
 
 .circle-bicolor2 {
@@ -106,14 +108,16 @@
 }
 
 /* Eliminar hover de botones con clases personalizadas */
-.btn.background-resaltado:hover {
+.btn.background-resaltado:hover,
+.btn.background-resaltado:focus {
   background-color: #f6a61a;
   color: white;
   transform: none;
   box-shadow: none;
 }
 
-.btn.txt-resaltado:hover {
+.btn.txt-resaltado:hover,
+.btn.txt-resaltado:focus {
   background-color: transparent;
   color: #f6a61a;
   border-color: #f6a61a;

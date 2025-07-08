@@ -24,7 +24,7 @@
               aria-controls="servicesOffcanvas">Servicios</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link navbar-sections" href="/pages/about_us.html">Sobre nosotros</a>
+            <a class="nav-link navbar-sections no-wrap" href="/pages/about_us.html">Sobre nosotros</a>
           </li>
           <li class="nav-item me-2">
             <a class="nav-link navbar-sections" href="/pages/contact.html">Contacto</a>
@@ -155,9 +155,9 @@
             <input class="form-control control-buscador rounded-pill pe-5" type="search"
               placeholder="Buscar productos..." aria-label="Buscador" autocomplete="off" id="search-input-global" />
             <button class="btn btn-link lupa-inside-input position-absolute top-50 end-0 translate-middle-y"
-              type="submit" aria-label="Buscar">
-              <i class="bi bi-search fs-5"></i>
-            </button>
+              type="submit" aria-label="Buscar" aria-hidden="true" tabindex="-1">
+              <i
+                class="bi bi-search fs-5"></i></button><!-- Añadido aria-hidden y tabindex para que no aparezca al navegar por teclado *All* -->
           </div>
         </form>
         <!-- Overlay para la barra de búsqueda -->
@@ -166,6 +166,7 @@
     </div>
   </div>
 </nav>
+
 
 <!-- Banner de cookies: se carga en todas las páginas al incluir el header -->
 <script src="../js/cookies.js"></script>

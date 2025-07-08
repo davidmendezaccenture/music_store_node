@@ -73,6 +73,11 @@ img {
     display: inline;
 }
 
+#addToCartAlert{
+  display: none;
+  z-index: 9999;
+}
+
 @media (max-width: 768px) {
   .product-card {
     padding: 1rem;
