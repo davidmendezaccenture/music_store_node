@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcrypt"); // Encriptar y verificar contraseñas
 
 // Cargar variables de entorno
 require("dotenv").config();
@@ -44,7 +45,7 @@ app.get("/api/products", (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 
 // RUTA POST /register
-app.post("/api/register", (req, res) => {
+app.post("/api/register", async (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
   const {
     nombre,
@@ -61,6 +62,7 @@ app.post("/api/register", (req, res) => {
     passwordConfirm,
   } = req.body;
 
+  // Validación de campos vacíos
   if (
     !nombre ||
     !apellidos ||
@@ -78,11 +80,20 @@ app.post("/api/register", (req, res) => {
     return res.status(400).send("Faltan campos por completar.");
   }
 
+  // Validar coincidencia de email y contraseña
   if (email !== emailConfirm || password !== passwordConfirm) {
     return res.status(400).send("El email o la contraseña no coinciden.");
   }
 
-  fs.readFile(usersPath, "utf-8", (err, data) => {
+  // Validación de seguridad de contraseña (mínimo 10 caracteres, mayúscula, minúscula, número y símbolo)
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{10,}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).send(
+      "La contraseña debe tener al menos 10 caracteres, incluir mayúsculas, minúsculas, números y símbolos."
+    );
+  }
+
+  fs.readFile(usersPath, "utf-8", async (err, data) => {
     if (err) {
       console.error("Error leyendo users.json:", err);
       return res.status(500).send("Error al leer los usuarios");
@@ -94,24 +105,33 @@ app.post("/api/register", (req, res) => {
       return res.status(409).send("El email ya está registrado.");
     }
 
-    usuarios.push({
-      nombre,
-      apellidos,
-      fechaNacimiento,
-      telefono,
-      pais,
-      region,
-      codigoPostal,
-      direccion,
-      email,
-      password,
-      isLoggedIn: 0, // Bandera de login
-    });
+    // Encriptar la contraseña antes de guardar
+    try {
+      const saltRounds = 10; // Nivel de seguridad del hash
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
-      if (err) return res.status(500).send("Error al guardar el usuario");
-      res.status(200).json({ mensaje: "Usuario registrado correctamente" });
-    });
+      usuarios.push({
+        nombre,
+        apellidos,
+        fechaNacimiento,
+        telefono,
+        pais,
+        region,
+        codigoPostal,
+        direccion,
+        email,
+        password: hashedPassword, // Guardar el hash, no la contraseña en texto plano
+        isLoggedIn: 0,
+      });
+
+      fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
+        if (err) return res.status(500).send("Error al guardar el usuario");
+        res.status(200).json({ mensaje: "Usuario registrado correctamente" });
+      });
+    } catch (hashErr) {
+      console.error("Error al encriptar la contraseña:", hashErr);
+      return res.status(500).send("Error al procesar la contraseña");
+    }
   });
 });
 
@@ -124,16 +144,21 @@ app.post("/login", (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
   const { email, password } = req.body;
 
-  fs.readFile(usersPath, "utf-8", (err, data) => {
+  fs.readFile(usersPath, "utf-8", async (err, data) => {
     if (err)
       return res.status(500).json({ error: "Error al leer los usuarios" });
 
     let usuarios = JSON.parse(data);
-    const userIndex = usuarios.findIndex(
-      (u) => u.email === email && u.password === password
-    );
+    const userIndex = usuarios.findIndex((u) => u.email === email);
 
     if (userIndex === -1)
+      return res.status(401).json({ error: "Credenciales incorrectas" });
+
+    // Verificar la contraseña usando bcrypt
+    const user = usuarios[userIndex];
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch)
       return res.status(401).json({ error: "Credenciales incorrectas" });
 
     // Actualizar estado de login a 1 (true)
@@ -569,3 +594,70 @@ function logoutAllUsers() {
     }
   });
 }
+
+//---------------------------------------------------------------------------------------------------------------///
+//-------------------------------------Recuperacion_password-----------------------------------------------------///
+//---------------------------------------------------------------------------------------------------------------///
+
+// RUTA POST /api/recover-password
+app.post("/api/recover-password", async (req, res) => {
+  const usersPath = path.join(__dirname, "backend/data/users.json");
+  const { email, newPassword, confirmNewPassword } = req.body;
+
+
+  // Validar que los campos estén completos
+  if (!email || !newPassword || !confirmNewPassword) {
+    return res.status(400).json({ error: "Todos los campos son obligatorios." });
+  }
+
+  // Validar que las contraseñas coincidan
+  if (newPassword !== confirmNewPassword) {
+    return res.status(400).json({ error: "Las contraseñas no coinciden." });
+  }
+
+  // Validar seguridad de la nueva contraseña
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{10,}$/;
+  if (!passwordRegex.test(newPassword)) {
+    return res.status(400).json({
+      error:
+        "La contraseña debe tener al menos 10 caracteres, incluir mayúsculas, minúsculas, números y símbolos.",
+    });
+  }
+
+  // Leer usuarios y buscar el email
+  fs.readFile(usersPath, "utf-8", async (err, data) => {
+    if (err) {
+      console.error("Error leyendo users.json:", err);
+      return res.status(500).json({ error: "Error al leer los usuarios." });
+    }
+
+    let usuarios = data ? JSON.parse(data) : [];
+    // Normaliza el email para evitar problemas de mayúsculas/espacios
+    const userIndex = usuarios.findIndex((u) => u.email.trim().toLowerCase() === email.trim().toLowerCase());
+
+    if (userIndex === -1) {
+      return res.status(404).json({ error: "Usuario no encontrado." });
+    }
+
+    try {
+      // Encriptar la nueva contraseña
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
+      // Actualizar la contraseña encriptada
+      usuarios[userIndex].password = hashedPassword;
+
+      // Guardar el archivo actualizado
+      fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
+        if (err) {
+          console.error("Error al guardar la nueva contraseña:", err);
+          return res.status(500).json({ error: "Error al guardar la contraseña." });
+        }
+        res.json({ mensaje: "Contraseña actualizada correctamente." });
+      });
+    } catch (hashErr) {
+      console.error("Error al encriptar la contraseña:", hashErr);
+      return res.status(500).json({ error: "Error al procesar la contraseña." });
+    }
+  });
+});

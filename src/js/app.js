@@ -197,6 +197,7 @@ $(document).ready(function () {
     // Si el modal ya está presente, asigna el evento directamente
     initLoginModal();
   }
+
 });
 
 /* Funcion on click para no repetir código */
@@ -335,4 +336,4 @@ $(function () {
         });
     }
   });
-}); // <-- Cierra la función jQuery $(function () { ... )
+}); // <-- Cierra la función jQuery $(function () { ... })

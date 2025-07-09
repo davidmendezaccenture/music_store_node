@@ -37,21 +37,31 @@
               autofocus
             />
           </div>
+          <!-- Campo de contraseña con botón de ojo -->
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Contraseña</label>
-            <input
-              type="password"
-              class="form-control input-login"
-              id="loginPassword"
-              name="password"
-              required
-              autocomplete="current-password"
-              placeholder="Mínimo 8 caracteres"
-            />
+            <div class="input-group">
+              <input
+                type="password"
+                class="form-control input-login"
+                id="loginPassword"
+                name="password"
+                required
+                autocomplete="current-password"
+                placeholder="Mínimo 8 caracteres"
+              />
+              <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1" data-target="loginPassword">
+                <i class="bi bi-eye-slash" id="icon-loginPassword"></i>
+              </button>
+            </div>
           </div>
           <div class="mb-3">
             <span>¿No tienes cuenta?</span>
             <a href="/pages/register.html" class="register-txt" style="color: #f6a61a;">Regístrate</a>
+          </div>
+          <div class="mb-3">
+            <span>¿Has olvidado tu contraseña?</span>
+            <a href="/pages/recover_password.html" class="register-txt" style="color: #f6a61a;">Recuperala</a>
           </div>
           <button type="submit" class="btn btn-primary w-100">Entrar</button>
         </form>
@@ -59,3 +69,23 @@
     </div>
   </div>
 </div>
+
+<script>
+document.querySelectorAll('.toggle-password').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const inputId = this.getAttribute('data-target');
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById('icon-' + inputId);
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove('bi-eye-slash');
+      icon.classList.add('bi-eye');
+    } else {
+      input.type = "password";
+      icon.classList.remove('bi-eye');
+      icon.classList.add('bi-eye-slash');
+    }
+  });
+});
+</script>
