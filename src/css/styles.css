@@ -772,7 +772,6 @@ body {
 }
 
 /* Navegacion por teclado borde */
-.navbar-nav .nav-link:focus,
 .navbar-nav .nav-link:focus-visible {
   outline: 2px solid #1969f6 !important;
   outline-offset: 2px;
@@ -781,8 +780,13 @@ body {
   color: white !important;
   box-shadow: 0 0 0 1px #1969f6 !important;
 }
+.catalog-secondary-nav a:focus-visible {
+  border: 2px solid #1969f6 !important;
+  color: #23272b !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
 
-.logo-main-h1 a:focus,
 .logo-main-h1 a:focus-visible {
   outline: 2px solid #1969f6 !important;
   outline-offset: 2px;
@@ -792,14 +796,11 @@ body {
   /*  box-shadow: 0 0 0 1px #1969f6 !important; */
 }
 
-.login-logo:focus,
 .login-logo:focus-visible,
-.cart-logo:focus,
 .cart-logo:focus-visible,
-.dm-logo:focus,
 .dm-logo:focus-visible,
-#loginButton:focus,
-#carritoButton:focus {
+#loginButton:focus-visible,
+#carritoButton:focus-visible {
   outline: 1px solid #1969f6 !important;
   outline-offset: 2px;
   /* border-radius: 50% !important; */
@@ -808,7 +809,6 @@ body {
   box-shadow: none !important;
   border-radius: 8px !important;
 }
-.btn-logout:focus,
 .btn-logout:focus-visible {
   outline: 1px solid #1969f6 !important;
   /* border-radius: 50% !important; */
@@ -889,7 +889,7 @@ body {
 }
 
 /* Navegacion por teclado */
-.pre-footer-pagos .navbar-brand:focus {
+.pre-footer-pagos .navbar-brand:focus-visible {
   outline: 1px solid #1969f6;
   outline-offset: 2px;
   border-radius: 8px;
@@ -1269,7 +1269,6 @@ a:hover .icon-image,
 /*activo*/
 
 /*-------------------------------- Navegacion por teclado *L* ------------------------------ */
-#carouselExampleCaptions .carousel-indicators button:focus,
 #carouselExampleCaptions .carousel-indicators button:focus-visible {
   outline: 1px solid #1969f6;
   outline-offset: 0px;
@@ -1379,14 +1378,13 @@ a:hover .icon-image,
 /* Navegacion por teclado *L* No veo como cambiarlo, esto modifica pero hace cosas raras,
 creo que por los estilos herdados de bootstrap o por el poco espacio entre tarjetas? help xD*/
 
-/* .opinion-card:focus,
-.opinion-card:focus-visible {
-  outline: 1px solid #1969f6 !important;*/
-/* outline-offset: 2px; */
-/*border-radius: 8px;
+/* .opinion-card:focus-visible {
+  outline: 1px solid #1969f6 !important;
+  outline-offset: 2px;
+  border-radius: 8px;
   border: none;
-  /* box-shadow: 0 0 0 3px #1969f66b; */
-/*z-index: 2;
+  box-shadow: 0 0 0 3px #1969f66b;
+  z-index: 2;
   overflow: hidden;
 } */
 
@@ -1731,10 +1729,13 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 
 /* Darkmode */
 /* Darkmode - Agrupado y refactorizado */
-body.dark-mode,
-body.dark-mode .opinion-card-container,
-body.dark-mode .pre-footer {
+body.dark-mode {
   background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+body.dark-mode .pre-footer,
+body.dark-mode .opinion-card-container {
+  background-color: #1e1e1e !important;
   color: #f1f1f1 !important;
 }
 
@@ -1782,6 +1783,11 @@ body.dark-mode .control-buscador {
 
 body.dark-mode .icon-image {
   filter: brightness(0) invert(1);
+}
+
+/* Boton carrito DM */
+body.dark-mode .btn-cart {
+  border: 1px solid #f6a61a !important;
 }
 
 /* Efectos hover agrupados */
@@ -1967,7 +1973,7 @@ body.dark-mode #filtro-oferta {
 
 body.dark-mode .card .btn-detail {
   border-radius: 999px;
-  background-color: #bfb4a8;
+  background-color: #f6a61a;
   color: #232323;
   border: 1.5px solid #f6a61a;
   font-weight: 500;
@@ -1975,9 +1981,33 @@ body.dark-mode .card .btn-detail {
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
+body.dark-mode .card .btn-detail:hover {
+  color: #f1f1f1;
+}
 
 body.dark-mode .catalog-secondary-nav-icon {
   filter: brightness(0) invert(1);
+}
+
+body.dark-mode .text-dark {
+  color: #f6a61a !important;
+}
+body.dark-mode .stat-number {
+  background-color: #f6a61a !important;
+  color: #232323 !important;
+}
+body.dark-mode .clear-btn,
+body.dark-mode .regular-btn {
+  color: #f1f1f1 !important;
+  border-color: #f6a61a !important;
+  background-color: #232323 !important;
+}
+body.dark-mode .clear-btn:hover,
+body.dark-mode .regular-btn:hover {
+  background-color: #f6a61a !important;
+  color: #232323 !important;
+  border-color: #f6a61a !important;
+  font-weight: 600 !important;
 }
 
 .contact-container {
@@ -2162,13 +2192,34 @@ main.c-main,
 }
 
 /* Navegacion por teclado Form contact.html */
-.form-control:focus,
-.form-select:focus {
+.form-control:focus-visible,
+.form-select:focus-visible {
   /* border-color: #1969f6 !important; */
   box-shadow: none !important;
   outline: 1px solid #1969f6 !important;
   /* outline-offset: 1px; */
   background-color: #fff;
+}
+
+#search-input-guitar:focus-visible,
+#filtro-categoria:focus-visible,
+#filtro-precio:focus-visible,
+#filtro-oferta:focus-visible,
+#ordenar-productos:focus-visible {
+  box-shadow: none !important;
+  outline: 2px solid #1969f6 !important;
+  outline-offset: -1px !important;
+}
+
+.btn-detail:focus {
+  box-shadow: none !important;
+  outline: 3px solid #1969f6 !important;
+  outline-offset: 0px !important;
+}
+.btn-cart:focus {
+  box-shadow: none !important;
+  outline: 3px solid #1969f6 !important;
+  outline-offset: 0px !important;
 }
 
 /* ------------- */

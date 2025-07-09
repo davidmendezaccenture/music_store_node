@@ -1,0 +1,64 @@
+<!-- Chatbot flotante -->
+<div id="chatbot-container" class="chatbot-container">
+  <!-- Botón flotante -->
+  <button
+    id="chatbot-toggle"
+    class="chatbot-button"
+    aria-label="Abrir asistente virtual"
+  >
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- Ventana del chatbot -->
+  <div id="chatbot-window" class="chatbot-window d-none">
+    <div class="chatbot-header">
+      <!-- Indicador de redimensionamiento en esquina superior izquierda -->
+      <div class="chatbot-resize-handle" title="Arrastra para redimensionar">
+        <i class="bi bi-arrows-angle-expand"></i>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <i class="bi bi-robot me-2"></i>
+        <div>
+          <div class="fw-bold">Asistente Virtual</div>
+          <small class="text-muted">Rat Pack Instruments</small>
+        </div>
+      </div>
+      <button
+        id="chatbot-close"
+        class="btn-close"
+        aria-label="Cerrar chat"
+      ></button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-content">
+          ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En qué
+          puedo ayudarte hoy?
+        </div>
+        <div class="message-time">Ahora</div>
+      </div>
+    </div>
+
+    <div class="chatbot-input">
+      <div class="input-group">
+        <input
+          type="text"
+          id="chatbot-input"
+          class="form-control"
+          placeholder="Escribe tu pregunta..."
+          aria-label="Mensaje para el asistente"
+        />
+        <button
+          id="chatbot-send"
+          class="btn btn-primary"
+          type="button"
+          aria-label="Enviar mensaje"
+        >
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
