@@ -1,3 +1,12 @@
+// Asegura que el CSS de cookies está cargado
+function ensureCookiesCSS() {
+    if (!document.querySelector('link[href*="cookies.css"]')) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/css/cookies.css';
+        document.head.appendChild(link);
+    }
+}
 // Banner/Modal de cookies para Rat Pack Instruments
 (function () {
     // Si estamos en legal.html y la URL contiene #collapseCookies, abrir el collapse automáticamente
@@ -26,20 +35,25 @@
             return;
         }
 
-        // Crear el HTML del banner
+        // Asegurar que el CSS de cookies está cargado
+        ensureCookiesCSS();
+        // Crear el HTML del banner sin estilos inline, solo clases
         const banner = document.createElement('div');
         banner.id = 'cookies-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-modal', 'true');
+        banner.setAttribute('aria-label', 'Aviso de cookies');
         banner.innerHTML = `
-        <div id="cookies-banner-inner" style="position:fixed;bottom:-100px;left:0;width:100vw;z-index:2000;background:rgba(255,255,255,0.98);box-shadow:0 -2px 16px #0002;display:flex;justify-content:center;align-items:center;padding:1.5rem 0;opacity:0;transition:bottom 0.6s cubic-bezier(.4,1.6,.4,1),opacity 0.6s cubic-bezier(.4,1.6,.4,1);">
-          <div style="max-width:700px;width:90vw;display:flex;flex-direction:column;align-items:center;gap:1rem;">
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-              <i class="bi bi-cookie" style="font-size:2rem;color:#f6a61a;"></i>
-              <span style="font-size:1.1rem;color:#333;font-weight:500;">Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y personalizar el contenido. Puedes aceptar todas o rechazar las no esenciales.</span>
+        <div id="cookies-banner-inner" class="cookies-banner-inner">
+          <div class="cookies-banner-content">
+            <div class="cookies-banner-row">
+              <i class="bi bi-cookie cookies-banner-icon" aria-hidden="true"></i>
+              <span class="cookies-banner-text">Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y personalizar el contenido. Puedes aceptar todas o rechazar las no esenciales.</span>
             </div>
-            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
-              <button id="cookies-accept" style="background:#f6a61a;color:#fff;font-weight:600;border:none;padding:0.5rem 1.5rem;border-radius:6px;transition:background 0.2s;">Aceptar todas</button>
-              <button id="cookies-reject" style="background:transparent;color:#f6a61a;font-weight:600;border:2px solid #f6a61a;padding:0.5rem 1.5rem;border-radius:6px;transition:background 0.2s;">Rechazar no esenciales</button>
-              <a id="cookies-more-info" href="/pages/legal.html#collapseCookies" style="color:#333;text-decoration:underline;font-size:0.98rem;align-self:center;">Más información</a>
+            <div class="cookies-banner-actions">
+              <button id="cookies-accept" class="cookies-btn-accept" type="button">Aceptar todas</button>
+              <button id="cookies-reject" class="cookies-btn-reject" type="button">Rechazar no esenciales</button>
+              <a id="cookies-more-info" class="cookies-more-info" href="/pages/legal.html#collapseCookies">Más información</a>
             </div>
           </div>
         </div>
@@ -52,14 +66,17 @@
         setTimeout(function () {
             var inner = document.getElementById('cookies-banner-inner');
             if (inner) {
-                inner.style.bottom = '0';
-                inner.style.opacity = '1';
+                inner.classList.add('show');
             }
         }, 350); // Espera a que la página esté visible
 
-        // Función para guardar preferencia y ocultar banner
+        // Función para guardar preferencia y ocultar banner (con try/catch)
         function setConsent(value) {
-            localStorage.setItem('cookiesConsent', value);
+            try {
+                localStorage.setItem('cookiesConsent', value);
+            } catch (e) {
+                console.warn('[cookies.js] Error guardando preferencia en localStorage:', e);
+            }
             banner.remove();
             console.log('[cookies.js] Consentimiento guardado:', value);
         }

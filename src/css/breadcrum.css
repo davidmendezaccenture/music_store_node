@@ -1,0 +1,37 @@
+/* breadcrum.css: estilos mínimos para breadcrumbs */
+
+/* Alinear verticalmente el breadcrumb y el botón Volver */
+#breadcrumb-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Espacio entre el botón y el breadcrumb */
+}
+
+#breadcrumb-nav {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 2em;
+}
+
+#breadcrumb-nav .breadcrumb {
+    background: none;
+    padding: 0.5rem 0 0.5rem 0;
+    margin-bottom: 0;
+}
+
+#breadcrumb-nav .breadcrumb-item+.breadcrumb-item::before {
+    content: "/ ";
+    color: #888;
+}
+
+#breadcrumb-nav .breadcrumb-item a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#breadcrumb-nav .breadcrumb-item.active {
+    font-weight: 700;
+}

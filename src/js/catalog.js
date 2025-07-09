@@ -19,6 +19,19 @@ function getFamiliaFromURL() {
 }
 let familiaActiva = getFamiliaFromURL() || "cuerda";
 // Eliminado el uso de localStorage
+/*   // Función para obtener familia desde la URL fea (?familia=...)
+  function getFamiliaFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("familia");
+  }
+  let familiaActiva =
+    getFamiliaFromURL() ||
+    localStorage.getItem("familiaCatalogoActiva") ||
+    "cuerda";
+  // Si viene por URL, actualiza el localStorage
+  if (getFamiliaFromURL()) {
+    localStorage.setItem("familiaCatalogoActiva", familiaActiva);
+  } */
 
   // Diccionario de familias y sus categorías
 const familias = {
@@ -71,6 +84,10 @@ window.setFamilia = function (nuevaFamilia) {
 
   familiaActiva = nuevaFamilia;
     
+
+    // Cambiar la URL a formato feo: catalog.html?familia=[familia]
+    const nuevaUrl = `catalog.html?familia=${nuevaFamilia}`;
+    window.history.replaceState({}, '', nuevaUrl);
 
     // Quitar clase active de todos los enlaces en AMBAS barras
     document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
