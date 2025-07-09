@@ -1243,154 +1243,6 @@ a:hover .icon-image,
   margin: 0;
 }
 
-/* #carouselProductos {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  max-width: 100vw;
-  background-color: #000;
-}
-
-#carouselProductos .carousel-item img {
-  height: 350px !important;
-  object-fit: scale-down !important;
-  width: 100% !important;
-
-} */
-
-/* .carrousel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-} */
-
-/* Estilo para la imagen del carrusel */
-/* .img-carrousel {
-  width: 100%;
-  max-width: 1500px;
-  border-radius: 10px;
-  height: 45vh;
-  margin: 0 auto;
-  transition: opacity 0.5s ease;
-  opacity: 1;
-  background: #f8f9fa;
-  object-fit: cover;
-  display: block;
-}
-
-.img-carrousel.fade-out {
-  opacity: 0;
-}
-
-.carrousel-inner {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;  */
-/* espacio entre flechas e imagen */
-/* gap: 1rem;
-}
-
-.carrousel-inner picture {
-  flex: 1 1 auto;
-  display: block;
-  width: 100%;
-  margin: 0;
-} */
-
-/* Estilo para las flechas del carrusel */
-/* .carrousel-control {
-  width: 40px;
-  border: none;
-  background-color: transparent;
-}
-
-.arrow-carrousel {
-  width: 40px;
-}
-
-.carrousel-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-} */
-
-/* Estilo para los indicadores del carrusel */
-/* .carousel-indicators-custom {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 1rem;
-}
-
-.carousel-indicators-custom .indicator {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 0 8px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-  transition: background 0.2s;
-  vertical-align: middle;
-}
-
-.carousel-indicators-custom .indicator.active {
-  background: #f6a61a;
-}
-
-.indicator.active {
-  background-color: #23272b;
-} */
-
-/* media queries para botones e indicadores de ruleta de imágenes*/
-/* @media (max-width: 1085px) {
-  .product-carousel-arrow,
-  .opinion-carousel-arrow {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 1rem !important;
-    margin: 5% !important;
-    z-index: 2 !important;
-  }
-
-  .carousel-indicators-custom {
-    gap: 0.4rem !important;
-  }
-
-  .carousel-indicators-custom .indicator {
-    width: 15px !important;
-    height: 15px !important;
-  }
-}
-
-@media (max-width: 562px) {
-  .product-carousel-arrow,
-  .opinion-carousel-arrow {
-    width: 25px !important;
-    height: 25px !important;
-    font-size: 0.7rem !important;
-    margin: 3% !important;
-  }
-} */
-
-/* media queries para tamaño imagenes destacadas */
-/* @media (max-width: 770px) {
-  .img-carrousel {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .carrousel-container {
-    margin-top: 2rem;
-  }
-} */
-
 /* estilo para las Cards de Opiniones de Clientes */
 .opinion-card {
   /* margin: 5%; */
@@ -1662,15 +1514,15 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
 }
+
 .promo-text {
   display: flex;
   flex-direction: column;
   flex-direction: flex-start;
   align-items: center;
   justify-content: flex-start;
-    height: 100%;
+  height: 100%;
   width: 100%;
   background: transparent;
   padding: 0;
@@ -1683,6 +1535,62 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
   align-items: center;
   justify-content: space-between;
   gap: 1em;
+}
+
+/* Responsive banner promocional */
+@media (max-width: 1200px) {
+.promo-container{
+  width: 60rem;
+}
+}
+
+@media (max-width: 991px) {
+.promo-container{
+  width: 45rem;
+}
+
+.promo-title h3 {
+  font-size: 1.2rem;
+}
+}
+
+@media (max-width: 770px) {
+.promo-container{
+  width: 33rem;
+}
+
+.promo-title h3 {
+  font-size: 1rem;
+}
+}
+
+@media (max-width: 600px) {
+.promo-container{
+  width: 26rem;
+}
+
+.promo-description {
+  font-size: 0.9rem;  
+  margin-top: 2%;
+}
+
+.promo-title h3 {
+  font-size: 0.9rem;
+}
+}
+
+@media (max-width: 440px) {
+.promo-container{
+  width: 22rem;
+}
+
+.promo-title h3 {
+  font-size: 0.7rem;
+}
+.promo-description {
+  font-size: 0.8rem;  
+  margin-top: 1%;
+}
 }
 
 /* Asegurar que el botón de iniciar sesión esté alineado correctamente */
