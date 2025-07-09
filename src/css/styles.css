@@ -1,5 +1,5 @@
 /* Evitar barra de scroll lateral en toda la web */
-main {
+body {
   overflow-x: hidden;
 }
 
