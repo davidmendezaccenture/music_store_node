@@ -23,6 +23,7 @@ main {
 }
 
 @media (max-width: 770px) {
+
   a.btn-outline-primary,
   .btn-outline-primary {
     margin-top: 3em !important;
@@ -269,7 +270,7 @@ a.btn-outline-primary:hover,
 
 /* Precio */
 
-.card .card-text + p {
+.card .card-text+p {
   font-size: 1.1rem;
 }
 
@@ -382,4 +383,40 @@ a.btn-outline-primary:hover,
   .btn-outline-primary {
     margin-top: 7em;
   }
+}
+
+/* Estilos personalizados para el checkbox "Solo ofertas" */
+#filtro-oferta {
+  appearance: none;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #f6a61a;
+  border-radius: 0.25em;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+#filtro-oferta:checked {
+  background-color: #f6a61a;
+  border-color: #f6a61a;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+#filtro-oferta:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(246, 166, 26, 0.3);
+}
+
+#filtro-oferta:hover {
+  border-color: #e89611;
+}
+
+#filtro-oferta:checked:hover {
+  background-color: #e89611;
+  border-color: #e89611;
 }

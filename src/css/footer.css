@@ -91,6 +91,7 @@
 .footer-right a {
     margin-left: 1rem;
     font-size: 1.15em;
+    font-weight: 500;
 }
 
 .footer-right i {
@@ -101,7 +102,7 @@
 
 .footer-left span {
     color: #f6a61a;
-    font-weight: inherit;
+    font-weight: 500;
     font-size: inherit;
 }
 

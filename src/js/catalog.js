@@ -13,77 +13,77 @@ function normalizeText(text) {
   // Variable global para la familia activa
   // Almacena la familia activa en localStorage para persistencia tras recarga
   // Si hay parámetro familia en la URL, úsalo como familia activa
-function getFamiliaFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("familia");
-}
-let familiaActiva = getFamiliaFromURL() || "cuerda";
-// Eliminado el uso de localStorage
-/*   // Función para obtener familia desde la URL fea (?familia=...)
   function getFamiliaFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get("familia");
   }
-  let familiaActiva =
-    getFamiliaFromURL() ||
-    localStorage.getItem("familiaCatalogoActiva") ||
-    "cuerda";
-  // Si viene por URL, actualiza el localStorage
-  if (getFamiliaFromURL()) {
-    localStorage.setItem("familiaCatalogoActiva", familiaActiva);
-  } */
+  let familiaActiva = getFamiliaFromURL() || "cuerda";
+  // Eliminado el uso de localStorage
+  /*   // Función para obtener familia desde la URL fea (?familia=...)
+    function getFamiliaFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("familia");
+    }
+    let familiaActiva =
+      getFamiliaFromURL() ||
+      localStorage.getItem("familiaCatalogoActiva") ||
+      "cuerda";
+    // Si viene por URL, actualiza el localStorage
+    if (getFamiliaFromURL()) {
+      localStorage.setItem("familiaCatalogoActiva", familiaActiva);
+    } */
 
   // Diccionario de familias y sus categorías
-const familias = {
-  cuerda: [
-    "acoustic-guitars",
-    "electric-guitars",
-    "classical-guitars",
-    "basses"
-  ],
-  percusion: [
-    "batería acústica",
-    "batería electrónica",
-    "platillos",
-    "caja de madera",
-    "pedal de bombo",
-    "set de batería",
-    "batería infantil",
-    "bateria studio pro",
-    "set de percusión",
-    "caja",
-    "batería jazz studio"
-    // Añade aquí cualquier otra categoría real de percusión de tu JSON
-  ],
-  teclado: [
-    "teclado digital",
-    "sintetizador analógico",
-    "workstation",
-    "teclado compacto urbankeys",
-    "sintetizador digital",
-    "piano digital studio88",
-    "teclado portátil easyplay",
-    "teclado infantil funkkeys",
-    "piano digital homeclassic",
-    "keyboards",
-    "teclado vintage",
-    "sintetizador modular"
-    // Añade aquí todas las categorías de teclado que existan en tu JSON
-  ]
+  const familias = {
+    cuerda: [
+      "acoustic-guitars",
+      "electric-guitars",
+      "classical-guitars",
+      "basses"
+    ],
+    percusion: [
+      "batería acústica",
+      "batería electrónica",
+      "platillos",
+      "caja de madera",
+      "pedal de bombo",
+      "set de batería",
+      "batería infantil",
+      "bateria studio pro",
+      "set de percusión",
+      "caja",
+      "batería jazz studio"
+      // Añade aquí cualquier otra categoría real de percusión de tu JSON
+    ],
+    teclado: [
+      "teclado digital",
+      "sintetizador analógico",
+      "workstation",
+      "teclado compacto urbankeys",
+      "sintetizador digital",
+      "piano digital studio88",
+      "teclado portátil easyplay",
+      "teclado infantil funkkeys",
+      "piano digital homeclassic",
+      "keyboards",
+      "teclado vintage",
+      "sintetizador modular"
+      // Añade aquí todas las categorías de teclado que existan en tu JSON
+    ]
     // Puedes añadir más familias aquí
   };
 
   // Función para cambiar la familia activa (llámala desde la barra secundaria)
-window.setFamilia = function (nuevaFamilia) {
-  // Limpiar el parámetro category de la URL al cambiar de familia
-  const params = new URLSearchParams(window.location.search);
-  params.delete("category");
-  params.delete("id");
-  // Actualiza la URL sin recargar la página
-  window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}${params.toString() ? '' : ''}`);
+  window.setFamilia = function (nuevaFamilia) {
+    // Limpiar el parámetro category de la URL al cambiar de familia
+    const params = new URLSearchParams(window.location.search);
+    params.delete("category");
+    params.delete("id");
+    // Actualiza la URL sin recargar la página
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}${params.toString() ? '' : ''}`);
 
-  familiaActiva = nuevaFamilia;
-    
+    familiaActiva = nuevaFamilia;
+
 
     // Cambiar la URL a formato feo: catalog.html?familia=[familia]
     const nuevaUrl = `catalog.html?familia=${nuevaFamilia}`;
@@ -117,6 +117,9 @@ window.setFamilia = function (nuevaFamilia) {
       poblarCategorias(productos);
       filtrarYMostrar();
     }
+
+    // Disparar evento personalizado para notificar cambio de familia
+    $(document).trigger('familiaChanged');
   };
   // --- FIN CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
 
@@ -218,76 +221,78 @@ window.setFamilia = function (nuevaFamilia) {
       options += `<option value="${cat}">${nombres[cat] || cat}</option>`;
     });
     $("#filtro-categoria").html(options);
+    // Resetear el valor del filtro de categoría al cambiar de familia
+    $("#filtro-categoria").val("");
   }
 
- // 4. Filtrar y mostrar productos
-function filtrarYMostrar() {
-  let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
+  // 4. Filtrar y mostrar productos
+  function filtrarYMostrar() {
+    let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
 
-  const params = new URLSearchParams(window.location.search);
-  const idUrl = params.get("id");
-  const categoriaUrl = params.get("category");
+    const params = new URLSearchParams(window.location.search);
+    const idUrl = params.get("id");
+    const categoriaUrl = params.get("category");
 
-  if (idUrl) {
-    // Si hay id en la URL, muestra solo ese producto
-    productosFiltrados = productos.filter((p) => String(p.id) === String(idUrl));
-  } else if (categoriaUrl) {
-    // Si hay category en la URL, muestra productos de esa categoría
-    productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
-  } else if (familiaActiva) {
-    // Si no, filtra por familia
-    productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
-  } else {
-    // Fallback: categorías válidas por familia
-    const categoriasValidas = familias[familiaActiva] || [];
-    productosFiltrados = productos.filter((p) => categoriasValidas.includes(p.category));
-  }
+    if (idUrl) {
+      // Si hay id en la URL, muestra solo ese producto
+      productosFiltrados = productos.filter((p) => String(p.id) === String(idUrl));
+    } else if (categoriaUrl) {
+      // Si hay category en la URL, muestra productos de esa categoría
+      productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
+    } else if (familiaActiva) {
+      // Si no, filtra por familia
+      productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
+    } else {
+      // Fallback: categorías válidas por familia
+      const categoriasValidas = familias[familiaActiva] || [];
+      productosFiltrados = productos.filter((p) => categoriasValidas.includes(p.category));
+    }
 
-  // Filtro por búsqueda
-  productosFiltrados = productosFiltrados.filter((p) =>
-    normalizeText(p.name).includes(query)
-  );
-
-  // Filtro por categoría (select)
-  let categoria = $("#filtro-categoria").val();
-  if (categoria) {
-    productosFiltrados = productosFiltrados.filter(
-      (p) => p.category === categoria
+    // Filtro por búsqueda
+    productosFiltrados = productosFiltrados.filter((p) =>
+      normalizeText(p.name).includes(query)
     );
-  }
-  // Filtro por precio
-  let precio = $("#filtro-precio").val();
-  if (precio) {
-    if (precio === "<300")
-      productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
-    if (precio === "300-600")
+
+    // Filtro por categoría (select)
+    let categoria = $("#filtro-categoria").val();
+    if (categoria) {
       productosFiltrados = productosFiltrados.filter(
-        (p) => p.price >= 300 && p.price <= 600
+        (p) => p.category === categoria
       );
-    if (precio === ">600")
-      productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
-  }
-  // Filtro por oferta
-  if ($("#filtro-oferta").is(":checked")) {
-    productosFiltrados = productosFiltrados.filter(
-      (p) => p.offerPrice < p.price
-    );
-  }
+    }
+    // Filtro por precio
+    let precio = $("#filtro-precio").val();
+    if (precio) {
+      if (precio === "<300")
+        productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
+      if (precio === "300-600")
+        productosFiltrados = productosFiltrados.filter(
+          (p) => p.price >= 300 && p.price <= 600
+        );
+      if (precio === ">600")
+        productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
+    }
+    // Filtro por oferta
+    if ($("#filtro-oferta").is(":checked")) {
+      productosFiltrados = productosFiltrados.filter(
+        (p) => p.offerPrice < p.price
+      );
+    }
 
-  // Ordenar
-  let orden = $("#ordenar-productos").val();
-  if (orden) {
-    if (orden === "precio-asc")
-      productosFiltrados.sort((a, b) => a.price - b.price);
-    if (orden === "precio-desc")
-      productosFiltrados.sort((a, b) => b.price - a.price);
-    if (orden === "oferta")
-      productosFiltrados.sort(
-        (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
-      );
+    // Ordenar
+    let orden = $("#ordenar-productos").val();
+    if (orden) {
+      if (orden === "precio-asc")
+        productosFiltrados.sort((a, b) => a.price - b.price);
+      if (orden === "precio-desc")
+        productosFiltrados.sort((a, b) => b.price - a.price);
+      if (orden === "oferta")
+        productosFiltrados.sort(
+          (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
+        );
+    }
+    mostrarProductos(productosFiltrados);
   }
-  mostrarProductos(productosFiltrados);
-}
 
   // 5. Mostrar productos
   function mostrarProductos(lista) {
@@ -341,6 +346,45 @@ function filtrarYMostrar() {
         .join("")
     );
   }
+
+  // Función para resetear el catálogo al estado inicial (sin filtros)
+  window.resetearCatalogo = function () {
+    // Establecer familia por defecto
+    familiaActiva = "cuerda";
+
+    // Limpiar URL de parámetros
+    window.history.replaceState({}, '', 'catalog.html?familia=cuerda');
+
+    // Resetear todos los filtros
+    $("#filtro-categoria").val("");
+    $("#search-input-guitar").val("");
+    $("#filtro-precio").val("");
+    $("#filtro-oferta").val("");
+    $("#ordenar-productos").val("");
+
+    // Actualizar interfaz
+    if (typeof productos !== "undefined" && productos.length > 0) {
+      poblarCategorias(productos);
+      filtrarYMostrar();
+    }
+
+    // Marcar la pestaña activa correcta
+    document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
+      a.classList.remove("active");
+      a.removeAttribute("aria-current");
+    });
+    const enlaceActivo = document.querySelector(
+      `.catalog-secondary-nav a[onclick*="setFamilia('cuerda'"]`
+    );
+    if (enlaceActivo) {
+      enlaceActivo.classList.add("active");
+      enlaceActivo.setAttribute("aria-current", "page");
+    }
+
+    // Disparar evento para actualizar breadcrumb
+    $(document).trigger('familiaChanged');
+  };
+
 })();
 // Guardar la última página de compras en sessionStorage
 sessionStorage.setItem('lastShoppingPage', window.location.href);

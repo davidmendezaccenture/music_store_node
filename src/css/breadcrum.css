@@ -1,5 +1,3 @@
-/* breadcrum.css: estilos mínimos para breadcrumbs */
-
 /* Alinear verticalmente el breadcrumb y el botón Volver */
 #breadcrumb-container {
     display: flex;
@@ -27,11 +25,40 @@
 }
 
 #breadcrumb-nav .breadcrumb-item a {
-    color: #111;
+    color: #212529;
     text-decoration: none;
     font-weight: 500;
 }
 
 #breadcrumb-nav .breadcrumb-item.active {
+    color: #f6a61a;
     font-weight: 700;
+}
+
+/* Estilo específico para ofertas en el breadcrumb (replica el estilo .price-offer del catálogo) */
+#breadcrumb-nav .breadcrumb-item .offer-badge {
+    color: #23272b;
+    font-weight: 600;
+    background-color: #f6a61a;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* Estilo específico para precios en el breadcrumb (replica el estilo .price-offer del catálogo) */
+#breadcrumb-nav .breadcrumb-item .price-badge {
+    color: #23272b;
+    font-weight: 600;
+    background-color: #f6a61a;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* Estilo para la palabra "Precio:" en color gris oscuro/negro */
+#breadcrumb-nav .breadcrumb-item .price-label {
+    color: #23272b;
+    font-weight: 500;
 }

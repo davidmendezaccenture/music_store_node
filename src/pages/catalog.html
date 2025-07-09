@@ -1,38 +1,26 @@
 <!-- Copia de drums.html para pruebas de lógica dinámica. Estructura igual que drums.html actual. -->
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- Mejora SEO: descripción de la página -->
-    <meta
-      name="description"
-      content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments."
-    />
-    <meta name="robots" content="index, follow" />
-    <title>Catálogo de productos</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/style_catalog.css" />
-    <link rel="stylesheet" href="../css/services.css" />
-    <link rel="stylesheet" href="../css/style_chatbot.css" />
-    <link rel="stylesheet" href="../css/breadcrum.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de productos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/style_catalog.css" />
+  <link rel="stylesheet" href="../css/breadcrum.css" />
   <!-- Fuente seleccionada para usar en el proyecto-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+</head>
+
+<!-- Mejora SEO: descripción de la página -->
+<meta name="description"
+  content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
 
 <body>
 
@@ -152,19 +140,12 @@
     ¡Producto añadido a la cesta!
   </div>
 
-    <!-- Modal de búsqueda global -->
-    <div
-      id="globalSearchDropdown"
-      class="search-bar py-1 buscador shadow"
-      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
-    >
-      <div class="container">
-        <form
-          class="d-flex justify-content-center buscador-form"
-          role="search"
-          aria-label="Barra de búsqueda global"
-        >
-          <!-- <div
+  <!-- Modal de búsqueda global -->
+  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow"
+    style="display: none; position: absolute; z-index: 1055; min-width: 350px">
+    <div class="container">
+      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
+        <!-- <div
                 class="buscador-input-wrapper position-relative w-100"
                 style="max-width: 400px"
             >
@@ -184,89 +165,23 @@
                 <i class="bi bi-search fs-5"></i>
                 </button>
             </div> -->
-        </form>
-        <div id="global-search-results" class="mt-2"></div>
-      </div>
+      </form>
+      <div id="global-search-results" class="mt-2"></div>
     </div>
-    <!-- Chatbot flotante -->
-    <div id="chatbot-container" class="chatbot-container2">
-      <!-- Botón flotante -->
-      <button
-        id="chatbot-toggle"
-        class="chatbot-button"
-        aria-label="Abrir asistente virtual"
-      >
-        <i class="bi bi-chat-dots-fill"></i>
-      </button>
+  </div>
 
-      <!-- Ventana del chatbot -->
-      <div id="chatbot-window" class="chatbot-window d-none">
-        <div class="chatbot-header">
-          <!-- Indicador de redimensionamiento en esquina superior izquierda -->
-          <div
-            class="chatbot-resize-handle"
-            title="Arrastra para redimensionar"
-          >
-            <i class="bi bi-arrows-angle-expand"></i>
-          </div>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/contact.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/register.js"></script>
+  <script src="../js/catalog.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/breadcrum.js"></script>
 
-          <div class="d-flex align-items-center">
-            <i class="bi bi-robot me-2"></i>
-            <div>
-              <div class="fw-bold">Asistente Virtual</div>
-              <small class="text-muted">Rat Pack Instruments</small>
-            </div>
-          </div>
-          <button
-            id="chatbot-close"
-            class="btn-close"
-            aria-label="Cerrar chat"
-          ></button>
-        </div>
+</body>
 
-        <div id="chatbot-messages" class="chatbot-messages">
-          <div class="message bot-message">
-            <div class="message-content">
-              ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En
-              qué puedo ayudarte hoy?
-            </div>
-            <div class="message-time">Ahora</div>
-          </div>
-        </div>
-
-        <div class="chatbot-input">
-          <div class="input-group">
-            <input
-              type="text"
-              id="chatbot-input"
-              class="form-control"
-              placeholder="Escribe tu pregunta..."
-              aria-label="Mensaje para el asistente"
-            />
-            <button
-              id="chatbot-send"
-              class="btn btn-primary"
-              type="button"
-              aria-label="Enviar mensaje"
-            >
-              <i class="bi bi-send-fill"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/contact.js"></script>
-    <script src="../js/cart.js"></script>
-    <script src="../js/register.js"></script>
-    <script src="../js/catalog.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/chatbot.js"></script>  <script src="../js/breadcrum.js"></script>
-
-  </body>
 </html>
