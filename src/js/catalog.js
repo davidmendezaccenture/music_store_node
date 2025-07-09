@@ -13,6 +13,7 @@ function normalizeText(text) {
   // Variable global para la familia activa
   // Almacena la familia activa en localStorage para persistencia tras recarga
   // Si hay parámetro familia en la URL, úsalo como familia activa
+  // Función para obtener familia desde la URL fea (?familia=...)
   function getFamiliaFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get("familia");
@@ -49,6 +50,10 @@ function normalizeText(text) {
     console.log("setFamilia llamada con:", nuevaFamilia);
     familiaActiva = nuevaFamilia;
     localStorage.setItem("familiaCatalogoActiva", familiaActiva);
+
+    // Cambiar la URL a formato feo: catalog.html?familia=[familia]
+    const nuevaUrl = `catalog.html?familia=${nuevaFamilia}`;
+    window.history.replaceState({}, '', nuevaUrl);
 
     // Quitar clase active de todos los enlaces en AMBAS barras
     document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
@@ -237,7 +242,7 @@ function normalizeText(text) {
         );
     }
     console.log("Productos filtrados:", productosFiltrados);
-console.log("Contenedor existe:", !!document.getElementById("products-list"));
+    console.log("Contenedor existe:", !!document.getElementById("products-list"));
     mostrarProductos(productosFiltrados);
   }
 
