@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../css/style_cart.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/style_chatbot.css" />
+    <link rel="stylesheet" href="../css/services.css" />
     <!-- Fuente seleccionada para usar en el proyecto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,21 +57,20 @@
       role="main"
       aria-label="Carrito de la compra"
     >
-     <!-- Botón para volver a Home -->
-          <div class="mb-4">
-            <a
-              href="/pages/index.html"
-              class="btn btn-primary rounded-pill px-4 regular-btn"
-              aria-label="Volver al inicio"
-              >Volver</a
-            >
-          </div>
-          <!-- Título -->
-          <h2 class="h1 mb-2">Carrito</h2>
+      <!-- Botón para volver a Home -->
+      <div class="mb-4">
+        <a
+          href="/pages/index.html"
+          class="btn btn-primary rounded-pill px-4 regular-btn"
+          aria-label="Volver al inicio"
+          >Volver</a
+        >
+      </div>
+      <!-- Título -->
+      <h2 class="h1 mb-2">Carrito</h2>
       <div class="row">
         <!-- Columna izquierda: productos -->
         <div class="col-lg-8">
-         
           <!-- Carrito vacío -->
           <div
             id="cart-empty"
@@ -178,13 +178,15 @@
               <a href="#" class="btn btn-dark btn-lg w-100 mb-3 btn-checkout"
                 >IR A CAJA &rarr;</a
               >
-              <div class="border rounded p-3 mb-3 bg-light">
+              <div class="border rounded p-3 mb-3 bg-light border-accessible">
                 <div class="d-flex justify-content-between align-items-center">
                   <span
                     ><i class="bi bi-truck"></i>
                     <strong>Entrega ordinaria</strong></span
                   >
-                  <span class="text-success text-success-accessible fw-bold">gratis</span>
+                  <span class="text-success text-success-accessible fw-bold"
+                    >gratis</span
+                  >
                 </div>
                 <small class="text-muted"
                   >Se espera entre el Ma., 1.07. y el Mi., 2.07.</small
@@ -196,9 +198,9 @@
               <div class="mb-2">
                 <a
                   href="#"
-                  class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between"
+                  class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between pagar-nav"
                 >
-                  <span>Pagar con PayPal Express</span>
+                  <span class="txt-blanco">Pagar con PayPal Express</span>
                   <img
                     src="/assets/images/paypal.webp"
                     alt="PayPal"
@@ -207,9 +209,9 @@
                 </a>
                 <a
                   href="#"
-                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between"
+                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between pagar-nav"
                 >
-                  <span>Pagar con Amazon Pay</span>
+                  <span class="txt-blanco">Pagar con Amazon Pay</span>
                   <img
                     src="/assets/images/amazon-icon.webp"
                     alt="Amazon Pay"
@@ -226,7 +228,7 @@
       <div class="d-flex justify-content-center">
         <button
           id="seguirComprandoBtn"
-          class="btn btn-primary rounded-pill px-4 regular-btn mb-4"
+          class="btn background-resaltado rounded-pill px-4 mb-4 btn-tab"
           aria-label="Seguir comprando y volver a la tienda"
         >
           Seguir comprando
@@ -306,12 +308,14 @@
               >
             </div>
             <div class="modal-footer">
-              <a
-                  type="button"
-                  class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#loginModal"
-              >Iniciar Sesión</a>
+              <button
+                type="button"
+                class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Iniciar Sesión
+              </button>
               <a
                 href="/pages/register.html"
                 class="btn rounded-pill px-4 auth-button"

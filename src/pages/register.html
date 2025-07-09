@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Crea tu cuenta en Rat Pack Instruments y accede a todas las ventajas de nuestra tienda de instrumentos musicales. Registro rápido, seguro y fácil."
+    />
+    <meta name="robots" content="index, follow" />
     <title>Rat Pack Instruments</title>
     <link
       rel="stylesheet"
@@ -46,7 +51,7 @@
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
           <div class="card shadow-lg border-0 rounded-4 h-100">
-            <div class="card-body p-4">
+            <div class="card-body card-border-r p-4">
               <form
                 id="registerForm"
                 novalidate
@@ -203,12 +208,16 @@
                         autocomplete="new-password"
                       />
                       <button
-                        class="btn btn-outline-secondary toggle-password"
+                        class="btn toggle-password txt-resaltado"
                         type="button"
                         tabindex="-1"
                         data-target="password"
+                        aria-label="Mostrar u ocultar contraseña"
                       >
-                        <i class="bi bi-eye-slash" id="icon-password"></i>
+                        <i
+                          class="bi bi-eye-slash icon-bicolor"
+                          id="icon-password"
+                        ></i>
                       </button>
                     </div>
                     <div id="passwordSimbols" class="form-text">
@@ -234,13 +243,14 @@
                         autocomplete="new-password"
                       />
                       <button
-                        class="btn btn-outline-secondary toggle-password"
+                        class="btn toggle-password txt-resaltado"
                         type="button"
                         tabindex="-1"
                         data-target="passwordConfirm"
+                        aria-label="Mostrar u ocultar contraseña"
                       >
                         <i
-                          class="bi bi-eye-slash"
+                          class="bi bi-eye-slash icon-bicolor"
                           id="icon-passwordConfirm"
                         ></i>
                       </button>
@@ -253,7 +263,9 @@
 
                   <!-- Captcha -->
                   <div class="col-12">
-                    <label id="captchaLabel" class="form-label">Captcha:</label>
+                    <label for="captcha" id="captchaLabel" class="form-label"
+                      >Captcha:</label
+                    >
                     <input
                       type="text"
                       id="captcha"
@@ -269,8 +281,9 @@
                   <div class="col-12">
                     <button
                       type="submit"
-                      class="btn background-resaltado rounded-pill w-100"
+                      class="btn background-resaltado rounded-pill w-100 btn-tab"
                     >
+                      <i class="bi bi-person-plus-fill me-2"></i>
                       Crear Cuenta
                     </button>
                   </div>

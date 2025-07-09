@@ -74,7 +74,7 @@
     "codigoPostal": "33209",
     "direccion": "avenidaa pinta",
     "email": "admin@gmail.com",
-    "password": "sWxiXRRuK@9gh#b",
+    "password": "$2b$10$ylV08CTTwor.wJodYmQ.K..Def/GayZ15FFlCcW/N7OSXpzRQAUQS",
     "isLoggedIn": 0
   },
   {
@@ -101,7 +101,7 @@
     "direccion": "Calle Luz, 6",
     "email": "lore@email.com",
     "password": "1234",
-    "isLoggedIn": 1
+    "isLoggedIn": 0
   },
   {
     "nombre": "VicentePrueba2",
