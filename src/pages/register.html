@@ -1,188 +1,333 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rat Pack Instruments</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/style_chatbot.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <!-- Fuente seleccionada para usar en el proyecto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icono tittle -->
+    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rat Pack Instruments</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/media.css" />
-  <!-- Fuente seleccionada para usar en el proyecto-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet" />
-  <!-- icono tittle -->
-  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-</head>
+  <body>
+    <!-- Cabecera de la página -->
+    <div id="header"></div>
 
-<body>
-  <!-- Cabecera de la página -->
-  <div id="header"></div>
-
-  <!-- Formulario crear una cuenta -->
-  <main class="container py-5">
-    <h2 class="text-center mb-5">
-      <i class="bi bi-person-workspace me-3 icon-bicolor"></i>
-      Registrate
-    </h2>
-    <div class="row justify-content-center">
-      <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
-        <div class="card shadow-lg border-0 rounded-4 h-100">
-          <div class="card-body p-4">
-            <form id="registerForm" novalidate aria-label="Formulario de registro de usuario">
-              <div class="row g-3">
-                <!-- Nombre -->
-                <div class="col-md-6">
-                  <label for="nombre" class="form-label">Nombre:</label>
-                  <input type="text" id="nombre" name="nombre" class="form-control" required aria-required="true" />
-                </div>
-                <!-- Apellidos -->
-                <div class="col-md-6">
-                  <label for="apellidos" class="form-label">Apellidos:</label>
-                  <input type="text" id="apellidos" name="apellidos" class="form-control" required
-                    aria-required="true" />
-                </div>
-                <!-- Fecha de Nacimiento -->
-                <div class="col-md-6">
-                  <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                  <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" required
-                    aria-required="true" />
-                </div>
-                <!-- Teléfono -->
-                <div class="col-md-6">
-                  <label for="telefono" class="form-label">Teléfono:</label>
-                  <input type="tel" id="telefono" name="telefono" class="form-control" pattern="[0-9]{9,15}" required
-                    aria-required="true" aria-describedby="telefonoHelp" />
-                  <div id="telefonoHelp" class="form-text">
-                    Solo números, entre 9 y 15 dígitos.
+    <!-- Formulario crear una cuenta -->
+    <main class="container py-5">
+      <h2 class="text-center mb-5">
+        <i class="bi bi-person-workspace me-3 icon-bicolor"></i>
+        Registrate
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+          <div class="card shadow-lg border-0 rounded-4 h-100">
+            <div class="card-body p-4">
+              <form
+                id="registerForm"
+                novalidate
+                aria-label="Formulario de registro de usuario"
+              >
+                <div class="row g-3">
+                  <!-- Nombre -->
+                  <div class="col-md-6">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
                   </div>
-                </div>
-                <!-- País -->
-                <div class="col-md-6">
-                  <label for="pais" class="form-label">País:</label>
-                  <input type="text" id="pais" name="pais" class="form-control" required aria-required="true" />
-                </div>
-                <!-- Región -->
-                <div class="col-md-6">
-                  <label for="region" class="form-label">Región:</label>
-                  <input type="text" id="region" name="region" class="form-control" required aria-required="true" />
-                </div>
-                <!-- Código Postal -->
-                <div class="col-md-6">
-                  <label for="codigoPostal" class="form-label">Código Postal:</label>
-                  <input type="text" id="codigoPostal" name="codigoPostal" class="form-control" required
-                    aria-required="true" pattern="[0-9]{4,10}" />
-                </div>
-                <!-- Dirección -->
-                <div class="col-md-6">
-                  <label for="direccion" class="form-label">Dirección:</label>
-                  <input type="text" id="direccion" name="direccion" class="form-control" required
-                    aria-required="true" />
-                </div>
-                <!-- Email -->
-                <div class="col-md-6">
-                  <label for="email" class="form-label">Correo Electrónico:</label>
-                  <input type="email" id="email" name="email" class="form-control" required aria-required="true"
-                    autocomplete="email" />
-                </div>
-                <!-- Confirmar Email -->
-                <div class="col-md-6">
-                  <label for="emailConfirm" class="form-label">Confirmar Correo Electrónico:</label>
-                  <input type="email" id="emailConfirm" name="emailConfirm" class="form-control" required
-                    aria-required="true" />
-                </div>
-                <!-- Contraseña -->
-                <div class="col-md-6">
-                  <label for="password" class="form-label">Contraseña:</label>
-                  <div class="input-group">
-                    <input type="password" class="form-control" id="password" name="password" required
-                      aria-required="true" minlength="10" autocomplete="new-password" />
-                    <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1"
-                      data-target="password">
-                      <i class="bi bi-eye-slash" id="icon-password"></i>
+                  <!-- Apellidos -->
+                  <div class="col-md-6">
+                    <label for="apellidos" class="form-label">Apellidos:</label>
+                    <input
+                      type="text"
+                      id="apellidos"
+                      name="apellidos"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Fecha de Nacimiento -->
+                  <div class="col-md-6">
+                    <label for="fechaNacimiento" class="form-label"
+                      >Fecha de Nacimiento:</label
+                    >
+                    <input
+                      type="date"
+                      id="fechaNacimiento"
+                      name="fechaNacimiento"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Teléfono -->
+                  <div class="col-md-6">
+                    <label for="telefono" class="form-label">Teléfono:</label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      class="form-control"
+                      pattern="[0-9]{9,15}"
+                      required
+                      aria-required="true"
+                      aria-describedby="telefonoHelp"
+                    />
+                    <div id="telefonoHelp" class="form-text">
+                      Solo números, entre 9 y 15 dígitos.
+                    </div>
+                  </div>
+                  <!-- País -->
+                  <div class="col-md-6">
+                    <label for="pais" class="form-label">País:</label>
+                    <input
+                      type="text"
+                      id="pais"
+                      name="pais"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Región -->
+                  <div class="col-md-6">
+                    <label for="region" class="form-label">Región:</label>
+                    <input
+                      type="text"
+                      id="region"
+                      name="region"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Código Postal -->
+                  <div class="col-md-6">
+                    <label for="codigoPostal" class="form-label"
+                      >Código Postal:</label
+                    >
+                    <input
+                      type="text"
+                      id="codigoPostal"
+                      name="codigoPostal"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                      pattern="[0-9]{4,10}"
+                    />
+                  </div>
+                  <!-- Dirección -->
+                  <div class="col-md-6">
+                    <label for="direccion" class="form-label">Dirección:</label>
+                    <input
+                      type="text"
+                      id="direccion"
+                      name="direccion"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Email -->
+                  <div class="col-md-6">
+                    <label for="email" class="form-label"
+                      >Correo Electrónico:</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                      autocomplete="email"
+                    />
+                  </div>
+                  <!-- Confirmar Email -->
+                  <div class="col-md-6">
+                    <label for="emailConfirm" class="form-label"
+                      >Confirmar Correo Electrónico:</label
+                    >
+                    <input
+                      type="email"
+                      id="emailConfirm"
+                      name="emailConfirm"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <!-- Contraseña -->
+                  <div class="col-md-6">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        required
+                        aria-required="true"
+                        minlength="10"
+                        autocomplete="new-password"
+                      />
+                      <button
+                        class="btn btn-outline-secondary toggle-password"
+                        type="button"
+                        tabindex="-1"
+                        data-target="password"
+                      >
+                        <i class="bi bi-eye-slash" id="icon-password"></i>
+                      </button>
+                    </div>
+                    <div id="passwordSimbols" class="form-text">
+                      La contraseña debe tener al menos 10 caracteres, incluir
+                      mayúsculas, minúsculas, números y símbolos.
+                    </div>
+                  </div>
+
+                  <!-- Confirmar Contraseña -->
+                  <div class="col-md-6">
+                    <label for="passwordConfirm" class="form-label"
+                      >Confirmar Contraseña:</label
+                    >
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="passwordConfirm"
+                        name="passwordConfirm"
+                        required
+                        aria-required="true"
+                        minlength="10"
+                        autocomplete="new-password"
+                      />
+                      <button
+                        class="btn btn-outline-secondary toggle-password"
+                        type="button"
+                        tabindex="-1"
+                        data-target="passwordConfirm"
+                      >
+                        <i
+                          class="bi bi-eye-slash"
+                          id="icon-passwordConfirm"
+                        ></i>
+                      </button>
+                    </div>
+                    <div id="passwordSimbolsConfirm" class="form-text">
+                      La contraseña debe tener al menos 10 caracteres, incluir
+                      mayúsculas, minúsculas, números y símbolos.
+                    </div>
+                  </div>
+
+                  <!-- Captcha -->
+                  <div class="col-12">
+                    <label id="captchaLabel" class="form-label">Captcha:</label>
+                    <input
+                      type="text"
+                      id="captcha"
+                      name="captcha"
+                      class="form-control"
+                      required
+                      aria-required="true"
+                      inputmode="numeric"
+                      pattern="[0-9]+"
+                    />
+                  </div>
+                  <!-- Botón -->
+                  <div class="col-12">
+                    <button
+                      type="submit"
+                      class="btn background-resaltado rounded-pill w-100"
+                    >
+                      Crear Cuenta
                     </button>
                   </div>
-                  <div id="passwordSimbols" class="form-text">
-                    La contraseña debe tener al menos 10 caracteres, incluir
-                    mayúsculas, minúsculas, números y símbolos.
-                  </div>
                 </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-                <!-- Confirmar Contraseña -->
-                <div class="col-md-6">
-                  <label for="passwordConfirm" class="form-label">Confirmar Contraseña:</label>
-                  <div class="input-group">
-                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" required
-                      aria-required="true" minlength="10" autocomplete="new-password" />
-                    <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1"
-                      data-target="passwordConfirm">
-                      <i class="bi bi-eye-slash" id="icon-passwordConfirm"></i>
-                    </button>
-                  </div>
-                  <div id="passwordSimbolsConfirm" class="form-text">
-                    La contraseña debe tener al menos 10 caracteres, incluir
-                    mayúsculas, minúsculas, números y símbolos.
-                  </div>
-                </div>
-
-                <!-- Captcha -->
-                <div class="col-12">
-                  <label id="captchaLabel" class="form-label">Captcha:</label>
-                  <input type="text" id="captcha" name="captcha" class="form-control" required aria-required="true"
-                    inputmode="numeric" pattern="[0-9]+" />
-                </div>
-                <!-- Botón -->
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary w-100">
-                    Crear Cuenta
-                  </button>
-                </div>
-              </div>
-            </form>
+    <!-- Modales registro -->
+    <div
+      class="modal fade"
+      id="mensajeModal"
+      tabindex="-1"
+      aria-labelledby="mensajeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mensajeModalLabel">Mensaje</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body" id="mensajeModalBody">
+            <!-- Aquí irá el mensaje -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Aceptar
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </main>
 
-  <!-- Modales registro -->
-  <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="mensajeModalLabel">Mensaje</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body" id="mensajeModalBody">
-          <!-- Aquí irá el mensaje -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-            Aceptar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Linea divisoria superior del footer -->
+    <!--     <div class="linea-divisora-fina"></div> -->
+    <!-- Footer -->
+    <div id="footer"></div>
 
-  <!-- Linea divisoria superior del footer -->
-  <!--     <div class="linea-divisora-fina"></div> -->
-  <!-- Footer -->
-  <div id="footer"></div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/auth.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/contact.js"></script>
-  <script src="../js/cart.js"></script>
-  <script src="../js/register.js"></script>
-
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/register.js"></script>
+  </body>
 </html>

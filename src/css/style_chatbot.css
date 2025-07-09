@@ -8,7 +8,7 @@
 }
 .chatbot-container2 {
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 35px !important;
   z-index: 1000;
   transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -324,6 +324,10 @@ body.dark-mode .chatbot-resize-handle:hover {
 
 .card {
   border-color: #f6a61a;
+}
+.card-body {
+  border: 1px solid #f6a61a;
+  border-radius: 11.2px;
 }
 
 @media (max-width: 991.98px) {
