@@ -120,8 +120,7 @@ body {
 }
 
 /* icono + texto */
-.catalog-secondary-nav a:not(.active):hover::before,
-.catalog-secondary-nav a:not(.active):focus::before {
+.catalog-secondary-nav a:not(.active):hover::before {
   left: 0;
   right: 0;
   opacity: 0.45;
