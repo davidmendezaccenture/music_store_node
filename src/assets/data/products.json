@@ -212,7 +212,8 @@
     "offerPrice": 850,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
-    "category": "sintetizador analógico"
+    "category": "sintetizador analógico",
+    "familia": "teclado"
   },
   {
     "id": 23,
@@ -221,7 +222,8 @@
     "offerPrice": 1800,
     "image": "../assets/images/key3.webp",
     "description": "Workstation profesional con pantalla táctil, sampler y cientos de sonidos. Todo en uno para el músico moderno.",
-    "category": "workstation"
+    "category": "workstation",
+    "familia": "teclado"
   },
   {
     "id": 24,
@@ -240,7 +242,8 @@
     "offerPrice": 650,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador digital con más de 500 sonidos y conectividad USB/MIDI.",
-    "category": "sintetizador digital"
+    "category": "sintetizador digital",
+    "familia": "teclado"
   },
   {
     "id": 26,
@@ -269,7 +272,8 @@
     "offerPrice": 800,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador GrooveBox con secuenciador y pads de percusión.",
-    "category": "keyboards"
+    "category": "keyboards",
+    "familia": "teclado"
   },
   {
     "id": 29,
@@ -318,7 +322,7 @@
     "offerPrice": 850,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica especial para jazz y estudio.",
-    "category": "drums",
+    "category": "batería jazz studio",
     "familia": "percusion"
   },
   {
@@ -388,6 +392,7 @@
     "offerPrice": 2000,
     "image": "../assets/images/key3.webp",
     "description": "Sintetizador modular para experimentación sonora avanzada.",
-    "category": "sintetizador modular"
+    "category": "sintetizador modular",
+    "familia": "teclado"
   }
 ]

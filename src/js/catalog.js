@@ -29,21 +29,32 @@ const familias = {
     "basses"
   ],
   percusion: [
-    "drums",
-    "acoustic-drums",
-    "electronic-drums",
-    "drum-accessories",
+    "batería acústica",
+    "batería electrónica",
+    "platillos",
+    "caja de madera",
+    "pedal de bombo",
+    "set de batería",
+    "batería infantil",
+    "bateria studio pro",
+    "set de percusión",
+    "caja",
+    "batería jazz studio"
     // Añade aquí cualquier otra categoría real de percusión de tu JSON
   ],
   teclado: [
-    "synths",
-    "digital-pianos",
-    "keyboards",
+    "teclado digital",
+    "sintetizador analógico",
     "workstation",
     "teclado compacto urbankeys",
     "sintetizador digital",
-    "sintetizador analógico",
-    "piano digital studio88"
+    "piano digital studio88",
+    "teclado portátil easyplay",
+    "teclado infantil funkkeys",
+    "piano digital homeclassic",
+    "keyboards",
+    "teclado vintage",
+    "sintetizador modular"
     // Añade aquí todas las categorías de teclado que existan en tu JSON
   ]
     // Puedes añadir más familias aquí
