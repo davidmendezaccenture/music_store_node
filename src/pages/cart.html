@@ -55,10 +55,7 @@
       role="main"
       aria-label="Carrito de la compra"
     >
-      <div class="row">
-        <!-- Columna izquierda: productos -->
-        <div class="col-lg-8">
-          <!-- Botón para volver a Home -->
+     <!-- Botón para volver a Home -->
           <div class="mb-4">
             <a
               href="/pages/index.html"
@@ -69,6 +66,10 @@
           </div>
           <!-- Título -->
           <h2 class="h1 mb-2">Carrito</h2>
+      <div class="row">
+        <!-- Columna izquierda: productos -->
+        <div class="col-lg-8">
+         
           <!-- Carrito vacío -->
           <div
             id="cart-empty"
@@ -182,12 +183,12 @@
                     ><i class="bi bi-truck"></i>
                     <strong>Entrega ordinaria</strong></span
                   >
-                  <span class="text-success fw-bold">gratis</span>
+                  <span class="text-success text-success-accessible fw-bold">gratis</span>
                 </div>
                 <small class="text-muted"
                   >Se espera entre el Ma., 1.07. y el Mi., 2.07.</small
                 >
-                <a href="#" class="d-block mt-2 small"
+                <a href="#" class="d-block mt-2 small link-accessible"
                   >Información del envío <i class="bi bi-box-arrow-up-right"></i
                 ></a>
               </div>
@@ -303,7 +304,7 @@
             <div class="modal-footer">
               <a
                   type="button"
-                  class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button login-button-modal-guest"
+                  class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button"
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
               >Iniciar Sesión</a>

@@ -6,7 +6,8 @@
     "offerPrice": 180,
     "image": "../assets/images/guitar7.webp",
     "description": "Guitarra acústica de alta calidad.",
-    "category": "acoustic-guitars"
+    "category": "acoustic-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "offerPrice": 300,
     "image": "../assets/images/guitar3.webp",
     "description": "Guitarra eléctrica para músicos avanzados.",
-    "category": "electric-guitars"
+    "category": "electric-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "offerPrice": 250,
     "image": "../assets/images/bass5.webp",
     "description": "Bajo eléctrico con diseño ergonómico.",
-    "category": "basses"
+    "category": "basses",
+    "familia": "cuerda"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "offerPrice": 200,
     "image": "../assets/images/guitar12.webp",
     "description": "Guitarra flamenca con un diseño tradicional.",
-    "category": "classical-guitars"
+    "category": "classical-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "offerPrice": 550,
     "image": "../assets/images/guitar2.webp",
     "description": "Guitarra eléctrica estilo Stratocaster.",
-    "category": "electric-guitars"
+    "category": "electric-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "offerPrice": 500,
     "image": "../assets/images/bass3.webp",
     "description": "Bajo eléctrico ideal para jazz y funk.",
-    "category": "basses"
+    "category": "basses",
+    "familia": "cuerda"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "offerPrice": 750,
     "image": "../assets/images/guitar7.webp",
     "description": "Guitarra acústica con acabados de lujo.",
-    "category": "acoustic-guitars"
+    "category": "acoustic-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "offerPrice": 700,
     "image": "../assets/images/guitar1.webp",
     "description": "Guitarra eléctrica estilo Les Paul.",
-    "category": "electric-guitars"
+    "category": "electric-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "offerPrice": 850,
     "image": "../assets/images/guitar6.webp",
     "description": "Guitarra clásica con acabados de lujo.",
-    "category": "classical-guitars"
+    "category": "classical-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "offerPrice": 850,
     "image": "../assets/images/guitar13.webp",
     "description": "Guitarra clásica con acabados de lujo.",
-    "category": "electric-guitars"
+    "category": "electric-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 11,
@@ -132,7 +142,8 @@
     "offerPrice": 750,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica de alta calidad.",
-    "category": "drums"
+    "category": "batería acústica",
+    "familia": "percusion"
   },
   {
     "id": 16,
@@ -141,7 +152,8 @@
     "offerPrice": 600,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica compacta y versátil.",
-    "category": "drums"
+    "category": "batería electrónica",
+    "familia": "percusion"
   },
   {
     "id": 17,
@@ -150,7 +162,8 @@
     "offerPrice": 400,
     "image": "../assets/images/drum3.webp",
     "description": "Set de platillos de alta calidad para bateristas profesionales.",
-    "category": "drums"
+    "category": "platillos",
+    "familia": "percusion"
   },
   {
     "id": 18,
@@ -159,7 +172,8 @@
     "offerPrice": 200,
     "image": "../assets/images/drum4.webp",
     "description": "Caja de madera con un sonido cálido y resonante.",
-    "category": "drums"
+    "category": "caja de madera",
+    "familia": "percusion"
   },
   {
     "id": 19,
@@ -168,7 +182,8 @@
     "offerPrice": 150,
     "image": "../assets/images/drum5.webp",
     "description": "Pedal de bombo con acción suave y precisa.",
-    "category": "drums"
+    "category": "pedal de bombo",
+    "familia": "percusion"
   },
   {
     "id": 20,
@@ -177,7 +192,8 @@
     "offerPrice": 950,
     "image": "../assets/images/drum5.webp",
     "description": "Set completo de batería para principiantes y avanzados.",
-    "category": "drums"
+    "category": "set de batería",
+    "familia": "percusion"
   },
   {
     "id": 21,
@@ -186,7 +202,8 @@
     "offerPrice": 999,
     "image": "../assets/images/key1.webp",
     "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
-    "category": "keyboards"
+    "category": "teclado digital",
+    "familia": "teclado"
   },
   {
     "id": 22,
@@ -195,7 +212,8 @@
     "offerPrice": 850,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
-    "category": "keyboards"
+    "category": "sintetizador analógico",
+    "familia": "teclado"
   },
   {
     "id": 23,
@@ -204,7 +222,8 @@
     "offerPrice": 1800,
     "image": "../assets/images/key3.webp",
     "description": "Workstation profesional con pantalla táctil, sampler y cientos de sonidos. Todo en uno para el músico moderno.",
-    "category": "keyboards"
+    "category": "workstation",
+    "familia": "teclado"
   },
   {
     "id": 24,
@@ -213,7 +232,8 @@
     "offerPrice": 350,
     "image": "../assets/images/key1.webp",
     "description": "Teclado compacto de 61 teclas, ideal para espacios reducidos y músicos urbanos.",
-    "category": "keyboards"
+    "category": "teclado compacto urbankeys",
+    "familia": "teclado"
   },
   {
     "id": 25,
@@ -222,7 +242,8 @@
     "offerPrice": 650,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador digital con más de 500 sonidos y conectividad USB/MIDI.",
-    "category": "keyboards"
+    "category": "sintetizador digital",
+    "familia": "teclado"
   },
   {
     "id": 26,
@@ -231,7 +252,8 @@
     "offerPrice": 1100,
     "image": "../assets/images/key3.webp",
     "description": "Piano digital de 88 teclas con acción de martillo y altavoces integrados.",
-    "category": "keyboards"
+    "category": "piano digital studio88",
+    "familia": "teclado"
   },
   {
     "id": 27,
@@ -240,7 +262,8 @@
     "offerPrice": 199,
     "image": "../assets/images/key1.webp",
     "description": "Teclado portátil con 100 ritmos y acompañamientos automáticos.",
-    "category": "keyboards"
+    "category": "teclado portátil easyplay",
+    "familia": "teclado"
   },
   {
     "id": 28,
@@ -249,7 +272,8 @@
     "offerPrice": 800,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador GrooveBox con secuenciador y pads de percusión.",
-    "category": "keyboards"
+    "category": "keyboards",
+    "familia": "teclado"
   },
   {
     "id": 29,
@@ -258,7 +282,8 @@
     "offerPrice": 90,
     "image": "../assets/images/key1.webp",
     "description": "Teclado infantil de 32 teclas, ideal para los más pequeños.",
-    "category": "keyboards"
+    "category": "teclado infantil funkkeys",
+    "familia": "teclado"
   },
   {
     "id": 30,
@@ -267,7 +292,8 @@
     "offerPrice": 1350,
     "image": "../assets/images/key3.webp",
     "description": "Piano digital clásico para el hogar, con mueble y tres pedales.",
-    "category": "keyboards"
+    "category": "piano digital homeclassic",
+    "familia": "teclado"
   },
   {
     "id": 35,
@@ -276,7 +302,8 @@
     "offerPrice": 550,
     "image": "../assets/images/bass5.webp",
     "description": "Bajo eléctrico potente para rock y metal.",
-    "category": "basses"
+    "category": "basses",
+    "familia": "cuerda"
   },
   {
     "id": 36,
@@ -285,7 +312,8 @@
     "offerPrice": 290,
     "image": "../assets/images/guitar7.webp",
     "description": "Guitarra acústica compacta para viajar.",
-    "category": "acoustic-guitars"
+    "category": "acoustic-guitars",
+    "familia": "cuerda"
   },
   {
     "id": 37,
@@ -294,7 +322,8 @@
     "offerPrice": 850,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica especial para jazz y estudio.",
-    "category": "drums"
+    "category": "batería jazz studio",
+    "familia": "percusion"
   },
   {
     "id": 38,
@@ -303,7 +332,8 @@
     "offerPrice": 200,
     "image": "../assets/images/drum4.webp",
     "description": "Batería pequeña para niños y principiantes.",
-    "category": "drums"
+    "category": "batería infantil",
+    "familia": "percusion"
   },
   {
     "id": 39,
@@ -312,7 +342,8 @@
     "offerPrice": 1100,
     "image": "../assets/images/drum1.webp",
     "description": "Batería profesional para estudio de grabación.",
-    "category": "drums"
+    "category": "bateria studio pro",
+    "familia": "percusion"
   },
   {
     "id": 40,
@@ -321,7 +352,8 @@
     "offerPrice": 500,
     "image": "../assets/images/drum3.webp",
     "description": "Set de percusión latina: congas y bongos.",
-    "category": "drums"
+    "category": "set de percusión",
+    "familia": "percusion"
   },
   {
     "id": 41,
@@ -330,7 +362,8 @@
     "offerPrice": 950,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica avanzada con pads sensibles.",
-    "category": "drums"
+    "category": "batería electrónica",
+    "familia": "percusion"
   },
   {
     "id": 42,
@@ -339,7 +372,8 @@
     "offerPrice": 270,
     "image": "../assets/images/drum4.webp",
     "description": "Caja metálica con sonido brillante.",
-    "category": "drums"
+    "category": "caja",
+    "familia": "percusion"
   },
   {
     "id": 43,
@@ -348,7 +382,8 @@
     "offerPrice": 600,
     "image": "../assets/images/key2.webp",
     "description": "Teclado vintage con sonidos clásicos de los 80.",
-    "category": "keyboards"
+    "category": "teclado vintage",
+    "familia": "teclado"
   },
   {
     "id": 44,
@@ -357,6 +392,7 @@
     "offerPrice": 2000,
     "image": "../assets/images/key3.webp",
     "description": "Sintetizador modular para experimentación sonora avanzada.",
-    "category": "keyboards"
+    "category": "sintetizador modular",
+    "familia": "teclado"
   }
 ]

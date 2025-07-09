@@ -75,6 +75,16 @@
         "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
         "category": "keyboards",
         "quantity": 1
+      },
+      {
+        "id": 4,
+        "name": "Guitarra Flamenca",
+        "price": 200,
+        "offerPrice": 200,
+        "image": "../assets/images/guitar12.webp",
+        "description": "Guitarra flamenca con un diseño tradicional.",
+        "category": "classical-guitars",
+        "quantity": 1
       }
     ]
   },

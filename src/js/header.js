@@ -34,32 +34,59 @@ $(document).ready(function () {
   });
 
   // Buscar solo en las categorías permitidas al escribir
-  $(document).on("input", "#search-input-global", function () {
-    const query = $(this).val().trim();
-    if (query.length > 1) {
-      const queryNorm = normalizeText(query);
-      const $input = $(this);
-      const offset = $input.offset();
-      const width = $input.outerWidth();
+$(document).on("input", "#search-input-global", function () {
+  const query = $(this).val().trim();
+  console.log("allProducts:", allProducts);
+  if (query.length > 1) {
+    const queryNorm = normalizeText(query);
+    const $input = $(this);
+    const offset = $input.offset();
+    const width = $input.outerWidth();
 
-      $("#globalSearchDropdown").css({
-        top: offset.top + $input.outerHeight(),
-        left: offset.left,
-        width: width,
-        display: "block",
-      });
+    $("#globalSearchDropdown").css({
+      top: offset.top + $input.outerHeight(),
+      left: offset.left,
+      width: width,
+      display: "block",
+    });
 
-      // Filtrar solo las categorías permitidas (nombre o keywords)
-      const matchedCategories = allowedCategories.filter(cat =>
-        normalizeText(cat.name).includes(queryNorm) ||
-        (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
-      );
-      renderGlobalCategoryResults(matchedCategories, query);
-    } else {
-      $("#globalSearchDropdown").hide();
-      $("#global-search-results").html("");
-    }
-  });
+    // Filtrar productos
+const matchedProducts = allProducts.filter(prod =>
+  normalizeText(prod.name).includes(queryNorm)
+).map(prod => ({
+  name: prod.name,
+ url: `/pages/catalog.html?familia=${encodeURIComponent(prod.familia || '')}&category=${encodeURIComponent(prod.category || '')}&id=${prod.id}`
+}));
+
+    // Filtrar categorías permitidas
+    const matchedCategories = allowedCategories.filter(cat =>
+      normalizeText(cat.name).includes(queryNorm) ||
+      (cat.keywords && cat.keywords.some(kw => normalizeText(kw).includes(queryNorm)))
+    );
+
+    renderGlobalSearchResults(matchedProducts, matchedCategories, query);
+  } else {
+    $("#globalSearchDropdown").hide();
+    $("#global-search-results").html("");
+  }
+});
+
+
+    // Asocia aquí el evento de búsqueda global
+    // $(document).on("input", "#search-input-global", function () {
+    //   $("#globalSearchDropdown").show();
+    //   const query = $(this).val().trim().toLowerCase();
+    //   let resultados = [];
+    //   if (query.length > 1) {
+    //     const queryNorm = normalizeText(query);
+    //     resultados = allProducts.filter(
+    //       (p) =>
+    //         normalizeText(p.name).includes(query) ||
+    //         (p.category && normalizeText(p.category).includes(query))
+    //     );
+    //   }
+    //   renderGlobalSearchResults(resultados, [], query);
+    // });
 
   // Cerrar el dropdown al hacer click fuera
   $(document).on("mousedown", function (e) {
@@ -72,37 +99,49 @@ $(document).ready(function () {
 
 
 // Renderizar resultados SOLO de categorías permitidas
-function renderGlobalCategoryResults(categories, query) {
+function renderGlobalSearchResults(matchedProducts, matchedCategories, query) {
   const $res = $("#global-search-results");
-  if (query && categories.length > 0) {
-    $res.html(`
+  let html = "";
+
+    // Categorías
+  if (query && matchedCategories.length > 0) {
+    html += `<div class="text-uppercase small text-muted mb-2">CATEGORÍAS</div>
       <ul class="list-group list-group-flush">
-        ${categories
-          .map(
-            (cat) => `
+        ${matchedCategories.map(cat => `
           <li class="list-group-item">
             <a href="${cat.url}" class="text-decoration-none global-search-link" tabindex="0">
               <strong>${highlight(cat.name, query)}</strong>
             </a>
           </li>
-        `
-          )
-          .join("")}
-      </ul>
-    `);
-    // Mover el foco al primer resultado
-    // setTimeout(() => {
-    //   $(".global-search-link").first().focus();
-    // }, 0);
-  } else if (query) {
-    $res.html(
-      '<div class="text-muted px-3 py-2">No se encontraron categorías.</div>'
-    );
-  } else {
-    $res.html("");
+        `).join("")}
+      </ul>`;
   }
 
-  
+  // Línea de separación si hay productos y categorías
+  if (matchedProducts.length > 0 && matchedCategories.length > 0) {
+    html += `<hr class="my-2">`;
+  }
+
+  // Productos
+  if (query && matchedProducts.length > 0) {
+    html += `<div class="text-uppercase small text-muted mb-2">PRODUCTOS</div>
+      <ul class="list-group list-group-flush mb-3">
+        ${matchedProducts.map(prod => `
+          <li class="list-group-item">
+            <a href="${prod.url}" class="text-decoration-none global-search-link" tabindex="0">
+              ${highlight(prod.name, query)}
+            </a>
+          </li>
+        `).join("")}
+      </ul>`;
+  }
+
+  if (!html && query) {
+    html = '<div class="text-muted px-3 py-2">No se encontraron resultados.</div>';
+  }
+
+  $res.html(html);
+
   // Limpiar input y ocultar modal al hacer click en un resultado
   $(".global-search-link").on("click", function () {
     $("#search-input-global").val("");

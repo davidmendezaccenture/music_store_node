@@ -76,93 +76,6 @@
     >
       <!-- Tu contenido aquí -->
 
-      <!-- Título -->
-      <!-- <h2 class="text-center mb-4 products-title">Nuestros Productos</h2> -->
-
-      <!-- Iconos Navegación Secundaria -->
-      <!-- <nav aria-label="Navegación secundaria de productos">
-      <ul class="row list-unstyled text-center justify-content-center second-navbar">
-        <li class="col-auto mb-3">
-          <a href="/pages/catalog.html" class="d-flex flex-row align-items-center text-decoration-none"
-            aria-label="Ver productos de guitarras">
-            <div class="me-2">
-              <img alt="Icono de Guitarras" class="icon-image" src="/assets/images/electricguitar-icon.svg" />
-            </div>
-            <span class="nav-text db-text mb-2">Cuerda</span>
-          </a>
-        </li>
-
-        <li class="col-auto mb-3">
-          <a href="#" class="d-flex flex-row align-items-center text-decoration-none"
-            aria-label="Ver productos de baterías">
-            <div class="me-2">
-              <img alt="Icono de Baterías" class="icon-image" src="/assets/images/drums-icon.svg" />
-            </div>
-            <span class="nav-text db-text mb-2">Percusión</span>
-          </a>
-        </li>
-
-        <li class="col-auto mb-3">
-          <a href="#" class="d-flex flex-row align-items-center text-decoration-none"
-            aria-label="Ver productos de Teclados">
-            <div class="me-2">
-              <img alt="Icono de Teclados" class="icon-image" src="/assets/images/piano-icon.svg" />
-            </div>
-            <span class="nav-text db-text mb-2">Viento</span>
-          </a>
-        </li>
-
-        <li class="col-auto mb-2">
-          <a href="#" class="d-flex flex-row align-items-center text-decoration-none" aria-label="Ver productos de DJ">
-            <div class="me-2">
-              <img alt="Icono de DJ" class="icon-image" src="/assets/images/dj-icon.svg" />
-            </div>
-            <span class="nav-text db-text mb-2">Teclado</span>
-          </a>
-        </li>
-      </ul>
-    </nav> -->
-
-      <!-- Carrusel de imágenes -->
-      <!-- Botón izquierdo -->
-      <!-- <section
-        class="carrousel-container"
-        role="region"
-        aria-label="Carrusel de imágenes de productos"
-      >
-        <div class="carrousel-inner">
-          <button
-            class="product-carousel-arrow left btn btn-outline-secondary rounded-circle"
-            aria-label="Imagen anterior"
-          > -->
-      <!-- Imagen central -->
-      <!-- <i class="bi bi-chevron-left"></i>
-          </button>
-          <picture>
-            <img
-              alt="Imágenes de productos"
-              src=""
-              class="img-carrousel"
-            />
-          </picture> -->
-      <!-- Botón derecho -->
-      <!-- <button
-            class="product-carousel-arrow right btn btn-outline-secondary rounded-circle"
-            aria-label="Imagen siguiente"
-          >
-            <i class="bi bi-chevron-right"></i>
-          </button>
-        </div> -->
-      <!-- Indicadores del Carrusel de imágenes -->
-      <!-- <div
-          class="carousel-indicators-custom mb-4"
-          role="tablist"
-          aria-label="Indicadores del carrusel"
-        > -->
-      <!-- Los indicadores se generarán aquí -->
-      <!-- </div>
-      </section>  -->
-
       <!-- Carrusel de imágenes sin flechas y con indicadores debajo -->
       <div class="carousel-bg-black">
         <div
@@ -444,7 +357,43 @@
           </button>
         </div>
       </div>
+
+          <!-- Sección Banner de promos -->
+     
+  <section class="promo-container">
+    <div class="img-promo">
+      <picture>
+        <img
+          src="/assets/images/img-promo-index.webp"
+          alt="Oferta exclusiva para usuarios registrados"
+          class="img-fluid">
+      </picture>
+    </div>
+    <div class="promo-text">
+      <div class="promo-title">
+        <i class="bi bi-tags me-2 fs-2" aria-hidden="true"></i>
+        <h3 class="d-inline align-middle mb-0 ">OFERTA EXCLUSIVA PARA USUARIOS REGISTRADOS</h3>
+      </div>
+      <div class="promo-description">
+        <p class="d-inline align-middle mb-0">
+          Código Promocional: <span id="promoCodeText">SUMMERTIME</span>
+          <button type="button" id="copyPromoBtn" class="btn btn-link p-0 ms-2 align-baseline" aria-label="Copiar código promocional" title="Copiar código">
+            <i class="bi bi-clipboard" aria-hidden="true"></i>
+          </button>
+        </p>
+          <span id="promoCopiedMsg" class="text-success ms-2 d-none" aria-live="polite">¡Copiado!</span>
+        <p>
+          Tendrás un 5% de descuento... ¡en todos nuestros productos!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
     </main>
+
+
+
 
     <!-- Sección preparada para Listado de Productos Destacados -->
 

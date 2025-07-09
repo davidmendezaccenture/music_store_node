@@ -13,42 +13,64 @@ function normalizeText(text) {
   // Variable global para la familia activa
   // Almacena la familia activa en localStorage para persistencia tras recarga
   // Si hay parámetro familia en la URL, úsalo como familia activa
-  function getFamiliaFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("familia");
-  }
-  let familiaActiva =
-    getFamiliaFromURL() ||
-    localStorage.getItem("familiaCatalogoActiva") ||
-    "cuerda";
-  // Si viene por URL, actualiza el localStorage
-  if (getFamiliaFromURL()) {
-    localStorage.setItem("familiaCatalogoActiva", familiaActiva);
-  }
+function getFamiliaFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("familia");
+}
+let familiaActiva = getFamiliaFromURL() || "cuerda";
+// Eliminado el uso de localStorage
 
   // Diccionario de familias y sus categorías
-  const familias = {
-    cuerda: [
-      "acoustic-guitars",
-      "electric-guitars",
-      "classical-guitars",
-      "basses",
-    ],
-    percusion: [
-      "drums",
-      "acoustic-drums",
-      "electronic-drums",
-      "drum-accessories",
-    ],
-    teclado: ["synths", "digital-pianos", "keyboards"],
+const familias = {
+  cuerda: [
+    "acoustic-guitars",
+    "electric-guitars",
+    "classical-guitars",
+    "basses"
+  ],
+  percusion: [
+    "batería acústica",
+    "batería electrónica",
+    "platillos",
+    "caja de madera",
+    "pedal de bombo",
+    "set de batería",
+    "batería infantil",
+    "bateria studio pro",
+    "set de percusión",
+    "caja",
+    "batería jazz studio"
+    // Añade aquí cualquier otra categoría real de percusión de tu JSON
+  ],
+  teclado: [
+    "teclado digital",
+    "sintetizador analógico",
+    "workstation",
+    "teclado compacto urbankeys",
+    "sintetizador digital",
+    "piano digital studio88",
+    "teclado portátil easyplay",
+    "teclado infantil funkkeys",
+    "piano digital homeclassic",
+    "keyboards",
+    "teclado vintage",
+    "sintetizador modular"
+    // Añade aquí todas las categorías de teclado que existan en tu JSON
+  ]
     // Puedes añadir más familias aquí
   };
 
   // Función para cambiar la familia activa (llámala desde la barra secundaria)
-  window.setFamilia = function (nuevaFamilia) {
-    console.log("setFamilia llamada con:", nuevaFamilia);
-    familiaActiva = nuevaFamilia;
-    localStorage.setItem("familiaCatalogoActiva", familiaActiva);
+window.setFamilia = function (nuevaFamilia) {
+  // Limpiar el parámetro category de la URL al cambiar de familia
+  const params = new URLSearchParams(window.location.search);
+  params.delete("category");
+  params.delete("id");
+  // Actualiza la URL sin recargar la página
+  window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}${params.toString() ? '' : ''}`);
+
+  familiaActiva = nuevaFamilia;
+    
 
     // Quitar clase active de todos los enlaces en AMBAS barras
     document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
@@ -181,65 +203,74 @@ function normalizeText(text) {
     $("#filtro-categoria").html(options);
   }
 
-  // 4. Filtrar y mostrar productos
-  function filtrarYMostrar() {
-    let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
+ // 4. Filtrar y mostrar productos
+function filtrarYMostrar() {
+  let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
 
-    // --- INICIO CAMBIO: usar familia activa ---
+  const params = new URLSearchParams(window.location.search);
+  const idUrl = params.get("id");
+  const categoriaUrl = params.get("category");
 
-    // const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
-    // productosFiltrados = productos
-    //   .filter(p => categoriasGuitarra.includes(p.category)) // Solo guitarras
-    //   .filter(p => p.name.toLowerCase().includes(query));
-
+  if (idUrl) {
+    // Si hay id en la URL, muestra solo ese producto
+    productosFiltrados = productos.filter((p) => String(p.id) === String(idUrl));
+  } else if (categoriaUrl) {
+    // Si hay category en la URL, muestra productos de esa categoría
+    productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
+  } else if (familiaActiva) {
+    // Si no, filtra por familia
+    productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
+  } else {
+    // Fallback: categorías válidas por familia
     const categoriasValidas = familias[familiaActiva] || [];
-    productosFiltrados = productos
-      .filter((p) => categoriasValidas.includes(p.category))
-      .filter((p) => normalizeText(p.name).includes(query));
-
-    // --- FIN CAMBIO: usar familia activa ---
-
-    // Filtro por categoría
-    let categoria = $("#filtro-categoria").val();
-    if (categoria) {
-      productosFiltrados = productosFiltrados.filter(
-        (p) => p.category === categoria
-      );
-    }
-    // Filtro por precio
-    let precio = $("#filtro-precio").val();
-    if (precio) {
-      if (precio === "<300")
-        productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
-      if (precio === "300-600")
-        productosFiltrados = productosFiltrados.filter(
-          (p) => p.price >= 300 && p.price <= 600
-        );
-      if (precio === ">600")
-        productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
-    }
-    // Filtro por oferta
-    if ($("#filtro-oferta").is(":checked")) {
-      productosFiltrados = productosFiltrados.filter(
-        (p) => p.offerPrice < p.price
-      );
-    }
-    // Ordenar
-    let orden = $("#ordenar-productos").val();
-    if (orden) {
-      if (orden === "precio-asc")
-        productosFiltrados.sort((a, b) => a.price - b.price);
-      if (orden === "precio-desc")
-        productosFiltrados.sort((a, b) => b.price - a.price);
-      if (orden === "oferta")
-        productosFiltrados.sort(
-          (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
-        );
-    }
-    console.log("Productos filtrados:", productosFiltrados);
-console.log("Contenedor existe:", !!document.getElementById("products-list"));
-    mostrarProductos(productosFiltrados);
+    productosFiltrados = productos.filter((p) => categoriasValidas.includes(p.category));
   }
+
+  // Filtro por búsqueda
+  productosFiltrados = productosFiltrados.filter((p) =>
+    normalizeText(p.name).includes(query)
+  );
+
+  // Filtro por categoría (select)
+  let categoria = $("#filtro-categoria").val();
+  if (categoria) {
+    productosFiltrados = productosFiltrados.filter(
+      (p) => p.category === categoria
+    );
+  }
+  // Filtro por precio
+  let precio = $("#filtro-precio").val();
+  if (precio) {
+    if (precio === "<300")
+      productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
+    if (precio === "300-600")
+      productosFiltrados = productosFiltrados.filter(
+        (p) => p.price >= 300 && p.price <= 600
+      );
+    if (precio === ">600")
+      productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
+  }
+  // Filtro por oferta
+  if ($("#filtro-oferta").is(":checked")) {
+    productosFiltrados = productosFiltrados.filter(
+      (p) => p.offerPrice < p.price
+    );
+  }
+
+  // Ordenar
+  let orden = $("#ordenar-productos").val();
+  if (orden) {
+    if (orden === "precio-asc")
+      productosFiltrados.sort((a, b) => a.price - b.price);
+    if (orden === "precio-desc")
+      productosFiltrados.sort((a, b) => b.price - a.price);
+    if (orden === "oferta")
+      productosFiltrados.sort(
+        (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
+      );
+  }
+  mostrarProductos(productosFiltrados);
+}
 
   // 5. Mostrar productos
   function mostrarProductos(lista) {
