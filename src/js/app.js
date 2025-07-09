@@ -197,6 +197,17 @@ $(document).ready(function () {
     // Si el modal ya está presente, asigna el evento directamente
     initLoginModal();
   }
+
+    // --- Lógica para copiar el código promocional ---
+  $('#copyPromoBtn').on('click', function() {
+    const code = $('#promoCodeText').text();
+    navigator.clipboard.writeText(code).then(function() {
+      // Mostrar mensaje de copiado
+      const $msg = $('#promoCopiedMsg');
+      $msg.removeClass('d-none');
+      setTimeout(() => $msg.addClass('d-none'), 1500);
+    });
+  });
 });
 
 /* Funcion on click para no repetir código */
@@ -335,4 +346,7 @@ $(function () {
         });
     }
   });
+
+
+
 }); // <-- Cierra la función jQuery $(function () { ... )
