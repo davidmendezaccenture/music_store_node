@@ -1128,6 +1128,16 @@ a:focus-visible .social-logo {
   outline-offset: 2px;
 }
 
+#globalSearchDropdown {
+  background: rgba(255,255,255,0.98); /* Fondo casi opaco */
+  /* Puedes usar background: #fff; para fondo blanco sólido */
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  /* Si quieres más contraste, puedes probar con un gris suave: */
+  /* background: #f8f9fa; */
+  margin-top: 9px;
+} 
+
 /* NewsLetter */
 .newsletter-section {
   background-color: #f3f2ee;

@@ -103,14 +103,14 @@ function renderGlobalSearchResults(matchedProducts, matchedCategories, query) {
   const $res = $("#global-search-results");
   let html = "";
 
-  // Productos
-  if (query && matchedProducts.length > 0) {
-    html += `<div class="text-uppercase small text-muted mb-2">PRODUCTOS</div>
-      <ul class="list-group list-group-flush mb-3">
-        ${matchedProducts.map(prod => `
+    // Categorías
+  if (query && matchedCategories.length > 0) {
+    html += `<div class="text-uppercase small text-muted mb-2">CATEGORÍAS</div>
+      <ul class="list-group list-group-flush">
+        ${matchedCategories.map(cat => `
           <li class="list-group-item">
-            <a href="${prod.url}" class="text-decoration-none global-search-link" tabindex="0">
-              ${highlight(prod.name, query)}
+            <a href="${cat.url}" class="text-decoration-none global-search-link" tabindex="0">
+              <strong>${highlight(cat.name, query)}</strong>
             </a>
           </li>
         `).join("")}
@@ -122,14 +122,14 @@ function renderGlobalSearchResults(matchedProducts, matchedCategories, query) {
     html += `<hr class="my-2">`;
   }
 
-  // Categorías
-  if (query && matchedCategories.length > 0) {
-    html += `<div class="text-uppercase small text-muted mb-2">CATEGORÍAS</div>
-      <ul class="list-group list-group-flush">
-        ${matchedCategories.map(cat => `
+  // Productos
+  if (query && matchedProducts.length > 0) {
+    html += `<div class="text-uppercase small text-muted mb-2">PRODUCTOS</div>
+      <ul class="list-group list-group-flush mb-3">
+        ${matchedProducts.map(prod => `
           <li class="list-group-item">
-            <a href="${cat.url}" class="text-decoration-none global-search-link" tabindex="0">
-              <strong>${highlight(cat.name, query)}</strong>
+            <a href="${prod.url}" class="text-decoration-none global-search-link" tabindex="0">
+              ${highlight(prod.name, query)}
             </a>
           </li>
         `).join("")}
