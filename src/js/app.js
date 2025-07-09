@@ -23,21 +23,7 @@ $(document).ready(function () {
       }
     });
 
-    // Asocia aquí el evento de búsqueda global
-    $(document).on("input", "#search-input-global", function () {
-      $("#globalSearchDropdown").show();
-      const query = $(this).val().trim().toLowerCase();
-      let resultados = [];
-      if (query.length > 1) {
-        const queryNorm = normalizeText(query);
-        resultados = allProducts.filter(
-          (p) =>
-            normalizeText(p.name).includes(query) ||
-            (p.category && normalizeText(p.category).includes(query))
-        );
-      }
-      renderGlobalResults(resultados, query);
-    });
+
     // Estado inicial del botón
     if (localStorage.getItem("darkMode") === "enabled") {
       $("body").addClass("dark-mode");
