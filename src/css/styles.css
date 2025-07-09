@@ -1575,7 +1575,7 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
   width: 70rem;  
   text-align: center;    
   margin: 0 auto; 
-  border: #000 solid 1px; 
+  border: lightgray solid 1px; 
 }
 
 .img-promo {

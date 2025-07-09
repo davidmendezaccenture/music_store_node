@@ -233,6 +233,14 @@ a.regular-btn:hover,
   opacity: 0.9;
 }
 
+.text-success-accessible {
+  color: #145317 !important;
+}
+
+.link-accessible {
+  color: #084298 !important;
+  text-decoration: underline;
+}
 /* Ajustes para el botón de eliminar producto en pantallas pequeñas */
 @media (max-width: 1199.98px) {
   .cart-item .delete-product-btn {
