@@ -1826,8 +1826,16 @@ body.dark-mode {
   background-color: #181818 !important;
   color: #f1f1f1 !important;
 }
-body.dark-mode .txt-blanco {
-  color: #f1f1f1;
+body.dark-mode .txt-blanco,
+body.dark-mode .breadcrumb-tab,
+body.dark-mode .login-button:hover,
+body.dark-mode .auth-button:hover,
+body.dark-mode .close-button:hover {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .h3-dm {
+  color: #000;
 }
 body.dark-mode .text-success-accessible,
 body.dark-mode .link-accessible {
@@ -1836,6 +1844,17 @@ body.dark-mode .link-accessible {
 body.dark-mode .border-accessible {
   border: 1px solid #f6a61a !important;
 }
+body.dark-mode .login-button {
+  background-color: transparent !important;
+  color: #f6a61a !important;
+  border: 2px solid #f6a61a !important;
+}
+body.dark-mode .close-button {
+  background-color: transparent !important;
+  color: red !important;
+  border: 2px solid #f6a61a !important;
+}
+
 body.dark-mode .pre-footer,
 body.dark-mode .opinion-card-container {
   background-color: #1e1e1e !important;
@@ -1843,7 +1862,8 @@ body.dark-mode .opinion-card-container {
 }
 
 body.dark-mode .btn-cancel,
-body.dark-mode .btn-checkout {
+body.dark-mode .btn-checkout,
+body.dark-mode .auth-button {
   background-color: #f6a61a !important;
   color: #000000 !important;
 }
@@ -1862,6 +1882,11 @@ body.dark-mode .caja-card {
   color: #f1f1f1 !important;
   background-color: #232323 !important;
   border: 1px solid #f6a61a;
+}
+
+body.dark-mode .opinion-card-container,
+body.dark-mode .promo-container {
+  border: 1px solid #f6a61a !important;
 }
 
 body.dark-mode .bg-white,
