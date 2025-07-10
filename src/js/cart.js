@@ -148,7 +148,17 @@ function renderCart(items) {
     // Clonar template 
     const $tpl = $($('#cart-item-template').prop('content')).children().first().clone();
     $tpl.attr('data-id', item.id);
-    $tpl.find('img').attr('src', imgSrc).attr('alt', item.name);
+    
+    // Crea el enlace con la imagen dentro
+const $imgLink = $(`
+  <a href="/pages/detail-product.html?id=${item.id}" target="_blank" aria-label="Ver detalle de ${item.name}">
+    <img src="${imgSrc}" class="img-fluid rounded" alt="${item.name}" style="max-width: 80px" />
+  </a>
+`);
+
+// Sustituye el div de la imagen por el enlace con la imagen
+$tpl.find('.col-3.col-md-2.text-center').empty().append($imgLink);
+
     $tpl.find('.card-title').text(item.name);
     $tpl.find('.card-text').text(item.description || '');
     $tpl.find('.price').text(`${price} €`);
