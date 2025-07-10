@@ -103,12 +103,11 @@
             >
               <div class="row g-0 align-items-center flex-row">
                 <!-- Imagen: ocupa 3 columnas en móvil y 2 en md+ -->
-                <div class="col-3 col-md-2 text-center">
+                <div class="col-3 col-md-2 text-center img-cart-container">
                   <img
                     src=""
                     class="img-fluid rounded"
                     alt="Imagen del producto"
-                    style="max-width: 80px"
                   />
                 </div>
                 <!-- Info: ocupa 9 columnas en móvil y 3 en md+ -->
@@ -134,9 +133,8 @@
                     </button>
                     <input
                       type="text"
-                      class="form-control text-center mx-1 cart-qty-input"
+                      class="form-control text-center mx-1 cart-qty-input product-amount"
                       value="1"
-                      style="width: 40px; display: inline-block"
                       readonly
                       aria-label="Cantidad del producto"
                     />
@@ -196,28 +194,27 @@
                 ></a>
               </div>
               <div class="mb-2">
-                <a
-                  href="#"
-                  class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between pagar-nav"
+                <div class="fw-bold mb-2">Puedes pagar con:</div>
+                <div
+                  class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between pay-options pagar-nav"
                 >
-                  <span class="txt-blanco">Pagar con PayPal Express</span>
+                  <span class="txt-blanco">PayPal Express</span>
                   <img
+                    class="pay-icon"
                     src="/assets/images/paypal.webp"
                     alt="PayPal"
-                    style="height: 24px"
                   />
-                </a>
-                <a
-                  href="#"
-                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between pagar-nav"
+                </div>
+                <div
+                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between pointer-style-pay pagar-nav"
                 >
-                  <span class="txt-blanco">Pagar con Amazon Pay</span>
+                  <span class="txt-blanco">Amazon Pay</span>
                   <img
+                    class="pay-icon"
                     src="/assets/images/amazon-icon.webp"
                     alt="Amazon Pay"
-                    style="height: 24px"
                   />
-                </a>
+                </div>
               </div>
             </div>
           </template>
@@ -335,11 +332,7 @@
     </main>
 
     <!-- Modal de búsqueda global -->
-    <div
-      id="globalSearchDropdown"
-      class="search-bar py-1 buscador shadow"
-      style="display: none; position: absolute; z-index: 1055; min-width: 350px"
-    >
+    <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow">
       <div class="container">
         <form
           class="d-flex justify-content-center buscador-form"

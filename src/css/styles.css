@@ -1404,6 +1404,13 @@ a:hover .icon-image,
 }
 
 /* ---------------------------------------------------------------------------------- */
+#globalSearchDropdown {
+  display: none;
+  position: absolute;
+  z-index: 1055;
+  min-width: 350px
+}
+
 #carouselExampleCaptions .carousel-item img {
   height: 350px;
   object-fit: cover;
@@ -1782,6 +1789,10 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
   .promo-title h3 {
     font-size: 1rem;
   }
+}
+
+.img-promo {
+  height: 195px;
 }
 
 @media (max-width: 600px) {

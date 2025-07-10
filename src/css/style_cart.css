@@ -30,12 +30,34 @@ body {
   display: none;
 }
 
+.img-cart-container {
+  max-width: 80px
+}
+
 #cart-content,
 #cart-empty {
   min-height: 300px;
   /* Alto del spinner */
 }
 
+.product-amount {
+  width: 40px; 
+  display: inline-block
+}
+
+.pay-options {
+  pointer-events: none; 
+  opacity: 1;
+}
+
+.pay-icon {
+  height: 24px
+}
+
+.pointer-style-pay {
+  pointer-events: none; 
+  opacity: 1;
+}
 /* Modal personalizado para eliminar producto */
 .custom-delete-modal .btn-close {
   filter: none;

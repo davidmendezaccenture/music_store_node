@@ -84,12 +84,28 @@
         "image": "../assets/images/guitar12.webp",
         "description": "Guitarra flamenca con un diseño tradicional.",
         "category": "classical-guitars",
-        "quantity": 1
+        "quantity": 2
       }
     ]
   },
   {
     "user": "VicentePrueba2@gmail.com",
     "items": []
+  },
+  {
+    "user": "luna@email.com",
+    "items": [
+      {
+        "id": 2,
+        "name": "Guitarra Eléctrica",
+        "price": 350,
+        "offerPrice": 300,
+        "image": "../assets/images/guitar3.webp",
+        "description": "Guitarra eléctrica para músicos avanzados.",
+        "category": "electric-guitars",
+        "familia": "cuerda",
+        "quantity": 2
+      }
+    ]
   }
 ]
