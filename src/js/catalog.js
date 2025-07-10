@@ -326,10 +326,10 @@ function normalizeText(text) {
         productosFiltrados.sort((a, b) => a.price - b.price);
       if (orden === "precio-desc")
         productosFiltrados.sort((a, b) => b.price - a.price);
-      if (orden === "oferta")
-        productosFiltrados.sort(
-          (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
-        );
+      // if (orden === "oferta")
+      //   productosFiltrados.sort(
+      //     (a, b) => (a.offerPrice || a.price) - (b.offerPrice || b.price)
+      //   );
     }
     mostrarProductos(productosFiltrados);
   }
