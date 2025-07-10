@@ -42,32 +42,21 @@ function normalizeText(text) {
       "basses"
     ],
     percusion: [
-      "batería acústica",
-      "batería electrónica",
+      "batería",
       "platillos",
       "caja de madera",
       "pedal de bombo",
       "set de batería",
-      "batería infantil",
-      "bateria studio pro",
       "set de percusión",
       "caja",
-      "batería jazz studio"
       // Añade aquí cualquier otra categoría real de percusión de tu JSON
     ],
     teclado: [
-      "teclado digital",
-      "sintetizador analógico",
+      "teclado",
       "workstation",
-      "teclado compacto urbankeys",
-      "sintetizador digital",
-      "piano digital studio88",
-      "teclado portátil easyplay",
-      "teclado infantil funkkeys",
-      "piano digital homeclassic",
+      "piano",
       "keyboards",
-      "teclado vintage",
-      "sintetizador modular"
+      "sintetizador"
       // Añade aquí todas las categorías de teclado que existan en tu JSON
     ],
     todos: [] // Familia especial que no filtra por categorías - muestra todos los productos

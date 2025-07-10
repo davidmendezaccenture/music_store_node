@@ -142,7 +142,7 @@
     "offerPrice": 750,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica de alta calidad.",
-    "category": "batería acústica",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -152,7 +152,7 @@
     "offerPrice": 600,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica compacta y versátil.",
-    "category": "batería electrónica",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -202,7 +202,7 @@
     "offerPrice": 999,
     "image": "../assets/images/key1.webp",
     "description": "Teclado digital de 88 teclas con acción contrapesada y sonidos premium. Ideal para escenario y estudio.",
-    "category": "teclado digital",
+    "category": "teclado",
     "familia": "teclado"
   },
   {
@@ -212,7 +212,7 @@
     "offerPrice": 850,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador analógico con secuenciador integrado y sonidos vintage. Perfecto para música electrónica.",
-    "category": "sintetizador analógico",
+    "category": "sintetizador",
     "familia": "teclado"
   },
   {
@@ -232,7 +232,7 @@
     "offerPrice": 350,
     "image": "../assets/images/key1.webp",
     "description": "Teclado compacto de 61 teclas, ideal para espacios reducidos y músicos urbanos.",
-    "category": "teclado compacto urbankeys",
+    "category": "teclado",
     "familia": "teclado"
   },
   {
@@ -242,7 +242,7 @@
     "offerPrice": 650,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador digital con más de 500 sonidos y conectividad USB/MIDI.",
-    "category": "sintetizador digital",
+    "category": "sintetizador",
     "familia": "teclado"
   },
   {
@@ -252,7 +252,7 @@
     "offerPrice": 1100,
     "image": "../assets/images/key3.webp",
     "description": "Piano digital de 88 teclas con acción de martillo y altavoces integrados.",
-    "category": "piano digital studio88",
+    "category": "piano",
     "familia": "teclado"
   },
   {
@@ -262,7 +262,7 @@
     "offerPrice": 199,
     "image": "../assets/images/key1.webp",
     "description": "Teclado portátil con 100 ritmos y acompañamientos automáticos.",
-    "category": "teclado portátil easyplay",
+    "category": "teclado",
     "familia": "teclado"
   },
   {
@@ -272,7 +272,7 @@
     "offerPrice": 800,
     "image": "../assets/images/key2.webp",
     "description": "Sintetizador GrooveBox con secuenciador y pads de percusión.",
-    "category": "keyboards",
+    "category": "Sintetizador",
     "familia": "teclado"
   },
   {
@@ -282,7 +282,7 @@
     "offerPrice": 90,
     "image": "../assets/images/key1.webp",
     "description": "Teclado infantil de 32 teclas, ideal para los más pequeños.",
-    "category": "teclado infantil funkkeys",
+    "category": "teclado",
     "familia": "teclado"
   },
   {
@@ -292,7 +292,7 @@
     "offerPrice": 1350,
     "image": "../assets/images/key3.webp",
     "description": "Piano digital clásico para el hogar, con mueble y tres pedales.",
-    "category": "piano digital homeclassic",
+    "category": "piano",
     "familia": "teclado"
   },
   {
@@ -322,7 +322,7 @@
     "offerPrice": 850,
     "image": "../assets/images/drum1.webp",
     "description": "Batería acústica especial para jazz y estudio.",
-    "category": "batería jazz studio",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -332,7 +332,7 @@
     "offerPrice": 200,
     "image": "../assets/images/drum4.webp",
     "description": "Batería pequeña para niños y principiantes.",
-    "category": "batería infantil",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -342,7 +342,7 @@
     "offerPrice": 1100,
     "image": "../assets/images/drum1.webp",
     "description": "Batería profesional para estudio de grabación.",
-    "category": "bateria studio pro",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -362,7 +362,7 @@
     "offerPrice": 950,
     "image": "../assets/images/drum5.webp",
     "description": "Batería electrónica avanzada con pads sensibles.",
-    "category": "batería electrónica",
+    "category": "batería",
     "familia": "percusion"
   },
   {
@@ -382,7 +382,7 @@
     "offerPrice": 600,
     "image": "../assets/images/key2.webp",
     "description": "Teclado vintage con sonidos clásicos de los 80.",
-    "category": "teclado vintage",
+    "category": "teclado",
     "familia": "teclado"
   },
   {
@@ -392,7 +392,7 @@
     "offerPrice": 2000,
     "image": "../assets/images/key3.webp",
     "description": "Sintetizador modular para experimentación sonora avanzada.",
-    "category": "sintetizador modular",
+    "category": "sintetizador",
     "familia": "teclado"
   }
 ]
