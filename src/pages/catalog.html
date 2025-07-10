@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/style_catalog.css" />
   <link rel="stylesheet" href="../css/breadcrum.css" />
+  <!-- Estilos específicos para iconos bicolor del footer en catálogo -->
+  <style>
+    .icon-bicolor {
+      background: linear-gradient(45deg, #bfb4a8 50%, #f6a61a 50%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .icon-bicolor:hover {
+      background: linear-gradient(45deg, #f6a61a 50%, #bfb4a8 50%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      transition: all 0.3s ease;
+    }
+  </style>
   <!-- Fuente seleccionada para usar en el proyecto-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,7 +99,7 @@
   </div>
   <main class="container py-4" role="main">
     <!-- Botón para volver a Home -->
-    <div class="d-flex align-items-center mb-4 gap-3">
+    <div class="d-flex align-items-center mb-4 gap-3 breadcrumb-container">
       <a href="../pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
       <nav id="breadcrumb-nav"></nav>
     </div>

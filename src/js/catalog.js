@@ -69,9 +69,20 @@ function normalizeText(text) {
       "teclado vintage",
       "sintetizador modular"
       // Añade aquí todas las categorías de teclado que existan en tu JSON
-    ]
+    ],
+    todos: [] // Familia especial que no filtra por categorías - muestra todos los productos
     // Puedes añadir más familias aquí
   };
+
+  // Función para detectar la familia correspondiente a una categoría
+  function detectarFamiliaPorCategoria(categoria) {
+    for (const [familia, cats] of Object.entries(familias)) {
+      if (cats.includes(categoria)) {
+        return familia;
+      }
+    }
+    return null;
+  }
 
   // Función para cambiar la familia activa (llámala desde la barra secundaria)
   window.setFamilia = function (nuevaFamilia) {
@@ -95,23 +106,27 @@ function normalizeText(text) {
       a.removeAttribute("aria-current");
     });
 
-    // Añadir clase active al enlace correspondiente en la barra secundaria
-    const enlaceSecundario = document.querySelector(
-      `.catalog-secondary-nav a[onclick*="setFamilia('${nuevaFamilia}'"]`
-    );
-    if (enlaceSecundario) {
-      enlaceSecundario.classList.add("active");
-      enlaceSecundario.setAttribute("aria-current", "page");
-    }
+    // Si la familia NO es "todos", añadir clase active al enlace correspondiente
+    if (nuevaFamilia !== 'todos') {
+      // Añadir clase active al enlace correspondiente en la barra secundaria
+      const enlaceSecundario = document.querySelector(
+        `.catalog-secondary-nav a[onclick*="setFamilia('${nuevaFamilia}'"]`
+      );
+      if (enlaceSecundario) {
+        enlaceSecundario.classList.add("active");
+        enlaceSecundario.setAttribute("aria-current", "page");
+      }
 
-    // También activar el enlace correspondiente en el header si existe
-    const enlaceHeader = document.querySelector(
-      `.catalog-secondary-nav a[href*="familia=${nuevaFamilia}"]`
-    );
-    if (enlaceHeader) {
-      enlaceHeader.classList.add("active");
-      enlaceHeader.setAttribute("aria-current", "page");
+      // También activar el enlace correspondiente en el header si existe
+      const enlaceHeader = document.querySelector(
+        `.catalog-secondary-nav a[href*="familia=${nuevaFamilia}"]`
+      );
+      if (enlaceHeader) {
+        enlaceHeader.classList.add("active");
+        enlaceHeader.setAttribute("aria-current", "page");
+      }
     }
+    // Si es familia "todos", no se activa ningún enlace (quedan todos desactivados)
 
     if (typeof productos !== "undefined" && productos.length > 0) {
       poblarCategorias(productos);
@@ -181,7 +196,23 @@ function normalizeText(text) {
     // Eliminado el setTimeout de marcado de pestaña activa, ahora se hace tras cargarProductos
 
     $("#search-input-guitar").on("input", filtrarYMostrar);
-    $("#filtro-categoria").on("change", filtrarYMostrar);
+    $("#filtro-categoria").on("change", function () {
+      const categoria = $(this).val();
+      // Si hay una categoría seleccionada y estamos en familia "todos", detectar y cambiar a la familia correcta
+      if (categoria && familiaActiva === 'todos') {
+        const familiaDetectada = detectarFamiliaPorCategoria(categoria);
+        if (familiaDetectada) {
+          setFamilia(familiaDetectada);
+          // setFamilia ya llama a poblarCategorias y filtrarYMostrar, pero necesitamos restablecer la categoría
+          setTimeout(() => {
+            $("#filtro-categoria").val(categoria);
+            filtrarYMostrar();
+          }, 0);
+          return;
+        }
+      }
+      filtrarYMostrar();
+    });
     $("#filtro-precio").on("change", filtrarYMostrar);
     $("#filtro-oferta").on("change", filtrarYMostrar);
     $("#ordenar-productos").on("change", filtrarYMostrar);
@@ -194,14 +225,20 @@ function normalizeText(text) {
     // const categoriasGuitarra = ['acoustic-guitars', 'electric-guitars', 'classical-guitars', 'basses'];
     const categoriasValidas = familias[familiaActiva] || [];
 
-    // Extrae categorías únicas presentes en los productos
-    const categorias = [
-      ...new Set(
-        productos
-          .map((p) => p.category)
-          .filter((cat) => cat && categoriasValidas.includes(cat))
-      ),
-    ];
+    // Si la familia es "todos", extraer todas las categorías sin filtrar
+    let categorias;
+    if (familiaActiva === 'todos') {
+      categorias = [...new Set(productos.map((p) => p.category).filter((cat) => cat))];
+    } else {
+      // Extrae categorías únicas presentes en los productos para la familia específica
+      categorias = [
+        ...new Set(
+          productos
+            .map((p) => p.category)
+            .filter((cat) => cat && categoriasValidas.includes(cat))
+        ),
+      ];
+    }
 
     // Mapea a nombres legibles
     const nombres = {
@@ -239,6 +276,9 @@ function normalizeText(text) {
     } else if (categoriaUrl) {
       // Si hay category en la URL, muestra productos de esa categoría
       productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
+    } else if (familiaActiva === 'todos') {
+      // Si la familia es "todos", muestra todos los productos sin filtrar por familia
+      productosFiltrados = [...productos];
     } else if (familiaActiva) {
       // Si no, filtra por familia
       productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
@@ -311,7 +351,9 @@ function normalizeText(text) {
         <div class="col-12 col-md-6 col-lg-3 d-flex mb-3">
           <div class="card flex-fill h-100">
             <div class="card-img-top-wrapper">
-              <img src="${p.image}" class="card-img-top" alt="${p.name}" />
+              <a href="/pages/detail-product.html?id=${p.id}" aria-label="Ver detalle de ${p.name}">
+                <img src="${p.image}" class="card-img-top" alt="${p.name}" style="cursor: pointer;" />
+              </a>
             </div>
             <div class="card-body d-flex flex-column">
               <h2 class="h5 card-title fw-bold">${p.name}</h2>
@@ -347,13 +389,13 @@ function normalizeText(text) {
     );
   }
 
-  // Función para resetear el catálogo al estado inicial (sin filtros)
+  // Función para resetear el catálogo al estado inicial (mostrar todos los productos)
   window.resetearCatalogo = function () {
-    // Establecer familia por defecto
-    familiaActiva = "cuerda";
+    // Establecer familia especial "todos" para mostrar todos los productos
+    familiaActiva = "todos";
 
-    // Limpiar URL de parámetros
-    window.history.replaceState({}, '', 'catalog.html?familia=cuerda');
+    // Limpiar URL de parámetros y establecer familia=todos
+    window.history.replaceState({}, '', 'catalog.html?familia=todos');
 
     // Resetear todos los filtros
     $("#filtro-categoria").val("");
@@ -368,18 +410,11 @@ function normalizeText(text) {
       filtrarYMostrar();
     }
 
-    // Marcar la pestaña activa correcta
+    // NO marcar ninguna pestaña como activa (familia "todos" = sin pestañas activas)
     document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
       a.classList.remove("active");
       a.removeAttribute("aria-current");
     });
-    const enlaceActivo = document.querySelector(
-      `.catalog-secondary-nav a[onclick*="setFamilia('cuerda'"]`
-    );
-    if (enlaceActivo) {
-      enlaceActivo.classList.add("active");
-      enlaceActivo.setAttribute("aria-current", "page");
-    }
 
     // Disparar evento para actualizar breadcrumb
     $(document).trigger('familiaChanged');

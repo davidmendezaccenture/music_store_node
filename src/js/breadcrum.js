@@ -50,7 +50,8 @@ $(document).ready(function () {
     const familiasNombres = {
         cuerda: "Cuerda",
         percusion: "Percusión",
-        teclado: "Teclado"
+        teclado: "Teclado",
+        todos: "Todos los productos" // Familia especial para mostrar todos los productos
     };
     // Nombres legibles para todas las categorías actuales (julio 2025)
     const categoriasNombres = {
@@ -127,10 +128,12 @@ $(document).ready(function () {
                 const categoriasValidasParaFamilia = {
                     cuerda: ["acoustic-guitars", "electric-guitars", "classical-guitars", "basses"],
                     percusion: ["batería acústica", "batería electrónica", "platillos", "caja de madera", "pedal de bombo", "set de batería", "batería infantil", "bateria studio pro", "set de percusión", "caja", "batería jazz studio"],
-                    teclado: ["teclado digital", "sintetizador analógico", "workstation", "teclado compacto urbankeys", "sintetizador digital", "piano digital studio88", "teclado portátil easyplay", "teclado infantil funkkeys", "piano digital homeclassic", "keyboards", "teclado vintage", "sintetizador modular"]
+                    teclado: ["teclado digital", "sintetizador analógico", "workstation", "teclado compacto urbankeys", "sintetizador digital", "piano digital studio88", "teclado portátil easyplay", "teclado infantil funkkeys", "piano digital homeclassic", "keyboards", "teclado vintage", "sintetizador modular"],
+                    todos: [] // Para familia "todos", cualquier categoría es válida
                 };
                 const categoriasValidas = categoriasValidasParaFamilia[familia] || [];
-                if (categoriasValidas.includes(filtroCategoria.value)) {
+                // Si es familia "todos", permitir cualquier categoría
+                if (familia === 'todos' || categoriasValidas.includes(filtroCategoria.value)) {
                     categoria = filtroCategoria.value;
                 }
             } else {
@@ -159,7 +162,8 @@ $(document).ready(function () {
                 { label: "Inicio", url: "/pages/index.html" },
                 { label: "Catálogo", action: "resetearCatalogo" }
             ];
-            if (familia && familiasNombres[familia]) {
+            // Solo mostrar la familia si NO es "todos"
+            if (familia && familiasNombres[familia] && familia !== 'todos') {
                 crumbs.push({ label: familiasNombres[familia], action: `setFamilia('${familia}')` });
             }
             if (categoria) {
@@ -242,5 +246,18 @@ $(document).ready(function () {
 
         // Actualizar breadcrumb al cambiar el historial (por ejemplo, setFamilia)
         window.addEventListener('popstate', renderBreadcrumb);
+
+        // Ejecutar después de cada actualización del breadcrumb
+        afterBreadcrumbUpdate();
     }
+
+    // Ejecutar después de cada actualización del breadcrumb
+    function afterBreadcrumbUpdate() {
+        // Solo esperar a que se complete el renderizado, sin funciones complejas
+        setTimeout(() => {
+            // Simple check sin loops infinitos
+            console.log('Breadcrumb updated');
+        }, 50);
+    }
+
 });

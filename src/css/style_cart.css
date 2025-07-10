@@ -187,11 +187,11 @@ a.regular-btn:hover,
 /* Cambia el color de fondo, borde y texto en hover/focus */
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-  color: black !important;
+  color: #23272b !important;
   /* color del texto en hover */
-  background-color: rgba(238, 236, 231) !important;
+  background-color: #f6a61a !important;
   /* color de fondo en hover */
-  border-color: #F6A61A !important;
+  border-color: #f6a61a !important;
   /* color del borde en hover */
 }
 
@@ -241,6 +241,7 @@ a.regular-btn:hover,
   color: #084298 !important;
   text-decoration: underline;
 }
+
 /* Ajustes para el botón de eliminar producto en pantallas pequeñas */
 @media (max-width: 1199.98px) {
   .cart-item .delete-product-btn {

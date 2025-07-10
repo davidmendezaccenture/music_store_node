@@ -184,10 +184,10 @@ $(document).ready(function () {
     initLoginModal();
   }
 
-    // --- Lógica para copiar el código promocional ---
-  $('#copyPromoBtn').on('click', function() {
+  // --- Lógica para copiar el código promocional ---
+  $('#copyPromoBtn').on('click', function () {
     const code = $('#promoCodeText').text();
-    navigator.clipboard.writeText(code).then(function() {
+    navigator.clipboard.writeText(code).then(function () {
       // Mostrar mensaje de copiado
       const $msg = $('#promoCopiedMsg');
       $msg.removeClass('d-none');

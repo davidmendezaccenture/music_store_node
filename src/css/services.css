@@ -86,13 +86,11 @@
 
 /* Círculos bicolor para los pasos del proceso */
 .circle-bicolor1 {
-  background: linear-gradient(
-    45deg,
-    #f6a61a 24%,
-    #f6a61a 25%,
-    #dedbd9 26%,
-    #dedbd9 100%
-  );
+  background: linear-gradient(45deg,
+      #f6a61a 24%,
+      #f6a61a 25%,
+      #dedbd9 26%,
+      #dedbd9 100%);
 }
 
 .circle-bicolor2 {
