@@ -50,20 +50,43 @@
                 autocomplete="current-password"
                 placeholder="Mínimo 8 caracteres"
               />
-              <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1" data-target="loginPassword">
-                <i class="bi bi-eye-slash" id="icon-loginPassword"></i>
+              <button
+                class="btn txt-resaltado toggle-password"
+                type="button"
+                tabindex="-1"
+                data-target="loginPassword"
+              >
+                <i
+                  class="bi bi-eye-slash icon-black"
+                  id="icon-loginPassword"
+                ></i>
               </button>
             </div>
           </div>
           <div class="mb-3">
-            <span>¿No tienes cuenta?</span>
-            <a href="/pages/register.html" class="register-txt" style="color: #f6a61a;">Regístrate</a>
+            <span class="me-2">¿No tienes cuenta?</span>
+            <a
+              href="/pages/register.html"
+              class="register-txt login-nav"
+              style="color: #f6a61a"
+              >Regístrate</a
+            >
           </div>
           <div class="mb-3">
-            <span>¿Has olvidado tu contraseña?</span>
-            <a href="/pages/recover_password.html" class="register-txt" style="color: #f6a61a;">Recuperala</a>
+            <span class="me-2">¿Has olvidado tu contraseña?</span>
+            <a
+              href="/pages/recover_password.html"
+              class="register-txt login-nav"
+              style="color: #f6a61a"
+              >Recuperala</a
+            >
           </div>
-          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          <button
+            type="submit"
+            class="btn background-resaltado rounded-pill w-100 btn-tab"
+          >
+            Entrar
+          </button>
         </form>
       </div>
     </div>
@@ -71,21 +94,21 @@
 </div>
 
 <script>
-document.querySelectorAll('.toggle-password').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const inputId = this.getAttribute('data-target');
-    const input = document.getElementById(inputId);
-    const icon = document.getElementById('icon-' + inputId);
+  document.querySelectorAll(".toggle-password").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const inputId = this.getAttribute("data-target");
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById("icon-" + inputId);
 
-    if (input.type === "password") {
-      input.type = "text";
-      icon.classList.remove('bi-eye-slash');
-      icon.classList.add('bi-eye');
-    } else {
-      input.type = "password";
-      icon.classList.remove('bi-eye');
-      icon.classList.add('bi-eye-slash');
-    }
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+      }
+    });
   });
-});
 </script>

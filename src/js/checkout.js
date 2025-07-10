@@ -5,9 +5,9 @@ $(document).ready(function () {
 
   // Obtener usuario y carrito
   function getCurrentUser() {
-    return fetch('/api/current-user')
-      .then(res => res.json())
-      .then(data => (data.isLoggedIn && data.usuario ? data.usuario : null));
+    return fetch("/api/current-user")
+      .then((res) => res.json())
+      .then((data) => (data.isLoggedIn && data.usuario ? data.usuario : null));
   }
 
   function fetchCart(user) {
@@ -15,27 +15,32 @@ $(document).ready(function () {
   }
 
   // Renderizar resumen del pedido
-function renderCartSummary() {
-  const $list = $('#cart-summary ul.list-group');
-  $list.empty();
-  let subtotal = 0;
+  function renderCartSummary() {
+    const $list = $("#cart-summary ul.list-group");
+    $list.empty();
+    let subtotal = 0;
 
-  cartItems.forEach((item) => {
-    let imgSrc = item.image;
-    if (imgSrc) {
-      if (imgSrc.startsWith('..')) imgSrc = imgSrc.replace('..', '');
-      if (!imgSrc.startsWith('/')) imgSrc = '/' + imgSrc.replace(/^(\.\/|\/)/, '');
-      imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-    } else {
-      imgSrc = '/assets/images/default.webp';
-    }
+    cartItems.forEach((item) => {
+      let imgSrc = item.image;
+      if (imgSrc) {
+        if (imgSrc.startsWith("..")) imgSrc = imgSrc.replace("..", "");
+        if (!imgSrc.startsWith("/"))
+          imgSrc = "/" + imgSrc.replace(/^(\.\/|\/)/, "");
+        imgSrc = imgSrc.replace(/\.(png|jpg|jpeg)$/i, ".webp");
+      } else {
+        imgSrc = "/assets/images/default.webp";
+      }
 
-    const price = item.offerPrice || item.price;
-    subtotal += price * (item.quantity || 1);
+      const price = item.offerPrice || item.price;
+      subtotal += price * (item.quantity || 1);
 
-    const $li = $(`
-      <li class="list-group-item d-flex align-items-center" data-id="${item.id}">
-        <img src="${imgSrc}" alt="${item.name}" class="rounded me-2" width="48" height="48">
+      const $li = $(`
+      <li class="list-group-item d-flex align-items-center caja-card" data-id="${
+        item.id
+      }">
+        <img src="${imgSrc}" alt="${
+        item.name
+      }" class="rounded me-2" width="48" height="48">
         <div class="flex-grow-1">
           <div>${item.name}</div>
           <small class="text-muted">Cantidad: ${item.quantity || 1}</small>
@@ -46,15 +51,15 @@ function renderCartSummary() {
         </button>
       </li>
     `);
-    $list.append($li);
-  });
+      $list.append($li);
+    });
 
-  // Mostrar totales y descuento solo si hay código válido
-  let resumenHtml = '';
-  if (promoDiscount > 0) {
-    const descuento = subtotal * promoDiscount;
-    const total = subtotal - descuento;
-    resumenHtml += `
+    // Mostrar totales y descuento solo si hay código válido
+    let resumenHtml = "";
+    if (promoDiscount > 0) {
+      const descuento = subtotal * promoDiscount;
+      const total = subtotal - descuento;
+      resumenHtml += `
       <div class="d-flex justify-content-between">
         <span>Subtotal:</span>
         <span>€${subtotal.toFixed(2)}</span>
@@ -68,147 +73,153 @@ function renderCartSummary() {
         <span>€${total.toFixed(2)}</span>
       </div>
     `;
-  } else {
-    resumenHtml += `
+    } else {
+      resumenHtml += `
       <div class="d-flex justify-content-between mb-3 fw-bold">
         <span>Total:</span>
         <span>€${subtotal.toFixed(2)}</span>
       </div>
     `;
+    }
+    // Inserta el resumen debajo de la lista
+    $list.parent().find(".resumen-totales").remove();
+    $list.after(`<div class="resumen-totales">${resumenHtml}</div>`);
   }
-  // Inserta el resumen debajo de la lista
-  $list.parent().find('.resumen-totales').remove();
-  $list.after(`<div class="resumen-totales">${resumenHtml}</div>`);
-}
 
   // Eliminar producto del resumen
-// Al pulsar el icono de eliminar, muestra el modal
-$(document).on('click', '.btn-remove', function () {
-  idToDelete = $(this).closest('li').data('id');
-  const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
-  modal.show();
-});
+  // Al pulsar el icono de eliminar, muestra el modal
+  $(document).on("click", ".btn-remove", function () {
+    idToDelete = $(this).closest("li").data("id");
+    const modal = new bootstrap.Modal(
+      document.getElementById("deleteConfirmModal")
+    );
+    modal.show();
+  });
 
-// Al confirmar en el modal, elimina el producto
-$('#deleteConfirmModal').on('click', '#confirmDeleteBtn', function () {
-  if (idToDelete !== null) {
-    cartItems = cartItems.filter(item => item.id !== idToDelete);
-    updateCartBackend();
-    renderCartSummary();
-    idToDelete = null;
-    // Oculta el modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
-    modal.hide();
-  }
-});
+  // Al confirmar en el modal, elimina el producto
+  $("#deleteConfirmModal").on("click", "#confirmDeleteBtn", function () {
+    if (idToDelete !== null) {
+      cartItems = cartItems.filter((item) => item.id !== idToDelete);
+      updateCartBackend();
+      renderCartSummary();
+      idToDelete = null;
+      // Oculta el modal
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById("deleteConfirmModal")
+      );
+      modal.hide();
+    }
+  });
 
   // Actualizar carrito en backend tras eliminar
   function updateCartBackend() {
-    getCurrentUser().then(user => {
+    getCurrentUser().then((user) => {
       if (user) {
         $.ajax({
-          url: '/api/cart',
-          method: 'POST',
-          contentType: 'application/json',
-          data: JSON.stringify({ user: user.email, items: cartItems })
+          url: "/api/cart",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ user: user.email, items: cartItems }),
         });
       }
     });
   }
 
-// Aplicar código promocional al hacer click en el botón
-$('#apply-promo').on('click', function () {
-  aplicarCodigoPromocional();
-});
-
-// Aplicar código promocional al pulsar Enter en el input
-$('#promo-code').on('keydown', function (e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+  // Aplicar código promocional al hacer click en el botón
+  $("#apply-promo").on("click", function () {
     aplicarCodigoPromocional();
-  }
-});
+  });
 
-// Aplicar código promocional al hacer click en el botón
-$('#apply-promo').on('click', function () {
-  aplicarCodigoPromocional();
-});
+  // Aplicar código promocional al pulsar Enter en el input
+  $("#promo-code").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      aplicarCodigoPromocional();
+    }
+  });
 
-// Aplicar código promocional al pulsar Enter en el input
-$('#promo-code').on('keydown', function (e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+  // Aplicar código promocional al hacer click en el botón
+  $("#apply-promo").on("click", function () {
     aplicarCodigoPromocional();
-  }
-});
+  });
 
-// Aplicar código promocional al hacer click en el botón
-$('#apply-promo').on('click', function () {
-  aplicarCodigoPromocional();
-});
+  // Aplicar código promocional al pulsar Enter en el input
+  $("#promo-code").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      aplicarCodigoPromocional();
+    }
+  });
 
-// Aplicar código promocional al pulsar Enter en el input
-$('#promo-code').on('keydown', function (e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+  // Aplicar código promocional al hacer click en el botón
+  $("#apply-promo").on("click", function () {
     aplicarCodigoPromocional();
-  }
-});
+  });
 
-// Función para aplicar el código promocional
-// Aplicar código promocional al hacer click en el botón
-$('#apply-promo').on('click', function () {
-  aplicarCodigoPromocional();
-});
+  // Aplicar código promocional al pulsar Enter en el input
+  $("#promo-code").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      aplicarCodigoPromocional();
+    }
+  });
 
-// Aplicar código promocional al pulsar Enter en el input
-$('#promo-code').on('keydown', function (e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+  // Función para aplicar el código promocional
+  // Aplicar código promocional al hacer click en el botón
+  $("#apply-promo").on("click", function () {
     aplicarCodigoPromocional();
-  }
-});
+  });
 
-// Aplicar código promocional al hacer click en el botón
-$('#apply-promo').on('click', function () {
-  aplicarCodigoPromocional();
-});
+  // Aplicar código promocional al pulsar Enter en el input
+  $("#promo-code").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      aplicarCodigoPromocional();
+    }
+  });
 
-// Aplicar código promocional al pulsar Enter en el input
-$('#promo-code').on('keydown', function (e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+  // Aplicar código promocional al hacer click en el botón
+  $("#apply-promo").on("click", function () {
     aplicarCodigoPromocional();
+  });
+
+  // Aplicar código promocional al pulsar Enter en el input
+  $("#promo-code").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      aplicarCodigoPromocional();
+    }
+  });
+
+  // Función para aplicar el código promocional
+  function aplicarCodigoPromocional() {
+    const code = $("#promo-code").val().trim().toUpperCase();
+    const $feedback = $("#promo-feedback");
+    if (code === "SUMMERTIME") {
+      promoDiscount = 0.05;
+      $feedback.addClass("d-none").text("");
+    } else {
+      promoDiscount = 0;
+      $feedback
+        .removeClass("d-none")
+        .text("El código promocional es incorrecto");
+    }
+    renderCartSummary();
   }
-});
 
-// Función para aplicar el código promocional
-function aplicarCodigoPromocional() {
-  const code = $('#promo-code').val().trim().toUpperCase();
-  const $feedback = $('#promo-feedback');
-  if (code === 'SUMMERTIME') {
-    promoDiscount = 0.05;
-    $feedback.addClass('d-none').text('');
-  } else {
-    promoDiscount = 0;
-    $feedback.removeClass('d-none').text('El código promocional es incorrecto');
-  }
-  renderCartSummary();
-}
+  // Oculta el mensaje al cambiar el input
+  $("#promo-code").on("input", function () {
+    $("#promo-feedback").addClass("d-none").text("");
+  });
 
-// Oculta el mensaje al cambiar el input
-$('#promo-code').on('input', function () {
-  $('#promo-feedback').addClass('d-none').text('');
-});
-
-// Inicialización
-  getCurrentUser().then(user => {
+  // Inicialización
+  getCurrentUser().then((user) => {
     if (!user) {
       // Si no hay usuario logueado, redirige o muestra mensaje
-      window.location.href = '/pages/register.html';
+      window.location.href = "/pages/register.html";
       return;
     }
-    fetchCart(user).then(cartData => {
+    fetchCart(user).then((cartData) => {
       cartItems = cartData.items || [];
       renderCartSummary();
     });
@@ -216,8 +227,8 @@ $('#promo-code').on('input', function () {
 });
 
 // Botón cancelar redirige a carrito
-$('#cart-summary').on('click', '.btn-cancel', function () {
-  window.location.href = '/pages/cart.html';
+$("#cart-summary").on("click", ".btn-cancel", function () {
+  window.location.href = "/pages/cart.html";
 });
 
 // Mostrar modal al confirmar pago
@@ -228,122 +239,133 @@ $('#cart-summary').on('click', '.btn-cancel', function () {
 // });
 
 // Botón "Seguir comprando"
-$('#paymentSuccessModal').on('click', '#seguirComprandoBtn', function() {
-  const lastPage = sessionStorage.getItem('lastShoppingPage') || '/pages/index.html';
+$("#paymentSuccessModal").on("click", "#seguirComprandoBtn", function () {
+  const lastPage =
+    sessionStorage.getItem("lastShoppingPage") || "/pages/index.html";
   window.location.href = lastPage;
 });
 
 // Validación personalizada del formulario de checkout
-$('#checkout-form').on('submit', function (e) {
+$("#checkout-form").on("submit", function (e) {
   e.preventDefault();
   let valid = true;
 
   // Nombre completo: solo letras y espacios, mínimo 2 caracteres
-  const nombre = $('#full-name').val().trim();
+  const nombre = $("#full-name").val().trim();
   if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(nombre)) {
-    setError('#full-name', 'Introduce un nombre válido (solo letras, mínimo 2 caracteres).');
+    setError(
+      "#full-name",
+      "Introduce un nombre válido (solo letras, mínimo 2 caracteres)."
+    );
     valid = false;
   } else {
-    clearError('#full-name');
+    clearError("#full-name");
   }
 
   // Email
-  const email = $('#email').val().trim();
+  const email = $("#email").val().trim();
   if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-    setError('#email', 'Introduce un correo electrónico válido.');
+    setError("#email", "Introduce un correo electrónico válido.");
     valid = false;
   } else {
-    clearError('#email');
+    clearError("#email");
   }
 
   // Calle
-  const street = $('#street').val().trim();
+  const street = $("#street").val().trim();
   if (street.length < 2) {
-    setError('#street', 'Introduce una calle válida.');
+    setError("#street", "Introduce una calle válida.");
     valid = false;
   } else {
-    clearError('#street');
+    clearError("#street");
   }
 
   // Número
-  const number = $('#number').val().trim();
+  const number = $("#number").val().trim();
   if (!/^\d+[A-Za-z]?$/.test(number)) {
-    setError('#number', 'Introduce un número válido.');
+    setError("#number", "Introduce un número válido.");
     valid = false;
   } else {
-    clearError('#number');
+    clearError("#number");
   }
 
   // Ciudad
-  const city = $('#city').val().trim();
+  const city = $("#city").val().trim();
   if (city.length < 2) {
-    setError('#city', 'Introduce una ciudad válida.');
+    setError("#city", "Introduce una ciudad válida.");
     valid = false;
   } else {
-    clearError('#city');
+    clearError("#city");
   }
 
   // Código Postal
-  const postal = $('#postal-code').val().trim();
+  const postal = $("#postal-code").val().trim();
   if (!/^\d{4,6}$/.test(postal)) {
-    setError('#postal-code', 'Introduce un código postal válido.');
+    setError("#postal-code", "Introduce un código postal válido.");
     valid = false;
   } else {
-    clearError('#postal-code');
+    clearError("#postal-code");
   }
 
   // Provincia
-  const province = $('#province').val().trim();
+  const province = $("#province").val().trim();
   if (province.length < 2) {
-    setError('#province', 'Introduce una provincia válida.');
+    setError("#province", "Introduce una provincia válida.");
     valid = false;
   } else {
-    clearError('#province');
+    clearError("#province");
   }
 
   // País
-  const country = $('#country').val().trim();
+  const country = $("#country").val().trim();
   if (country.length < 2) {
-    setError('#country', 'Introduce un país válido.');
+    setError("#country", "Introduce un país válido.");
     valid = false;
   } else {
-    clearError('#country');
+    clearError("#country");
   }
 
   // Teléfono (opcional, pero si se rellena debe ser válido)
-  const phone = $('#phone').val().trim();
+  const phone = $("#phone").val().trim();
   if (phone && !/^[\d\s\-\(\)]{7,}$/.test(phone)) {
-    setError('#phone', 'Introduce un teléfono válido (mínimo 7 dígitos, solo números y símbolos).');
+    setError(
+      "#phone",
+      "Introduce un teléfono válido (mínimo 7 dígitos, solo números y símbolos)."
+    );
     valid = false;
   } else {
-    clearError('#phone');
+    clearError("#phone");
   }
 
   // Método de pago
-  const payment = $('#payment-method').val();
+  const payment = $("#payment-method").val();
   if (!payment) {
-    setError('#payment-method', 'Selecciona un método de pago.');
+    setError("#payment-method", "Selecciona un método de pago.");
     valid = false;
   } else {
-    clearError('#payment-method');
+    clearError("#payment-method");
   }
 
   if (valid) {
     // Si todo es válido, muestra el modal de confirmación de compra
-    const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+    const modal = new bootstrap.Modal(
+      document.getElementById("paymentSuccessModal")
+    );
     modal.show();
   }
 });
 
 // Funciones auxiliares para mostrar/ocultar errores
 function setError(selector, message) {
-  $(selector).addClass('is-invalid').next('.invalid-feedback').text(message);
+  $(selector).addClass("is-invalid").next(".invalid-feedback").text(message);
 }
 function clearError(selector) {
-  $(selector).removeClass('is-invalid').next('.invalid-feedback').text('');
+  $(selector).removeClass("is-invalid").next(".invalid-feedback").text("");
 }
 
 // Limpia el error al modificar el campo
-$('#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method').on('input change', function () {
-  clearError('#' + this.id);
+$(
+  "#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method"
+).on("input change", function () {
+  clearError("#" + this.id);
 });

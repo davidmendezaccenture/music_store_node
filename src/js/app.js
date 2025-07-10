@@ -2,8 +2,14 @@
 
 // Espera a que el DOM esté listo
 $(document).ready(function () {
+  let headerLoaded = false;
+  let modalLoaded = false;
+
   // Carga dinámica del header y asigna eventos dependientes
   $("#header").load("/pages/header.html", function () {
+    console.log("✅ Header cargado");
+    headerLoaded = true;
+
     // Asigna el evento de dark mode después de cargar el header
     $("#darkModeToggle").on("click", function () {
       $("body").toggleClass("dark-mode");
@@ -22,7 +28,6 @@ $(document).ready(function () {
         localStorage.setItem("darkMode", "disabled");
       }
     });
-
 
     // Estado inicial del botón
     if (localStorage.getItem("darkMode") === "enabled") {
@@ -164,6 +169,9 @@ $(document).ready(function () {
         main.classList.remove("slide-in-main");
       }, 400);
     }
+
+    // Verificar si ya podemos inicializar el login
+    checkAndInitLogin();
   });
 
   initNavbar();
@@ -176,22 +184,44 @@ $(document).ready(function () {
   if ($("#loginModal").length === 0) {
     $.get("/pages/login-modal.html", function (data) {
       $("body").append(data);
-      // Asigna el evento después de cargar el modal
-      initLoginModal();
+      console.log("✅ Login cargado dinámicamente");
+      modalLoaded = true;
+      // Verificar si ya podemos inicializar el login
+      checkAndInitLogin();
     });
   } else {
-    // Si el modal ya está presente, asigna el evento directamente
-    initLoginModal();
+    console.log("✅ Login ya existe");
+    modalLoaded = true;
+    // Verificar si ya podemos inicializar el login
+    checkAndInitLogin();
+  }
+
+  function checkAndInitLogin() {
+    console.log("🔍 Verificando condiciones para inicializar login:", {
+      headerLoaded,
+      modalLoaded,
+      modalExists: $("#loginModal").length > 0,
+    });
+
+    if (headerLoaded && (modalLoaded || $("#loginModal").length > 0)) {
+      console.log("🚀 Inicializando login - Todo listo");
+      initLoginModal();
+    } else {
+      console.log("⏳ Esperando carga completa...", {
+        headerLoaded,
+        modalLoaded,
+      });
+    }
   }
 
   // --- Lógica para copiar el código promocional ---
-  $('#copyPromoBtn').on('click', function () {
-    const code = $('#promoCodeText').text();
+  $("#copyPromoBtn").on("click", function () {
+    const code = $("#promoCodeText").text();
     navigator.clipboard.writeText(code).then(function () {
       // Mostrar mensaje de copiado
-      const $msg = $('#promoCopiedMsg');
-      $msg.removeClass('d-none');
-      setTimeout(() => $msg.addClass('d-none'), 1500);
+      const $msg = $("#promoCopiedMsg");
+      $msg.removeClass("d-none");
+      setTimeout(() => $msg.addClass("d-none"), 1500);
     });
   });
 
@@ -206,17 +236,44 @@ $(document).ready(function () {
 
 /* Funcion on click para no repetir código */
 function initLoginModal() {
-  $("#loginButton, #loginButtonFooter").on("click", function (e) {
-    // Verificar si el usuario está logueado antes de abrir el modal
+  console.log("🔍 Iniciando initLoginModal...");
+
+  // Verificar que los elementos existen
+  const $loginButtons = $("#loginButton, #loginButtonFooter");
+  console.log("📊 Botones de login encontrados:", $loginButtons.length);
+
+  if ($loginButtons.length === 0) {
+    console.warn("⚠️ No se encontraron botones de login");
+    return;
+  }
+
+  // Remover eventos anteriores para evitar duplicados
+  $loginButtons.off("click.loginModal");
+
+  $loginButtons.on("click.loginModal", function (e) {
+    console.log("🖱️ Click en botón de login detectado");
+
     const isUserLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    console.log("👤 Usuario logueado:", isUserLoggedIn);
 
     if (!isUserLoggedIn) {
       e.preventDefault();
-      var modal = new bootstrap.Modal(document.getElementById("loginModal"));
-      modal.show();
+
+      const modalElement = document.getElementById("loginModal");
+      console.log("🔍 Modal encontrado:", !!modalElement);
+
+      if (modalElement) {
+        var modal = new bootstrap.Modal(modalElement);
+        modal.show();
+        console.log("✅ Modal mostrado");
+      } else {
+        console.error("❌ Modal no encontrado");
+      }
     }
     // Si está logueado, no hace nada (permite que funcionen los clicks internos como logout)
   });
+
+  console.log("✅ Eventos de login asignados correctamente");
 }
 
 function initNavbar() {

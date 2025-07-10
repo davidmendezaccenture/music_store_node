@@ -5,11 +5,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Mejora SEO: descripción de la página -->
+  <meta name="description"
+    content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
+  <meta name="robots" content="index, follow" />
   <title>Catálogo de productos</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/style_catalog.css" />
+  <link rel="stylesheet" href="../css/services.css" />
+  <link rel="stylesheet" href="../css/style_chatbot.css" />
   <link rel="stylesheet" href="../css/breadcrum.css" />
   <!-- Estilos específicos para iconos bicolor del footer en catálogo -->
   <style>
@@ -28,6 +34,7 @@
       transition: all 0.3s ease;
     }
   </style>
+
   <!-- Fuente seleccionada para usar en el proyecto-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,17 +42,10 @@
   <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
 </head>
 
-<!-- Mejora SEO: descripción de la página -->
-<meta name="description"
-  content="Catálogo de instrumentos musicales: guitarras, bajos, baterías, teclados, DJ y más. Descubre las mejores ofertas y novedades en Rat Pack Instruments." />
 
 <body>
-
-
   <!-- Cabecera de la página (header completo) -->
   <header id="header"></header>
-
-  <!-- Breadcrumbs -->
 
 
   <!-- Offcanvas -->
@@ -100,7 +100,7 @@
   <main class="container py-4" role="main">
     <!-- Botón para volver a Home -->
     <div class="d-flex align-items-center mb-4 gap-3 breadcrumb-container">
-      <a href="../pages/index.html" class="btn btn-outline-primary" aria-label="Volver al inicio">Volver</a>
+      <a href="../pages/index.html" class="btn btn-outline-primary btn-volver" aria-label="Volver al inicio">Volver</a>
       <nav id="breadcrumb-nav"></nav>
     </div>
     <!-- Filtros y ordenación -->
@@ -197,8 +197,8 @@
   <script src="../js/register.js"></script>
   <script src="../js/catalog.js"></script>
   <script src="../js/header.js"></script>
+  <script src="../js/chatbot.js"></script>
   <script src="../js/breadcrum.js"></script>
-
 </body>
 
 </html>

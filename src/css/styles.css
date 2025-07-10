@@ -813,7 +813,7 @@ body {
 .dm-logo:focus-visible,
 #loginButton:focus-visible,
 #carritoButton:focus-visible {
-  outline: 1px solid #1969f6 !important;
+  outline: 2px solid #1969f6 !important;
   outline-offset: 2px;
   /* border-radius: 50% !important; */
   background-color: transparent;
@@ -823,13 +823,81 @@ body {
 }
 
 .btn-logout:focus-visible {
-  outline: 1px solid #1969f6 !important;
+  outline: 2px solid #1969f6 !important;
   /* border-radius: 50% !important; */
   background-color: transparent;
   border: none;
   /* color: #23272b !important; */
   box-shadow: none;
   border-radius: 8px !important;
+}
+
+.btn-volver:focus-visible,
+.delete-product-btn:focus-visible,
+.regular-btn:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 0px;
+  border-radius: 999px;
+  box-shadow: none !important;
+  background-color: #23272b;
+}
+
+.breadcrumb-tab:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 2px;
+  border-radius: 8px;
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.btn-remove:focus-visible,
+.btn-link:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.btn-tab:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 0px;
+  border-radius: 8px;
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.correo-nav:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 0px;
+  border-radius: 0px;
+  border: 2px solid #1969f6 !important;
+  box-shadow: none !important;
+}
+
+.correo-tab-round:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 0px;
+  border-radius: 8px;
+  border: 2px solid #1969f6 !important;
+  box-shadow: none !important;
+}
+
+.btn-tab2:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 1px;
+  border-radius: 8px;
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.btn-checkout:focus-visible,
+.pagar-nav:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 2px;
+  border-radius: 8px;
+  border-color: none !important;
+  box-shadow: none !important;
 }
 
 /* Efectos de la navbar */
@@ -903,10 +971,40 @@ body {
 }
 
 /* Navegacion por teclado */
-.pre-footer-pagos .navbar-brand:focus-visible {
-  outline: 1px solid #1969f6;
+.pre-footer-pagos .navbar-brand:focus-visible,
+.navbar-brand:focus-visible,
+.social-logo:focus-visible,
+.btn-close:focus-visible,
+.btn-decrease:focus-visible,
+.btn-increase:focus-visible {
+  outline: 2px solid #1969f6 !important;
   outline-offset: 2px;
   border-radius: 8px;
+  box-shadow: none;
+}
+
+.coupon-tab:focus-visible {
+  outline: 2px solid #1969f6 !important;
+  outline-offset: 1px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.footer-nav-teclado:focus-visible,
+.login-nav:focus-visible,
+.link-accessible:focus-visible {
+  outline: 2px solid #1969f6;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.chatbot-button:focus-visible,
+.arrow-nav:focus-visible {
+  outline: 3px solid #1969f6 !important;
+  outline-offset: 0px;
+  border-radius: 50%;
+  box-shadow: none !important;
+  background-color: transparent;
 }
 
 .pre-footer-pagos .navbar-brand {
@@ -928,17 +1026,17 @@ body {
   object-fit: cover;
 }
 
-.pre-footer-social .navbar-brand:focus {
-  outline: 1px solid #1969f6 !important;
+/* .pre-footer-social .navbar-brand:focus {
+  outline: 2px solid #1969f6 !important;
   outline-offset: 2px !important;
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
   border-radius: 8px;
-}
+} */
 
 .pre-footer-ventajas .lista-ventajas:focus {
-  outline: 1px solid #1969f6;
+  outline: 2px solid #1969f6;
   outline-offset: 2px !important;
   border: none;
   box-shadow: none;
@@ -1300,6 +1398,7 @@ a:hover .icon-image,
   border-style: solid;
   border-color: transparent;
   opacity: 1 !important;
+  border-radius: 4px;
 }
 
 /* ---------------------------------------------------------------------------------- */
@@ -1394,15 +1493,21 @@ a:hover .icon-image,
 /* Navegacion por teclado *L* No veo como cambiarlo, esto modifica pero hace cosas raras,
 creo que por los estilos herdados de bootstrap o por el poco espacio entre tarjetas? help xD*/
 
-/* .opinion-card:focus-visible {
-  outline: 1px solid #1969f6 !important;
-  outline-offset: 2px;
-  border-radius: 8px;
+.opinion-card:focus-visible {
+  outline: none !important;
+  border-radius: 10px;
   border: none;
-  box-shadow: 0 0 0 3px #1969f66b;
-  z-index: 2;
-  overflow: hidden;
-} */
+  /* box-shadow: 0 0 0 3px #1969f66b; */
+  border: 2px solid #1969f6 !important;
+  padding: 2px !important;
+}
+
+.acordion-tab:focus-visible {
+  outline: none !important;
+  border: 2px solid #1969f6 !important;
+  border-radius: 8px;
+  /* box-shadow: 0 0 0 3px #1969f66b; */
+}
 
 .texto-opinion-card h3 {
   font-size: 1.05rem;
@@ -1751,10 +1856,75 @@ body.dark-mode {
   color: #f1f1f1 !important;
 }
 
+body.dark-mode .txt-blanco,
+body.dark-mode .breadcrumb-tab,
+body.dark-mode .login-button:hover,
+body.dark-mode .auth-button:hover,
+body.dark-mode .close-button:hover {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .h3-dm {
+  color: #000;
+}
+
+body.dark-mode .text-success-accessible,
+body.dark-mode .link-accessible {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .border-accessible {
+  border: 1px solid #f6a61a !important;
+}
+
+body.dark-mode .login-button {
+  background-color: transparent !important;
+  color: #f6a61a !important;
+  border: 2px solid #f6a61a !important;
+}
+
+body.dark-mode .close-button {
+  background-color: transparent !important;
+  color: red !important;
+  border: 2px solid #f6a61a !important;
+}
+
 body.dark-mode .pre-footer,
 body.dark-mode .opinion-card-container {
   background-color: #1e1e1e !important;
   color: #f1f1f1 !important;
+}
+
+body.dark-mode .btn-cancel,
+body.dark-mode .btn-checkout,
+body.dark-mode .auth-button {
+  background-color: #f6a61a !important;
+  color: #000000 !important;
+}
+
+body.dark-mode .btn-cancel:hover,
+body.dark-mode .btn-checkout:hover {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .btn-confirm {
+  border: 2px solid #f6a61a;
+  background-color: transparent !important;
+}
+
+body.dark-mode .btn-confirm:hover {
+  color: #f6a61a !important;
+}
+
+body.dark-mode .caja-card {
+  color: #f1f1f1 !important;
+  background-color: #232323 !important;
+  border: 1px solid #f6a61a;
+}
+
+body.dark-mode .opinion-card-container,
+body.dark-mode .promo-container {
+  border: 1px solid #f6a61a !important;
 }
 
 body.dark-mode .bg-white,
@@ -1872,7 +2042,7 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   color: #f6a61a !important;
   border: #f6a61a !important;
   /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
-  outline: 1px solid #1969f6 !important;
+  outline: 2px solid #1969f6 !important;
   border-radius: 8px !important;
 }
 
@@ -2223,6 +2393,10 @@ main.c-main,
   background-color: #fff;
 }
 
+.control-buscador:focus-visible {
+  outline: 2px solid #1969f6 !important;
+}
+
 #search-input-guitar:focus-visible,
 #filtro-categoria:focus-visible,
 #filtro-precio:focus-visible,
@@ -2287,4 +2461,24 @@ main.c-main,
 
 .h5-size {
   font-size: 1.25rem;
+}
+
+/* Borde de las cartas register */
+
+.card-border-r {
+  border: 1px solid #f6a61a;
+  border-radius: 11.2px;
+}
+
+.txt-blanco {
+  color: #000;
+}
+
+/* Solo funciona en algunos navegadores WebKit */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f6a61a" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
