@@ -104,7 +104,29 @@
         "description": "Guitarra eléctrica para músicos avanzados.",
         "category": "electric-guitars",
         "familia": "cuerda",
-        "quantity": 2
+        "quantity": 3
+      },
+      {
+        "id": 17,
+        "name": "Set de Platillos",
+        "price": 400,
+        "offerPrice": 400,
+        "image": "../assets/images/drum3.webp",
+        "description": "Set de platillos de alta calidad para bateristas profesionales.",
+        "category": "platillos",
+        "familia": "percusion",
+        "quantity": 1
+      },
+      {
+        "id": 16,
+        "name": "Batería Electrónica",
+        "price": 600,
+        "offerPrice": 600,
+        "image": "../assets/images/drum5.webp",
+        "description": "Batería electrónica compacta y versátil.",
+        "category": "batería",
+        "familia": "percusion",
+        "quantity": 1
       }
     ]
   }
