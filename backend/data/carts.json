@@ -91,5 +91,21 @@
   {
     "user": "VicentePrueba2@gmail.com",
     "items": []
+  },
+  {
+    "user": "luna@email.com",
+    "items": [
+      {
+        "id": 2,
+        "name": "Guitarra Eléctrica",
+        "price": 350,
+        "offerPrice": 300,
+        "image": "../assets/images/guitar3.webp",
+        "description": "Guitarra eléctrica para músicos avanzados.",
+        "category": "electric-guitars",
+        "familia": "cuerda",
+        "quantity": 1
+      }
+    ]
   }
 ]

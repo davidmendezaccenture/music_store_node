@@ -91,19 +91,6 @@
     "isLoggedIn": 0
   },
   {
-    "nombre": "Lore",
-    "apellidos": "Rod",
-    "fechaNacimiento": "1977-12-06",
-    "telefono": "666555444",
-    "pais": "España",
-    "region": "Málaga",
-    "codigoPostal": "29000",
-    "direccion": "Calle Luz, 6",
-    "email": "lore@email.com",
-    "password": "1234",
-    "isLoggedIn": 1
-  },
-  {
     "nombre": "VicentePrueba2",
     "apellidos": "MartinPrueba2",
     "fechaNacimiento": "1992-03-10",
@@ -115,5 +102,18 @@
     "email": "VicentePrueba2@gmail.com",
     "password": "8Kdfnqg3qSXy#uC",
     "isLoggedIn": 0
+  },
+  {
+    "nombre": "alumna",
+    "apellidos": "accenture",
+    "fechaNacimiento": "2002-03-10",
+    "telefono": "666555443",
+    "pais": "España",
+    "region": "MA",
+    "codigoPostal": "28000",
+    "direccion": "Calle Luna",
+    "email": "luna@email.com",
+    "password": "$2b$10$liU/IxQb7pc48xl5ZTnDz.ypD127VqKv/bPjwnp0XK8UIiJBaHjMO",
+    "isLoggedIn": 1
   }
 ]
