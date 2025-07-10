@@ -1408,7 +1408,7 @@ a:hover .icon-image,
   display: none;
   position: absolute;
   z-index: 1055;
-  min-width: 350px
+  min-width: 350px;
 }
 
 #carouselExampleCaptions .carousel-item img {
@@ -2132,9 +2132,12 @@ body.dark-mode .catalog-secondary-nav .control-buscador {
 } */
 body.dark-mode .catalog-secondary-nav .form-control:focus,
 body.dark-mode .catalog-secondary-nav .control-buscador:focus {
-  border-color: #ffd700 !important;
-  box-shadow: 0 0 0 0.1rem #ffd70080 !important;
+  /* border-color: #ffd700 !important; */
+  /* box-shadow: 0 0 0 0.1rem #ffd70080 !important; */
   outline: none !important;
+}
+body.dark-mode .catalog-secondary-nav .control-buscador:focus-visible {
+  outline: 2px solid #1969f6 !important;
 }
 
 body.dark-mode .card.flex-fill.h-100 {
