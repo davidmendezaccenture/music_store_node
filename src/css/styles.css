@@ -1657,6 +1657,10 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
   }
 }
 
+.img-promo {
+  height: 195px;
+}
+
 @media (max-width: 600px) {
   .promo-container {
     width: 26rem;
