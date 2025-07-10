@@ -18,13 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const modal = new bootstrap.Modal(modalElement);
       modal.show();
       if (callback) {
-        modalElement.addEventListener(
-          "hidden.bs.modal",
-          function handler() {
-            modalElement.removeEventListener("hidden.bs.modal", handler);
-            callback();
-          }
-        );
+        modalElement.addEventListener("hidden.bs.modal", function handler() {
+          modalElement.removeEventListener("hidden.bs.modal", handler);
+          callback();
+        });
       }
     } else {
       alert(mensaje); // Fallback
