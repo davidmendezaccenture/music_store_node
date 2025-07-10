@@ -1283,6 +1283,13 @@ a:hover .icon-image,
 }
 
 /* ---------------------------------------------------------------------------------- */
+#globalSearchDropdown {
+  display: none;
+   position: absolute;
+    z-index: 1055;
+     min-width: 350px
+}
+
 #carouselExampleCaptions .carousel-item img {
   height: 350px;
   object-fit: cover;
