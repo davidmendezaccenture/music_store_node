@@ -120,4 +120,10 @@
     vertical-align: middle;
     line-height: 1;
     display: inline-block;
+    transition: color 0.2s;
+}
+
+/* Efecto hover para el icono del footer cuando el usuario está logueado */
+#loginButtonFooter:hover .user-logged-icon-footer {
+    color: #fff;
 }
