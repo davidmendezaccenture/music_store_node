@@ -789,6 +789,7 @@ body {
   color: white !important;
   box-shadow: 0 0 0 1px #1969f6 !important;
 }
+
 .navbar-nav .nav-link.active:focus-visible {
   color: #f6a61a !important;
 }
@@ -1016,7 +1017,7 @@ body {
   margin: 0;
 }
 
-.pre-footer-pagos .navbar-brand + .navbar-brand {
+.pre-footer-pagos .navbar-brand+.navbar-brand {
   margin-left: 10px;
 }
 
@@ -1179,7 +1180,7 @@ a:focus-visible .social-logo {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within ~ .buscador-overlay {
+.buscador-form:focus-within~.buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -1837,9 +1838,11 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 .register-txt {
   text-decoration: none;
 }
+
 .register-txt:hover {
   text-decoration: underline;
 }
+
 /* Letra horario */
 
 .horario-text {
@@ -2136,6 +2139,7 @@ body.dark-mode .catalog-secondary-nav .control-buscador:focus {
   /* box-shadow: 0 0 0 0.1rem #ffd70080 !important; */
   outline: none !important;
 }
+
 body.dark-mode .catalog-secondary-nav .control-buscador:focus-visible {
   outline: 2px solid #1969f6 !important;
 }
@@ -2495,8 +2499,7 @@ main.c-main,
 /* Solo funciona en algunos navegadores WebKit */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f6a61a" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>')
-    no-repeat center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f6a61a" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
   width: 16px;
   height: 16px;
   cursor: pointer;

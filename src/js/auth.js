@@ -149,10 +149,11 @@ async function handleLoginSubmit(e) {
   }
 }
 
-// Actualizar la interfaz del header según el estado de login
+// Actualizar la interfaz del header y footer según el estado de login
 function updateHeaderUserStatus() {
   const $loginButton = $("#loginButton");
   const $userStatus = $("#userStatus");
+  const $loginButtonFooter = $("#loginButtonFooter");
 
   if ($loginButton.length === 0 || $userStatus.length === 0) {
     // Reintentar
@@ -169,7 +170,7 @@ function updateHeaderUserStatus() {
         <div class="d-flex flex-column text-start">
           <span class="user-logged-name" style="font-size: 0.85rem;">${currentUser.nombre}</span>
         </div>
-        <button class="btn btn-outline-secondary btn-logout ms-2" onclick="logout()" title="Cerrar sesión">
+        <button class="btn btn-outline-secondary btn-logout ms-2" onclick="showLogoutConfirmModal()" title="Cerrar sesión">
           <i class="bi bi-box-arrow-right"></i>
         </button>
       </div>
@@ -177,6 +178,18 @@ function updateHeaderUserStatus() {
     // Remover atributos del modal para evitar que se abra
     $loginButton.removeAttr("data-bs-toggle data-bs-target");
     $userStatus.hide();
+
+    // Actualizar botón del footer - mismo icono que header cuando está logueado
+    if ($loginButtonFooter.length > 0) {
+      $loginButtonFooter.html(`<i class="bi bi-person-check user-logged-icon-footer"></i>`);
+      // Remover eventos anteriores y agregar nuevo evento para logout
+      $loginButtonFooter.off("click.loginModal click.logoutModal");
+      $loginButtonFooter.on("click.logoutModal", function (e) {
+        e.preventDefault();
+        console.log("🖱️ Click en botón de logout del footer detectado");
+        showLogoutConfirmModal();
+      });
+    }
   } else {
     // Usuario no logueado - restaurar botón original
     $loginButton.html(`
@@ -184,6 +197,14 @@ function updateHeaderUserStatus() {
       <span class="visually-hidden">Iniciar sesión</span>
     `);
     $userStatus.hide();
+
+    // Restaurar botón del footer al estado original
+    if ($loginButtonFooter.length > 0) {
+      $loginButtonFooter.html(`<i class="bi bi-person-circle"></i>`);
+      // Remover eventos de logout y restaurar eventos de login
+      $loginButtonFooter.off("click.logoutModal");
+      // Los eventos de login se manejan en initLoginModal() de app.js
+    }
   }
 }
 
@@ -211,9 +232,26 @@ function updateAuthState(userData, loginStatus) {
   }
 }
 
+// Función para mostrar modal de confirmación de logout
+function showLogoutConfirmModal() {
+  console.log("🔍 Mostrando modal de confirmación de logout");
+
+  const modalElement = document.getElementById("logoutConfirmModal");
+
+  if (modalElement) {
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+    console.log("✅ Modal de logout mostrado");
+  } else {
+    console.warn("⚠️ Modal de logout no encontrado, ejecutando logout directo");
+    logout();
+  }
+}
+
 // Funciones para uso global
 window.updateHeaderUserStatus = updateHeaderUserStatus;
 window.updateAuthState = updateAuthState;
 window.logout = logout;
 window.getCurrentUser = getCurrentUser;
 window.getIsLoggedIn = getIsLoggedIn;
+window.showLogoutConfirmModal = showLogoutConfirmModal;

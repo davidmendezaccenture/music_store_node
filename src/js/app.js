@@ -179,7 +179,7 @@ $(document).ready(function () {
   initFeedbackSection();
   initFooter();
 
-  // ...carga dinámica del modal...
+  // ...carga dinámica del modal de login...
   // Cuando el modal esté cargado, asigna el evento al botón de login
   if ($("#loginModal").length === 0) {
     $.get("/pages/login-modal.html", function (data) {
@@ -194,6 +194,21 @@ $(document).ready(function () {
     modalLoaded = true;
     // Verificar si ya podemos inicializar el login
     checkAndInitLogin();
+  }
+
+  // ...carga dinámica del modal de logout...
+  // Cargar modal de confirmación de logout
+  if ($("#logoutConfirmModal").length === 0) {
+    $.get("/pages/logout-confirm-modal.html", function (data) {
+      $("body").append(data);
+      console.log("✅ Logout confirm modal cargado dinámicamente");
+      // Inicializar eventos del modal de logout
+      initLogoutConfirmModal();
+    });
+  } else {
+    console.log("✅ Logout confirm modal ya existe");
+    // Inicializar eventos del modal de logout
+    initLogoutConfirmModal();
   }
 
   function checkAndInitLogin() {
@@ -274,6 +289,29 @@ function initLoginModal() {
   });
 
   console.log("✅ Eventos de login asignados correctamente");
+}
+
+/* Función para modal de confirmación de logout */
+function initLogoutConfirmModal() {
+  console.log("🔍 Iniciando initLogoutConfirmModal...");
+
+  // Event listener para el botón de confirmación dentro del modal
+  $("#confirmLogoutBtn").off("click.logoutConfirm").on("click.logoutConfirm", function () {
+    console.log("✅ Logout confirmado - ejecutando logout");
+
+    // Cerrar el modal primero
+    const modal = bootstrap.Modal.getInstance(document.getElementById('logoutConfirmModal'));
+    if (modal) {
+      modal.hide();
+    }
+
+    // Ejecutar logout real
+    if (typeof logout === "function") {
+      logout();
+    }
+  });
+
+  console.log("✅ Eventos de logout confirm modal asignados correctamente");
 }
 
 function initNavbar() {

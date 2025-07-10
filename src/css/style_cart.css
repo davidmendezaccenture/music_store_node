@@ -31,7 +31,8 @@ body {
 }
 
 .img-cart-container {
-  max-width: 80px
+  max-width: 80px;
+  margin-left: 1rem;
 }
 
 #cart-content,
@@ -41,12 +42,12 @@ body {
 }
 
 .product-amount {
-  width: 40px; 
+  width: 40px;
   display: inline-block
 }
 
 .pay-options {
-  pointer-events: none; 
+  pointer-events: none;
   opacity: 1;
 }
 
@@ -55,9 +56,10 @@ body {
 }
 
 .pointer-style-pay {
-  pointer-events: none; 
+  pointer-events: none;
   opacity: 1;
 }
+
 /* Modal personalizado para eliminar producto */
 .custom-delete-modal .btn-close {
   filter: none;
@@ -227,9 +229,10 @@ a.regular-btn:hover,
 /* Botón cerrar de los modales */
 .delete-product-btn {
   background-color: #D93444 !important;
-  color: black !important;
+  color: white !important;
   border: none;
   opacity: 1;
+  font-weight: 600 !important;
 }
 
 .delete-product-btn:hover,
@@ -237,6 +240,7 @@ a.regular-btn:hover,
   background-color: #f6a61a !important;
   color: black !important;
   opacity: 0.9;
+  font-weight: 600 !important;
 }
 
 .cancel-button,

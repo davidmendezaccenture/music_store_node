@@ -112,3 +112,12 @@
     align-items: center;
     width: 100%;
 }
+
+/* Estilo para el icono del footer cuando el usuario está logueado */
+#loginButtonFooter .user-logged-icon-footer {
+    color: #f6a61a;
+    font-size: 1.6rem;
+    vertical-align: middle;
+    line-height: 1;
+    display: inline-block;
+}
