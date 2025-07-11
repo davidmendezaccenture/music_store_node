@@ -138,59 +138,6 @@ $(document).ready(function () {
     }
   });
 
-  // Aplicar código promocional al hacer click en el botón
-  $("#apply-promo").on("click", function () {
-    aplicarCodigoPromocional();
-  });
-
-  // Aplicar código promocional al pulsar Enter en el input
-  $("#promo-code").on("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      aplicarCodigoPromocional();
-    }
-  });
-
-  // Aplicar código promocional al hacer click en el botón
-  $("#apply-promo").on("click", function () {
-    aplicarCodigoPromocional();
-  });
-
-  // Aplicar código promocional al pulsar Enter en el input
-  $("#promo-code").on("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      aplicarCodigoPromocional();
-    }
-  });
-
-  // Función para aplicar el código promocional
-  // Aplicar código promocional al hacer click en el botón
-  $("#apply-promo").on("click", function () {
-    aplicarCodigoPromocional();
-  });
-
-  // Aplicar código promocional al pulsar Enter en el input
-  $("#promo-code").on("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      aplicarCodigoPromocional();
-    }
-  });
-
-  // Aplicar código promocional al hacer click en el botón
-  $("#apply-promo").on("click", function () {
-    aplicarCodigoPromocional();
-  });
-
-  // Aplicar código promocional al pulsar Enter en el input
-  $("#promo-code").on("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      aplicarCodigoPromocional();
-    }
-  });
-
   // Función para aplicar el código promocional
   function aplicarCodigoPromocional() {
     const code = $("#promo-code").val().trim().toUpperCase();
@@ -245,12 +192,112 @@ $("#paymentSuccessModal").on("click", "#seguirComprandoBtn", function () {
   window.location.href = lastPage;
 });
 
-// Validación personalizada del formulario de checkout
+// Validación dinámica en cada campo
+$("#full-name").on("input", function () {
+  const nombre = $(this).val().trim();
+  if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(nombre)) {
+    setError(
+      "#full-name",
+      "Introduce un nombre válido (solo letras, mínimo 2 caracteres)."
+    );
+  } else {
+    clearError("#full-name");
+  }
+});
+
+$("#email").on("input", function () {
+  const email = $(this).val().trim();
+  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+    setError("#email", "Introduce un correo electrónico válido.");
+  } else {
+    clearError("#email");
+  }
+});
+
+$("#street").on("input", function () {
+  const street = $(this).val().trim();
+  if (street.length < 2) {
+    setError("#street", "Introduce una calle válida.");
+  } else {
+    clearError("#street");
+  }
+});
+
+$("#number").on("input", function () {
+  const number = $(this).val().trim();
+  if (!/^\d+[A-Za-z]?$/.test(number)) {
+    setError("#number", "Introduce un número válido.");
+  } else {
+    clearError("#number");
+  }
+});
+
+$("#city").on("input", function () {
+  const city = $(this).val().trim();
+  if (city.length < 2) {
+    setError("#city", "Introduce una ciudad válida.");
+  } else {
+    clearError("#city");
+  }
+});
+
+$("#postal-code").on("input", function () {
+  const postal = $(this).val().trim();
+  if (!/^\d{4,6}$/.test(postal)) {
+    setError("#postal-code", "Introduce un código postal válido.");
+  } else {
+    clearError("#postal-code");
+  }
+});
+
+$("#province").on("input", function () {
+  const province = $(this).val().trim();
+  if (province.length < 2) {
+    setError("#province", "Introduce una provincia válida.");
+  } else {
+    clearError("#province");
+  }
+});
+
+$("#country").on("input", function () {
+  const country = $(this).val().trim();
+  if (country.length < 2) {
+    setError("#country", "Introduce un país válido.");
+  } else {
+    clearError("#country");
+  }
+});
+
+$("#phone").on("input", function () {
+  const phone = $(this).val().trim();
+  if (
+    phone &&
+    (!/^[\d\s\-\(\)]{7,9}$/.test(phone) || phone.replace(/\D/g, "").length > 9)
+  ) {
+    setError(
+      "#phone",
+      "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos)."
+    );
+  } else {
+    clearError("#phone");
+  }
+});
+
+$("#payment-method").on("change", function () {
+  const payment = $(this).val();
+  if (!payment) {
+    setError("#payment-method", "Selecciona un método de pago.");
+  } else {
+    clearError("#payment-method");
+  }
+});
+
+// Validación personalizada del formulario de checkout en el submit
 $("#checkout-form").on("submit", function (e) {
   e.preventDefault();
   let valid = true;
 
-  // Nombre completo: solo letras y espacios, mínimo 2 caracteres
+  // Nombre completo
   const nombre = $("#full-name").val().trim();
   if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(nombre)) {
     setError(
@@ -327,10 +374,13 @@ $("#checkout-form").on("submit", function (e) {
 
   // Teléfono (opcional, pero si se rellena debe ser válido)
   const phone = $("#phone").val().trim();
-  if (phone && !/^[\d\s\-\(\)]{7,}$/.test(phone)) {
+  if (
+    phone &&
+    (!/^[\d\s\-\(\)]{7,9}$/.test(phone) || phone.replace(/\D/g, "").length > 9)
+  ) {
     setError(
       "#phone",
-      "Introduce un teléfono válido (mínimo 7 dígitos, solo números y símbolos)."
+      "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos)."
     );
     valid = false;
   } else {
@@ -347,7 +397,6 @@ $("#checkout-form").on("submit", function (e) {
   }
 
   if (valid) {
-    // Si todo es válido, muestra el modal de confirmación de compra
     const modal = new bootstrap.Modal(
       document.getElementById("paymentSuccessModal")
     );
@@ -381,9 +430,9 @@ function clearError(selector) {
   $(selector).removeClass("is-invalid").next(".invalid-feedback").text("");
 }
 
-// Limpia el error al modificar el campo
-$(
-  "#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method"
-).on("input change", function () {
-  clearError("#" + this.id);
-});
+// // Limpia el error al modificar el campo
+// $(
+//   "#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method"
+// ).on("input change", function () {
+//   clearError("#" + this.id);
+// });
