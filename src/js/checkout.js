@@ -188,7 +188,38 @@ $("#cart-summary").on("click", ".btn-cancel", function () {
 // });
 
 // Botón "Seguir comprando"
+// $("#paymentSuccessModal").on("click", "#seguirComprandoBtn", function () {
+//   const lastPage =
+//     sessionStorage.getItem("lastShoppingPage") || "/pages/index.html";
+//   window.location.href = lastPage;
+// });
+
 $("#paymentSuccessModal").on("click", "#seguirComprandoBtn", function () {
+  // Vacía el carrito en memoria
+  cartItems = [];
+
+  // Vacía el carrito en
+  getCurrentUser().then(function(user) {
+    if (user === 'guest') {
+      localStorage.setItem('cart', JSON.stringify([]));
+      updateCartCount([]);
+    } else {
+      $.ajax({
+        url: '/api/cart',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ user: user.email, items: [] }),
+        success: function () {
+          updateCartCount([]);
+        }
+      });
+    }
+  });
+
+  // Actualiza el icono del carrito inmediatamente
+  $("#cart-count").text("0").show();
+
+  // Redirige a la última página o al inicio
   const lastPage =
     sessionStorage.getItem("lastShoppingPage") || "/pages/index.html";
   window.location.href = lastPage;
@@ -402,9 +433,4 @@ function clearError(selector) {
   $(selector).removeClass("is-invalid").next(".invalid-feedback").text("");
 }
 
-// // Limpia el error al modificar el campo
-// $(
-//   "#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method"
-// ).on("input change", function () {
-//   clearError("#" + this.id);
-// });
+
