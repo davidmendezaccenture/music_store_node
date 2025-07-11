@@ -114,7 +114,7 @@
     "direccion": "Calle Luna",
     "email": "luna@email.com",
     "password": "$2b$10$liU/IxQb7pc48xl5ZTnDz.ypD127VqKv/bPjwnp0XK8UIiJBaHjMO",
-    "isLoggedIn": 0
+    "isLoggedIn": 1
   },
   {
     "nombre": "Ana",

@@ -45,7 +45,7 @@ $(document).ready(function () {
           <div>${item.name}</div>
           <small class="text-muted">Cantidad: ${item.quantity || 1}</small>
         </div>
-        <span class="me-3">€${(price * (item.quantity || 1)).toFixed(2)}</span>
+        <span class="me-3">${(price * (item.quantity || 1)).toFixed(2)}€</span>
         <button class="btn btn-link text-danger p-0 btn-remove" title="Eliminar">
           <i class="bi bi-trash"></i>
         </button>
@@ -62,11 +62,11 @@ $(document).ready(function () {
       resumenHtml += `
       <div class="d-flex justify-content-between">
         <span>Subtotal:</span>
-        <span>€${subtotal.toFixed(2)}</span>
+        <span>${subtotal.toFixed(2)}€</span>
       </div>
       <div class="d-flex justify-content-between">
         <span>Descuento (${(promoDiscount * 100).toFixed(0)}%):</span>
-        <span class="text-success">-€${descuento.toFixed(2)}</span>
+        <span class="text-success">-${descuento.toFixed(2)}€</span>
       </div>
       <div class="d-flex justify-content-between mb-3 fw-bold">
         <span>Total:</span>
@@ -77,7 +77,7 @@ $(document).ready(function () {
       resumenHtml += `
       <div class="d-flex justify-content-between mb-3 fw-bold">
         <span>Total:</span>
-        <span>€${subtotal.toFixed(2)}</span>
+        <span>${subtotal.toFixed(2)}€</span>
       </div>
     `;
     }
