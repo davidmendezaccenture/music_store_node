@@ -1,0 +1,64 @@
+.btn-primary {
+    margin-top: auto;
+    border-radius: 999px;
+    font-weight: 300;
+    background-color: #23272b;
+    color: #fff;
+    border-color: #23272b;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #f6a61a !important;
+    color: #23272b !important;
+    border-color: #f6a61a !important;
+}
+
+/* Botón de Cerrar sesión - Amarillo */
+.btn-danger {
+    background-color: #f6a61a !important;
+    color: #fff !important;
+    border-color: #f6a61a !important;
+    border-radius: 999px;
+    font-weight: 300;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #e6941a !important;
+    color: #fff !important;
+    border-color: #e6941a !important;
+}
+
+/* Botón de Cancelar - Color oscuro */
+.btn-secondary {
+    background-color: #23272b !important;
+    color: #fff !important;
+    border-color: #23272b !important;
+    border-radius: 999px;
+    font-weight: 300;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #1a1d20 !important;
+    color: #fff !important;
+    border-color: #1a1d20 !important;
+}
+
+/* Estilos de navegación por tabulación (Focus) */
+.btn-danger:focus-visible,
+.btn-secondary:focus-visible {
+    outline: 2px solid #1969f6 !important;
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
