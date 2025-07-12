@@ -104,7 +104,7 @@ function addToCartById(id) {
   });
 }
 
-  
+
 // Renderizar carrito en cart.html
 function renderCart(items) {
   $('#cart-loader').hide(); // Oculta el loader al renderizar el carrito
@@ -148,16 +148,16 @@ function renderCart(items) {
     // Clonar template 
     const $tpl = $($('#cart-item-template').prop('content')).children().first().clone();
     $tpl.attr('data-id', item.id);
-    
+
     // Crea el enlace con la imagen dentro
-const $imgLink = $(`
+    const $imgLink = $(`
   <a href="/pages/detail-product.html?id=${item.id}" target="_blank" aria-label="Ver detalle de ${item.name}">
     <img src="${imgSrc}" class="img-fluid rounded" alt="${item.name}" style="max-width: 80px" />
   </a>
 `);
 
-// Sustituye el div de la imagen por el enlace con la imagen
-$tpl.find('.col-3.col-md-2.text-center').empty().append($imgLink);
+    // Sustituye el div de la imagen por el enlace con la imagen
+    $tpl.find('.col-3.col-md-2.text-center').empty().append($imgLink);
 
     $tpl.find('.card-title').text(item.name);
     $tpl.find('.card-text').text(item.description || '');
@@ -168,7 +168,7 @@ $tpl.find('.col-3.col-md-2.text-center').empty().append($imgLink);
   });
 
   $cartContent.append(`
-    <div class="text-end fw-bold fs-5 mt-3">
+    <div class="text-end fw-bold fs-5 mt-3 mb-5">
       Total: ${total} €
     </div>
   `);
@@ -276,22 +276,22 @@ $(document).ready(function () {
   $(document).on('click', '.add-to-cart', function () {
     const id = parseInt($(this).attr('data-id'));
     addToCartById(id);
-      });
+  });
 
   // Lógica del botón "ir a caja" para usuarios no logueados y guest
-$(document).on('click', '.btn-checkout', function (e) {
-  e.preventDefault();
-  getCurrentUser().then(function(user) {
-    if (user === 'guest') {
-      // Mostrar modal para guest
-      const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
-      modal.show();
-    } else {
-      // Lógica de checkout real para usuarios logueados
-      window.location.href = '/pages/checkout.html';
-    }
+  $(document).on('click', '.btn-checkout', function (e) {
+    e.preventDefault();
+    getCurrentUser().then(function (user) {
+      if (user === 'guest') {
+        // Mostrar modal para guest
+        const modal = new bootstrap.Modal(document.getElementById('guestCheckoutModal'));
+        modal.show();
+      } else {
+        // Lógica de checkout real para usuarios logueados
+        window.location.href = '/pages/checkout.html';
+      }
+    });
   });
-});
 
   // Manejo del botón "Seguir comprando"
   $('#seguirComprandoBtn').on('click', function () {

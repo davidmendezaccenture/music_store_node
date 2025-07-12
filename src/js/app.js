@@ -113,7 +113,7 @@ $(document).ready(function () {
               // (media  770px)
               $("main").attr(
                 "style",
-                "margin-top: " + (menuHeight + 260) + "px !important"
+                "margin-top: " + (menuHeight + 190) + "px !important"
               );
               $("main.c-main").attr(
                 "style",
@@ -123,7 +123,7 @@ $(document).ready(function () {
               // ( Media 991.98px)
               $("main").attr(
                 "style",
-                "margin-top: " + (menuHeight + 135) + "px !important"
+                "margin-top: " + (menuHeight + 190) + "px !important"
               );
               $("main.c-main").attr(
                 "style",

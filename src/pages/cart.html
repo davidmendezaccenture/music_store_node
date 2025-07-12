@@ -1,345 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Gestiona tu carrito de compras en Rat Pack Instruments. Revisa, modifica y finaliza tu pedido de instrumentos musicales con envío gratis, devolución fácil y pago seguro."
-    />
-    <meta name="robots" content="index, follow" />
-    <title>Rat Pack Instruments</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="../css/style_cart.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/style_chatbot.css" />
-    <link rel="stylesheet" href="../css/services.css" />
-    <!-- Fuente seleccionada para usar en el proyecto-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
-      rel="stylesheet"
-    />
-    <!-- icono tittle -->
-    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-  </head>
-  <body>
-    <!-- Cabecera de la página -->
-    <div id="header"></div>
 
-    <!-- ::::::::::::::::::::::: FIN HEADER ::::::::::::::::::::::: -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Gestiona tu carrito de compras en Rat Pack Instruments. Revisa, modifica y finaliza tu pedido de instrumentos musicales con envío gratis, devolución fácil y pago seguro." />
+  <meta name="robots" content="index, follow" />
+  <title>Rat Pack Instruments</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/style_cart.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/style_chatbot.css" />
+  <link rel="stylesheet" href="../css/services.css" />
+  <!-- Fuente seleccionada para usar en el proyecto-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet" />
+  <!-- icono tittle -->
+  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+</head>
 
-    <!-- Contenido principal de la página -->
+<body>
+  <!-- Cabecera de la página -->
+  <div id="header"></div>
 
-    <!-- Loader de la página hasta que carga productos -->
-    <div id="cart-loader" class="text-center my-5">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Cargando...</span>
-      </div>
+  <!-- ::::::::::::::::::::::: FIN HEADER ::::::::::::::::::::::: -->
+
+  <!-- Contenido principal de la página -->
+
+  <!-- Loader de la página hasta que carga productos -->
+  <div id="cart-loader" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
     </div>
+  </div>
 
-    <main
-      class="container py-4 mt-5"
-      role="main"
-      aria-label="Carrito de la compra"
-    >
-      <!-- Botón para volver a Home -->
-      <div class="mb-4">
-        <a
-          href="/pages/index.html"
-          class="btn btn-primary rounded-pill px-4 regular-btn"
-          aria-label="Volver al inicio"
-          >Volver</a
-        >
-      </div>
-      <!-- Título -->
-      <h2 class="h1 mb-2">Carrito</h2>
-      <div class="row">
-        <!-- Columna izquierda: productos -->
-        <div class="col-lg-8">
-          <!-- Carrito vacío -->
-          <div
-            id="cart-empty"
-            class="text-center my-5"
-            role="status"
-            aria-live="polite"
-          >
-            <img
-              src="/assets/images/emptycart.webp"
-              alt="Carrito vacío"
-              class="img-emptycart"
-            />
-            <h2 class="mt-3">Tu carrito está vacío</h2>
-            <p>¡Añade productos para verlos aquí!</p>
-            <a
-              href="/pages/index.html"
-              class="btn btn-primary rounded-pill px-4 clear-btn"
-              >Volver a la tienda</a
-            >
-          </div>
-          <!-- Contenedor donde se renderizan los productos del carrito dinámicamente -->
-          <div id="cart-content" role="list"></div>
-          <!-- Template para los items del carrito -->
-          <template id="cart-item-template">
-            <div
-              class="card mb-3 cart-item"
-              data-id=""
-              role="listitem"
-              aria-label="Producto en el carrito"
-            >
-              <div class="row g-0 align-items-center flex-row">
-                <!-- Imagen: ocupa 3 columnas en móvil y 2 en md+ -->
-                <div class="col-3 col-md-2 text-center img-cart-container">
-                  <img
-                    src=""
-                    class="img-fluid rounded"
-                    alt="Imagen del producto"
-                  />
+  <main class="container py-4" role="main" aria-label="Carrito de la compra">
+    <!-- Botón para volver a Home -->
+    <div class="mb-4">
+      <a href="/pages/index.html" class="btn btn-primary rounded-pill px-4 regular-btn"
+        aria-label="Volver al inicio">Volver</a>
+    </div>
+    <!-- Título -->
+    <h2 class="h1 mb-2">Carrito</h2>
+    <div class="row">
+      <!-- Columna izquierda: productos -->
+      <div class="col-lg-8">
+        <!-- Carrito vacío -->
+        <div id="cart-empty" class="text-center my-5" role="status" aria-live="polite">
+          <img src="/assets/images/emptycart.webp" alt="Carrito vacío" class="img-emptycart" />
+          <h2 class="mt-3">Tu carrito está vacío</h2>
+          <p>¡Añade productos para verlos aquí!</p>
+          <a href="/pages/index.html" class="btn btn-primary rounded-pill px-4 clear-btn">Volver a la tienda</a>
+        </div>
+        <!-- Contenedor donde se renderizan los productos del carrito dinámicamente -->
+        <div id="cart-content" role="list"></div>
+        <!-- Template para los items del carrito -->
+        <template id="cart-item-template">
+          <div class="card mb-3 cart-item" data-id="" role="listitem" aria-label="Producto en el carrito">
+            <div class="row g-0 align-items-center flex-row">
+              <!-- Imagen: ocupa 3 columnas en móvil y 2 en md+ -->
+              <div class="col-3 col-md-2 text-center img-cart-container" id="columna1">
+                <img src="" class="img-fluid rounded" alt="Imagen del producto" />
+              </div>
+              <!-- Info: ocupa 9 columnas en móvil y 3 en md+ -->
+              <div class="col-9 col-md-3" id="columna2">
+                <div class="card-body">
+                  <h2 class="card-title h5-size mb-1"></h2>
+                  <p class="card-text mb-1"></p>
                 </div>
-                <!-- Info: ocupa 9 columnas en móvil y 3 en md+ -->
-                <div class="col-9 col-md-3">
-                  <div class="card-body">
-                    <h2 class="card-title h5-size mb-1"></h2>
-                    <p class="card-text mb-1"></p>
-                  </div>
+              </div>
+              <div class="col-6 col-md-2 text-center" id="columna3">
+                <span class="fw-bold price"></span>
+              </div>
+              <div class="col-6 col-md-3 text-center">
+                <div class="input-group justify-content-center cart-qty-group" id="columna4">
+                  <button class="btn btn-outline-secondary btn-sm btn-decrease" type="button"
+                    aria-label="Disminuir cantidad">
+                    -
+                  </button>
+                  <input type="text" class="form-control text-center mx-1 cart-qty-input product-amount" value="1"
+                    readonly aria-label="Cantidad del producto" />
+                  <button class="btn btn-outline-secondary btn-sm btn-increase" type="button"
+                    aria-label="Aumentar cantidad">
+                    +
+                  </button>
                 </div>
-                <div class="col-6 col-md-2 text-center">
-                  <span class="fw-bold price"></span>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                  <div
-                    class="input-group justify-content-center cart-qty-group"
-                  >
-                    <button
-                      class="btn btn-outline-secondary btn-sm btn-decrease"
-                      type="button"
-                      aria-label="Disminuir cantidad"
-                    >
-                      -
-                    </button>
-                    <input
-                      type="text"
-                      class="form-control text-center mx-1 cart-qty-input product-amount"
-                      value="1"
-                      readonly
-                      aria-label="Cantidad del producto"
-                    />
-                    <button
-                      class="btn btn-outline-secondary btn-sm btn-increase"
-                      type="button"
-                      aria-label="Aumentar cantidad"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <div class="col-12 col-md-2 text-center mt-2 mt-md-0">
-                  <button
-                    class="btn btn-primary rounded-pill px-2 px-md-4 btn-remove delete-product-btn"
-                    aria-label="Eliminar producto"
-                  >
+              </div>
+              <div class="col-12 col-md-2 text-center mt-2 mt-md-0">
+                <div id="columna5">
+                  <button class="btn btn-primary rounded-pill px-2 px-md-4 btn-remove delete-product-btn"
+                    aria-label="Eliminar producto">
                     Eliminar
                   </button>
                 </div>
               </div>
             </div>
-          </template>
-        </div>
-        <!-- Columna derecha: resumen y métodos de pago -->
-        <div
-          class="col-lg-4"
-          id="cart-summary-col"
-          role="region"
-          aria-label="Resumen del carrito"
-        >
-          <div id="cart-summary"></div>
-          <template id="cart-summary-template">
-            <div class="card p-4 mb-4 shadow-sm">
-              <h3 class="fw-bold mb-3 text-center total"></h3>
-              <p class="text-center text-muted mb-3">
-                Todos los precios incluyen IVA.
-              </p>
-              <a href="#" class="btn btn-dark btn-lg w-100 mb-3 btn-checkout"
-                >IR A CAJA &rarr;</a
-              >
-              <div class="border rounded p-3 mb-3 bg-light border-accessible">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span
-                    ><i class="bi bi-truck"></i>
-                    <strong>Entrega ordinaria</strong></span
-                  >
-                  <span class="text-success text-success-accessible fw-bold"
-                    >gratis</span
-                  >
-                </div>
-                <small class="text-muted"
-                  >Se espera entre el Ma., 1.07. y el Mi., 2.07.</small
-                >
-                <a href="#" class="d-block mt-2 small link-accessible"
-                  >Información del envío <i class="bi bi-box-arrow-up-right"></i
-                ></a>
+        </template>
+      </div>
+      <!-- Columna derecha: resumen y métodos de pago -->
+      <div class="col-lg-4" id="cart-summary-col" role="region" aria-label="Resumen del carrito">
+        <div id="cart-summary"></div>
+        <template id="cart-summary-template">
+          <div class="card p-4 mb-4 shadow-sm">
+            <h3 class="fw-bold mb-3 text-center total"></h3>
+            <p class="text-center text-muted mb-3">
+              Todos los precios incluyen IVA.
+            </p>
+            <a href="#" class="btn btn-dark btn-lg w-100 mb-3 btn-checkout">IR A CAJA &rarr;</a>
+            <div class="border rounded p-3 mb-3 bg-light border-accessible">
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-truck"></i>
+                  <strong>Entrega ordinaria</strong></span>
+                <span class="text-success text-success-accessible fw-bold">gratis</span>
               </div>
-              <div class="mb-2">
-                <div class="fw-bold mb-2">Puedes pagar con:</div>
-                <div
-                  class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between pay-options pagar-nav"
-                >
-                  <span class="txt-blanco">PayPal Express</span>
-                  <img
-                    class="pay-icon"
-                    src="/assets/images/paypal.webp"
-                    alt="PayPal"
-                  />
-                </div>
-                <div
-                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between pointer-style-pay pagar-nav"
-                >
-                  <span class="txt-blanco">Amazon Pay</span>
-                  <img
-                    class="pay-icon"
-                    src="/assets/images/amazon-icon.webp"
-                    alt="Amazon Pay"
-                  />
-                </div>
+              <small class="text-muted">Se espera entre el Ma., 1.07. y el Mi., 2.07.</small>
+              <a href="#" class="d-block mt-2 small link-accessible">Información del envío <i
+                  class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+            <div class="mb-2">
+              <div class="fw-bold mb-2">Puedes pagar con:</div>
+              <div
+                class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-between pay-options pagar-nav">
+                <span class="txt-blanco">PayPal Express</span>
+                <img class="pay-icon" src="/assets/images/paypal.webp" alt="PayPal" />
+              </div>
+              <div
+                class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-between pointer-style-pay pagar-nav">
+                <span class="txt-blanco">Amazon Pay</span>
+                <img class="pay-icon" src="/assets/images/amazon-icon.webp" alt="Amazon Pay" />
               </div>
             </div>
-          </template>
-        </div>
+          </div>
+        </template>
       </div>
+    </div>
 
-      <!-- Botón para seguir comprando -->
-      <div class="d-flex justify-content-center">
-        <button
-          id="seguirComprandoBtn"
-          class="btn background-resaltado rounded-pill px-4 mb-4 btn-tab"
-          aria-label="Seguir comprando y volver a la tienda"
-        >
-          Seguir comprando
-        </button>
-      </div>
+    <!-- Botón para seguir comprando -->
+    <div class="d-flex justify-content-center">
+      <button id="seguirComprandoBtn" class="btn background-resaltado rounded-pill px-4 mb-4 btn-tab"
+        aria-label="Seguir comprando y volver a la tienda">
+        Seguir comprando
+      </button>
+    </div>
 
-      <!-- Modal de confirmación para eliminar -->
-      <div
-        class="modal fade custom-delete-modal"
-        id="deleteConfirmModal"
-        tabindex="-1"
-        aria-labelledby="deleteConfirmLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deleteConfirmLabel">
-                Eliminar producto
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Cerrar"
-              ></button>
-            </div>
-            <div class="modal-body">
-              ¿Estás seguro de que quieres eliminar este producto del carrito?
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary rounded-pill px-4 cancel-button"
-                data-bs-dismiss="modal"
-              >
-                Cancelar
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary rounded-pill px-4 delete-product-btn"
-                id="confirmDeleteBtn"
-              >
-                Eliminar
-              </button>
-            </div>
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal fade custom-delete-modal" id="deleteConfirmModal" tabindex="-1"
+      aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteConfirmLabel">
+              Eliminar producto
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            ¿Estás seguro de que quieres eliminar este producto del carrito?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4 cancel-button" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-primary rounded-pill px-4 delete-product-btn" id="confirmDeleteBtn">
+              Eliminar
+            </button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Modal para usuarios guest -->
-      <div
-        class="modal fade custom-delete-modal"
-        id="guestCheckoutModal"
-        tabindex="-1"
-        aria-labelledby="guestCheckoutLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="guestCheckoutLabel">
-                <i class="bi bi-person-exclamation fs-2"></i>
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Cerrar"
-              ></button>
-            </div>
-            <div class="modal-body">
-              ¿Tienes cuenta?.<br />
-              <strong
-                >Inicia Sesión o Regístrate para continuar con la
-                compra.</strong
-              >
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button"
-                data-bs-toggle="modal"
-                data-bs-target="#loginModal"
-              >
-                Iniciar Sesión
-              </button>
-              <a
-                href="/pages/register.html"
-                class="btn rounded-pill px-4 auth-button"
-                >Registrarse</a
-              >
-              <button
-                type="button"
-                class="btn rounded-pill px-4 close-button"
-                data-bs-dismiss="modal"
-              >
-                Cerrar
-              </button>
-            </div>
+    <!-- Modal para usuarios guest -->
+    <div class="modal fade custom-delete-modal" id="guestCheckoutModal" tabindex="-1"
+      aria-labelledby="guestCheckoutLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="guestCheckoutLabel">
+              <i class="bi bi-person-exclamation fs-2"></i>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            ¿Tienes cuenta?.<br />
+            <strong>Inicia Sesión o Regístrate para continuar con la
+              compra.</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary rounded-pill px-4 ms-2 login-button"
+              data-bs-toggle="modal" data-bs-target="#loginModal">
+              Iniciar Sesión
+            </button>
+            <a href="/pages/register.html" class="btn rounded-pill px-4 auth-button">Registrarse</a>
+            <button type="button" class="btn rounded-pill px-4 close-button" data-bs-dismiss="modal">
+              Cerrar
+            </button>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- Modal de búsqueda global -->
-    <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow">
-      <div class="container">
-        <form
-          class="d-flex justify-content-center buscador-form"
-          role="search"
-          aria-label="Barra de búsqueda global"
-        >
-          <!-- <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
+  <!-- Modal de búsqueda global -->
+  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow">
+    <div class="container">
+      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
+        <!-- <div class="buscador-input-wrapper position-relative w-100" style="max-width: 400px">
           <input
             class="form-control control-buscador rounded-pill pe-5"
             type="search"
@@ -356,92 +227,72 @@
             <i class="bi bi-search fs-5"></i>
           </button>
         </div> -->
-        </form>
-        <div id="global-search-results" class="mt-2"></div>
-      </div>
+      </form>
+      <div id="global-search-results" class="mt-2"></div>
     </div>
+  </div>
 
-    <!-- ::::::::::::::::::::::: FIN CONTENIDO PRINCIPAL ::::::::::::::::::::::: -->
+  <!-- ::::::::::::::::::::::: FIN CONTENIDO PRINCIPAL ::::::::::::::::::::::: -->
 
-    <!-- Footer -->
-    <div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
-    <!-- Chatbot flotante -->
-    <div id="chatbot-container" class="chatbot-container">
-      <!-- Botón flotante -->
-      <button
-        id="chatbot-toggle"
-        class="chatbot-button"
-        aria-label="Abrir asistente virtual"
-      >
-        <i class="bi bi-chat-dots-fill"></i>
-      </button>
+  <!-- Chatbot flotante -->
+  <div id="chatbot-container" class="chatbot-container">
+    <!-- Botón flotante -->
+    <button id="chatbot-toggle" class="chatbot-button" aria-label="Abrir asistente virtual">
+      <i class="bi bi-chat-dots-fill"></i>
+    </button>
 
-      <!-- Ventana del chatbot -->
-      <div id="chatbot-window" class="chatbot-window d-none">
-        <div class="chatbot-header">
-          <!-- Indicador de redimensionamiento en esquina superior izquierda -->
-          <div
-            class="chatbot-resize-handle"
-            title="Arrastra para redimensionar"
-          >
-            <i class="bi bi-arrows-angle-expand"></i>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <i class="bi bi-robot me-2"></i>
-            <div>
-              <div class="fw-bold">Asistente Virtual</div>
-              <small class="text-muted">Rat Pack Instruments</small>
-            </div>
-          </div>
-          <button
-            id="chatbot-close"
-            class="btn-close"
-            aria-label="Cerrar chat"
-          ></button>
+    <!-- Ventana del chatbot -->
+    <div id="chatbot-window" class="chatbot-window d-none">
+      <div class="chatbot-header">
+        <!-- Indicador de redimensionamiento en esquina superior izquierda -->
+        <div class="chatbot-resize-handle" title="Arrastra para redimensionar">
+          <i class="bi bi-arrows-angle-expand"></i>
         </div>
 
-        <div id="chatbot-messages" class="chatbot-messages">
-          <div class="message bot-message">
-            <div class="message-content">
-              ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En
-              qué puedo ayudarte hoy?
-            </div>
-            <div class="message-time">Ahora</div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-robot me-2"></i>
+          <div>
+            <div class="fw-bold">Asistente Virtual</div>
+            <small class="text-muted">Rat Pack Instruments</small>
           </div>
         </div>
+        <button id="chatbot-close" class="btn-close" aria-label="Cerrar chat"></button>
+      </div>
 
-        <div class="chatbot-input">
-          <div class="input-group">
-            <input
-              type="text"
-              id="chatbot-input"
-              class="form-control"
-              placeholder="Escribe tu pregunta..."
-              aria-label="Mensaje para el asistente"
-            />
-            <button
-              id="chatbot-send"
-              class="btn btn-primary"
-              type="button"
-              aria-label="Enviar mensaje"
-            >
-              <i class="bi bi-send-fill"></i>
-            </button>
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message">
+          <div class="message-content">
+            ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En
+            qué puedo ayudarte hoy?
           </div>
+          <div class="message-time">Ahora</div>
+        </div>
+      </div>
+
+      <div class="chatbot-input">
+        <div class="input-group">
+          <input type="text" id="chatbot-input" class="form-control" placeholder="Escribe tu pregunta..."
+            aria-label="Mensaje para el asistente" />
+          <button id="chatbot-send" class="btn btn-primary" type="button" aria-label="Enviar mensaje">
+            <i class="bi bi-send-fill"></i>
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/contact.js"></script>
-    <script src="../js/cart.js"></script>
-    <script src="../js/register.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/chatbot.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/contact.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/register.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+
 </html>

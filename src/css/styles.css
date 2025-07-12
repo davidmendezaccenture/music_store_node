@@ -3,6 +3,8 @@ body {
   overflow-x: hidden;
 }
 
+
+
 /* --- Barra secundaria de navegación catálogo: subrayado animado y animación --- */
 .catalog-secondary-nav,
 .catalog-secondary-nav .container,
@@ -15,8 +17,8 @@ body {
 }
 
 .catalog-secondary-nav {
-  background: #fff;
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 6px rgba(0, 0, 0, 0.13);
+  background: #110d0c;
+  box-shadow: none;
   z-index: 5;
   position: relative;
   width: 100vw;
@@ -26,15 +28,32 @@ body {
   margin-right: -50vw;
   padding: 0;
   top: 0;
-  margin-top: 0;
+  margin-top: -1px;
   margin-bottom: 0rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /* Evita scroll vertical en la barra secundaria */
+
+}
+
+@media (min-width: 992px) {
+  .main-header .container.contenedor-main-navbar {
+    position: relative;
+    top: -20px;
+  }
+
+  .catalog-secondary-nav {
+    margin-top: -50px;
+    background: linear-gradient(to top, #110d0c 0%, transparent 50%);
+  }
+
 }
 
 .catalog-secondary-nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 65px;
+  min-height: 50px;
 }
 
 .catalog-secondary-nav ul {
@@ -42,7 +61,7 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 60px;
+  height: 45px;
   gap: 2em;
 }
 
@@ -64,173 +83,137 @@ body {
   font-size: 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.13em 0.5em;
   border-radius: 0;
   transition: background 0.18s, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 0 4px rgba(246, 166, 26, 0);
-  color: #23272b;
+  color: #f1f1f1;
   position: relative;
-}
-
-/* Subrayado animado para pestaña activa: crece desde el centro */
-/* icono + texto */
-.catalog-secondary-nav a::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -8px;
-  height: 6px;
-  background: #f6a61a;
-  border-radius: 999px;
-  z-index: 2;
-  transform: scaleX(0);
-  opacity: 0;
-  transform-origin: center;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.18s;
-  pointer-events: none;
-}
-
-/* icono + texto */
-.catalog-secondary-nav a.active::after,
-.catalog-secondary-nav a.active.underline-visible::after {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-/* Línea corta en hover/focus para pestañas NO activas usando ::before */
-/* icono + texto */
-.catalog-secondary-nav a::before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -8px;
-  height: 6px;
-  background: #f6a61a;
-  border-radius: 999px;
-  z-index: 2;
-  opacity: 0;
-  transform: scaleX(1);
-  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-/* icono + texto */
-.catalog-secondary-nav a:not(.active):hover::before {
-  left: 0;
-  right: 0;
-  opacity: 0.45;
-  transform: scaleX(1);
-}
-
-/* icono + texto */
-.catalog-secondary-nav a.active::before {
-  transition-delay: 0.12s, 0.12s, 0s, 0s;
-}
-
-/* icono + texto */
-.catalog-secondary-nav a.active.underline-visible::before {
-  left: 45%;
-  right: 45%;
-  opacity: 0 !important;
-  transform: scaleX(0.5);
-  transition-delay: 0s;
 }
 
 .catalog-secondary-nav .catalog-secondary-nav-text {
   font-family: "Outfit", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   line-height: 1.2;
   display: inline-block;
   min-width: 0;
   padding: 0 4px;
   transition: background 0.18s, color 0.18s;
+  color: #f1f1f1;
 }
 
-.catalog-secondary-nav-icon {
+/* Hover y active simples - cambio a amarillo */
+.catalog-secondary-nav a:hover .catalog-secondary-nav-text,
+.catalog-secondary-nav a:active .catalog-secondary-nav-text,
+.catalog-secondary-nav a.active .catalog-secondary-nav-text {
+  color: #f6a61a !important;
+}
+
+/* .catalog-secondary-nav-icon {
   width: 32px;
   height: 32px;
   object-fit: contain;
   display: inline-block;
   margin-right: 0.4em;
   transition: color 0.18s, filter 0.18s;
+} */
+
+
+/* Estilos para la barra de búsqueda en el navbar secundario */
+.catalog-secondary-nav .control-buscador {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  /* Quitar bordes redondeados que puedan interferir */
+  color: #f6a61a !important;
+  /* Texto que escribe el usuario en amarillo */
+  font-weight: 400;
 }
 
-.catalog-secondary-nav-search {
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 1.5rem;
-  color: #23272b;
-  align-self: center;
-  padding-right: 1em;
+.catalog-secondary-nav .control-buscador::placeholder {
+  color: rgba(241, 241, 241, 0.8) !important;
+  /* Placeholder en blanco */
+  font-weight: 400;
 }
 
-/*
-============================================================
-== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
-== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
-============================================================
-*/
-/*
-@media (max-width: 576px) {
-  .catalog-secondary-nav .container {
-    padding-top: 1em;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0;
+/* Sobrescribir la regla general de focus para evitar el parpadeo amarillo */
+.catalog-secondary-nav .control-buscador:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+.catalog-secondary-nav .lupa-inside-input,
+.catalog-secondary-nav .lupa-inside-input i {
+  color: #f1f1f1 !important;
+  font-weight: 600 !important;
+  /* Hacer el icono más grueso */
+  z-index: 10 !important;
+  /* Asegurar que la lupa esté por encima */
+}
+
+/* Lupa amarilla cuando hay sugerencias válidas */
+.catalog-secondary-nav .lupa-inside-input.has-suggestions,
+.catalog-secondary-nav .lupa-inside-input.has-suggestions i {
+  color: #f6a61a !important;
+  font-weight: 600 !important;
+  /* Mantener el grosor también en amarillo */
+  animation: wiggle 0.4s ease-in-out;
+}
+
+/* Animación de rotación rápida (wiggle/vibración rotacional) */
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
   }
 
-  .catalog-secondary-nav ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.2em;
-    height: auto;
-    width: 100%;
+  12.5% {
+    transform: rotate(-8deg);
   }
 
-  .catalog-secondary-nav li {
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    margin-bottom: 0.2em;
+  25% {
+    transform: rotate(8deg);
   }
 
-  .catalog-secondary-nav a {
-    width: 100%;
-    justify-content: flex-start;
-    font-size: 1.2rem;
-    padding-left: 0.7em;
-    padding-right: 0.7em;
+  37.5% {
+    transform: rotate(-6deg);
   }
 
-  .catalog-secondary-nav .catalog-secondary-nav-text {
-    font-size: 1.2rem;
+  50% {
+    transform: rotate(6deg);
   }
 
-  .catalog-secondary-nav-search {
-    width: 100%;
-    margin: 0;
-    padding: 0.5em 0.7em 0.7em 0.7em;
-    order: 2;
-    align-self: stretch;
-    box-sizing: border-box;
+  62.5% {
+    transform: rotate(-4deg);
   }
+
+  75% {
+    transform: rotate(4deg);
+  }
+
+  87.5% {
+    transform: rotate(-2deg);
   }
 }
-/*
-============================================================
-== BLOQUE RESPONSABLE DE LA DISPOSICIÓN EN UNA SOLA COLUMNA ==
-== (COMENTADO PARA FORZAR SIEMPRE 2x2, INCLUSO EN MÓVIL)   ==
-============================================================
-*/
+
 /* Estilo para el menú desplegable de la navbar */
 @media (max-width: 991.98px) {
+
+  main {
+    margin-top: 12rem !important;
+  }
+
+  main.c-main {
+    margin-top: 12rem !important;
+  }
+
+
   .navbar-collapse {
     background-color: #110d0c;
     margin-top: 0rem;
@@ -346,6 +329,16 @@ body {
     padding-right: 3rem !important;
   }
 
+  .catalog-secondary-nav .catalog-secondary-nav-text {
+    font-size: clamp(1.15rem, 2.5vw, 1.3rem);
+  }
+
+  .catalog-secondary-nav .container {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    gap: 0.1em;
+  }
+
   /* Asegurar que la navbar secundaria también esté fija y forme parte del header "S" */
   .catalog-secondary-nav .container {
     display: flex;
@@ -355,18 +348,9 @@ body {
     gap: 0.5em 1em;
   }
 
-  .catalog-secondary-nav-search {
-    flex-basis: 100%;
-    width: 100%;
-    margin: 0 auto;
-    order: 2;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
 
   .catalog-secondary-nav ul {
+    margin-top: 1rem;
     flex-wrap: nowrap;
     width: auto;
     justify-content: center;
@@ -385,22 +369,14 @@ body {
   }
 
   /* Ajustar el contenido principal para que no quede oculto */
-  main {
-    margin-top: 8.5rem !important;
-    /* Aumentamos para compensar header + navbar secundaria */
-  }
 
-  main.c-main {
-    margin-top: 12.3rem !important;
-    /* Aumentamos para compensar header + navbar secundaria */
-  }
 
   /* Asegurar que no haya espacios extra en el body */
-  body {
+  /* body {
     padding-top: 0 !important;
     margin: 0 !important;
     overflow-x: hidden !important;
-  }
+  } */
 }
 
 /* .opinion-carousel-row {
@@ -540,98 +516,37 @@ body {
 }
 
 @media (max-width: 770px) {
+
   .catalog-secondary-nav .container {
-    padding-top: 1em;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0;
-  }
-
-  /* Compensar el mayor alto de la barra secundaria en 3 líneas */
-  main.c-main {
-    margin-top: 20rem !important;
-  }
-
-  main {
-    margin-top: 16.2rem !important;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
   }
 
   .catalog-secondary-nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5em 1.2em;
-    justify-content: center;
-    align-items: stretch;
-    height: auto;
-    width: max-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 45px;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -0.5em;
-  }
-
-  .catalog-secondary-nav li {
-    width: auto;
-    min-width: max-content;
-    margin-bottom: 0.2em;
-    height: auto;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .catalog-secondary-nav a {
-    width: auto;
-    justify-content: flex-start;
-    font-size: 1.3rem;
+    margin-bottom: 0;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    border-radius: 0.5em;
+    scrollbar-width: thin;
+    scrollbar-color: #f6a61a #110d0c;
   }
 
-  .catalog-secondary-nav .catalog-secondary-nav-text {
-    font-size: 1.3rem;
-  }
-
-  /* Este bloque no estila, encontrar qué lo sobreescribe */
-  /* .catalog-secondary-nav-search {
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5em 0.5em 0.7em 0.5em;
-    font-size: 1.2rem;
-    box-sizing: border-box;
-  } */
-
-  /* Ajustar tamaño carrusel */
-  .img-carrousel {
-    width: 30vw;
-    max-width: 100%;
-  }
-
-  .carrousel-container {
-    margin-top: 2rem;
-  }
-
-  /* Media queries para touch targets en dispositivos móviles */
-  .control-buscador {
-    height: 50px;
-    /* Aumentar ligeramente en móviles */
-    font-size: 1rem;
-  }
-
-  .lupa-inside-input {
-    /* Asegurar área de toque mínima en móviles */
-    min-width: 48px;
-    min-height: 48px;
-    padding: 10px;
-  }
-
-  /* Espaciado entre elementos interactivos para evitar activación accidental */
-  .buscador-input-wrapper {
-    margin: 8px 0;
-  }
+  /* Eliminadas reglas de la barra secundaria para que herede del 991.98px */
+  .buscador-input-wrapper {}
 
   /* Media query para móviles */
   #loginButton .user-logged-name {
@@ -694,11 +609,6 @@ body {
 }
 
 main.c-main {
-  margin-top: 6.7rem;
-  /* 3 rem = 6.7 */
-}
-
-main {
   margin-top: 3rem;
 }
 
@@ -734,21 +644,21 @@ body {
 }
 
 #header {
-  background-image: url("/assets/images/testvic1.webp");
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(17, 13, 12, 0.3) 75%, rgba(17, 13, 12, 0.8) 90%, #110d0c 100%), url("/assets/images/testvic1.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 220px;
-  height: 220px;
+  min-height: 250px;
+  height: 250px;
 }
 
 #header1 {
-  background-image: url("/assets/images/testvic1.webp");
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(17, 13, 12, 0.3) 75%, rgba(17, 13, 12, 0.8) 90%, #110d0c 100%), url("/assets/images/testvic1.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 220px;
-  height: 220px;
+  min-height: 250px;
+  height: 250px;
 }
 
 /* Estilo para la navbar txt */
@@ -1167,7 +1077,9 @@ a:focus-visible .social-logo {
   max-width: 400px;
 }
 
-.buscador-form:focus-within {
+
+.buscador-form:focus-within,
+.buscador-form.has-text {
   transform: scale(1.2);
 }
 
@@ -1232,7 +1144,6 @@ a:focus-visible .social-logo {
 .lupa-inside-input:active,
 .lupa-inside-input:focus {
   color: #f6a61a !important;
-  background-color: rgba(246, 166, 26, 0.1) !important;
   box-shadow: none !important;
   outline: none !important;
   border: none !important;
@@ -1365,8 +1276,6 @@ a:hover .icon-image,
 /* ===========================================================
 ==== PRUEBA NAVBAR SEG, SERGIO - INICIO BLOQUE CSS ===========
 ============================================================= */
-
-
 
 /* ===========================================================
 ==== PRUEBA NAVBAR SEG, SERGIO - FIN BLOQUE CSS ==============
@@ -1773,6 +1682,12 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 }
 
 @media (max-width: 991px) {
+
+  #carouselExampleCaptions .carousel-item video {
+    margin-top: 3em;
+  }
+
+
   .promo-container {
     width: 45rem;
   }
@@ -1783,6 +1698,10 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 }
 
 @media (max-width: 770px) {
+  #carouselExampleCaptions .carousel-item video {
+    margin-top: 5em;
+  }
+
   .promo-container {
     width: 33rem;
   }
@@ -2059,7 +1978,7 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   background-color: transparent !important;
   color: #f6a61a !important;
   border: #f6a61a !important;
-  /* box-shadow: 0 0 0 4px #f6a61a40 !important; */
+  /* box-shadow: 0 0 0 4px #f6a61a !important; */
   outline: 2px solid #1969f6 !important;
   border-radius: 8px !important;
 }
@@ -2101,13 +2020,13 @@ body.dark-mode .txt-resaltado:focus {
 }
 
 body.dark-mode .catalog-secondary-nav {
-  background-color: #232323 !important;
+  background-color: #110d0c !important;
 }
 
 body.dark-mode .catalog-secondary-nav,
 body.dark-mode .catalog-secondary-nav ul,
 body.dark-mode .catalog-secondary-nav li {
-  background-color: #232323 !important;
+  background-color: #110d0c !important;
 }
 
 body.dark-mode .catalog-secondary-nav a,
@@ -2499,8 +2418,32 @@ main.c-main,
 /* Solo funciona en algunos navegadores WebKit */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f6a61a" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+/* Específico para el buscador de la navbar de catálogo */
+.catalog-secondary-nav input[type="search"]::-webkit-search-cancel-button {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
+}
+
+/* Línea independiente debajo del buscador */
+.catalog-secondary-nav .buscador-input-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 12px;
+  /* Margen izquierdo para coincidir con el texto */
+  right: 45px;
+  /* Margen derecho para dejar espacio a la lupa */
+  height: 2px;
+  background-color: #f1f1f100;
+}
+
+/* --- Ajuste de desplazamiento solo cuando el menú hamburguesa está abierto --- */
+body.menu-open main,
+body.menu-open main.c-main {
+  margin-top: 500em !important;
 }

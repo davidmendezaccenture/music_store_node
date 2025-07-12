@@ -26,7 +26,7 @@ main {
 
   a.btn-outline-primary,
   .btn-outline-primary {
-    margin-top: 3em !important;
+    margin-top: 3em;
   }
 }
 
@@ -127,21 +127,21 @@ main {
 .catalog-secondary-nav .catalog-secondary-nav-text:focus {
   text-decoration: none !important;
   border-bottom: none !important;
-  color: #23272b !important;
+  color: #f1f1f1 !important;
   background: none !important;
 }
 
 /* Iconos de la barra de navegación secundaria del catálogo */
-.catalog-secondary-nav-icon {
+/* .catalog-secondary-nav-icon {
   width: 32px;
   height: 32px;
   object-fit: contain;
   display: inline-block;
   /* vertical-align: middle; */
-  margin-right: 0.4em;
-  /* Centrado vertical perfecto con flexbox en el padre si hiciera falta */
-  /* Si hiciera falta más ajuste, usar position: relative y top: 2px; */
-}
+/* margin-right: 0.4em; */
+/* Centrado vertical perfecto con flexbox en el padre si hiciera falta */
+/* Si hiciera falta más ajuste, usar position: relative y top: 2px; */
+/* } */
 
 body {
   background-color: #f3f2ee;
@@ -376,16 +376,6 @@ a.btn-outline-primary:focus,
   padding-bottom: 0 !important;
 }
 
-@media (max-width: 991px) {
-  main {
-    /* margin-top: 13em !important; */
-  }
-
-  a.btn-outline-primary,
-  .btn-outline-primary {
-    margin-top: 7em;
-  }
-}
 
 /* Estilos personalizados para el checkbox "Solo ofertas" */
 #filtro-oferta {

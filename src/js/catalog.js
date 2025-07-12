@@ -128,56 +128,56 @@ function normalizeText(text) {
   // --- FIN CAMBIO PARA CATÁLOGO ÚNICO Y FAMILIA DINÁMICA ---
 
   // 1. Cargar productos
-function cargarProductos() {
-  $.getJSON("../assets/data/products.json", function (data) {
-    productos = data;
-    poblarCategorias(productos);
+  function cargarProductos() {
+    $.getJSON("../assets/data/products.json", function (data) {
+      productos = data;
+      poblarCategorias(productos);
 
-    // ANTES de mostrar, verificar parámetros URL
-    const params = new URLSearchParams(window.location.search);
-    const idUrl = params.get("id");
-    const categoriaUrl = params.get("category");
-    const searchUrl = params.get("search");
+      // ANTES de mostrar, verificar parámetros URL
+      const params = new URLSearchParams(window.location.search);
+      const idUrl = params.get("id");
+      const categoriaUrl = params.get("category");
+      const searchUrl = params.get("search");
 
-    // --- CAMBIO: Si hay id, NO selecciones categoría ni cambies familia ---
-    if (idUrl) {
-      filtrarYMostrar();
-      return;
-    }
+      // --- CAMBIO: Si hay id, NO selecciones categoría ni cambies familia ---
+      if (idUrl) {
+        filtrarYMostrar();
+        return;
+      }
 
-    // Si hay categoría, detectar y cambiar la familia PRIMERO
-    if (categoriaUrl) {
-      for (const [familia, cats] of Object.entries(familias)) {
-        if (cats.includes(categoriaUrl)) {
-          window.setFamilia(familia);
-          break;
+      // Si hay categoría, detectar y cambiar la familia PRIMERO
+      if (categoriaUrl) {
+        for (const [familia, cats] of Object.entries(familias)) {
+          if (cats.includes(categoriaUrl)) {
+            window.setFamilia(familia);
+            break;
+          }
         }
+        $("#filtro-categoria").val(categoriaUrl);
       }
-      $("#filtro-categoria").val(categoriaUrl);
-    }
 
-    if (searchUrl) {
-      $("#search-input-guitar").val(searchUrl);
-    }
-
-    // Ahora sí filtrar y mostrar (ya con filtros aplicados)
-    filtrarYMostrar();
-    // Marcar la pestaña activa solo cuando los enlaces existen
-    setTimeout(function () {
-      document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
-        a.classList.remove("active");
-        a.removeAttribute("aria-current");
-      });
-      const enlaceActivo = document.querySelector(
-        `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
-      );
-      if (enlaceActivo) {
-        enlaceActivo.classList.add("active");
-        enlaceActivo.setAttribute("aria-current", "page");
+      if (searchUrl) {
+        $("#search-input-guitar").val(searchUrl);
       }
-    }, 0);
-  });
-}
+
+      // Ahora sí filtrar y mostrar (ya con filtros aplicados)
+      filtrarYMostrar();
+      // Marcar la pestaña activa solo cuando los enlaces existen
+      setTimeout(function () {
+        document.querySelectorAll(".catalog-secondary-nav a").forEach((a) => {
+          a.classList.remove("active");
+          a.removeAttribute("aria-current");
+        });
+        const enlaceActivo = document.querySelector(
+          `.catalog-secondary-nav a[onclick*="setFamilia('${familiaActiva}'"]`
+        );
+        if (enlaceActivo) {
+          enlaceActivo.classList.add("active");
+          enlaceActivo.setAttribute("aria-current", "page");
+        }
+      }, 0);
+    });
+  }
 
   // 2. Eventos con jQuery
   $(document).ready(function () {
@@ -259,90 +259,90 @@ function cargarProductos() {
   }
 
   // 4. Filtrar y mostrar productos
-function filtrarYMostrar() {
-  let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
+  function filtrarYMostrar() {
+    let query = ($("#search-input-guitar").val() || "").trim().toLowerCase();
 
-  const params = new URLSearchParams(window.location.search);
-  const idUrl = params.get("id");
-  const categoriaUrl = params.get("category");
+    const params = new URLSearchParams(window.location.search);
+    const idUrl = params.get("id");
+    const categoriaUrl = params.get("category");
 
-  if (idUrl) {
-    // Si hay id en la URL, muestra solo ese producto y no apliques más filtros
-    productosFiltrados = productos.filter((p) => String(p.id) === String(idUrl));
-    mostrarProductos(productosFiltrados);
+    if (idUrl) {
+      // Si hay id en la URL, muestra solo ese producto y no apliques más filtros
+      productosFiltrados = productos.filter((p) => String(p.id) === String(idUrl));
+      mostrarProductos(productosFiltrados);
 
-    // Deshabilita los selectores de filtro para evitar confusión
-    $("#filtro-categoria, #filtro-precio, #filtro-oferta, #ordenar-productos, #search-input-guitar").prop("disabled", true);
+      // Deshabilita los selectores de filtro para evitar confusión
+      $("#filtro-categoria, #filtro-precio, #filtro-oferta, #ordenar-productos, #search-input-guitar").prop("disabled", true);
 
-    // Añade un botón para volver al catálogo completo si no existe
-    if (!$("#volver-catalogo").length) {
-      $("#products-list").before(`
+      // Añade un botón para volver al catálogo completo si no existe
+      if (!$("#volver-catalogo").length) {
+        $("#products-list").before(`
         <div class="mb-3" id="volver-catalogo">
           <button class="btn btn-outline-secondary" onclick="window.location.href='catalog.html?familia=${familiaActiva}'">
             Volver al catálogo
           </button>
         </div>
       `);
+      }
+      return;
+    } else {
+      // Habilita los filtros si no hay id
+      $("#filtro-categoria, #filtro-precio, #filtro-oferta, #ordenar-productos, #search-input-guitar").prop("disabled", false);
+      $("#volver-catalogo").remove();
     }
-    return;
-  } else {
-    // Habilita los filtros si no hay id
-    $("#filtro-categoria, #filtro-precio, #filtro-oferta, #ordenar-productos, #search-input-guitar").prop("disabled", false);
-    $("#volver-catalogo").remove();
-  }
 
-  if (categoriaUrl) {
-    productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
-  } else if (familiaActiva === 'todos') {
-    productosFiltrados = [...productos];
-  } else if (familiaActiva) {
-    productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
-  } else {
-    const categoriasValidas = familias[familiaActiva] || [];
-    productosFiltrados = productos.filter((p) => categoriasValidas.includes(p.category));
-  }
+    if (categoriaUrl) {
+      productosFiltrados = productos.filter((p) => p.category === categoriaUrl);
+    } else if (familiaActiva === 'todos') {
+      productosFiltrados = [...productos];
+    } else if (familiaActiva) {
+      productosFiltrados = productos.filter((p) => p.familia === familiaActiva);
+    } else {
+      const categoriasValidas = familias[familiaActiva] || [];
+      productosFiltrados = productos.filter((p) => categoriasValidas.includes(p.category));
+    }
 
-  // Filtro por búsqueda
-  productosFiltrados = productosFiltrados.filter((p) =>
-    normalizeText(p.name).includes(query)
-  );
-
-  // Filtro por categoría (select)
-  let categoria = $("#filtro-categoria").val();
-  if (categoria) {
-    productosFiltrados = productosFiltrados.filter(
-      (p) => p.category === categoria
+    // Filtro por búsqueda
+    productosFiltrados = productosFiltrados.filter((p) =>
+      normalizeText(p.name).includes(query)
     );
-  }
-  // Filtro por precio
-  let precio = $("#filtro-precio").val();
-  if (precio) {
-    if (precio === "<300")
-      productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
-    if (precio === "300-600")
+
+    // Filtro por categoría (select)
+    let categoria = $("#filtro-categoria").val();
+    if (categoria) {
       productosFiltrados = productosFiltrados.filter(
-        (p) => p.price >= 300 && p.price <= 600
+        (p) => p.category === categoria
       );
-    if (precio === ">600")
-      productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
-  }
-  // Filtro por oferta
-  if ($("#filtro-oferta").is(":checked")) {
-    productosFiltrados = productosFiltrados.filter(
-      (p) => p.offerPrice < p.price
-    );
-  }
+    }
+    // Filtro por precio
+    let precio = $("#filtro-precio").val();
+    if (precio) {
+      if (precio === "<300")
+        productosFiltrados = productosFiltrados.filter((p) => p.price < 300);
+      if (precio === "300-600")
+        productosFiltrados = productosFiltrados.filter(
+          (p) => p.price >= 300 && p.price <= 600
+        );
+      if (precio === ">600")
+        productosFiltrados = productosFiltrados.filter((p) => p.price > 600);
+    }
+    // Filtro por oferta
+    if ($("#filtro-oferta").is(":checked")) {
+      productosFiltrados = productosFiltrados.filter(
+        (p) => p.offerPrice < p.price
+      );
+    }
 
-  // Ordenar
-  let orden = $("#ordenar-productos").val();
-  if (orden) {
-    if (orden === "precio-asc")
-      productosFiltrados.sort((a, b) => a.price - b.price);
-    if (orden === "precio-desc")
-      productosFiltrados.sort((a, b) => b.price - a.price);
+    // Ordenar
+    let orden = $("#ordenar-productos").val();
+    if (orden) {
+      if (orden === "precio-asc")
+        productosFiltrados.sort((a, b) => a.price - b.price);
+      if (orden === "precio-desc")
+        productosFiltrados.sort((a, b) => b.price - a.price);
+    }
+    mostrarProductos(productosFiltrados);
   }
-  mostrarProductos(productosFiltrados);
-}
 
   // 5. Mostrar productos
   function mostrarProductos(lista) {
