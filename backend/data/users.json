@@ -127,6 +127,6 @@
     "direccion": "Plaza del Sol 3",
     "email": "lalelulelo@ocelot.es",
     "password": "$2b$10$j8RAoV.OT.hAlbwTwKPpyue8XUzN2mfSh5NkYHaah8r8KEe4OKx2a",
-    "isLoggedIn": 1
+    "isLoggedIn": 0
   }
 ]

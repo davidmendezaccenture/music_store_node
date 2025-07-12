@@ -352,6 +352,24 @@ $("#checkout-form").on("submit", function (e) {
       document.getElementById("paymentSuccessModal")
     );
     modal.show();
+
+    // Vaciar carrito con el modal
+    if (typeof clearCart === "function") {
+      clearCart()
+        .then(() => {
+          /* console.log("Carrito off"); */
+          // Actualizar el contador del carrito a 0
+          if (typeof updateCartCount === "function") {
+            updateCartCount([]);
+          }
+          // Limpiar el array local de items del checkout
+          cartItems = [];
+          renderCartSummary();
+        })
+        .catch((error) => {
+          console.error("Error al limpiar el carrito:", error);
+        });
+    }
   }
 });
 
