@@ -94,6 +94,20 @@ document.addEventListener("DOMContentLoaded", () => {
               window.updateAuthState(loginData.usuario, true);
             }
 
+            // Fusionar carrito de guest con usuario registrado
+            if (typeof mergeGuestCartWithUser === "function") {
+              mergeGuestCartWithUser(loginData.usuario.email)
+                .then(() => {
+                  /* console.log(" Fussion exito"); */
+                })
+                .catch((error) => {
+                  /* console.error(
+                    "Error al fusionar carrito en namek:",
+                    error
+                  ); */
+                });
+            }
+
             mostrarModal(
               "¡Registro exitoso! Has sido conectado automáticamente.",
               "Bienvenido",

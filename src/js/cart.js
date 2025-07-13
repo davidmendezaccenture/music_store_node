@@ -292,6 +292,74 @@ $("#confirmDeleteBtn").on("click", function () {
   }
 });
 
+// Combinar guest + log user
+function mergeGuestCartWithUser(userEmail) {
+  return new Promise((resolve, reject) => {
+    console.log("Fusion con goku:", userEmail);
+
+    // 1. Obtener carrito de localStorage (guest)
+    const guestItems = JSON.parse(localStorage.getItem("cart")) || [];
+    /* console.log("Items de guest:", guestItems); */
+
+    if (guestItems.length === 0) {
+      /*  console.log("No hay carrito de guest, no hay nada que fusionar"); */
+      resolve();
+      return;
+    }
+
+    // 2. Obtener carrito del usuario del servidor
+    $.get(`/api/cart?user=${encodeURIComponent(userEmail)}`)
+      .then((userCartData) => {
+        /* console.log("📦 Carrito del usuario desde servidor:", userCartData); */
+        let userItems = userCartData.items || [];
+
+        // 3. Fusion doble! : sumar cantidades para productos duplicados
+        guestItems.forEach((guestItem) => {
+          const existingItem = userItems.find(
+            (userItem) => userItem.id === guestItem.id
+          );
+
+          if (existingItem) {
+            // Producto ya existe: sumar cantidades
+            /* console.log(
+              `Producto duplicado ID ${guestItem.id}: sumando ${existingItem.quantity} + ${guestItem.quantity}`
+            ); */
+            existingItem.quantity =
+              (existingItem.quantity || 1) + (guestItem.quantity || 1);
+          } else {
+            // Producto nuevo: agregarlo al carrito del usuario
+            /* console.log(
+              `Producto nuevo ID ${guestItem.id}: agregando al carrito`
+            ); */
+            userItems.push(guestItem);
+          }
+        });
+
+        /* console.log("Fusion completada!:", userItems); */
+
+        // 4. Guardar el carrito fusionado en el servidor
+        return $.ajax({
+          url: "/api/cart",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ user: userEmail, items: userItems }),
+        });
+      })
+      .then(() => {
+        // 5. Limpiar localStorage del guest
+        localStorage.removeItem("cart");
+        /* console.log(
+          "Carrito de guest fusionado con usuario logueado y localStorage limpiado"
+        ); */
+        resolve();
+      })
+      .catch((error) => {
+        /* console.error("Error en la fusion, not enuf Ki:", error); */
+        reject(error);
+      });
+  });
+}
+
 // Inicialización al cargar la página
 $(document).ready(function () {
   $("#cart-loader").show(); // Loader que se muestra al cargar el carrito
