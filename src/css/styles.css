@@ -447,6 +447,11 @@
 
 /* 2 cards, flechas ocultas, solo las dos primeras visibles */
 @media (max-width: 770px) {
+
+  #carouselExampleCaptions {
+    margin-top: 1em !important;
+  }
+
   .opinion-carousel-viewport {
     width: 100vw;
     max-width: 412px;

@@ -117,7 +117,7 @@ $(document).ready(function () {
               );
               $("main.c-main").attr(
                 "style",
-                "margin-top: " + (menuHeight + 315) + "px !important"
+                "margin-top: " + (menuHeight + 195) + "px !important"
               );
             } else {
               // ( Media 991.98px)
