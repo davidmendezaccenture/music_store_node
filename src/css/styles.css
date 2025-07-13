@@ -3,8 +3,6 @@
   overflow-x: hidden;
 } */
 
-
-
 /* --- Barra secundaria de navegación catálogo: subrayado animado y animación --- */
 .catalog-secondary-nav,
 .catalog-secondary-nav .container,
@@ -30,7 +28,6 @@
   overflow-x: hidden;
   overflow-y: hidden;
   /* Evita scroll vertical en la barra secundaria */
-
 }
 
 @media (min-width: 992px) {
@@ -43,7 +40,6 @@
     margin-top: -50px;
     background: linear-gradient(to top, #110d0c 0%, transparent 50%);
   }
-
 }
 
 .catalog-secondary-nav .container {
@@ -118,7 +114,6 @@
   transition: color 0.18s, filter 0.18s;
 } */
 
-
 /* Estilos para la barra de búsqueda en el navbar secundario */
 .catalog-secondary-nav .control-buscador {
   background-color: transparent !important;
@@ -143,7 +138,6 @@
   outline: none !important;
 }
 
-
 .catalog-secondary-nav .lupa-inside-input,
 .catalog-secondary-nav .lupa-inside-input i {
   color: #f1f1f1 !important;
@@ -164,7 +158,6 @@
 
 /* Animación de rotación rápida (wiggle/vibración rotacional) */
 @keyframes wiggle {
-
   0%,
   100% {
     transform: rotate(0deg);
@@ -201,7 +194,6 @@
 
 /* Estilo para el menú desplegable de la navbar */
 @media (max-width: 991.98px) {
-
   main {
     margin-top: 12rem !important;
   }
@@ -209,7 +201,6 @@
   main.c-main {
     margin-top: 12rem !important;
   }
-
 
   .navbar-collapse {
     background-color: #110d0c;
@@ -345,7 +336,6 @@
     gap: 0.5em 1em;
   }
 
-
   .catalog-secondary-nav ul {
     margin-top: 1rem;
     flex-wrap: nowrap;
@@ -366,7 +356,6 @@
   }
 
   /* Ajustar el contenido principal para que no quede oculto */
-
 
   /* Asegurar que no haya espacios extra en el body */
   /* body {
@@ -518,7 +507,6 @@
 }
 
 @media (max-width: 770px) {
-
   .catalog-secondary-nav .container {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
@@ -548,7 +536,8 @@
   }
 
   /* Eliminadas reglas de la barra secundaria para que herede del 991.98px */
-  .buscador-input-wrapper {}
+  /* .buscador-input-wrapper {
+  } */
 
   /* Media query para móviles */
   #loginButton .user-logged-name {
@@ -646,7 +635,15 @@ body {
 }
 
 #header {
-  background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(17, 13, 12, 0.3) 75%, rgba(17, 13, 12, 0.8) 90%, #110d0c 100%), url("/assets/images/testvic1.webp");
+  background-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 60%,
+      rgba(17, 13, 12, 0.3) 75%,
+      rgba(17, 13, 12, 0.8) 90%,
+      #110d0c 100%
+    ),
+    url("/assets/images/testvic1.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -655,7 +652,15 @@ body {
 }
 
 #header1 {
-  background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(17, 13, 12, 0.3) 75%, rgba(17, 13, 12, 0.8) 90%, #110d0c 100%), url("/assets/images/testvic1.webp");
+  background-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 60%,
+      rgba(17, 13, 12, 0.3) 75%,
+      rgba(17, 13, 12, 0.8) 90%,
+      #110d0c 100%
+    ),
+    url("/assets/images/testvic1.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -929,7 +934,7 @@ body {
   margin: 0;
 }
 
-.pre-footer-pagos .navbar-brand+.navbar-brand {
+.pre-footer-pagos .navbar-brand + .navbar-brand {
   margin-left: 10px;
 }
 
@@ -1079,7 +1084,6 @@ a:focus-visible .social-logo {
   max-width: 400px;
 }
 
-
 .buscador-form:focus-within,
 .buscador-form.has-text {
   transform: scale(1.2);
@@ -1094,7 +1098,7 @@ a:focus-visible .social-logo {
   transition: opacity 0.2s;
 }
 
-.buscador-form:focus-within~.buscador-overlay {
+.buscador-form:focus-within ~ .buscador-overlay {
   display: block;
   opacity: 1;
 }
@@ -1684,11 +1688,9 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 }
 
 @media (max-width: 991px) {
-
   #carouselExampleCaptions .carousel-item video {
     margin-top: 3em;
   }
-
 
   .promo-container {
     width: 45rem;
@@ -1793,6 +1795,18 @@ creo que por los estilos herdados de bootstrap o por el poco espacio entre tarje
 body.dark-mode {
   background-color: #181818 !important;
   color: #f1f1f1 !important;
+}
+
+/* body.dark-mode .main-header {
+  border-bottom: 1px dotted #f6a61a80;
+}
+
+body.dark-mode .catalog-secondary-nav {
+  border-bottom: 1px dotted #f6a61a80;
+} */
+
+body.dark-mode .main-header {
+  box-shadow: 0 0px 40px #f6a51a35;
 }
 
 body.dark-mode .txt-blanco,
@@ -1904,10 +1918,6 @@ body.dark-mode .icon-circle {
   border-color: #f1f1f1 !important;
 }
 
-body.dark-mode .control-buscador {
-  border: none !important;
-}
-
 body.dark-mode .icon-image {
   filter: brightness(0) invert(1);
 }
@@ -1976,7 +1986,7 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   box-shadow: none !important;
 }
 
-.dark-mode-toggle:focus {
+.dark-mode-toggle:focus-visible {
   background-color: transparent !important;
   color: #f6a61a !important;
   border: #f6a61a !important;
@@ -2021,7 +2031,7 @@ body.dark-mode .txt-resaltado:focus {
   color: #f6a61a !important;
 }
 
-body.dark-mode .catalog-secondary-nav {
+/* body.dark-mode .catalog-secondary-nav {
   background-color: #110d0c !important;
 }
 
@@ -2029,7 +2039,7 @@ body.dark-mode .catalog-secondary-nav,
 body.dark-mode .catalog-secondary-nav ul,
 body.dark-mode .catalog-secondary-nav li {
   background-color: #110d0c !important;
-}
+} */
 
 body.dark-mode .catalog-secondary-nav a,
 body.dark-mode .catalog-secondary-nav .catalog-secondary-nav-text {
@@ -2045,9 +2055,9 @@ body.dark-mode .catalog-secondary-nav a:active .catalog-secondary-nav-text {
 
 body.dark-mode .catalog-secondary-nav .form-control,
 body.dark-mode .catalog-secondary-nav .control-buscador {
-  background-color: #181818 !important;
+  background-color: transparent !important;
   color: #f1f1f1 !important;
-  border: 1.5px solid #f6a61a !important;
+  /* border: 1.5px solid #f6a61a !important; */
   box-shadow: none !important;
 }
 
@@ -2059,10 +2069,7 @@ body.dark-mode .catalog-secondary-nav .control-buscador:focus {
   /* border-color: #ffd700 !important; */
   /* box-shadow: 0 0 0 0.1rem #ffd70080 !important; */
   outline: none !important;
-}
-
-body.dark-mode .catalog-secondary-nav .control-buscador:focus-visible {
-  outline: 2px solid #1969f6 !important;
+  border: none !important;
 }
 
 body.dark-mode .card.flex-fill.h-100 {
@@ -2420,7 +2427,8 @@ main.c-main,
 /* Solo funciona en algunos navegadores WebKit */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>')
+    no-repeat center;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -2428,12 +2436,13 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* Específico para el buscador de la navbar de catálogo */
 .catalog-secondary-nav input[type="search"]::-webkit-search-cancel-button {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>') no-repeat center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f1f1f1" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 1 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>')
+    no-repeat center;
 }
 
 /* Línea independiente debajo del buscador */
 .catalog-secondary-nav .buscador-input-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 12px;
