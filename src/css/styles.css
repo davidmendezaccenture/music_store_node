@@ -1981,7 +1981,7 @@ nav[aria-label="Navegación secundaria de productos"] a:focus-visible .nav-text 
   box-shadow: none !important;
 }
 
-.dark-mode-toggle:focus {
+.dark-mode-toggle:focus-visible {
   background-color: transparent !important;
   color: #f6a61a !important;
   border: #f6a61a !important;
