@@ -1,5 +1,5 @@
-html,
-/* body {
+/* html,
+body {
   overflow-x: hidden;
 } */
 
@@ -23,7 +23,6 @@ main {
 }
 
 @media (max-width: 770px) {
-
   a.btn-outline-primary,
   .btn-outline-primary {
     margin-top: 3em;
@@ -229,9 +228,9 @@ a.btn-outline-primary:focus,
 
 /* Ajuste de tarjetas en móvil: margen lateral y ancho reducido */
 @media (max-width: 576px) {
-  main {
-    /* margin-top: 13em !important; */
-  }
+  /* main {
+    margin-top: 13em !important; 
+  } */
 
   .card {
     max-width: 95vw;
@@ -262,9 +261,9 @@ a.btn-outline-primary:focus,
   background: #fff;
 }
 
-.card-content {
-  /* Eliminado: no se usa en la estructura actual */
-}
+/* .card-content {
+   Eliminado: no se usa en la estructura actual 
+} */
 
 .card:hover .card-img-top {
   transform: scale(1.04) rotate(-0.7deg);
@@ -272,7 +271,7 @@ a.btn-outline-primary:focus,
 
 /* Precio */
 
-.card .card-text+p {
+.card .card-text + p {
   font-size: 1.1rem;
 }
 
@@ -376,6 +375,16 @@ a.btn-outline-primary:focus,
   padding-bottom: 0 !important;
 }
 
+@media (max-width: 991px) {
+  /*  main {
+     margin-top: 13em !important; 
+  } */
+
+  a.btn-outline-primary,
+  .btn-outline-primary {
+    margin-top: 7em;
+  }
+}
 
 /* Estilos personalizados para el checkbox "Solo ofertas" */
 #filtro-oferta {
