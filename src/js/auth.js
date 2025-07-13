@@ -128,19 +128,48 @@ async function handleLoginSubmit(e) {
 
     const data = await response.json();
 
-    if (response.ok) {
-      // Actualizar estado de autenticación
-      updateAuthState(data.usuario, true);
+ if (response.ok) {
+  // Actualizar estado de autenticación
+  updateAuthState(data.usuario, true);
 
-      // Cerrar modal
-      $("#loginModal").modal("hide");
+  // FUSIONAR CARRITO DE GUEST CON EL DEL USUARIO
+  const guestItems = JSON.parse(localStorage.getItem('cart')) || [];
+  if (guestItems.length) {
+    try {
+      const userCartRes = await fetch(`/api/cart?user=${encodeURIComponent(data.usuario.email)}`);
+      const userCartData = await userCartRes.json();
+      let userItems = userCartData.items || [];
+      for (let guestItem of guestItems) {
+        const found = userItems.find(item => item.id === guestItem.id);
+        if (found) {
+          found.quantity = (found.quantity || 1) + (guestItem.quantity || 1);
+        } else {
+          userItems.push(guestItem);
+        }
+      }
+      await fetch('/api/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: data.usuario.email, items: userItems })
+      });
+      localStorage.setItem('cart', JSON.stringify([]));
+      if (typeof window.updateCartCount === "function") {
+        window.updateCartCount(userItems);
+      }
+    } catch (fusionErr) {
+      console.error("Error al fusionar carritos:", fusionErr);
+    }
+  }
 
-      // Actualizar interfaz del header
-      updateHeaderUserStatus();
+  // Cerrar modal
+  $("#loginModal").modal("hide");
 
-      // Recargar página para reflejar cambios
-      window.location.reload();
-    } else {
+  // Actualizar interfaz del header
+  updateHeaderUserStatus();
+
+  // Recargar página para reflejar cambios
+  window.location.reload();
+} else {
       alert(data.error || "Error al iniciar sesión");
     }
   } catch (error) {

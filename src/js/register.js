@@ -82,18 +82,43 @@ document.addEventListener("DOMContentLoaded", () => {
           const loginData = await loginRes.json();
 
           if (loginRes.ok) {
-            // Guardar datos del usuario en localStorage
-            localStorage.setItem(
-              "currentUser",
-              JSON.stringify(loginData.usuario)
-            );
+            localStorage.setItem("currentUser", JSON.stringify(loginData.usuario));
             localStorage.setItem("isLoggedIn", "true");
 
-            // Actualizar estado de auth.js si está disponible
+            // FUSIONAR CARRITO DE GUEST CON EL DEL USUARIO
+            const guestItems = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log("Carrito guest:", guestItems);
+            if (guestItems.length) {
+              try {
+                const userCartRes = await fetch(`/api/cart?user=${encodeURIComponent(loginData.usuario.email)}`);
+                const userCartData = await userCartRes.json();
+                let userItems = userCartData.items || [];
+                console.log("Carrito usuario antes de fusionar:", userItems);
+                for (let guestItem of guestItems) {
+                  const found = userItems.find(item => item.id === guestItem.id);
+                  if (found) {
+                    found.quantity = (found.quantity || 1) + (guestItem.quantity || 1);
+                  } else {
+                    userItems.push(guestItem);
+                  }
+                }
+                console.log("Carrito usuario después de fusionar:", userItems);
+                await fetch('/api/cart', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ user: loginData.usuario.email, items: userItems })
+                });
+                localStorage.setItem('cart', JSON.stringify([]));
+                if (typeof window.updateCartCount === "function") {
+                  window.updateCartCount(userItems);
+                }
+              } catch (fusionErr) {
+                console.error("Error al fusionar carritos:", fusionErr);
+              }
+            }
             if (typeof window.updateAuthState === "function") {
               window.updateAuthState(loginData.usuario, true);
             }
-
             mostrarModal(
               "¡Registro exitoso! Has sido conectado automáticamente.",
               "Bienvenido",
@@ -129,3 +154,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
