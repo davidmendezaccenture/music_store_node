@@ -69,8 +69,8 @@
   <div class="container">
     <div class="footer-columns">
       <div class="footer-col">
-        <h4 class="footer-title">Enlaces de interés</h4>
-        <ul class="footer-list">
+        <h4 class="footer-title" id="footer-enlaces">Enlaces de interés</h4>
+        <ul class="footer-list" aria-labelledby="footer-enlaces" role="list" aria-label="Enlaces de interés">
           <li><a href="/pages/catalog.html?familia=todos"
               onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('todos'); return false; }"
               class="footer-nav-teclado">Catálogo</a></li>
@@ -80,8 +80,8 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 class="footer-title">Secciones</h4>
-        <ul class="footer-list">
+        <h4 class="footer-title" id="footer-secciones">Secciones</h4>
+        <ul class="footer-list" aria-labelledby="footer-secciones" role="list" aria-label="Secciones del sitio">
           <li><a href="/index.html" class="footer-nav-teclado">Inicio</a></li>
           <li><a href="/pages/media.html" class="footer-nav-teclado">Media</a></li>
           <li><a href="/pages/services.html" class="footer-nav-teclado">Servicio Técnico</a></li>
@@ -89,8 +89,8 @@
         </ul>
       </div>
       <div class="footer-col legal">
-        <h4 class="footer-title">Legal</h4>
-        <ul class="footer-list">
+        <h4 class="footer-title" id="footer-legal">Legal</h4>
+        <ul class="footer-list" aria-labelledby="footer-legal" role="list" aria-label="Información legal">
           <li><a href="/pages/legal.html#collapseCookies" class="footer-nav-teclado">Política de Cookies</a></li>
           <li><a href="/pages/legal.html#collapsePrivacidad" class="footer-nav-teclado">Política de Privacidad</a></li>
           <li><a href="/pages/legal.html#collapsePagosEnvios" class="footer-nav-teclado">Envío y Devolución</a>
@@ -99,8 +99,9 @@
         </ul>
       </div>
       <div class="footer-col productos">
-        <h4 class="footer-title">Productos</h4>
-        <ul class="footer-list">
+        <h4 class="footer-title" id="footer-productos">Productos</h4>
+        <ul class="footer-list" aria-labelledby="footer-productos" role="list"
+          aria-label="Navegación por familias de productos">
           <li><a href="/pages/catalog.html?familia=cuerda"
               onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('cuerda'); return false; }"
               class="footer-nav-teclado">Cuerda</a></li>
