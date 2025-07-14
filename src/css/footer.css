@@ -1,7 +1,4 @@
 /* Padding lateral para centrar el contenido del footer */
-.footer .container {
-    /* padding-left: 10rem; */
-}
 
 /* --- Footer en columnas (nuevo diseño) --- */
 .footer-columns {
@@ -16,7 +13,14 @@
 .footer-col {
     flex: 1 1 200px;
     min-width: 180px;
-    padding-left: 2.9em;
+    margin-left: 6em;
+}
+
+@media (max-width: 991px) {
+
+    .footer-col {
+        margin-left: 3em;
+    }
 }
 
 .footer-title {
@@ -55,7 +59,7 @@
     padding-top: 1.2em;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 870px) {
     .footer-columns {
         display: grid;
         grid-template-columns: 1fr 1fr;
