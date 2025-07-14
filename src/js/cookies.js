@@ -9,11 +9,12 @@ function ensureCookiesCSS() {
 }
 // Banner/Modal de cookies para Rat Pack Instruments
 (function () {
-    // Si estamos en legal.html y la URL contiene #collapseCookies, abrir el collapse automáticamente
+    // Generaliza la apertura automática de cualquier acordeón legal según el hash
     function autoOpenCollapseIfHash() {
-        if (window.location.pathname.includes('legal.html') && window.location.hash === '#collapseCookies') {
+        if (window.location.pathname.includes('legal.html') && window.location.hash.startsWith('#collapse')) {
+            var collapseId = window.location.hash.substring(1); // quita el '#'
             var tryOpenCollapse = function (attempts) {
-                var collapse = document.getElementById('collapseCookies');
+                var collapse = document.getElementById(collapseId);
                 if (collapse && typeof bootstrap !== 'undefined') {
                     var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false });
                     bsCollapse.show();
@@ -91,10 +92,14 @@ function ensureCookiesCSS() {
 
         // Evento para el enlace de más información
         document.getElementById('cookies-more-info').onclick = function (e) {
-            // Si ya estamos en legal.html, abrir el collapse
+            // Si ya estamos en legal.html, abrir el collapse de cookies y actualizar el hash
             var isLegal = window.location.pathname.includes('legal.html');
             if (isLegal) {
                 e.preventDefault();
+                // Cambia el hash para que la función autoOpenCollapseIfHash también funcione si el usuario navega manualmente
+                if (window.location.hash !== '#collapseCookies') {
+                    window.location.hash = '#collapseCookies';
+                }
                 // Esperar a que el DOM y Bootstrap estén listos y el acordeón esté en el DOM
                 var tryOpenCollapse = function (attempts) {
                     var collapse = document.getElementById('collapseCookies');
