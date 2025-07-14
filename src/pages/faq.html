@@ -575,7 +575,70 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Función para abrir acordeón por hash
+        function openAccordionByHash(hash) {
+          if (hash) {
+            // Busca el header del acordeón con ese id
+            var header = document.querySelector(hash);
+            if (
+              header &&
+              header.nextElementSibling &&
+              header.nextElementSibling.classList.contains("accordion-collapse")
+            ) {
+              // Cierra todos los acordeones primero
+              var allCollapses = document.querySelectorAll(
+                ".accordion-collapse"
+              );
+              allCollapses.forEach(function (collapse) {
+                var bsCollapse = bootstrap.Collapse.getInstance(collapse);
+                if (bsCollapse) {
+                  bsCollapse.hide();
+                }
+              });
 
+              // Abre el panel correspondiente
+              var collapse = header.nextElementSibling;
+              var bsCollapse = new bootstrap.Collapse(collapse, { show: true });
+
+              // Desplaza la página hasta el acordeón abierto
+              setTimeout(function () {
+                header.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 300);
+            }
+          }
+        }
+
+        // Obtiene el hash de la URL al cargar la página
+        var hash = window.location.hash;
+        openAccordionByHash(hash);
+
+        // Escucha clics en enlaces que apuntan a la misma página con hash
+        document.addEventListener("click", function (e) {
+          var link = e.target.closest("a");
+          if (link && link.getAttribute("href")) {
+            var href = link.getAttribute("href");
+            // Verifica si es un enlace a la misma página con hash (ej: "../pages/faq.html#headingTwo")
+            if (href.includes("faq.html#") || href.startsWith("#")) {
+              e.preventDefault();
+              var hash = href.split("#")[1];
+              if (hash) {
+                // Actualiza la URL
+                window.history.pushState(null, null, "#" + hash);
+                // Abre el acordeón correspondiente
+                openAccordionByHash("#" + hash);
+              }
+            }
+          }
+        });
+
+        // Escucha cambios en el hash de la URL (navegación con botones del navegador)
+        window.addEventListener("hashchange", function () {
+          openAccordionByHash(window.location.hash);
+        });
+      });
+    </script>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

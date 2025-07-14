@@ -88,9 +88,11 @@ app.post("/api/register", async (req, res) => {
   // Validación de seguridad de contraseña (mínimo 10 caracteres, mayúscula, minúscula, número y símbolo)
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{10,}$/;
   if (!passwordRegex.test(password)) {
-    return res.status(400).send(
-      "La contraseña debe tener al menos 10 caracteres, incluir mayúsculas, minúsculas, números y símbolos."
-    );
+    return res
+      .status(400)
+      .send(
+        "La contraseña debe tener al menos 10 caracteres, incluir mayúsculas, minúsculas, números y símbolos."
+      );
   }
 
   fs.readFile(usersPath, "utf-8", async (err, data) => {
@@ -301,26 +303,69 @@ app.post("/api/cart", (req, res) => {
 
   // Validar campos
   if (!user || !items || !Array.isArray(items))
-    return res
-      .status(400)
-      .json({ error: "Faltan campos requeridos: user, items" });
+    return res.status(400).json({ error: "Datos inválidos" });
 
   // Leer carritos
   fs.readFile(cartsPath, "utf-8", (err, data) => {
-    if (err)
-      return res.status(500).json({ error: "Error al obtener carritos" });
+    if (err) return res.status(500).json({ error: "Error al leer carritos" });
 
-    // Actualizar o añadir carrito
-    let carts = JSON.parse(data);
-    const idx = carts.findIndex((c) => c.user === user);
-    idx !== -1 ? (carts[idx].items = items) : carts.push({ user, items });
+    const carts = data ? JSON.parse(data) : [];
+    const index = carts.findIndex((cart) => cart.user === user);
 
-    // Guardar carrito
-    fs.writeFile(cartsPath, JSON.stringify(carts, null, 2), "utf8", (err) =>
-      err
-        ? res.status(500).json({ error: "Error al guardar carrito" })
-        : res.json({ mensaje: "Carrito guardado correctamente" })
-    );
+    if (index !== -1) {
+      carts[index].items = items;
+    } else {
+      carts.push({ user, items });
+    }
+
+    fs.writeFile(cartsPath, JSON.stringify(carts, null, 2), (err) => {
+      if (err)
+        return res.status(500).json({ error: "Error al guardar carrito" });
+      res.json({ message: "Carrito guardado" });
+    });
+  });
+});
+
+// Vaciar carrito si realiza compra
+app.delete("/api/cart", (req, res) => {
+  const cartsPath = path.join(__dirname, "backend/data/carts.json");
+  const { user } = req.body;
+
+  // Validar campos
+  if (!user) {
+    return res.status(400).json({ error: "Usuario requerido" });
+  }
+
+  // Leer cart
+  fs.readFile(cartsPath, "utf-8", (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: "Error al leer carritos" });
+    }
+
+    const carts = data ? JSON.parse(data) : [];
+    const index = carts.findIndex((cart) => cart.user === user);
+
+    if (index !== -1) {
+      // Limpiar los items del carrito del usuario
+      carts[index].items = [];
+
+      fs.writeFile(cartsPath, JSON.stringify(carts, null, 2), (err) => {
+        if (err) {
+          return res.status(500).json({ error: "Error al eliminar carrito" });
+        }
+        res.json({ message: "Carrito eliminado correctamente" });
+      });
+    } else {
+      // if user no esta en json, creamos uno vacio
+      carts.push({ user, items: [] });
+
+      fs.writeFile(cartsPath, JSON.stringify(carts, null, 2), (err) => {
+        if (err) {
+          return res.status(500).json({ error: "Error al crear cart vacío" });
+        }
+        res.json({ message: "Cart de usuario eliminado" });
+      });
+    }
   });
 });
 
@@ -604,10 +649,11 @@ app.post("/api/recover-password", async (req, res) => {
   const usersPath = path.join(__dirname, "backend/data/users.json");
   const { email, newPassword, confirmNewPassword } = req.body;
 
-
   // Validar que los campos estén completos
   if (!email || !newPassword || !confirmNewPassword) {
-    return res.status(400).json({ error: "Todos los campos son obligatorios." });
+    return res
+      .status(400)
+      .json({ error: "Todos los campos son obligatorios." });
   }
 
   // Validar que las contraseñas coincidan
@@ -633,7 +679,9 @@ app.post("/api/recover-password", async (req, res) => {
 
     let usuarios = data ? JSON.parse(data) : [];
     // Normaliza el email para evitar problemas de mayúsculas/espacios
-    const userIndex = usuarios.findIndex((u) => u.email.trim().toLowerCase() === email.trim().toLowerCase());
+    const userIndex = usuarios.findIndex(
+      (u) => u.email.trim().toLowerCase() === email.trim().toLowerCase()
+    );
 
     if (userIndex === -1) {
       return res.status(404).json({ error: "Usuario no encontrado." });
@@ -651,13 +699,17 @@ app.post("/api/recover-password", async (req, res) => {
       fs.writeFile(usersPath, JSON.stringify(usuarios, null, 2), (err) => {
         if (err) {
           console.error("Error al guardar la nueva contraseña:", err);
-          return res.status(500).json({ error: "Error al guardar la contraseña." });
+          return res
+            .status(500)
+            .json({ error: "Error al guardar la contraseña." });
         }
         res.json({ mensaje: "Contraseña actualizada correctamente." });
       });
     } catch (hashErr) {
       console.error("Error al encriptar la contraseña:", hashErr);
-      return res.status(500).json({ error: "Error al procesar la contraseña." });
+      return res
+        .status(500)
+        .json({ error: "Error al procesar la contraseña." });
     }
   });
 });

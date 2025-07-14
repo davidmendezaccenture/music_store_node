@@ -1,494 +1,366 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rat Pack Instruments</title>
-    <meta
-      name="description"
-      content="Tienda de instrumentos musicales en España. Guitarras, bajos, baterías, teclados y más. Compra online con envío rápido y atención personalizada en Rat Pack Instruments."
-    />
-    <meta name="robots" content="index, follow" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/services.css" />
-    <link rel="stylesheet" href="../css/style_catalog.css" />
-    <link rel="stylesheet" href="../css/style_chatbot.css" />
-    <!-- Fuente seleccionada para usar en el proyecto-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Asset&display=swap"
-      rel="stylesheet"
-    />
-    <!-- icono tittle -->
-    <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
-  </head>
 
-  <body>
-    <!-- Cabecera de la página -->
-    <header id="header"></header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rat Pack Instruments</title>
+  <meta name="description"
+    content="Tienda de instrumentos musicales en España. Guitarras, bajos, baterías, teclados y más. Compra online con envío rápido y atención personalizada en Rat Pack Instruments." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/services.css" />
+  <link rel="stylesheet" href="../css/style_catalog.css" />
+  <link rel="stylesheet" href="../css/style_chatbot.css" />
+  <!-- Fuente seleccionada para usar en el proyecto-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet" />
+  <!-- icono tittle -->
+  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" />
+</head>
 
-    <!-- Modal de búsqueda global -->
-    <div
-      id="globalSearchDropdown"
-      class="search-bar py-1 buscador shadow"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="global-search-label"
-      aria-describedby="global-search-results"
-      tabindex="-1"
-    >
-      <div class="container">
-        <form
-          class="d-flex justify-content-center buscador-form"
-          role="search"
-          aria-label="Barra de búsqueda global"
-        ></form>
-        <div
-          id="global-search-results"
-          class="mt-2"
-          role="listbox"
-          aria-label="Resultados de búsqueda"
-          tabindex="0"
-          autocomplete="off"
-        ></div>
+<body>
+  <!-- Cabecera de la página -->
+  <header id="header"></header>
+
+  <!-- Modal de búsqueda global -->
+  <div id="globalSearchDropdown" class="search-bar py-1 buscador shadow" role="dialog" aria-modal="true"
+    aria-labelledby="global-search-label" aria-describedby="global-search-results" tabindex="-1">
+    <div class="container">
+      <form class="d-flex justify-content-center buscador-form" role="search" aria-label="Barra de búsqueda global">
+      </form>
+      <div id="global-search-results" class="mt-2" role="listbox" aria-label="Resultados de búsqueda" tabindex="0"
+        autocomplete="off"></div>
+    </div>
+  </div>
+  <!-- Contenido principal de la página -->
+  <main class="container c-main" role="main" aria-label="Contenido principal">
+    <!-- Tu contenido aquí -->
+
+    <!-- Carrusel de imágenes sin flechas y con indicadores debajo -->
+    <div class="carousel-bg-black">
+      <div id="carouselExampleCaptions" class="carousel slide mb-5 carousel-custom-size">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <video class="d-block w-100" src="/assets/images/media-index-gallery.mp4" autoplay loop muted
+              playsinline></video>
+            <div class="video-title-overlay">
+              <h2 id="video-title" class="h4-size">Rat Pack Instruments</h2>
+            </div>
+          </div>
+          <!-- Slide 2: Imagen -->
+          <div class="carousel-item">
+            <img src="/assets/images/bg-carrusel-4.webp" class="d-block w-100" alt="Batería acústica" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Batería acústica</h5>
+              <p>
+                Descubre la potencia y versatilidad de nuestras baterías para
+                todos los estilos musicales.
+              </p>
+            </div>
+          </div>
+          <!-- Slide 3: Imagen -->
+          <div class="carousel-item">
+            <img src="/assets/images/bg-carrusel-2.webp" class="d-block w-100" alt="Bajo eléctrico" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Bajo eléctrico</h5>
+              <p>
+                Graves profundos y gran presencia: el bajo perfecto para tu
+                banda o estudio.
+              </p>
+            </div>
+          </div>
+          <!-- Slide 4: Imagen -->
+          <div class="carousel-item">
+            <img src="/assets/images/bg-carrusel-3.webp" class="d-block w-100" alt="Guitarras eléctricas" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Guitarras eléctricas</h5>
+              <p>
+                Explora nuestra selección de guitarras eléctricas en la tienda
+                de jazz más emblemática.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Indicadores debajo del carrusel -->
+        <div class="d-flex justify-content-center mt-3">
+          <div class="carousel-indicators position-static mb-0">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+              aria-label="Slide 4"></button>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Contenido principal de la página -->
-    <main
-      class="container pb-0 c-main"
-      role="main"
-      aria-label="Contenido principal"
-    >
-      <!-- Tu contenido aquí -->
+    <!-- Fin del carrusel de imágenes -->
 
-      <!-- Carrusel de imágenes sin flechas y con indicadores debajo -->
-      <div class="carousel-bg-black">
-        <div
-          id="carouselExampleCaptions"
-          class="carousel slide mb-5 carousel-custom-size"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <video
-                class="d-block w-100"
-                src="/assets/images/media-index-gallery.mp4"
-                autoplay
-                loop
-                muted
-                playsinline
-              ></video>
-              <div class="video-title-overlay">
-                <h2 id="video-title" class="h4-size">Rat Pack Instruments</h2>
-              </div>
+    <!-- Carrusel de opiniones -->
+    <div class="container-fluid my-4 py-5 rounded opinion-carousel-container pb-0 pt-0 mb-5" role="region"
+      aria-label="Opiniones de nuestros clientes">
+      <h2 class="text-center mb-4">
+        <i class="bi bi-chat-dots me-3 icon-bicolor-vertical"></i>
+        Opiniones de nuestros clientes
+      </h2>
+      <div class="d-flex align-items-center justify-content-center gap-0 flex-nowrap">
+        <!-- Flecha izquierda -->
+        <button tabindex="-1" class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
+          aria-label="Opinión anterior">
+          <i class="bi bi-chevron-left opinion-carousel-arrow left"></i>
+        </button>
+        <!-- Ventana del carrusel -->
+        <div class="opinion-carousel-viewport">
+          <div class="opinion-carousel-row">
+            <!-- Card 1 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Luis Navas</h3>
+                      <p class="mb-1 db-text">Saxofonista</p>
+                      <p class="db-text">
+                        Llegó todo rapidísimo y en buen estado.
+                      </p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-            <!-- Slide 2: Imagen -->
-            <div class="carousel-item">
-              <img
-                src="/assets/images/bg-carrusel-4.webp"
-                class="d-block w-100"
-                alt="Batería acústica"
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Batería acústica</h5>
-                <p>
-                  Descubre la potencia y versatilidad de nuestras baterías para
-                  todos los estilos musicales.
-                </p>
-              </div>
+            <!-- Card 2 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Susi Márquez</h3>
+                      <p class="mb-1 db-text">Batería</p>
+                      <p class="db-text">Siempre ayudan si tienes dudas.</p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-            <!-- Slide 3: Imagen -->
-            <div class="carousel-item">
-              <img
-                src="/assets/images/bg-carrusel-2.webp"
-                class="d-block w-100"
-                alt="Bajo eléctrico"
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Bajo eléctrico</h5>
-                <p>
-                  Graves profundos y gran presencia: el bajo perfecto para tu
-                  banda o estudio.
-                </p>
-              </div>
+            <!-- Card 3 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Roger Plaza</h3>
+                      <p class="mb-1 db-text">Pianista</p>
+                      <p class="db-text">Materiales de alta calidad.</p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-            <!-- Slide 4: Imagen -->
-            <div class="carousel-item">
-              <img
-                src="/assets/images/bg-carrusel-3.webp"
-                class="d-block w-100"
-                alt="Guitarras eléctricas"
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Guitarras eléctricas</h5>
-                <p>
-                  Explora nuestra selección de guitarras eléctricas en la tienda
-                  de jazz más emblemática.
-                </p>
-              </div>
+            <!-- Card 4 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Lisa Gómez</h3>
+                      <p class="mb-1 db-text">Clarinetista</p>
+                      <p class="db-text">
+                        Los productos son de alta calidad.
+                      </p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-          </div>
-          <!-- Indicadores debajo del carrusel -->
-          <div class="d-flex justify-content-center mt-3">
-            <div class="carousel-indicators position-static mb-0">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide-to="3"
-                aria-label="Slide 4"
-              ></button>
+            <!-- Card 5 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Silvio González</h3>
+                      <p class="mb-1 db-text">Cantante</p>
+                      <p class="db-text">
+                        Incluyen regalitos extra con los pedidos.
+                      </p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!-- Card 6 -->
+            <div class="opinion-carousel-card">
+              <section class="opinion-card" tabindex="0">
+                <div class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100">
+                  <div class="texto-div w-100">
+                    <div class="texto-opinion-card">
+                      <h3 class="db-text">Fran Burgos</h3>
+                      <p class="mb-1 db-text">Cantante</p>
+                      <p class="db-text">
+                        Siempre llega todo en perfecto estado.
+                      </p>
+                      <div class="stars">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
+        <!-- Flecha derecha -->
+        <button tabindex="-1" class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
+          aria-label="Opinión siguiente">
+          <i class="bi bi-chevron-right opinion-carousel-arrow"></i>
+        </button>
       </div>
-      <!-- Fin del carrusel de imágenes -->
+    </div>
 
-      <!-- Carrusel de opiniones -->
-      <div
-        class="container-fluid my-4 py-5 rounded opinion-carousel-container pb-0 pt-0 mb-5"
-        role="region"
-        aria-label="Opiniones de nuestros clientes"
-      >
-        <h2 class="text-center mb-4">
-          <i class="bi bi-chat-dots me-3 icon-bicolor-vertical"></i>
-          Opiniones de nuestros clientes
-        </h2>
-        <div
-          class="d-flex align-items-center justify-content-center gap-0 flex-nowrap"
-        >
-          <!-- Flecha izquierda -->
-          <button
-            tabindex="-1"
-            class="opinion-carousel-arrow left btn btn-outline-secondary rounded-circle"
-            aria-label="Opinión anterior"
-          >
-            <i class="bi bi-chevron-left opinion-carousel-arrow left"></i>
-          </button>
-          <!-- Ventana del carrusel -->
-          <div class="opinion-carousel-viewport">
-            <div class="opinion-carousel-row">
-              <!-- Card 1 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Luis Navas</h3>
-                        <p class="mb-1 db-text">Saxofonista</p>
-                        <p class="db-text">
-                          Llegó todo rapidísimo y en buen estado.
-                        </p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-half text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <!-- Card 2 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Susi Márquez</h3>
-                        <p class="mb-1 db-text">Batería</p>
-                        <p class="db-text">Siempre ayudan si tienes dudas.</p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-half text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <!-- Card 3 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Roger Plaza</h3>
-                        <p class="mb-1 db-text">Pianista</p>
-                        <p class="db-text">Materiales de alta calidad.</p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-half text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <!-- Card 4 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Lisa Gómez</h3>
-                        <p class="mb-1 db-text">Clarinetista</p>
-                        <p class="db-text">
-                          Los productos son de alta calidad.
-                        </p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <!-- Card 5 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Silvio González</h3>
-                        <p class="mb-1 db-text">Cantante</p>
-                        <p class="db-text">
-                          Incluyen regalitos extra con los pedidos.
-                        </p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-half text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <!-- Card 6 -->
-              <div class="opinion-carousel-card">
-                <section class="opinion-card" tabindex="0">
-                  <div
-                    class="opinion-card-container d-flex flex-column align-items-center gap-3 p-3 h-100"
-                  >
-                    <div class="texto-div w-100">
-                      <div class="texto-opinion-card">
-                        <h3 class="db-text">Fran Burgos</h3>
-                        <p class="mb-1 db-text">Cantante</p>
-                        <p class="db-text">
-                          Siempre llega todo en perfecto estado.
-                        </p>
-                        <div class="stars">
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-fill text-warning"></i>
-                          <i class="bi bi-star-half text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                          <i class="bi bi-star text-warning"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-          <!-- Flecha derecha -->
-          <button
-            tabindex="-1"
-            class="opinion-carousel-arrow right btn btn-outline-secondary rounded-circle"
-            aria-label="Opinión siguiente"
-          >
-            <i class="bi bi-chevron-right opinion-carousel-arrow"></i>
-          </button>
-        </div>
+    <!-- Sección Banner de promos -->
+
+    <section class="promo-container">
+      <div class="img-promo">
+        <picture>
+          <img src="/assets/images/img-promo-index.webp" alt="Oferta exclusiva para usuarios registrados"
+            class="img-fluid" />
+        </picture>
       </div>
-
-      <!-- Sección Banner de promos -->
-
-      <section class="promo-container">
-        <div class="img-promo">
-          <picture>
-            <img
-              src="/assets/images/img-promo-index.webp"
-              alt="Oferta exclusiva para usuarios registrados"
-              class="img-fluid"
-            />
-          </picture>
+      <div class="promo-text">
+        <div class="promo-title">
+          <i class="bi bi-tags me-2 fs-2" aria-hidden="true"></i>
+          <h3 class="d-inline align-middle mb-0 h3-dm">
+            OFERTA EXCLUSIVA PARA USUARIOS REGISTRADOS
+          </h3>
         </div>
-        <div class="promo-text">
-          <div class="promo-title">
-            <i class="bi bi-tags me-2 fs-2" aria-hidden="true"></i>
-            <h3 class="d-inline align-middle mb-0 h3-dm">
-              OFERTA EXCLUSIVA PARA USUARIOS REGISTRADOS
-            </h3>
-          </div>
-          <div class="promo-description">
-            <p class="d-inline align-middle mb-0">
-              Código Promocional: <span id="promoCodeText">SUMMERTIME</span>
-              <button
-                type="button"
-                id="copyPromoBtn"
-                class="btn btn-link p-0 ms-2 align-baseline"
-                aria-label="Copiar código promocional"
-                title="Copiar código"
-              >
-                <i class="bi bi-clipboard" aria-hidden="true"></i>
-              </button>
-              <span
-                id="promoCopiedMsg"
-                class="text-success ms-2 d-none"
-                aria-live="polite"
-                >¡Copiado!</span
-              >
-            </p>
-
-            <p>Tendrás un 5% de descuento... ¡en todos nuestros productos!</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Sección preparada para Listado de Productos Destacados -->
-
-    <!-- <section id="products-list"></section> -->
-
-    <!-- ...Final del Main... -->
-    <!-- <hr class="divisor-fade mt-0 mb-0" /> -->
-    <!-- Footer -->
-    <div id="footer"></div>
-    <!-- Chatbot flotante -->
-    <div id="chatbot-container" class="chatbot-container2">
-      <!-- Botón flotante -->
-      <button
-        id="chatbot-toggle"
-        class="chatbot-button"
-        aria-label="Abrir asistente virtual"
-      >
-        <i class="bi bi-chat-dots-fill"></i>
-      </button>
-
-      <!-- Ventana del chatbot -->
-      <div id="chatbot-window" class="chatbot-window d-none">
-        <div class="chatbot-header">
-          <!-- Indicador de redimensionamiento en esquina superior izquierda -->
-          <div
-            class="chatbot-resize-handle"
-            title="Arrastra para redimensionar"
-          >
-            <i class="bi bi-arrows-angle-expand"></i>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <i class="bi bi-robot me-2"></i>
-            <div>
-              <div class="fw-bold">Asistente Virtual</div>
-              <small class="text-muted">Rat Pack Instruments</small>
-            </div>
-          </div>
-          <button
-            id="chatbot-close"
-            class="btn-close"
-            aria-label="Cerrar chat"
-          ></button>
-        </div>
-
-        <div id="chatbot-messages" class="chatbot-messages">
-          <div class="message bot-message">
-            <div class="message-content">
-              ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En
-              qué puedo ayudarte hoy?
-            </div>
-            <div class="message-time">Ahora</div>
-          </div>
-        </div>
-
-        <div class="chatbot-input">
-          <div class="input-group">
-            <input
-              type="text"
-              id="chatbot-input"
-              class="form-control"
-              placeholder="Escribe tu pregunta..."
-              aria-label="Mensaje para el asistente"
-            />
-            <button
-              id="chatbot-send"
-              class="btn btn-primary"
-              type="button"
-              aria-label="Enviar mensaje"
-            >
-              <i class="bi bi-send-fill"></i>
+        <div class="promo-description">
+          <p class="d-inline align-middle mb-0">
+            Código Promocional: <span id="promoCodeText">SUMMERTIME</span>
+            <button type="button" id="copyPromoBtn" class="btn btn-link p-0 ms-2 align-baseline"
+              aria-label="Copiar código promocional" title="Copiar código">
+              <i class="bi bi-clipboard" aria-hidden="true"></i>
             </button>
+            <span id="promoCopiedMsg" class="text-success ms-2 d-none" aria-live="polite">¡Copiado!</span>
+          </p>
+
+          <p>Tendrás un 5% de descuento... ¡en todos nuestros productos!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sección preparada para Listado de Productos Destacados -->
+
+  <!-- <section id="products-list"></section> -->
+
+  <!-- ...Final del Main... -->
+  <!-- <hr class="divisor-fade mt-0 mb-0" /> -->
+  <!-- Footer -->
+  <div id="footer"></div>
+  <!-- Chatbot flotante -->
+  <div id="chatbot-container" class="chatbot-container2">
+    <!-- Botón flotante -->
+    <button id="chatbot-toggle" class="chatbot-button" aria-label="Abrir asistente virtual">
+      <i class="bi bi-chat-dots-fill"></i>
+    </button>
+
+    <!-- Ventana del chatbot -->
+    <div id="chatbot-window" class="chatbot-window d-none">
+      <div class="chatbot-header">
+        <!-- Indicador de redimensionamiento en esquina superior izquierda -->
+        <div class="chatbot-resize-handle" title="Arrastra para redimensionar">
+          <i class="bi bi-arrows-angle-expand"></i>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <i class="bi bi-robot me-2"></i>
+          <div>
+            <div class="fw-bold">Asistente Virtual</div>
+            <small class="text-muted">Rat Pack Instruments</small>
           </div>
+        </div>
+        <button id="chatbot-close" class="btn-close" aria-label="Cerrar chat"></button>
+      </div>
+
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message">
+          <div class="message-content">
+            ¡Hola! 🎸 Soy tu asistente virtual de Rat Pack Instruments. ¿En
+            qué puedo ayudarte hoy?
+          </div>
+          <div class="message-time">Ahora</div>
+        </div>
+      </div>
+
+      <div class="chatbot-input">
+        <div class="input-group">
+          <input type="text" id="chatbot-input" class="form-control" placeholder="Escribe tu pregunta..."
+            aria-label="Mensaje para el asistente" />
+          <button id="chatbot-send" class="btn btn-primary" type="button" aria-label="Enviar mensaje">
+            <i class="bi bi-send-fill"></i>
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/contact.js"></script>
-    <script src="../js/cart.js"></script>
-    <script src="../js/register.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/chatbot.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/contact.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/register.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+
 </html>

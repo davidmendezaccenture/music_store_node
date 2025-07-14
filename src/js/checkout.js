@@ -45,7 +45,7 @@ $(document).ready(function () {
           <div>${item.name}</div>
           <small class="text-muted">Cantidad: ${item.quantity || 1}</small>
         </div>
-        <span class="me-3">${(price * (item.quantity || 1)).toFixed(2)}€</span>
+        <span class="me-3">${(price * (item.quantity || 1)).toFixed(2)} €</span>
         <button class="btn btn-link text-danger p-0 btn-remove" title="Eliminar">
           <i class="bi bi-trash"></i>
         </button>
@@ -62,22 +62,22 @@ $(document).ready(function () {
       resumenHtml += `
       <div class="d-flex justify-content-between">
         <span>Subtotal:</span>
-        <span>${subtotal.toFixed(2)}€</span>
+        <span>${subtotal.toFixed(2)} €</span>
       </div>
       <div class="d-flex justify-content-between">
         <span>Descuento (${(promoDiscount * 100).toFixed(0)}%):</span>
-        <span class="text-success">-${descuento.toFixed(2)}€</span>
+        <span class="text-success">-${descuento.toFixed(2)} €</span>
       </div>
       <div class="d-flex justify-content-between mb-3 fw-bold">
         <span>Total:</span>
-        <span>${total.toFixed(2)}€</span>
+        <span>${total.toFixed(2)} €</span>
       </div>
     `;
     } else {
       resumenHtml += `
       <div class="d-flex justify-content-between mb-3 fw-bold">
         <span>Total:</span>
-        <span>${subtotal.toFixed(2)}€</span>
+        <span>${subtotal.toFixed(2)} €</span>
       </div>
     `;
     }
@@ -137,8 +137,6 @@ $(document).ready(function () {
       aplicarCodigoPromocional();
     }
   });
-
- 
 
   // Función para aplicar el código promocional
   function aplicarCodigoPromocional() {
@@ -229,7 +227,10 @@ $("#paymentSuccessModal").on("click", "#seguirComprandoBtn", function () {
 $("#full-name").on("input", function () {
   const nombre = $(this).val().trim();
   if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(nombre)) {
-    setError("#full-name", "Introduce un nombre válido (solo letras, mínimo 2 caracteres).");
+    setError(
+      "#full-name",
+      "Introduce un nombre válido (solo letras, mínimo 2 caracteres)."
+    );
   } else {
     clearError("#full-name");
   }
@@ -304,7 +305,10 @@ $("#phone").on("input", function () {
     phone &&
     (!/^[\d\s\-\(\)]{7,9}$/.test(phone) || phone.replace(/\D/g, "").length > 9)
   ) {
-    setError("#phone", "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos).");
+    setError(
+      "#phone",
+      "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos)."
+    );
   } else {
     clearError("#phone");
   }
@@ -402,7 +406,10 @@ $("#checkout-form").on("submit", function (e) {
     phone &&
     (!/^[\d\s\-\(\)]{7,9}$/.test(phone) || phone.replace(/\D/g, "").length > 9)
   ) {
-    setError("#phone", "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos).");
+    setError(
+      "#phone",
+      "Introduce un teléfono válido (7-9 caracteres, solo números y símbolos)."
+    );
     valid = false;
   } else {
     clearError("#phone");
@@ -422,6 +429,24 @@ $("#checkout-form").on("submit", function (e) {
       document.getElementById("paymentSuccessModal")
     );
     modal.show();
+
+    // Vaciar carrito con el modal
+    if (typeof clearCart === "function") {
+      clearCart()
+        .then(() => {
+          /* console.log("Carrito off"); */
+          // Actualizar el contador del carrito a 0
+          if (typeof updateCartCount === "function") {
+            updateCartCount([]);
+          }
+          // Limpiar el array local de items del checkout
+          cartItems = [];
+          renderCartSummary();
+        })
+        .catch((error) => {
+          console.error("Error al limpiar el carrito:", error);
+        });
+    }
   }
 });
 
@@ -433,4 +458,9 @@ function clearError(selector) {
   $(selector).removeClass("is-invalid").next(".invalid-feedback").text("");
 }
 
-
+// // Limpia el error al modificar el campo
+// $(
+//   "#full-name, #email, #street, #number, #city, #postal-code, #province, #country, #phone, #payment-method"
+// ).on("input change", function () {
+//   clearError("#" + this.id);
+// });

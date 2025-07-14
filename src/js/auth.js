@@ -128,38 +128,24 @@ async function handleLoginSubmit(e) {
 
     const data = await response.json();
 
- if (response.ok) {
-  // Actualizar estado de autenticación
-  updateAuthState(data.usuario, true);
+    if (response.ok) {
+      // Actualizar estado de autenticación
+      updateAuthState(data.usuario, true);
 
-  // FUSIONAR CARRITO DE GUEST CON EL DEL USUARIO
-  const guestItems = JSON.parse(localStorage.getItem('cart')) || [];
-  if (guestItems.length) {
-    try {
-      const userCartRes = await fetch(`/api/cart?user=${encodeURIComponent(data.usuario.email)}`);
-      const userCartData = await userCartRes.json();
-      let userItems = userCartData.items || [];
-      for (let guestItem of guestItems) {
-        const found = userItems.find(item => item.id === guestItem.id);
-        if (found) {
-          found.quantity = (found.quantity || 1) + (guestItem.quantity || 1);
-        } else {
-          userItems.push(guestItem);
+      // Fusionar carrito de guest con usuario logueado
+      if (typeof mergeGuestCartWithUser === "function") {
+        try {
+          await mergeGuestCartWithUser(data.usuario.email);
+          /* console.log("Carrito fusionado correctamente"); */
+          // Actualizar contador del carrito después de la fusión
+          if (typeof updateCartCount === "function") {
+            const cartData = await fetchCart();
+            updateCartCount(cartData.items || []);
+          }
+        } catch (error) {
+          /* console.error("Error al fusionar carrito sin Ki:", error); */
         }
       }
-      await fetch('/api/cart', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: data.usuario.email, items: userItems })
-      });
-      localStorage.setItem('cart', JSON.stringify([]));
-      if (typeof window.updateCartCount === "function") {
-        window.updateCartCount(userItems);
-      }
-    } catch (fusionErr) {
-      console.error("Error al fusionar carritos:", fusionErr);
-    }
-  }
 
   // Cerrar modal
   $("#loginModal").modal("hide");
@@ -167,9 +153,9 @@ async function handleLoginSubmit(e) {
   // Actualizar interfaz del header
   updateHeaderUserStatus();
 
-  // Recargar página para reflejar cambios
-  window.location.reload();
-} else {
+      // Recargar página para reflejar cambios (espera al ritual de fusion)
+      window.location.reload();
+    } else {
       alert(data.error || "Error al iniciar sesión");
     }
   } catch (error) {
@@ -210,7 +196,9 @@ function updateHeaderUserStatus() {
 
     // Actualizar botón del footer - mismo icono que header cuando está logueado
     if ($loginButtonFooter.length > 0) {
-      $loginButtonFooter.html(`<i class="bi bi-person-check user-logged-icon-footer"></i>`);
+      $loginButtonFooter.html(
+        `<i class="bi bi-person-check user-logged-icon-footer"></i>`
+      );
       // Remover eventos anteriores y agregar nuevo evento para logout
       $loginButtonFooter.off("click.loginModal click.logoutModal");
       $loginButtonFooter.on("click.logoutModal", function (e) {
