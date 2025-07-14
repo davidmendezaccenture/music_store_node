@@ -16,12 +16,7 @@
 .footer-col {
     flex: 1 1 200px;
     min-width: 180px;
-}
-
-@media (min-width: 770px) {
-    .footer-col {
-        padding-left: 2.9em;
-    }
+    padding-left: 2.9em;
 }
 
 .footer-title {
