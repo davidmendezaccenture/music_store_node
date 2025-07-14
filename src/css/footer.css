@@ -73,8 +73,18 @@
 }
 
 @media (max-width: 500px) {
+
+    .footer-col {
+        margin-left: 0;
+
+    }
+
     .footer-columns {
         grid-template-columns: 1fr;
+    }
+
+    .footer-col {
+        text-align: center;
     }
 }
 
