@@ -2,7 +2,7 @@
 <!-- Linea divisoria superior pre-footer -->
 <!-- <div class="linea-divisora-fina"></div> -->
 <div class="pre-footer text-center pb-1" role="contentinfo" aria-label="Información adicional">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <!-- Columna 1: Métodos de pago -->
       <div class="col-12 col-md-4 mb-4">
@@ -67,23 +67,57 @@
 </div>
 <footer class="footer py-3" role="contentinfo" style="width: 100%">
   <div class="container">
-    <div class="footer-row-top">
-      <div class="footer-left text-start">
-        <span>Rat Pack Instruments &copy; 2025</span>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4 class="footer-title">Enlaces de interés</h4>
+        <ul class="footer-list">
+          <li><a href="/pages/catalog.html?familia=todos"
+              onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('todos'); return false; }"
+              class="footer-nav-teclado">Catálogo</a></li>
+          <li><a href="/pages/newsletter.html" class="footer-nav-teclado">Newsletter</a></li>
+          <li><a href="/pages/contact.html" class="footer-nav-teclado">Contacto</a></li>
+          <li><a href="/pages/about_us.html" class="footer-nav-teclado">Sobre nosotros</a></li>
+        </ul>
       </div>
-      <div class="footer-center text-center mx-2">
-        <a href="/pages/newsletter.html" class="footer-nav-teclado">Newsletter</a>
-        <a href="/pages/services.html" class="footer-nav-teclado">Servicios</a>
-        <a href="/pages/contact.html" class="footer-nav-teclado">Contacto</a>
-        <a href="/pages/about_us.html" class="footer-nav-teclado">Sobre nosotros</a>
-        <a href="/pages/legal.html" class="footer-nav-teclado">Legal</a>
+      <div class="footer-col">
+        <h4 class="footer-title">Secciones</h4>
+        <ul class="footer-list">
+          <li><a href="/index.html" class="footer-nav-teclado">Inicio</a></li>
+          <li><a href="/pages/media.html" class="footer-nav-teclado">Media</a></li>
+          <li><a href="/pages/services.html" class="footer-nav-teclado">Servicio Técnico</a></li>
+          <li><a href="/pages/faq.html" class="footer-nav-teclado">Preguntas Frecuentes</a></li>
+        </ul>
       </div>
-      <!-- <div class="footer-right text-end">
-        <a href="/index.html" class="footer-nav-teclado" aria-label="Ir a inicio"><i class="bi bi-house-door"></i></a>
-        <a href="#" class="footer-nav-teclado" id="loginButtonFooter"
-          aria-label="Iniciar sesión o acceder a tu cuenta"><i class="bi bi-person-circle"></i></a>
-        <a class="footer-nav-teclado" href="/pages/cart.html" aria-label="Carrito"><i class="bi bi-cart"></i></a>
-      </div> -->
+      <div class="footer-col legal">
+        <h4 class="footer-title">Legal</h4>
+        <ul class="footer-list">
+          <li><a href="/pages/legal.html#collapseCookies" class="footer-nav-teclado">Política de Cookies</a></li>
+          <li><a href="/pages/legal.html#collapsePrivacidad" class="footer-nav-teclado">Política de Privacidad</a></li>
+          <li><a href="/pages/legal.html#collapsePagosEnvios" class="footer-nav-teclado">Pago, Envío y Devolución</a>
+          </li>
+          <li><a href="/pages/legal.html#collapseAviso" class="footer-nav-teclado">Aviso Legal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col productos">
+        <h4 class="footer-title">Nuestros productos</h4>
+        <ul class="footer-list">
+          <li><a href="/pages/catalog.html?familia=cuerda"
+              onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('cuerda'); return false; }"
+              class="footer-nav-teclado">Cuerda</a></li>
+          <li><a href="/pages/catalog.html?familia=percusion"
+              onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('percusion'); return false; }"
+              class="footer-nav-teclado">Percusión</a></li>
+          <li><a href="/pages/catalog.html?familia=teclado"
+              onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('teclado'); return false; }"
+              class="footer-nav-teclado">Teclado</a></li>
+          <li><a href="/pages/catalog.html?familia=dj"
+              onclick="if(window.location.pathname.includes('catalog.html')) { setFamilia('dj'); return false; }"
+              class="footer-nav-teclado">DJ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center mt-3">
+      <span>Rat Pack Instruments &copy; 2025</span>
     </div>
   </div>
 </footer>

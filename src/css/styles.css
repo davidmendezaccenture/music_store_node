@@ -118,6 +118,7 @@
 .catalog-secondary-nav .control-buscador {
   background-color: transparent !important;
   border: none !important;
+  border-bottom: 4px solid #f6a61a !important;
   border-radius: 0 !important;
   /* Quitar bordes redondeados que puedan interferir */
   color: #f6a61a !important;
@@ -437,9 +438,6 @@
 /* 2 cards, flechas ocultas, solo las dos primeras visibles */
 @media (max-width: 770px) {
 
-  #carouselExampleCaptions {
-    margin-top: 1em !important;
-  }
 
   .opinion-carousel-viewport {
     width: 100vw;

@@ -1,3 +1,82 @@
+/* Padding lateral para centrar el contenido del footer */
+.footer .container {
+    /* padding-left: 10rem; */
+}
+
+/* --- Footer en columnas (nuevo diseño) --- */
+.footer-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.footer-col {
+    flex: 1 1 200px;
+    min-width: 180px;
+}
+
+.footer-title {
+    color: #f6a61a;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 0.7em;
+    letter-spacing: 0.5px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.5em;
+}
+
+.footer-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.footer-list a:hover {
+    color: #f6a61a;
+}
+
+.footer-bottom {
+    color: #f6a61a;
+    font-weight: 500;
+    font-size: 1em;
+    padding-top: 1.2em;
+}
+
+@media (max-width: 770px) {
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .footer-col {
+        min-width: 0;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
 /* --- Footer: una sola línea por defecto --- */
 .footer-row-top {
     display: flex;
