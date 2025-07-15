@@ -37,6 +37,32 @@
 
   <body>
     <header id="header"></header>
+    <!-- Modal de búsqueda global -->
+    <div
+      id="globalSearchDropdown"
+      class="search-bar py-1 buscador shadow"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="global-search-label"
+      aria-describedby="global-search-results"
+      tabindex="-1"
+    >
+      <div class="container">
+        <form
+          class="d-flex justify-content-center buscador-form"
+          role="search"
+          aria-label="Barra de búsqueda global"
+        ></form>
+        <div
+          id="global-search-results"
+          class="mt-2"
+          role="listbox"
+          aria-label="Resultados de búsqueda"
+          tabindex="0"
+          autocomplete="off"
+        ></div>
+      </div>
+    </div>
     <main>
       <div class="container my-5">
         <h2 class="text-center mb-4">
