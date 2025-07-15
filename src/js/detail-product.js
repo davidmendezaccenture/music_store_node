@@ -22,13 +22,13 @@ $(document).ready(function () {
         $(".product-category").text(producto.category);
         $(".product-name").text(producto.name);
         $(".product-price").text(
-            `€${producto.offerPrice < producto.price
+            `${producto.offerPrice < producto.price
                 ? producto.offerPrice
                 : producto.price
-            }`
+            } €`
         );
         $(".product-old-price").text(
-            producto.offerPrice < producto.price ? `€${producto.price}` : ""
+            producto.offerPrice < producto.price ? `${producto.price} €` : ""
         );
         $(".product-description").text(producto.description);
         $('.add-to-cart').attr('data-id', producto.id);
